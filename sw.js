@@ -1,8 +1,4 @@
-const VERSION = 'loy-travel-v022-dev';
-
-self.addEventListener('install', () => {
-  self.skipWaiting();
-});
+self.addEventListener('install', () => self.skipWaiting());
 
 self.addEventListener('activate', event => {
   event.waitUntil(

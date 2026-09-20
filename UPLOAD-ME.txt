@@ -1,0 +1,10 @@
+LOY TRAVEL v0.2.3 MOBILE
+
+This package is designed for GitHub mobile: every runtime file is in the root.
+
+You already created api/config.js, so leave that folder/file alone.
+
+Upload all files from this package to the ROOT of the repo and overwrite matching files.
+No icons folder is needed.
+
+After GitHub commits, let Vercel deploy and test the normal URL.
