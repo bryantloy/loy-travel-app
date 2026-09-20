@@ -1,0 +1,20 @@
+LOY TRAVEL v0.2.2 COMPLETE
+
+This is a FULL replacement package, not a patch.
+
+In GitHub:
+1. Replace the existing app files with everything in this package.
+2. Preserve the folder structure, including api/ and icons/.
+3. Commit the upload.
+4. Let Vercel deploy the new commit.
+
+This build includes:
+- v0.2 app
+- Supabase config endpoint
+- updated Loy Travel logo/icons
+- no-cache development service worker
+- updated service-worker registration
+- manifest
+- seed SQL
+
+While the app is under active development, offline caching is intentionally disabled.
