@@ -3,20 +3,11 @@
   "short_name": "Loy Travel",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f7f2e7",
-  "theme_color": "#062d4b",
+  "background_color": "#f7f4ea",
+  "theme_color": "#06344a",
   "icons": [
-    {
-      "src": "/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    {"src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
   ]
 }
