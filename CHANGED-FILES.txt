@@ -1,0 +1,21 @@
+LOY TRAVEL v0.5 — INCREMENTAL UPDATE FROM v0.4.1
+
+UPLOAD / REPLACE ONLY:
+1. app.js
+2. styles.css
+
+RUN ONCE IN SUPABASE SQL EDITOR:
+3. seed-v05-food.sql
+
+DO NOT RE-UPLOAD:
+- index.html
+- loy-travel-logo.png
+- manifest.json
+- sw.js
+- api/config.js
+- icons/
+- existing assets/
+- previous SQL files
+
+After upload + SQL: wait for Vercel deploy, then refresh the app.
+If the old JS remains cached, use a private/incognito tab once to verify the deployment.
