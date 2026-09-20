@@ -1,0 +1,9 @@
+{
+  "note": "Use only images whose reuse rights have been verified. v0.3 currently ships the user-directed generated family concept locally. Public-domain sources vetted for the next photo expansion are listed here.",
+  "sources": [
+    {"subject":"Haleakala sunrise","source":"National Park Service","page":"https://www.nps.gov/hale/planyourvisit/sunrise.htm","rights_note":"Federal NPS material; verify individual asset credit before local copy."},
+    {"subject":"Waimoku Falls / Pipiwai Trail","source":"NPS Gallery","page":"https://npgallery.nps.gov/AssetDetail/e812ff93-5c88-4f75-95d6-4e5003940450","rights_note":"Asset metadata states Public domain: Full Granting Rights."},
+    {"subject":"Maui waterfall","source":"USGS","page":"https://www.usgs.gov/media/images/waterfall-maui-hawaii","rights_note":"USGS page explicitly states Public Domain."},
+    {"subject":"Wailua Iki Falls","source":"USGS","page":"https://www.usgs.gov/media/images/wailuaikifallsmauijpg","rights_note":"USGS page explicitly states Public Domain."}
+  ]
+}
