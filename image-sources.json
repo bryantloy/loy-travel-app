@@ -1,9 +1,12 @@
 {
-  "note": "Use only images whose reuse rights have been verified. v0.3 currently ships the user-directed generated family concept locally. Public-domain sources vetted for the next photo expansion are listed here.",
-  "sources": [
-    {"subject":"Haleakala sunrise","source":"National Park Service","page":"https://www.nps.gov/hale/planyourvisit/sunrise.htm","rights_note":"Federal NPS material; verify individual asset credit before local copy."},
-    {"subject":"Waimoku Falls / Pipiwai Trail","source":"NPS Gallery","page":"https://npgallery.nps.gov/AssetDetail/e812ff93-5c88-4f75-95d6-4e5003940450","rights_note":"Asset metadata states Public domain: Full Granting Rights."},
-    {"subject":"Maui waterfall","source":"USGS","page":"https://www.usgs.gov/media/images/waterfall-maui-hawaii","rights_note":"USGS page explicitly states Public Domain."},
-    {"subject":"Wailua Iki Falls","source":"USGS","page":"https://www.usgs.gov/media/images/wailuaikifallsmauijpg","rights_note":"USGS page explicitly states Public Domain."}
+  "version":"v0.3-photo-review",
+  "note":"Real location photos are public-domain or Creative Commons and are credited in-app. Custom Loy Travel concept images were generated for this family app. Some broad/flexible activities use representative Maui imagery rather than claiming an exact location.",
+  "sources":[
+    {"activity":"Haleakala Sunrise","author":"National Park Service","license":"Public domain (US)","page":"https://commons.wikimedia.org/wiki/File:Haleakala_sunrise.jpg"},
+    {"activity":"Molokini Crater Snorkel","author":"Collin Grady","license":"CC BY-SA 2.0","page":"https://commons.wikimedia.org/wiki/File:Molokini.jpg"},
+    {"activity":"Pipiwai Trail / representative rainforest hiking","author":"National Park Service","license":"Public domain (US)","page":"https://commons.wikimedia.org/wiki/File:Pipiwai_Trail_(db7d685b-155d-4519-3e39-81b97f0cc247).jpg"},
+    {"activity":"Road to Hana / representative coastal drive","author":"paul bica","license":"CC BY 2.0","page":"https://commons.wikimedia.org/wiki/File:Flickr_-_paul_bica_-_road_to_hana.jpg"},
+    {"activity":"Waianapanapa Black Sand Beach","author":"dronepicr","license":"CC BY 2.0","page":"https://commons.wikimedia.org/wiki/File:Waianapanapa_black_sand_beach_Maui_Hawaii_(31869652128).jpg"},
+    {"activity":"Family surf/snorkel/zipline and food concepts","author":"OpenAI image generation for Loy Travel","license":"custom generated app assets","page":"local assets"}
   ]
 }
