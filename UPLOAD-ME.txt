@@ -1,10 +1,8 @@
-LOY TRAVEL v0.2.3 MOBILE
+LOY TRAVEL v0.4 — DAY ONE BUILD
 
-This package is designed for GitHub mobile: every runtime file is in the root.
+1) Upload/replace the files in this package, preserving assets/, icons/, and api/.
+2) loy-travel-logo.png MUST be at the repository ROOT. The app now references /loy-travel-logo.png directly.
+3) In Supabase SQL Editor, run seed-v04-hidden-finds.sql once. It is safe to rerun.
+4) Redeploy Vercel, then open Explore. The 12 new Hidden Finds should appear after Supabase refresh.
 
-You already created api/config.js, so leave that folder/file alone.
-
-Upload all files from this package to the ROOT of the repo and overwrite matching files.
-No icons folder is needed.
-
-After GitHub commits, let Vercel deploy and test the normal URL.
+This build preserves existing votes. Do NOT delete/recreate Supabase tables.
