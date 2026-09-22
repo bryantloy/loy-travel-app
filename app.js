@@ -1,7 +1,7 @@
 const PEOPLE={Bryant:"🌊",Bryson:"🌋",Bennett:"🏄",Brooks:"🐢","Grandpa Rick":"👴"};
 const START=new Date("2026-11-19T06:00:00-06:00");
 let who=localStorage.getItem("loy-user"),page="home",sb=null,trip=null,travelers=[],activities=[],votes=[],packing=[],ideas=[],food=[],foodVotes=[],cards=[],advisorPicks=[],cardUnlocks=[],starterClaims=[],packState=null,packError="",exploreMode="activities",foodFilter="all",detailItem=null,stageFilter="all",cardOwner="self",cardRarity="all",adminUnlocked=sessionStorage.getItem("loy-admin-unlocked")==="1",pinOpen=false,pinError="";
-const app=document.getElementById("app"),isAdvisor=()=>who==="Grandpa Rick",tid=()=>isAdvisor()?null:travelers.find(x=>x.name===who)?.id,left=()=>Math.max(0,Math.ceil((START-new Date())/86400000));
+const app=document.getElementById("app"),isAdvisor=()=>who==="Grandpa Rick",tid=()=>isAdvisor()?null:travelers.find(x=>String(x.name||"").trim().toLowerCase()===String(who||"").trim().toLowerCase())?.id,left=()=>Math.max(0,Math.ceil((START-new Date())/86400000));
 const itin=[["Thu 11/19","Arrival Day","anchor",["✈️ PNS 6:00 AM → ATL → OGG 2:29 PM","🚙 Hertz Jeep · 3:30 PM","🛒 Costco run","🏨 Westin Kaʻanapali"]],["Fri 11/20","Move + Explore","flex",["🥞 Easy morning","🏨 Westin checkout before 10 AM","🌴 West Maui flex options","🏠 Honua Kai K830 · 4 PM"]],["Sat 11/21","Haleakalā Sunrise","anchor",["🌋 Sunrise target","☕ Upcountry breakfast/explore","🏖️ Recovery afternoon"]],["Sun 11/22","Flex Day","flex",["🌊 Family favorites / beach / resort"]],["Mon 11/23","Molokini Candidate","flex",["🤿 Target excursion window"]],["Tue 11/24","Flex Day","flex",["✨ Choose from family favorites"]],["Wed 11/25","Flex Day","flex",["✨ Choose from family favorites"]],["Thu 11/26","Final Maui Day","anchor",["🏠 Honua Kai available all day","⛽ Fuel Jeep","🚙 Hertz return 8 PM","✈️ OGG 10:59 PM"]],["Fri 11/27","Travel Home","anchor",["✈️ OGG → LAX → DFW → PNS 3:08 PM"]]];
 const STAGES={idea:["💡","Idea"],favorite:["❤️","Family Favorite"],shortlist:["⭐","Shortlist"],planned:["📅","Planned"],booked:["✅","Booked"]};
 const STARTER_PACKS={
@@ -54,22 +54,51 @@ function starterPanel(){
 }
 function packCardById(id){return cards.find(c=>c.id===id)}
 async function openStarterPack(){
-  if(!KIDS.includes(who)||!sb||!trip||!tid()||hasStarterClaim())return;
+  if(!KIDS.includes(who)||hasStarterClaim())return;
   packError="";
   const ids=STARTER_PACKS[who]||[];
+  // Give immediate visual feedback instead of silently doing nothing while data is loading.
+  packState={ids,revealed:[],preview:false,saving:true,error:""};
+  render();
+
   try{
-    const rows=ids.map(card_id=>({trip_id:trip.id,traveler_id:tid(),card_id,source:"starter_pack"}));
-    let u=await sb.from("card_unlocks").upsert(rows,{onConflict:"trip_id,traveler_id,card_id"}); if(u.error)throw u.error;
-    let c=await sb.from("starter_pack_claims").upsert({trip_id:trip.id,traveler_id:tid(),pack_code:"starter_001"},{onConflict:"trip_id,traveler_id"}); if(c.error)throw c.error;
-    cardUnlocks=(await sb.from("card_unlocks").select("*").eq("trip_id",trip.id)).data||[];
-    starterClaims=(await sb.from("starter_pack_claims").select("*").eq("trip_id",trip.id)).data||[];
-    packState={ids,revealed:[],preview:false}; render();
-  }catch(e){console.warn(e);packError="Pack could not be saved. Make sure the v0.9 Supabase SQL has been run, then try again.";render()}
+    // If Supabase/trip/travelers are still loading, give connect() one more chance.
+    if(!sb||!trip||!tid()) await connect();
+    const travelerId=tid();
+    if(!sb||!trip||!travelerId) throw new Error("Traveler profile is not ready yet.");
+
+    const rows=ids.map(card_id=>({trip_id:trip.id,traveler_id:travelerId,card_id,source:"starter_pack"}));
+    let u=await sb.from("card_unlocks").upsert(rows,{onConflict:"trip_id,traveler_id,card_id"});
+    if(u.error)throw u.error;
+
+    let c=await sb.from("starter_pack_claims").upsert(
+      {trip_id:trip.id,traveler_id:travelerId,pack_code:"starter_001"},
+      {onConflict:"trip_id,traveler_id"}
+    );
+    if(c.error)throw c.error;
+
+    const unlockResult=await sb.from("card_unlocks").select("*").eq("trip_id",trip.id);
+    if(unlockResult.error)throw unlockResult.error;
+    cardUnlocks=unlockResult.data||[];
+
+    const claimResult=await sb.from("starter_pack_claims").select("*").eq("trip_id",trip.id);
+    if(claimResult.error)throw claimResult.error;
+    starterClaims=claimResult.data||[];
+
+    packState={ids,revealed:[],preview:false,saving:false,error:""};
+    render();
+  }catch(e){
+    console.warn("Starter pack error:",e);
+    packState={ids,revealed:[],preview:false,saving:false,error:e?.message||"Could not save starter pack."};
+    render();
+  }
 }
 function previewStarterPack(){packState={ids:["bryant-runner-dad","destination-hawaiian-honu","bryant-pirate-king-dad"],revealed:[],preview:true};render()}
 function revealPackCard(id){if(!packState||packState.revealed.includes(id))return;packState.revealed=[...packState.revealed,id];render()}
 function packModal(){
   if(!packState)return"";
+  if(packState.saving)return `<div class="pack-overlay"><section class="pack-stage"><div class="eyebrow">FIRST PACK</div><h2>Preparing ${who}'s pack…</h2><div class="pack-loader">🎴</div><p>Saving your three cards so they stay unlocked on every device.</p></section></div>`;
+  if(packState.error)return `<div class="pack-overlay"><section class="pack-stage"><div class="eyebrow">FIRST PACK</div><h2>We hit a snag</h2><p class="pack-modal-error">${packState.error}</p><button class="primary" data-pack-retry>Try Again</button><button class="secondary" data-pack-cancel>Close</button></section></div>`;
   const allDone=packState.ids.every(id=>packState.revealed.includes(id));
   return `<div class="pack-overlay"><section class="pack-stage"><div class="eyebrow">${packState.preview?"PREVIEW":"FIRST PACK"}</div><h2>${allDone?"Pack complete!":"Tap each card to reveal it"}</h2><div class="pack-cards">${packState.ids.map(id=>{let c=packCardById(id),r=packState.revealed.includes(id);return `<button class="pack-card ${r?"revealed":""}" data-reveal-card="${id}">${r&&c?`<img src="${c.image}" alt="${c.title}"><div class="pack-name">${c.title}<span class="rarity ${c.rarity}">${c.rarity}</span></div>`:`<div class="card-back"><span>LOY</span><b>TRAVEL</b><small>Tap to reveal</small></div>`}</button>`}).join("")}</div>${allDone?`<button class="primary pack-done" data-pack-done>${packState.preview?"Close Preview":"See My Collection"}</button>`:""}</section></div>`;
 }
@@ -124,6 +153,6 @@ function more(){return `${head()}<main class="content">${results()}${quest()}${c
 async function vote(id,v){if(!sb||!tid()||String(id).startsWith("local"))return;let old=votes.find(x=>x.activity_id===id&&x.traveler_id===tid());if(old)await sb.from("activity_votes").update({vote:v}).eq("id",old.id);else await sb.from("activity_votes").insert({activity_id:id,traveler_id:tid(),vote:v});votes=(await sb.from("activity_votes").select("*")).data||[];render()}
 async function foodVote(id,v){if(!sb||!tid())return;let old=foodVotes.find(x=>x.food_spot_id===id&&x.traveler_id===tid());if(old)await sb.from("food_spot_votes").update({vote:v,updated_at:new Date().toISOString()}).eq("id",old.id);else await sb.from("food_spot_votes").insert({food_spot_id:id,traveler_id:tid(),vote:v});foodVotes=(await sb.from("food_spot_votes").select("*")).data||[];render()}
 async function toggle(id,i){if(!sb)return;let x=packing[i],nv=!x.packed;await sb.from("packing_items").update({packed:nv}).eq("id",id);x.packed=nv;render()}
-function bind(){document.querySelectorAll("[data-page]").forEach(b=>b.onclick=()=>{page=b.dataset.page;detailItem=null;render()});document.querySelectorAll("[data-person]").forEach(b=>b.onclick=()=>{who=b.dataset.person;cardOwner=who==="Grandpa Rick"?"destination":"self";localStorage.setItem("loy-user",who);render()});document.querySelectorAll("[data-switch]").forEach(b=>b.onclick=()=>{who=null;cardOwner="self";localStorage.removeItem("loy-user");render()});document.querySelectorAll("[data-vote]").forEach(b=>b.onclick=()=>vote(b.dataset.act,b.dataset.vote));document.querySelectorAll("[data-food-vote]").forEach(b=>b.onclick=()=>foodVote(b.dataset.rest,b.dataset.foodVote));document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{exploreMode=b.dataset.mode;detailItem=null;render()});document.querySelectorAll("[data-food-filter]").forEach(b=>b.onclick=()=>{foodFilter=b.dataset.foodFilter;render()});document.querySelectorAll("[data-stage-filter]").forEach(b=>b.onclick=()=>{stageFilter=b.dataset.stageFilter;render()});document.querySelectorAll("[data-detail-act]").forEach(b=>b.onclick=()=>{detailItem={type:"activity",id:b.dataset.detailAct};render()});document.querySelectorAll("[data-detail-food]").forEach(b=>b.onclick=()=>{detailItem={type:"food",id:b.dataset.detailFood};render()});document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>{detailItem=null;render()});document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=()=>setStage(b.dataset.act,b.dataset.stage));document.querySelectorAll("[data-pack]").forEach(b=>b.onclick=()=>toggle(b.dataset.pack,+b.dataset.i));document.querySelectorAll("[data-card-owner]").forEach(b=>b.onclick=()=>{cardOwner=b.dataset.cardOwner;render()});document.querySelectorAll("[data-card-rarity]").forEach(b=>b.onclick=()=>{cardRarity=b.dataset.cardRarity;render()});document.querySelectorAll("[data-card-open]").forEach(b=>b.onclick=()=>{detailItem={type:"card",id:b.dataset.cardOpen};render()});document.querySelectorAll("[data-admin-open]").forEach(b=>b.onclick=()=>{pinOpen=true;pinError="";render();setTimeout(()=>document.getElementById("admin-pin")?.focus(),0)});document.querySelectorAll("[data-pin-close]").forEach(b=>b.onclick=()=>{pinOpen=false;pinError="";render()});document.querySelectorAll("[data-pin-submit]").forEach(b=>b.onclick=unlockAdmin);let pin=document.getElementById("admin-pin");if(pin)pin.onkeydown=e=>{if(e.key==="Enter")unlockAdmin()};document.querySelectorAll("[data-advisor-save]").forEach(b=>b.onclick=()=>{let type=b.dataset.targetType,id=b.dataset.targetId,box=document.querySelector(`[data-advisor-note="${type}:${id}"]`),rec=document.querySelector(`[data-advisor-rec].on[data-target-type="${type}"][data-target-id="${id}"]`)?.dataset.advisorRec;if(!rec)return;saveAdvisorPick(type,id,rec,box?.value||"")});document.querySelectorAll("[data-advisor-rec]").forEach(b=>b.onclick=()=>{document.querySelectorAll(`[data-advisor-rec][data-target-type="${b.dataset.targetType}"][data-target-id="${b.dataset.targetId}"]`).forEach(x=>x.classList.remove("on"));b.classList.add("on")});document.querySelectorAll("[data-open-pack]").forEach(b=>b.onclick=openStarterPack);document.querySelectorAll("[data-preview-pack]").forEach(b=>b.onclick=previewStarterPack);document.querySelectorAll("[data-reveal-card]").forEach(b=>b.onclick=()=>revealPackCard(b.dataset.revealCard));document.querySelectorAll("[data-pack-done]").forEach(b=>b.onclick=()=>{let preview=packState?.preview;packState=null;if(!preview){page="more";cardOwner="self"}render()})}
+function bind(){document.querySelectorAll("[data-page]").forEach(b=>b.onclick=()=>{page=b.dataset.page;detailItem=null;render()});document.querySelectorAll("[data-person]").forEach(b=>b.onclick=()=>{who=b.dataset.person;cardOwner=who==="Grandpa Rick"?"destination":"self";localStorage.setItem("loy-user",who);render()});document.querySelectorAll("[data-switch]").forEach(b=>b.onclick=()=>{who=null;cardOwner="self";localStorage.removeItem("loy-user");render()});document.querySelectorAll("[data-vote]").forEach(b=>b.onclick=()=>vote(b.dataset.act,b.dataset.vote));document.querySelectorAll("[data-food-vote]").forEach(b=>b.onclick=()=>foodVote(b.dataset.rest,b.dataset.foodVote));document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{exploreMode=b.dataset.mode;detailItem=null;render()});document.querySelectorAll("[data-food-filter]").forEach(b=>b.onclick=()=>{foodFilter=b.dataset.foodFilter;render()});document.querySelectorAll("[data-stage-filter]").forEach(b=>b.onclick=()=>{stageFilter=b.dataset.stageFilter;render()});document.querySelectorAll("[data-detail-act]").forEach(b=>b.onclick=()=>{detailItem={type:"activity",id:b.dataset.detailAct};render()});document.querySelectorAll("[data-detail-food]").forEach(b=>b.onclick=()=>{detailItem={type:"food",id:b.dataset.detailFood};render()});document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>{detailItem=null;render()});document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=()=>setStage(b.dataset.act,b.dataset.stage));document.querySelectorAll("[data-pack]").forEach(b=>b.onclick=()=>toggle(b.dataset.pack,+b.dataset.i));document.querySelectorAll("[data-card-owner]").forEach(b=>b.onclick=()=>{cardOwner=b.dataset.cardOwner;render()});document.querySelectorAll("[data-card-rarity]").forEach(b=>b.onclick=()=>{cardRarity=b.dataset.cardRarity;render()});document.querySelectorAll("[data-card-open]").forEach(b=>b.onclick=()=>{detailItem={type:"card",id:b.dataset.cardOpen};render()});document.querySelectorAll("[data-admin-open]").forEach(b=>b.onclick=()=>{pinOpen=true;pinError="";render();setTimeout(()=>document.getElementById("admin-pin")?.focus(),0)});document.querySelectorAll("[data-pin-close]").forEach(b=>b.onclick=()=>{pinOpen=false;pinError="";render()});document.querySelectorAll("[data-pin-submit]").forEach(b=>b.onclick=unlockAdmin);let pin=document.getElementById("admin-pin");if(pin)pin.onkeydown=e=>{if(e.key==="Enter")unlockAdmin()};document.querySelectorAll("[data-advisor-save]").forEach(b=>b.onclick=()=>{let type=b.dataset.targetType,id=b.dataset.targetId,box=document.querySelector(`[data-advisor-note="${type}:${id}"]`),rec=document.querySelector(`[data-advisor-rec].on[data-target-type="${type}"][data-target-id="${id}"]`)?.dataset.advisorRec;if(!rec)return;saveAdvisorPick(type,id,rec,box?.value||"")});document.querySelectorAll("[data-advisor-rec]").forEach(b=>b.onclick=()=>{document.querySelectorAll(`[data-advisor-rec][data-target-type="${b.dataset.targetType}"][data-target-id="${b.dataset.targetId}"]`).forEach(x=>x.classList.remove("on"));b.classList.add("on")});document.querySelectorAll("[data-open-pack]").forEach(b=>b.onclick=openStarterPack);document.querySelectorAll("[data-preview-pack]").forEach(b=>b.onclick=previewStarterPack);document.querySelectorAll("[data-reveal-card]").forEach(b=>b.onclick=()=>revealPackCard(b.dataset.revealCard));document.querySelectorAll("[data-pack-done]").forEach(b=>b.onclick=()=>{let preview=packState?.preview;packState=null;if(!preview){page="more";cardOwner="self"}render()});document.querySelectorAll("[data-pack-retry]").forEach(b=>b.onclick=()=>{packState=null;openStarterPack()});document.querySelectorAll("[data-pack-cancel]").forEach(b=>b.onclick=()=>{packState=null;render()})}
 function render(){if(!who){app.innerHTML=splash();return bind()}let body=page==="home"?home():page==="explore"?explore():page==="plan"?plan():page==="pack"?pack():more();app.innerHTML=`<div class="shell">${body}${nav()}</div>`;bind()}
 if("serviceWorker"in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("/sw.js"));render();connect();

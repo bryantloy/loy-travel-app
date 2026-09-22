@@ -1,32 +1,16 @@
-LOY TRAVEL v0.9 — FIRST PACK NIGHT
+LOY TRAVEL v0.9.1 — PACK OPEN HOTFIX
 
-UPLOAD / REPLACE ON maui-next:
+REPLACE ON maui-next:
 - app.js
 - styles.css
 
-RUN ONCE IN SUPABASE SQL EDITOR:
-- SUPABASE-v09.sql
+NO SQL CHANGES.
 
-NO CARD IMAGE UPLOAD NEEDED.
-cards.json and assets/cards stay as-is.
+FIXES
+- Open My Pack now gives immediate feedback instead of silently returning.
+- Traveler matching is case/space tolerant.
+- If Supabase data is still loading, the app retries connection.
+- If Supabase rejects the save, the actual error is shown on-screen with Try Again.
+- Pack cards are only revealable after the unlocks have been saved successfully.
 
-STARTER PACKS
-Bryson: Runner Dad + Hawaiian Honu + Xbox King Bryson
-Bennett: Pirate King Dad + Road to Hāna + Chicken Tender King
-Brooks: Big Back Dad + Maui Rainbow + Game Changer Brooks
-
-NEW
-- One persistent starter pack per boy.
-- Exactly one Dad card, one Maui card, one self card.
-- Tap-to-reveal 3-card opening.
-- Supabase-backed unlocks across devices.
-- Locked cards show as mystery cards.
-- Bryant gets a non-persistent Preview Pack button.
-- Haleakalā now shows BOOKED for Sat Nov 21, 3:00–7:00 AM, with ~3:15 AM departure planning.
-
-TEST ORDER
-1. Run SUPABASE-v09.sql.
-2. Upload app.js + styles.css to maui-next.
-3. As Bryant, use Preview Pack.
-4. Do NOT open a boy's real pack while testing unless you want it permanently claimed.
-5. If good, merge maui-next into main.
+Leave everything else alone.
