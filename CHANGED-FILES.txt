@@ -1,12 +1,32 @@
-LOY TRAVEL v0.8.1 HOTFIX
+LOY TRAVEL v0.9 — FIRST PACK NIGHT
 
-REPLACE:
+UPLOAD / REPLACE ON maui-next:
 - app.js
 - styles.css
-- assets/grandpa-rick-avatar.webp
 
-WHAT THIS FIXES:
-1) Grandpa Rick tile now uses a relative asset path and falls back to an emoji if the image cannot load.
-2) Explore cards no longer default so often to the same Family Pick Night/family concept image; fallback images now vary by category.
+RUN ONCE IN SUPABASE SQL EDITOR:
+- SUPABASE-v09.sql
 
-NO SQL CHANGES REQUIRED.
+NO CARD IMAGE UPLOAD NEEDED.
+cards.json and assets/cards stay as-is.
+
+STARTER PACKS
+Bryson: Runner Dad + Hawaiian Honu + Xbox King Bryson
+Bennett: Pirate King Dad + Road to Hāna + Chicken Tender King
+Brooks: Big Back Dad + Maui Rainbow + Game Changer Brooks
+
+NEW
+- One persistent starter pack per boy.
+- Exactly one Dad card, one Maui card, one self card.
+- Tap-to-reveal 3-card opening.
+- Supabase-backed unlocks across devices.
+- Locked cards show as mystery cards.
+- Bryant gets a non-persistent Preview Pack button.
+- Haleakalā now shows BOOKED for Sat Nov 21, 3:00–7:00 AM, with ~3:15 AM departure planning.
+
+TEST ORDER
+1. Run SUPABASE-v09.sql.
+2. Upload app.js + styles.css to maui-next.
+3. As Bryant, use Preview Pack.
+4. Do NOT open a boy's real pack while testing unless you want it permanently claimed.
+5. If good, merge maui-next into main.
