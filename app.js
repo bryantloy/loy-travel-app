@@ -43,8 +43,8 @@ function voteIcons(id){return votes.filter(v=>v.activity_id===id).map(v=>({fire:
 
 const isHaleakala=a=>/haleakalā sunrise|haleakala sunrise/i.test(a?.name||"");
 const shownStage=a=>isHaleakala(a)?"booked":stageKey(a.id);
-const hasStarterClaim=()=>!!tid()&&starterClaims.some(x=>x.traveler_id===tid());
-const unlockedIds=()=>new Set(cardUnlocks.filter(x=>x.traveler_id===tid()).map(x=>x.card_id));
+const hasStarterClaim=()=>!!who&&starterClaims.some(x=>String(x.traveler_name||"").trim().toLowerCase()===String(who).trim().toLowerCase());
+const unlockedIds=()=>new Set(cardUnlocks.filter(x=>String(x.traveler_name||"").trim().toLowerCase()===String(who||"").trim().toLowerCase()).map(x=>x.card_id));
 const isUnlocked=id=>adminUnlocked||unlockedIds().has(id);
 
 function starterPanel(){
@@ -57,23 +57,35 @@ async function openStarterPack(){
   if(!KIDS.includes(who)||hasStarterClaim())return;
   packError="";
   const ids=STARTER_PACKS[who]||[];
-  // Give immediate visual feedback instead of silently doing nothing while data is loading.
   packState={ids,revealed:[],preview:false,saving:true,error:""};
   render();
 
   try{
-    // If Supabase/trip/travelers are still loading, give connect() one more chance.
-    if(!sb||!trip||!tid()) await connect();
-    const travelerId=tid();
-    if(!sb||!trip||!travelerId) throw new Error("Traveler profile is not ready yet.");
+    if(!sb||!trip) await connect();
+    if(!sb||!trip) throw new Error("Trip data is not ready yet.");
 
-    const rows=ids.map(card_id=>({trip_id:trip.id,traveler_id:travelerId,card_id,source:"starter_pack"}));
-    let u=await sb.from("card_unlocks").upsert(rows,{onConflict:"trip_id,traveler_id,card_id"});
+    const rows=ids.map(card_id=>({
+      trip_id:trip.id,
+      traveler_name:who,
+      traveler_id:tid()||null,
+      card_id,
+      source:"starter_pack"
+    }));
+
+    let u=await sb.from("card_unlocks").upsert(
+      rows,
+      {onConflict:"trip_id,traveler_name,card_id"}
+    );
     if(u.error)throw u.error;
 
     let c=await sb.from("starter_pack_claims").upsert(
-      {trip_id:trip.id,traveler_id:travelerId,pack_code:"starter_001"},
-      {onConflict:"trip_id,traveler_id"}
+      {
+        trip_id:trip.id,
+        traveler_name:who,
+        traveler_id:tid()||null,
+        pack_code:"starter_001"
+      },
+      {onConflict:"trip_id,traveler_name"}
     );
     if(c.error)throw c.error;
 

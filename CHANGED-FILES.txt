@@ -1,16 +1,21 @@
-LOY TRAVEL v0.9.1 — PACK OPEN HOTFIX
+LOY TRAVEL v0.9.2 — NAME-BASED PACK HOTFIX
 
-REPLACE ON maui-next:
+WHY
+The screenshot confirmed the app could not resolve Brooks's traveler UUID.
+Pack ownership should not depend on that lookup.
+
+RUN THIS SQL ONCE:
+- SUPABASE-v092.sql
+
+THEN REPLACE ON maui-next:
 - app.js
-- styles.css
 
-NO SQL CHANGES.
+styles.css does not need to change for this fix.
 
-FIXES
-- Open My Pack now gives immediate feedback instead of silently returning.
-- Traveler matching is case/space tolerant.
-- If Supabase data is still loading, the app retries connection.
-- If Supabase rejects the save, the actual error is shown on-screen with Try Again.
-- Pack cards are only revealable after the unlocks have been saved successfully.
+WHAT CHANGED
+- Starter packs are now keyed by the selected profile name (Bryson/Bennett/Brooks).
+- Existing traveler UUID is saved when available, but is no longer required.
+- Pack unlocks and claims persist across devices exactly as before.
+- The one-pack-per-boy rule remains enforced.
 
-Leave everything else alone.
+NO CARD ASSETS OR OTHER FILES NEED CHANGES.
