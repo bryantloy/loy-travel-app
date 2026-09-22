@@ -1,0 +1,200 @@
+[
+  {
+    "id": "bennett-pizza-king-bennett",
+    "owner": "bennett",
+    "title": "Pizza King Bennett",
+    "rarity": "gold",
+    "image": "/assets/cards/bennett/pizza-king-bennett.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bennett-chicken-tender-king",
+    "owner": "bennett",
+    "title": "Chicken Tender King",
+    "rarity": "epic",
+    "image": "/assets/cards/bennett/chicken-tender-king.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bennett-needoh-collector",
+    "owner": "bennett",
+    "title": "Needoh Collector Bennett",
+    "rarity": "bronze",
+    "image": "/assets/cards/bennett/needoh-collector.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bryson-pizza-king-bryson",
+    "owner": "bryson",
+    "title": "Pizza King Bryson",
+    "rarity": "bronze",
+    "image": "/assets/cards/bryson/pizza-king-bryson.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "brooks-game-changer",
+    "owner": "brooks",
+    "title": "Game Changer Brooks",
+    "rarity": "gold",
+    "image": "/assets/cards/brooks/game-changer.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "brooks-dumpling-dude",
+    "owner": "brooks",
+    "title": "Dumpling Dude Brooks",
+    "rarity": "bronze",
+    "image": "/assets/cards/brooks/dumpling-dude.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bryson-air-hockey-champ",
+    "owner": "bryson",
+    "title": "Air Hockey Champ Bryson",
+    "rarity": "gold",
+    "image": "/assets/cards/bryson/air-hockey-champ.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "destination-iao-valley",
+    "owner": "destination",
+    "title": "ʻĪao Valley",
+    "rarity": "uncommon",
+    "image": "/assets/cards/destination/iao-valley.png",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "destination-plumeria",
+    "owner": "destination",
+    "title": "Plumeria",
+    "rarity": "common",
+    "image": "/assets/cards/destination/plumeria.png",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "bryant-emo-dad",
+    "owner": "bryant",
+    "title": "Emo Dad",
+    "rarity": "rare",
+    "image": "/assets/cards/bryant/emo-dad.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "destination-haleakala",
+    "owner": "destination",
+    "title": "Haleakalā",
+    "rarity": "legendary",
+    "image": "/assets/cards/destination/haleakala.png",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "destination-maui-rainbow",
+    "owner": "destination",
+    "title": "Maui Rainbow",
+    "rarity": "rare",
+    "image": "/assets/cards/destination/maui-rainbow.png",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "bryant-pirate-king-dad",
+    "owner": "bryant",
+    "title": "Pirate King Dad",
+    "rarity": "epic",
+    "image": "/assets/cards/bryant/pirate-king-dad.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "destination-waianapanapa",
+    "owner": "destination",
+    "title": "Waiʻānapanapa",
+    "rarity": "epic",
+    "image": "/assets/cards/destination/waianapanapa.png",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "bryant-runner-dad",
+    "owner": "bryant",
+    "title": "Runner Dad",
+    "rarity": "epic",
+    "image": "/assets/cards/bryant/runner-dad.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "destination-hawaiian-honu",
+    "owner": "destination",
+    "title": "Hawaiian Honu",
+    "rarity": "rare",
+    "image": "/assets/cards/destination/hawaiian-honu.png",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "destination-road-to-hana",
+    "owner": "destination",
+    "title": "Road to Hāna",
+    "rarity": "rare",
+    "image": "/assets/cards/destination/road-to-hana.png",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "bryson-xbox-king",
+    "owner": "bryson",
+    "title": "Xbox King Bryson",
+    "rarity": "epic",
+    "image": "/assets/cards/bryson/xbox-king.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "destination-humpback-whale",
+    "owner": "destination",
+    "title": "Humpback Whale",
+    "rarity": "epic",
+    "image": "/assets/cards/destination/humpback-whale.png",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "bryant-big-back-dad",
+    "owner": "bryant",
+    "title": "Big Back Dad",
+    "rarity": "rare",
+    "image": "/assets/cards/bryant/big-back-dad.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "brooks-mr-suave",
+    "owner": "brooks",
+    "title": "Mr. Suave Brooks",
+    "rarity": "rare",
+    "image": "/assets/cards/brooks/mr-suave.png",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "finn-couch-potato",
+    "owner": "finn",
+    "title": "Finn · The Couch Potato",
+    "rarity": "legendary",
+    "image": "/assets/cards/finn/couch-potato.png",
+    "unlocked": false,
+    "profileEligible": true
+  }
+]

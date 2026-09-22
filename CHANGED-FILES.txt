@@ -1,21 +1,30 @@
-LOY TRAVEL v0.5 — INCREMENTAL UPDATE FROM v0.4.1
+LOY TRAVEL v0.6 — INITIAL TEST UPLOAD
 
-UPLOAD / REPLACE ONLY:
-1. app.js
-2. styles.css
-
-RUN ONCE IN SUPABASE SQL EDITOR:
-3. seed-v05-food.sql
-
-DO NOT RE-UPLOAD:
-- index.html
-- loy-travel-logo.png
-- manifest.json
+UPLOAD / REPLACE
+- app.js
+- styles.css
 - sw.js
-- api/config.js
-- icons/
-- existing assets/
-- previous SQL files
+- cards.json
 
-After upload + SQL: wait for Vercel deploy, then refresh the app.
-If the old JS remains cached, use a private/incognito tab once to verify the deployment.
+NEW FOLDER
+- assets/cards/  (22 canonical card images)
+
+DO NOT REPLACE / DELETE
+- existing assets/ images other than adding assets/cards/
+- icons/
+- api/
+- ideas.json
+- manifest.json
+- loy-travel-logo.png
+- Supabase tables/data
+
+NO SQL REQUIRED FOR THIS TEST.
+
+TEST:
+1. Home loads and existing Supabase votes still appear.
+2. Explore activity voting works.
+3. Activity detail opens; planning stage can be changed.
+4. Food + Treats loads existing food_spots and votes.
+5. More shows Family Results, Maui Quest foundation and 22-card collection.
+6. Card filters work; tapping a card opens full-size artwork.
+7. Refresh once and verify latest version appears (service-worker stale-cache fix).
