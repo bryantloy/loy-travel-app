@@ -4,7 +4,7 @@
     "owner": "bennett",
     "title": "Pizza King Bennett",
     "rarity": "gold",
-    "image": "/assets/cards/bennett/pizza-king-bennett.png",
+    "image": "/assets/cards/bennett/pizza-king-bennett.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -13,7 +13,7 @@
     "owner": "bennett",
     "title": "Chicken Tender King",
     "rarity": "epic",
-    "image": "/assets/cards/bennett/chicken-tender-king.png",
+    "image": "/assets/cards/bennett/chicken-tender-king.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -22,7 +22,7 @@
     "owner": "bennett",
     "title": "Needoh Collector Bennett",
     "rarity": "bronze",
-    "image": "/assets/cards/bennett/needoh-collector.png",
+    "image": "/assets/cards/bennett/needoh-collector.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -31,7 +31,7 @@
     "owner": "bryson",
     "title": "Pizza King Bryson",
     "rarity": "bronze",
-    "image": "/assets/cards/bryson/pizza-king-bryson.png",
+    "image": "/assets/cards/bryson/pizza-king-bryson.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -40,7 +40,7 @@
     "owner": "brooks",
     "title": "Game Changer Brooks",
     "rarity": "gold",
-    "image": "/assets/cards/brooks/game-changer.png",
+    "image": "/assets/cards/brooks/game-changer.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -49,7 +49,7 @@
     "owner": "brooks",
     "title": "Dumpling Dude Brooks",
     "rarity": "bronze",
-    "image": "/assets/cards/brooks/dumpling-dude.png",
+    "image": "/assets/cards/brooks/dumpling-dude.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -58,7 +58,7 @@
     "owner": "bryson",
     "title": "Air Hockey Champ Bryson",
     "rarity": "gold",
-    "image": "/assets/cards/bryson/air-hockey-champ.png",
+    "image": "/assets/cards/bryson/air-hockey-champ.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -67,7 +67,7 @@
     "owner": "destination",
     "title": "ʻĪao Valley",
     "rarity": "uncommon",
-    "image": "/assets/cards/destination/iao-valley.png",
+    "image": "/assets/cards/destination/iao-valley.webp",
     "unlocked": true,
     "profileEligible": false
   },
@@ -76,7 +76,7 @@
     "owner": "destination",
     "title": "Plumeria",
     "rarity": "common",
-    "image": "/assets/cards/destination/plumeria.png",
+    "image": "/assets/cards/destination/plumeria.webp",
     "unlocked": true,
     "profileEligible": false
   },
@@ -85,7 +85,7 @@
     "owner": "bryant",
     "title": "Emo Dad",
     "rarity": "rare",
-    "image": "/assets/cards/bryant/emo-dad.png",
+    "image": "/assets/cards/bryant/emo-dad.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -94,7 +94,7 @@
     "owner": "destination",
     "title": "Haleakalā",
     "rarity": "legendary",
-    "image": "/assets/cards/destination/haleakala.png",
+    "image": "/assets/cards/destination/haleakala.webp",
     "unlocked": true,
     "profileEligible": false
   },
@@ -103,7 +103,7 @@
     "owner": "destination",
     "title": "Maui Rainbow",
     "rarity": "rare",
-    "image": "/assets/cards/destination/maui-rainbow.png",
+    "image": "/assets/cards/destination/maui-rainbow.webp",
     "unlocked": true,
     "profileEligible": false
   },
@@ -112,7 +112,7 @@
     "owner": "bryant",
     "title": "Pirate King Dad",
     "rarity": "epic",
-    "image": "/assets/cards/bryant/pirate-king-dad.png",
+    "image": "/assets/cards/bryant/pirate-king-dad.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -121,7 +121,7 @@
     "owner": "destination",
     "title": "Waiʻānapanapa",
     "rarity": "epic",
-    "image": "/assets/cards/destination/waianapanapa.png",
+    "image": "/assets/cards/destination/waianapanapa.webp",
     "unlocked": true,
     "profileEligible": false
   },
@@ -130,7 +130,7 @@
     "owner": "bryant",
     "title": "Runner Dad",
     "rarity": "epic",
-    "image": "/assets/cards/bryant/runner-dad.png",
+    "image": "/assets/cards/bryant/runner-dad.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -139,7 +139,7 @@
     "owner": "destination",
     "title": "Hawaiian Honu",
     "rarity": "rare",
-    "image": "/assets/cards/destination/hawaiian-honu.png",
+    "image": "/assets/cards/destination/hawaiian-honu.webp",
     "unlocked": true,
     "profileEligible": false
   },
@@ -148,7 +148,7 @@
     "owner": "destination",
     "title": "Road to Hāna",
     "rarity": "rare",
-    "image": "/assets/cards/destination/road-to-hana.png",
+    "image": "/assets/cards/destination/road-to-hana.webp",
     "unlocked": true,
     "profileEligible": false
   },
@@ -157,7 +157,7 @@
     "owner": "bryson",
     "title": "Xbox King Bryson",
     "rarity": "epic",
-    "image": "/assets/cards/bryson/xbox-king.png",
+    "image": "/assets/cards/bryson/xbox-king.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -166,7 +166,7 @@
     "owner": "destination",
     "title": "Humpback Whale",
     "rarity": "epic",
-    "image": "/assets/cards/destination/humpback-whale.png",
+    "image": "/assets/cards/destination/humpback-whale.webp",
     "unlocked": true,
     "profileEligible": false
   },
@@ -175,7 +175,7 @@
     "owner": "bryant",
     "title": "Big Back Dad",
     "rarity": "rare",
-    "image": "/assets/cards/bryant/big-back-dad.png",
+    "image": "/assets/cards/bryant/big-back-dad.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -184,7 +184,7 @@
     "owner": "brooks",
     "title": "Mr. Suave Brooks",
     "rarity": "rare",
-    "image": "/assets/cards/brooks/mr-suave.png",
+    "image": "/assets/cards/brooks/mr-suave.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -193,7 +193,7 @@
     "owner": "finn",
     "title": "Finn · The Couch Potato",
     "rarity": "legendary",
-    "image": "/assets/cards/finn/couch-potato.png",
+    "image": "/assets/cards/finn/couch-potato.webp",
     "unlocked": false,
     "profileEligible": true
   }
