@@ -1,30 +1,31 @@
-LOY TRAVEL v0.6 — INITIAL TEST UPLOAD
+LOY TRAVEL v0.8 — GRANDPA RICK ADVISOR TEST
 
-UPLOAD / REPLACE
+UPLOAD / REPLACE ON maui-next:
 - app.js
 - styles.css
-- sw.js
+
+RUN IN SUPABASE SQL EDITOR:
+- SUPABASE-v08.sql
+
+LEAVE ALONE:
 - cards.json
-
-NEW FOLDER
-- assets/cards/  (22 canonical card images)
-
-DO NOT REPLACE / DELETE
-- existing assets/ images other than adding assets/cards/
-- icons/
-- api/
-- ideas.json
+- assets/cards/
+- sw.js
+- index.html
 - manifest.json
-- loy-travel-logo.png
-- Supabase tables/data
+- ideas.json
+- api/
+- icons/
+- existing Supabase tables/data
 
-NO SQL REQUIRED FOR THIS TEST.
+WHAT CHANGED:
+- Added "Grandpa Rick" as a selectable Advisor tile.
+- Advisor can browse the app normally.
+- Advisor interaction is limited to Must Do / Good Idea / Pass + optional note.
+- Grandpa Rick picks are stored separately from family votes.
+- Family-facing activity/food cards can show a small "Grandpa Rick Pick" badge.
+- No card collection changes in this release.
+- Image-refresh framework is next; current generated family imagery is not replaced by this code-only upload.
 
-TEST:
-1. Home loads and existing Supabase votes still appear.
-2. Explore activity voting works.
-3. Activity detail opens; planning stage can be changed.
-4. Food + Treats loads existing food_spots and votes.
-5. More shows Family Results, Maui Quest foundation and 22-card collection.
-6. Card filters work; tapping a card opens full-size artwork.
-7. Refresh once and verify latest version appears (service-worker stale-cache fix).
+IMPORTANT:
+Run the SQL before testing Grandpa Rick picks. If the SQL is not run, the rest of the app still loads, but advisor picks will not save.
