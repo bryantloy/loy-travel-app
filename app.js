@@ -1,4 +1,4 @@
-const PEOPLE={Bryant:"🌊",Bryson:"🌋",Bennett:"🏄",Brooks:"🐢","Grandpa Rick":"👴"};
+const PEOPLE={Bryant:"🌊",Bryson:"🌋",Bennett:"🏄",Brooks:"🐢","Grandpa Rick":"🦈"};
 const START=new Date("2026-11-19T06:00:00-06:00");
 let who=localStorage.getItem("loy-user"),page="home",sb=null,trip=null,travelers=[],activities=[],votes=[],packing=[],ideas=[],food=[],foodVotes=[],cards=[],advisorPicks=[],exploreMode="activities",foodFilter="all",detailItem=null,stageFilter="all",cardOwner="self",cardRarity="all",adminUnlocked=sessionStorage.getItem("loy-admin-unlocked")==="1",pinOpen=false,pinError="";
 const app=document.getElementById("app"),isAdvisor=()=>who==="Grandpa Rick",tid=()=>isAdvisor()?null:travelers.find(x=>x.name===who)?.id,left=()=>Math.max(0,Math.ceil((START-new Date())/86400000));

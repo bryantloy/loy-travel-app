@@ -1,12 +1,12 @@
-LOY TRAVEL v0.10.2 — STARTER PACK HOTFIX
+LOY TRAVEL v0.10.3 — GRANDPA RICK SHARK
 
 REPLACE ON maui-next:
 - app.js
 
 CHANGE:
-- Removed Crash Out Dad from Bryant's starter pack.
-- Bryant now gets Emo Dad + Loy Boys Boarding Crew + Haleakalā.
-- Crash Out Dad stays hidden for a future high-impact rare pull.
+- Grandpa Rick now uses a shark emoji on the person picker.
+- Removed the special photo tile for Rick so all profiles use the same simple emoji style.
+- Rick still keeps Advisor mode exactly as before.
 
 NO SQL CHANGES.
-NO CARD IMAGE CHANGES.
+NO CARD CHANGES.
