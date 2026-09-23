@@ -1,21 +1,12 @@
-LOY TRAVEL v0.5 — INCREMENTAL UPDATE FROM v0.4.1
+LOY TRAVEL v0.10.4 — GRANDPA RICK PICKER FIX
 
-UPLOAD / REPLACE ONLY:
-1. app.js
-2. styles.css
+REPLACE ON maui-next:
+- app.js
 
-RUN ONCE IN SUPABASE SQL EDITOR:
-3. seed-v05-food.sql
+FIXED:
+- Removed Grandpa Rick's special photo tile from the profile picker.
+- Grandpa Rick now uses the shark emoji like the other profile choices.
+- Advisor label and advisor behavior remain unchanged.
 
-DO NOT RE-UPLOAD:
-- index.html
-- loy-travel-logo.png
-- manifest.json
-- sw.js
-- api/config.js
-- icons/
-- existing assets/
-- previous SQL files
-
-After upload + SQL: wait for Vercel deploy, then refresh the app.
-If the old JS remains cached, use a private/incognito tab once to verify the deployment.
+NO SQL CHANGES.
+NO CARD CHANGES.
