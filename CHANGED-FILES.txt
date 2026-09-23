@@ -1,12 +1,12 @@
-LOY TRAVEL v0.10.3 — GRANDPA RICK SHARK
+LOY TRAVEL v0.10.4 — GRANDPA RICK PICKER FIX
 
 REPLACE ON maui-next:
 - app.js
 
-CHANGE:
-- Grandpa Rick now uses a shark emoji on the person picker.
-- Removed the special photo tile for Rick so all profiles use the same simple emoji style.
-- Rick still keeps Advisor mode exactly as before.
+FIXED:
+- Removed Grandpa Rick's special photo tile from the profile picker.
+- Grandpa Rick now uses the shark emoji like the other profile choices.
+- Advisor label and advisor behavior remain unchanged.
 
 NO SQL CHANGES.
 NO CARD CHANGES.
