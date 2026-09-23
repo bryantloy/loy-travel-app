@@ -1,13 +1,33 @@
-LOY TRAVEL v0.10.5 — IMAGE FALLBACK FIX
+LOY TRAVEL v0.11 — PREP + MAP + MAUI QUEST
 
-REPLACE ON main:
+UPLOAD TO A TEST BRANCH FIRST:
 - app.js
+- styles.css
 
-FIX:
-- Banana bread is no longer the generic Explore fallback image.
-- Hike/trail/ridge activities now use a scenic trail fallback.
-- Family/flex/resort/general activities fall back to the family Maui hero image.
-- Banana bread remains only for actual banana-bread-related content.
+OPTIONAL / RECOMMENDED AFTER UI TEST:
+- SUPABASE-v011.sql
+  Adds only two new tables: trip_prep_items and costco_items.
+  It does NOT delete, reset, or reseed existing voting/card data.
 
-NO SQL CHANGES.
-NO CARD CHANGES.
+WHAT'S NEW:
+- Bottom nav: Home / Explore / Plan / Prep / Maui Quest
+- Explore now has Activities / Food / Map
+- Planning map with lodging, hike/activity, and restaurant pins
+- All activity details get Directions/Map + Explore More links
+- Restaurant details keep website/menu and always get Directions + Explore More
+- Prep section with Dad roll-up
+- Bryant / Bryson / Bennett / Brooks / Shared Family Gear / Shared Boys Backpack
+- Bryant-only Have / Need to order toggle
+- Packed tracking for everyone
+- Costco starter list with estimated + actual spend and purchased checkboxes
+- Maui Quest becomes its own prominent tab
+- Want-to-Spot checklist + family achievements + Loy Cards in one place
+- CSV export restored for activity votes, food votes, packing, and Costco
+- Existing voting, food voting, card collection, starter packs, and Grandpa Rick advisor mode remain intact
+- Browser Back-button behavior is intentionally NOT changed in this version
+
+PREVIEW BEHAVIOR:
+- Packing and Costco work immediately with local device storage.
+- After SUPABASE-v011.sql is run, the same screens use shared Supabase data so progress can sync across devices.
+
+NO EXISTING TABLES ARE WIPED OR RESEEDED.
