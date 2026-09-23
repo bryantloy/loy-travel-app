@@ -1,12 +1,13 @@
-LOY TRAVEL v0.10.4 — GRANDPA RICK PICKER FIX
+LOY TRAVEL v0.10.5 — IMAGE FALLBACK FIX
 
-REPLACE ON maui-next:
+REPLACE ON main:
 - app.js
 
-FIXED:
-- Removed Grandpa Rick's special photo tile from the profile picker.
-- Grandpa Rick now uses the shark emoji like the other profile choices.
-- Advisor label and advisor behavior remain unchanged.
+FIX:
+- Banana bread is no longer the generic Explore fallback image.
+- Hike/trail/ridge activities now use a scenic trail fallback.
+- Family/flex/resort/general activities fall back to the family Maui hero image.
+- Banana bread remains only for actual banana-bread-related content.
 
 NO SQL CHANGES.
 NO CARD CHANGES.
