@@ -1,10 +1,10 @@
 [
   {
-    "id": "bennett-pizza-king-bennett",
-    "owner": "bennett",
-    "title": "Pizza King Bennett",
-    "rarity": "gold",
-    "image": "/assets/cards/bennett/pizza-king-bennett.webp",
+    "id": "brooks-mr-suave-brooks",
+    "owner": "brooks",
+    "title": "Mr. Suave Brooks",
+    "rarity": "rare",
+    "image": "/assets/cards/brooks/mr-suave.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -18,43 +18,25 @@
     "profileEligible": true
   },
   {
-    "id": "bennett-needoh-collector",
-    "owner": "bennett",
-    "title": "Needoh Collector Bennett",
-    "rarity": "bronze",
-    "image": "/assets/cards/bennett/needoh-collector.webp",
-    "unlocked": false,
-    "profileEligible": true
-  },
-  {
-    "id": "bryson-pizza-king-bryson",
+    "id": "bryson-xbox-king-bryson",
     "owner": "bryson",
-    "title": "Pizza King Bryson",
-    "rarity": "bronze",
-    "image": "/assets/cards/bryson/pizza-king-bryson.webp",
+    "title": "Xbox King Bryson",
+    "rarity": "epic",
+    "image": "/assets/cards/bryson/xbox-king.webp",
     "unlocked": false,
     "profileEligible": true
   },
   {
-    "id": "brooks-game-changer",
+    "id": "brooks-phone-addict-brooks",
     "owner": "brooks",
-    "title": "Game Changer Brooks",
-    "rarity": "gold",
-    "image": "/assets/cards/brooks/game-changer.webp",
+    "title": "Phone Addict Brooks",
+    "rarity": "rare",
+    "image": "/assets/cards/brooks/phone-addict.webp",
     "unlocked": false,
     "profileEligible": true
   },
   {
-    "id": "brooks-dumpling-dude",
-    "owner": "brooks",
-    "title": "Dumpling Dude Brooks",
-    "rarity": "bronze",
-    "image": "/assets/cards/brooks/dumpling-dude.webp",
-    "unlocked": false,
-    "profileEligible": true
-  },
-  {
-    "id": "bryson-air-hockey-champ",
+    "id": "bryson-air-hockey-champ-bryson",
     "owner": "bryson",
     "title": "Air Hockey Champ Bryson",
     "rarity": "gold",
@@ -63,31 +45,22 @@
     "profileEligible": true
   },
   {
-    "id": "destination-iao-valley",
-    "owner": "destination",
-    "title": "ʻĪao Valley",
-    "rarity": "uncommon",
-    "image": "/assets/cards/destination/iao-valley.webp",
-    "unlocked": true,
-    "profileEligible": false
-  },
-  {
-    "id": "destination-plumeria",
-    "owner": "destination",
-    "title": "Plumeria",
-    "rarity": "common",
-    "image": "/assets/cards/destination/plumeria.webp",
-    "unlocked": true,
-    "profileEligible": false
-  },
-  {
-    "id": "bryant-emo-dad",
-    "owner": "bryant",
-    "title": "Emo Dad",
+    "id": "family-rosie-couch-potato",
+    "owner": "family",
+    "title": "Rosie · Couch Potato",
     "rarity": "rare",
-    "image": "/assets/cards/bryant/emo-dad.webp",
-    "unlocked": false,
-    "profileEligible": true
+    "image": "/assets/cards/pets/rosie-couch-potato.webp",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "destination-hawaiian-honu",
+    "owner": "destination",
+    "title": "Hawaiian Honu",
+    "rarity": "rare",
+    "image": "/assets/cards/destination/hawaiian-honu.webp",
+    "unlocked": true,
+    "profileEligible": false
   },
   {
     "id": "destination-haleakala",
@@ -95,33 +68,6 @@
     "title": "Haleakalā",
     "rarity": "legendary",
     "image": "/assets/cards/destination/haleakala.webp",
-    "unlocked": true,
-    "profileEligible": false
-  },
-  {
-    "id": "destination-maui-rainbow",
-    "owner": "destination",
-    "title": "Maui Rainbow",
-    "rarity": "rare",
-    "image": "/assets/cards/destination/maui-rainbow.webp",
-    "unlocked": true,
-    "profileEligible": false
-  },
-  {
-    "id": "bryant-pirate-king-dad",
-    "owner": "bryant",
-    "title": "Pirate King Dad",
-    "rarity": "epic",
-    "image": "/assets/cards/bryant/pirate-king-dad.webp",
-    "unlocked": false,
-    "profileEligible": true
-  },
-  {
-    "id": "destination-waianapanapa",
-    "owner": "destination",
-    "title": "Waiʻānapanapa",
-    "rarity": "epic",
-    "image": "/assets/cards/destination/waianapanapa.webp",
     "unlocked": true,
     "profileEligible": false
   },
@@ -135,11 +81,173 @@
     "profileEligible": true
   },
   {
-    "id": "destination-hawaiian-honu",
+    "id": "bennett-needoh-collector-bennett",
+    "owner": "bennett",
+    "title": "Needoh Collector Bennett",
+    "rarity": "bronze",
+    "image": "/assets/cards/bennett/needoh-collector.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "destination-iao-valley",
     "owner": "destination",
-    "title": "Hawaiian Honu",
+    "title": "ʻĪao Valley",
+    "rarity": "uncommon",
+    "image": "/assets/cards/destination/iao-valley.webp",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "destination-gecko-night-watch",
+    "owner": "destination",
+    "title": "Gecko Night Watch",
     "rarity": "rare",
-    "image": "/assets/cards/destination/hawaiian-honu.webp",
+    "image": "/assets/cards/destination/gecko-night-watch.webp",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "destination-waianapanapa",
+    "owner": "destination",
+    "title": "Waiʻānapanapa",
+    "rarity": "epic",
+    "image": "/assets/cards/destination/waianapanapa.webp",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "bryson-pizza-king-bryson",
+    "owner": "bryson",
+    "title": "Pizza King Bryson",
+    "rarity": "bronze",
+    "image": "/assets/cards/bryson/pizza-king-bryson.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bryant-big-back-dad",
+    "owner": "bryant",
+    "title": "Big Back Dad",
+    "rarity": "rare",
+    "image": "/assets/cards/bryant/big-back-dad.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "destination-plumeria",
+    "owner": "destination",
+    "title": "Plumeria",
+    "rarity": "common",
+    "image": "/assets/cards/destination/plumeria.webp",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "finn-finn-the-couch-potato",
+    "owner": "finn",
+    "title": "Finn · The Couch Potato",
+    "rarity": "legendary",
+    "image": "/assets/cards/pets/finn-couch-potato.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bryant-kilauea-throwback",
+    "owner": "bryant",
+    "title": "Kīlauea Throwback",
+    "rarity": "rare",
+    "image": "/assets/cards/bryant/kilauea-throwback.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bennett-goldfish-mode-bennett",
+    "owner": "bennett",
+    "title": "Goldfish Mode Bennett",
+    "rarity": "rare",
+    "image": "/assets/cards/bennett/goldfish-mode.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bryson-brass-blast-bryson",
+    "owner": "bryson",
+    "title": "Brass Blast Bryson",
+    "rarity": "rare",
+    "image": "/assets/cards/bryson/brass-blast.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bryant-emo-dad",
+    "owner": "bryant",
+    "title": "Emo Dad",
+    "rarity": "rare",
+    "image": "/assets/cards/bryant/emo-dad.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bryson-phone-addict-bryson",
+    "owner": "bryson",
+    "title": "Phone Addict Bryson",
+    "rarity": "rare",
+    "image": "/assets/cards/bryson/phone-addict.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "brooks-haaland-mode-brooks",
+    "owner": "brooks",
+    "title": "Haaland Mode Brooks",
+    "rarity": "rare",
+    "image": "/assets/cards/brooks/haaland-mode.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bryant-pirate-king-dad",
+    "owner": "bryant",
+    "title": "Pirate King Dad",
+    "rarity": "epic",
+    "image": "/assets/cards/bryant/pirate-king-dad.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bennett-rizz-king-bennett",
+    "owner": "bennett",
+    "title": "Rizz King Bennett",
+    "rarity": "gold",
+    "image": "/assets/cards/bennett/rizz-king.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "brooks-game-changer-brooks",
+    "owner": "brooks",
+    "title": "Game Changer Brooks",
+    "rarity": "gold",
+    "image": "/assets/cards/brooks/game-changer.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "family-loy-boys-boarding-crew",
+    "owner": "family",
+    "title": "Loy Boys Boarding Crew",
+    "rarity": "rare",
+    "image": "/assets/cards/family/loy-boys-boarding-crew.webp",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "destination-crab-cabana-chaos",
+    "owner": "destination",
+    "title": "Crab Cabana Chaos",
+    "rarity": "rare",
+    "image": "/assets/cards/destination/crab-cabana-chaos.webp",
     "unlocked": true,
     "profileEligible": false
   },
@@ -153,11 +261,56 @@
     "profileEligible": false
   },
   {
-    "id": "bryson-xbox-king",
-    "owner": "bryson",
-    "title": "Xbox King Bryson",
-    "rarity": "epic",
-    "image": "/assets/cards/bryson/xbox-king.webp",
+    "id": "destination-maui-rainbow",
+    "owner": "destination",
+    "title": "Maui Rainbow",
+    "rarity": "rare",
+    "image": "/assets/cards/destination/maui-rainbow.webp",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "brooks-dumpling-dude-brooks",
+    "owner": "brooks",
+    "title": "Dumpling Dude Brooks",
+    "rarity": "bronze",
+    "image": "/assets/cards/brooks/dumpling-dude.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "destination-maui-yellow-tang-troop",
+    "owner": "destination",
+    "title": "Maui Yellow Tang Troop",
+    "rarity": "rare",
+    "image": "/assets/cards/destination/yellow-tang-troop.webp",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "destination-maui-critter-crew",
+    "owner": "destination",
+    "title": "Maui Critter Crew",
+    "rarity": "rare",
+    "image": "/assets/cards/destination/maui-critter-crew.webp",
+    "unlocked": true,
+    "profileEligible": false
+  },
+  {
+    "id": "bennett-phone-addict-bennett",
+    "owner": "bennett",
+    "title": "Phone Addict Bennett",
+    "rarity": "rare",
+    "image": "/assets/cards/bennett/phone-addict.webp",
+    "unlocked": false,
+    "profileEligible": true
+  },
+  {
+    "id": "bryant-crash-out-dad",
+    "owner": "bryant",
+    "title": "Crash Out Dad",
+    "rarity": "rare",
+    "image": "/assets/cards/bryant/crash-out-dad.webp",
     "unlocked": false,
     "profileEligible": true
   },
@@ -169,32 +322,5 @@
     "image": "/assets/cards/destination/humpback-whale.webp",
     "unlocked": true,
     "profileEligible": false
-  },
-  {
-    "id": "bryant-big-back-dad",
-    "owner": "bryant",
-    "title": "Big Back Dad",
-    "rarity": "rare",
-    "image": "/assets/cards/bryant/big-back-dad.webp",
-    "unlocked": false,
-    "profileEligible": true
-  },
-  {
-    "id": "brooks-mr-suave",
-    "owner": "brooks",
-    "title": "Mr. Suave Brooks",
-    "rarity": "rare",
-    "image": "/assets/cards/brooks/mr-suave.webp",
-    "unlocked": false,
-    "profileEligible": true
-  },
-  {
-    "id": "finn-couch-potato",
-    "owner": "finn",
-    "title": "Finn · The Couch Potato",
-    "rarity": "legendary",
-    "image": "/assets/cards/finn/couch-potato.webp",
-    "unlocked": false,
-    "profileEligible": true
   }
 ]
