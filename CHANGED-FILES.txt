@@ -1,17 +1,12 @@
-LOY TRAVEL v0.9.1 — CARD CATALOG REPAIR
+LOY TRAVEL v0.10.2 — STARTER PACK HOTFIX
 
 REPLACE ON maui-next:
 - app.js
-- styles.css
-- cards.json
-- assets/cards/  (replace the entire existing cards folder with this one)
 
-FIXED:
-- All 36 card titles now match the actual artwork.
-- Card files are organized by the correct owner/category.
-- Card artwork now uses object-fit: contain instead of cover.
-- Card display ratio changed to 2:3 so the tops/bottoms are not cropped.
-- Added Family and Pets collection filters.
-- All 36 images remain optimized WebP.
+CHANGE:
+- Removed Crash Out Dad from Bryant's starter pack.
+- Bryant now gets Emo Dad + Loy Boys Boarding Crew + Haleakalā.
+- Crash Out Dad stays hidden for a future high-impact rare pull.
 
-NO SUPABASE SQL CHANGES.
+NO SQL CHANGES.
+NO CARD IMAGE CHANGES.
