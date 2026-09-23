@@ -1,23 +1,17 @@
-LOY TRAVEL v0.9 — 36 CARD ORGANIZATION
+LOY TRAVEL v0.9.1 — CARD CATALOG REPAIR
 
-UPLOAD / REPLACE ON maui-next:
+REPLACE ON maui-next:
 - app.js
-- cards.json
-- assets/cards/   (entire folder from this package)
-
-KEEP:
 - styles.css
-- assets/grandpa-rick-avatar.webp
-- all other existing files
+- cards.json
+- assets/cards/  (replace the entire existing cards folder with this one)
 
-WHAT CHANGED:
-- Full 36-card collection organized into clean folders and filenames
-- All 36 cards are WebP
-- Shared Family card filter added
-- Family cards are visible to everyone
-- Personal cards remain separated by owner
-- Admin All view still works as before
+FIXED:
+- All 36 card titles now match the actual artwork.
+- Card files are organized by the correct owner/category.
+- Card artwork now uses object-fit: contain instead of cover.
+- Card display ratio changed to 2:3 so the tops/bottoms are not cropped.
+- Added Family and Pets collection filters.
+- All 36 images remain optimized WebP.
 
 NO SUPABASE SQL CHANGES.
-
-36 card image payload: 9.2 MB

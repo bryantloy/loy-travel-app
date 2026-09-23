@@ -52,19 +52,19 @@ function pinModal(){return `<div class="pin-backdrop"><section class="pin-panel"
 
 function cardsView(){
   const self=(who||"").toLowerCase();
-  const allOwners=[["all","All"],["bryant","Bryant"],["bryson","Bryson"],["bennett","Bennett"],["brooks","Brooks"],["finn","Finn"],["family","Family"],["destination","Maui"]];
-  const privateOwners=[["self",who||"Me"],["family","Family"],["destination","Maui"],["locked","🔒 All"]];
+  const allOwners=[["all","All"],["bryant","Bryant"],["bryson","Bryson"],["bennett","Bennett"],["brooks","Brooks"],["finn","Finn"],["family","Family"],["pets","Pets"],["destination","Maui"]];
+  const privateOwners=[["self",who||"Me"],["family","Family"],["pets","Pets"],["destination","Maui"],["locked","🔒 All"]];
   const owners=adminUnlocked?allOwners:privateOwners;
   const rarities=["all","common","bronze","uncommon","silver","gold","rare","epic","legendary"];
   let effectiveOwner=cardOwner;
-  if(!adminUnlocked && !["self","family","destination"].includes(effectiveOwner)) effectiveOwner="self";
+  if(!adminUnlocked && !["self","family","pets","destination"].includes(effectiveOwner)) effectiveOwner="self";
   let list=cards.filter(c=>{
     const ownerOK=effectiveOwner==="all" || (effectiveOwner==="self" ? c.owner===self : c.owner===effectiveOwner);
     return ownerOK && (cardRarity==="all"||c.rarity===cardRarity);
   });
-  const visibleCount=adminUnlocked?cards.length:cards.filter(c=>c.owner===self||c.owner==="family"||c.owner==="destination").length;
+  const visibleCount=adminUnlocked?cards.length:cards.filter(c=>c.owner===self||c.owner==="family"||c.owner==="pets"||c.owner==="destination").length;
   return `<div class="eyebrow">COLLECTION</div><div class="section-head"><h2>Loy Cards</h2><span class="pill">${visibleCount} visible</span></div>
-  <p class="sub">${adminUnlocked?"Admin collection view unlocked for this browser session.":"Your cards + shared family cards + Maui discoveries. The full personal collection is PIN protected."}</p>
+  <p class="sub">${adminUnlocked?"Admin collection view unlocked for this browser session.":"Your cards + shared family/pet cards + Maui discoveries. The full personal collection is PIN protected."}</p>
   <div class="toolbar">${owners.map(x=>`<button class="filter ${effectiveOwner===x[0]?"on":""}" ${x[0]==="locked"?"data-admin-open":`data-card-owner="${x[0]}"`}>${x[1]}</button>`).join("")}</div>
   <div class="toolbar raritybar">${rarities.map(x=>`<button class="filter ${cardRarity===x?"on":""}" data-card-rarity="${x}">${x==="all"?"All rarities":x[0].toUpperCase()+x.slice(1)}</button>`).join("")}</div>
   <div class="card-grid">${list.map(c=>`<button class="collectible" data-card-open="${c.id}"><div class="card-art"><img src="${c.image}" alt="${c.title}" loading="lazy"></div><div class="card-meta"><b>${c.title}</b><span class="rarity ${c.rarity}">${c.rarity}</span></div></button>`).join("")}</div>
