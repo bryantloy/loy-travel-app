@@ -112,3 +112,45 @@
   .nav button{font-size:.62rem}
 }
 \n\n/* v0.12 guest + ordering */\n.guest-pick{background:linear-gradient(145deg,#eef8ff,#fff);border-color:#bcd8e8}\n.guest-pick small{display:block;color:#547080;font-size:.68rem;margin-top:4px}\n.guest-readonly{margin:10px 0;padding:9px 11px;border:1px solid #cfe0e7;background:#f2f8fb;color:#43616e;border-radius:12px;font-size:.78rem;font-weight:800}\n.order-dot{width:30px;text-align:center;font-size:1.15rem}\n.order-head .learn{align-self:center}\n.memories-preview{background:linear-gradient(145deg,#fff,#f6fbff)}\n
+/* v0.12.1 guest profile cleanup */
+.guest-pick{
+  background:linear-gradient(145deg,#f8fcff,#fff);
+  border:1px solid #d7e7ef;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:154px;
+  gap:2px;
+  padding:16px 10px;
+}
+.guest-pick .guest-icon{
+  display:block;
+  font-size:2rem;
+  line-height:1.05;
+  margin-bottom:2px;
+}
+.guest-pick strong{
+  display:block;
+  font-size:1.12rem;
+  font-weight:500;
+  line-height:1.2;
+}
+.guest-pick small{
+  display:block;
+  color:#6d7c84;
+  font-size:.78rem;
+  margin-top:3px;
+}
+.guest-pick em{
+  display:inline-block;
+  margin-top:7px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#e1f1ff;
+  color:#0d638d;
+  font-style:normal;
+  font-size:.69rem;
+  font-weight:850;
+  line-height:1;
+}

@@ -25,3 +25,8 @@ CHANGES:
 DATA SAFETY:
 - SQL is additive only. No DELETE/TRUNCATE/reset statements.
 - Existing family votes, cards, packing progress, Costco progress, and advisor picks are untouched.
+
+v0.12.1 GUEST TILE CLEANUP
+- Guest tile redesigned to match the approved mockup.
+- "Guest", "Read-only", and "Code required" are now separate, clean visual elements.
+- No Supabase/SQL changes are required for this patch.
