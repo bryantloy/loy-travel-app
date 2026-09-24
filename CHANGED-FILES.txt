@@ -1,33 +1,27 @@
-LOY TRAVEL v0.11 — PREP + MAP + MAUI QUEST
+LOY TRAVEL v0.12 — GUEST + FAMILY ORDERING + HANA/TREATS
 
-UPLOAD TO A TEST BRANCH FIRST:
+UPLOAD TO TEST BRANCH:
 - app.js
 - styles.css
 
-OPTIONAL / RECOMMENDED AFTER UI TEST:
-- SUPABASE-v011.sql
-  Adds only two new tables: trip_prep_items and costco_items.
-  It does NOT delete, reset, or reseed existing voting/card data.
+THEN RUN ONCE IN SUPABASE SQL EDITOR:
+- SUPABASE-v012-CONTENT.sql
 
-WHAT'S NEW:
-- Bottom nav: Home / Explore / Plan / Prep / Maui Quest
-- Explore now has Activities / Food / Map
-- Planning map with lodging, hike/activity, and restaurant pins
-- All activity details get Directions/Map + Explore More links
-- Restaurant details keep website/menu and always get Directions + Explore More
-- Prep section with Dad roll-up
-- Bryant / Bryson / Bennett / Brooks / Shared Family Gear / Shared Boys Backpack
-- Bryant-only Have / Need to order toggle
-- Packed tracking for everyone
-- Costco starter list with estimated + actual spend and purchased checkboxes
-- Maui Quest becomes its own prominent tab
-- Want-to-Spot checklist + family achievements + Loy Cards in one place
-- CSV export restored for activity votes, food votes, packing, and Costco
-- Existing voting, food voting, card collection, starter packs, and Grandpa Rick advisor mode remain intact
-- Browser Back-button behavior is intentionally NOT changed in this version
+CHANGES:
+- Guest profile added to login screen, protected by code 2026.
+- Guest is read-only: no activity/food votes, planning-stage changes, packing changes, Costco edits, sightings changes, advisor changes, or exports.
+- Guest can browse the full current 36-card showcase without altering anyone's collection.
+- Guest header is clearly marked Read only.
+- Maui Quest now includes a future Family Photo Albums / Memories placeholder; Guest is designed to view those albums later.
+- Have / Need to order now works for Bryant, Bryson, Bennett, Brooks and shared gear.
+- Dad Overview counts everybody's Need to order items.
+- Prep gets a dedicated Order tab with one consolidated Dad shopping list and CSV export.
+- Added Road-to-Hana candidates: Waikamoi Ridge Trail, Wailua Valley State Wayside, and Ke Ala Loa O Maui / Piʻilani Trail. Keʻanae Arboretum remains in the existing list and now has richer detail/link metadata.
+- Added treat-review candidates: Island Cream Co., Peace Love Shave Ice Lāhainā, Tobi's Poke & Shave Ice Paʻia, and Artisan Ice Cream Paʻia.
+- Added approximate planning-map pins for the new Hāna/treat entries.
+- Existing card privacy fix remains: switching profiles clears temporary All Cards admin access.
+- Browser Back-button behavior is still intentionally deferred.
 
-PREVIEW BEHAVIOR:
-- Packing and Costco work immediately with local device storage.
-- After SUPABASE-v011.sql is run, the same screens use shared Supabase data so progress can sync across devices.
-
-NO EXISTING TABLES ARE WIPED OR RESEEDED.
+DATA SAFETY:
+- SQL is additive only. No DELETE/TRUNCATE/reset statements.
+- Existing family votes, cards, packing progress, Costco progress, and advisor picks are untouched.
