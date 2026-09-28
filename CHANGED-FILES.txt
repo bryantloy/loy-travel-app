@@ -1,32 +1,26 @@
-LOY TRAVEL v0.12 — GUEST + FAMILY ORDERING + HANA/TREATS
+LOY TRAVEL v0.13.1 — CARD CATALOG INTEGRATION
 
-UPLOAD TO TEST BRANCH:
+UPLOAD THESE FILES/FOLDERS TO THE ROOT OF THE TEST BRANCH:
 - app.js
 - styles.css
+- card-catalog.json
+- cards.json  (compatibility mirror; safe to replace old file)
+- assets/cards/  (all 74 WEBP card assets)
 
-THEN RUN ONCE IN SUPABASE SQL EDITOR:
-- SUPABASE-v012-CONTENT.sql
+NO SQL REQUIRED.
+NO SUPABASE DATA IS RESET.
 
-CHANGES:
-- Guest profile added to login screen, protected by code 2026.
-- Guest is read-only: no activity/food votes, planning-stage changes, packing changes, Costco edits, sightings changes, advisor changes, or exports.
-- Guest can browse the full current 36-card showcase without altering anyone's collection.
-- Guest header is clearly marked Read only.
-- Maui Quest now includes a future Family Photo Albums / Memories placeholder; Guest is designed to view those albums later.
-- Have / Need to order now works for Bryant, Bryson, Bennett, Brooks and shared gear.
-- Dad Overview counts everybody's Need to order items.
-- Prep gets a dedicated Order tab with one consolidated Dad shopping list and CSV export.
-- Added Road-to-Hana candidates: Waikamoi Ridge Trail, Wailua Valley State Wayside, and Ke Ala Loa O Maui / Piʻilani Trail. Keʻanae Arboretum remains in the existing list and now has richer detail/link metadata.
-- Added treat-review candidates: Island Cream Co., Peace Love Shave Ice Lāhainā, Tobi's Poke & Shave Ice Paʻia, and Artisan Ice Cream Paʻia.
-- Added approximate planning-map pins for the new Hāna/treat entries.
-- Existing card privacy fix remains: switching profiles clears temporary All Cards admin access.
-- Browser Back-button behavior is still intentionally deferred.
+WHAT CHANGED
+- App loads /card-catalog.json as the source of truth.
+- All 74 cataloged cards are included.
+- Existing starter-pack IDs remain unchanged.
+- Card filters now use owner + rarity + series metadata.
+- Series filter is data-driven from JSON.
+- Card modal shows rarity, series, and owner.
+- Falls back to /cards.json if card-catalog.json cannot load.
 
-DATA SAFETY:
-- SQL is additive only. No DELETE/TRUNCATE/reset statements.
-- Existing family votes, cards, packing progress, Costco progress, and advisor picks are untouched.
+ASSET STRUCTURE
+/assets/cards/<stable-card-id>.webp
 
-v0.12.1 GUEST TILE CLEANUP
-- Guest tile redesigned to match the approved mockup.
-- "Guest", "Read-only", and "Code required" are now separate, clean visual elements.
-- No Supabase/SQL changes are required for this patch.
+FUTURE RULE
+Create new card artwork directly as WEBP, add it to /assets/cards/, then add one metadata record to card-catalog.json.

@@ -154,3 +154,56 @@
   font-weight:850;
   line-height:1;
 }
+
+
+/* v0.13 itinerary + photo Maui Quest */
+.day-plan{overflow:hidden}
+.day-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.day-tone{font-size:.68rem;font-weight:900;background:#eef7fa;color:#376472;border-radius:999px;padding:7px 9px;text-align:right;max-width:42%}
+.day-section{margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+.day-section>b{display:block;margin-bottom:6px}
+.day-option{padding:5px 0;font-size:.82rem;color:#3f5158}
+.day-split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.day-bail,.day-backup{margin-top:12px;padding:10px 12px;border-radius:12px;background:#f5f8f9;font-size:.78rem;line-height:1.35}
+.day-backup{background:#fff4df;border:1px solid #efd3a2}
+.day-backup b,.day-backup span{display:block}
+.day-booking{display:flex;justify-content:space-between;gap:10px;align-items:center;text-decoration:none;color:var(--ink);padding:9px 10px;border:1px solid var(--line);border-radius:12px;margin-top:6px;background:#fff}
+.day-booking strong,.day-booking small{display:block}
+.day-booking small{color:var(--muted);text-align:right}
+
+.quest-stats{display:flex;gap:10px;justify-content:center;margin-top:12px}
+.quest-stats>div{background:rgba(255,255,255,.85);padding:9px 16px;border-radius:14px;min-width:92px}
+.quest-stats b,.quest-stats span{display:block}
+.quest-stats b{font-size:1.25rem}.quest-stats span{font-size:.68rem;color:var(--muted);font-weight:800}
+.quest-filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+.quest-filters .filter{white-space:nowrap}
+.quest-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:18px}
+.quest-find{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.quest-find.seen{border-color:#64b698;box-shadow:0 0 0 2px rgba(100,182,152,.12)}
+.quest-photo{position:relative;width:100%;border:0;padding:0;background:#eaf1f3;display:block;aspect-ratio:4/3;overflow:hidden}
+.quest-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.quest-photo:disabled{cursor:default}
+.quest-check{position:absolute;right:8px;bottom:8px;border-radius:999px;background:rgba(10,33,43,.82);color:white;padding:6px 9px;font-size:.68rem;font-weight:900}
+.quest-find.seen .quest-check{background:#24785c}
+.quest-find-copy{padding:9px 10px 11px}
+.quest-find-head{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.quest-find-head>b{font-size:.86rem;line-height:1.15}
+.quest-find-copy p{font-size:.69rem;line-height:1.32;color:var(--muted);margin:7px 0}
+.quest-find-copy a{font-size:.64rem;color:#25749a}
+.difficulty{font-size:.57rem;text-transform:uppercase;font-weight:950;border-radius:999px;padding:4px 6px;white-space:nowrap}
+.difficulty.easy{background:#e4f5eb;color:#267653}
+.difficulty.medium{background:#fff1cc;color:#89610a}
+.difficulty.hard{background:#ffe2df;color:#9b3f37}
+
+@media(max-width:430px){
+  .day-split{grid-template-columns:1fr}
+  .day-top{display:block}
+  .day-tone{display:inline-block;max-width:none;margin-top:4px}
+  .quest-photo-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .quest-find-copy{padding:8px}
+  .quest-find-head{display:block}
+  .difficulty{display:inline-block;margin-top:5px}
+}
+
+/* v0.13.1 card catalog integration */
+.seriesbar{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.seriesbar .filter{white-space:nowrap}.card-meta small{display:block;margin-top:3px;color:var(--muted);font-size:.6rem}.light-meta small{display:block;margin-top:6px;color:#d8e0e3;font-size:.72rem;text-transform:capitalize}

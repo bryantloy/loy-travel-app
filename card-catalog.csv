@@ -1,0 +1,75 @@
+id,title,owner,rarity,series,image,source_position,source_file,status
+brooks-mr-suave-brooks,Mr. Suave Brooks,brooks,rare,Core,/assets/cards/brooks-mr-suave-brooks.webp,1,Screenshot_20260921-112057.png,active
+bennett-dino-day,Dino Day Bennett,bennett,common,Throwback,/assets/cards/bennett-dino-day.webp,2,file_000000000388822fb9b60fe51203657a.png,active
+bryson-first-day,First Day Bryson,bryson,common,Throwback,/assets/cards/bryson-first-day.webp,3,file_0000000006dc822f9c07e717330df2d1.png,active
+brooks-phone-addict-brooks,Phone Addict Brooks,brooks,rare,Core,/assets/cards/brooks-phone-addict-brooks.webp,4,file_000000000700822fb487d90d6bb6f6ce.png,active
+bennett-lightning-cap,Lightning Cap Bennett,bennett,common,Throwback,/assets/cards/bennett-lightning-cap.webp,5,file_000000000bb4822fb0b5c6291f1fa0a7.png,active
+bryson-air-hockey-champ-bryson,Air Hockey Champ Bryson,bryson,gold,Core,/assets/cards/bryson-air-hockey-champ-bryson.webp,6,file_000000001054822f956e0b63c2a8b5a2.png,active
+pets-rosie-couch-potato,Rosie · Couch Potato,pets,rare,Pets,/assets/cards/pets-rosie-couch-potato.webp,7,file_000000001824822fb9a4be154c890192.png,active
+destination-shave-ice-stop,Shave Ice Stop,destination,common,Food,/assets/cards/destination-shave-ice-stop.webp,8,file_000000001920822f8e0eba45a1770dfa.png,active
+bryson-cozy-couch,Cozy Couch Bryson,bryson,bronze,Throwback,/assets/cards/bryson-cozy-couch.webp,9,file_000000001984822fa46da518545f0eb0.png,active
+bryson-black-tie,Black Tie Bryson,bryson,rare,Throwback,/assets/cards/bryson-black-tie.webp,10,file_000000001d70822fbdfba6cab0d9c5b0.png,active
+destination-hana-banana-bread,Hāna Banana Bread,destination,common,Food,/assets/cards/destination-hana-banana-bread.webp,11,file_00000000227c822fa646f3d95078d7ab.png,active
+destination-hawaiian-honu,Hawaiian Honu,destination,rare,Maui,/assets/cards/destination-hawaiian-honu.webp,12,file_000000002370822f9970269762bb74ba.png,active
+destination-yellow-tang-zip,Yellow Tang Zip,destination,common,Wildlife,/assets/cards/destination-yellow-tang-zip.webp,13,file_000000002448822f90b595f66cb0427c.png,active
+bennett-dads-buddy,Dad's Buddy Bennett,bennett,common,Throwback,/assets/cards/bennett-dads-buddy.webp,14,file_0000000024e8822fa557a42bc10f74b9.png,active
+bryson-bowling,Bowling Bryson,bryson,epic,Throwback,/assets/cards/bryson-bowling.webp,15,file_0000000025a4822fb75172c290729f7f.png,active
+destination-haleakala,Haleakalā,destination,legendary,Maui,/assets/cards/destination-haleakala.webp,16,file_0000000025d8822fa4ca2bb45e02381f.png,active
+bryant-runner-dad,Runner Dad,bryant,epic,Core,/assets/cards/bryant-runner-dad.webp,17,file_000000002af0822f99673e648767eecd.png,active
+brooks-night-wonder,Night Wonder Brooks,brooks,common,Throwback,/assets/cards/brooks-night-wonder.webp,19,file_0000000032c4822f981e7ea8c5566d1c.png,active
+bennett-chicken-tender-king,Chicken Tender King,bennett,epic,Core,/assets/cards/bennett-chicken-tender-king.webp,20,file_000000003588822f96b2983e2185ebeb.png,active
+destination-dolphin-wake-riders,Dolphin Wake Riders,destination,rare,Wildlife,/assets/cards/destination-dolphin-wake-riders.webp,21,file_000000003ae0822f86d89bd069053a90.png,active
+brooks-golf-rookie,Golf Rookie Brooks,brooks,common,Throwback,/assets/cards/brooks-golf-rookie.webp,22,file_000000003b4c822f8e835f07a6e69508.png,active
+bennett-pizza-pro,Pizza Pro Bennett,bennett,bronze,Throwback,/assets/cards/bennett-pizza-pro.webp,23,file_000000003d48822f86554fe2f76ff7e5.png,active
+destination-iao-valley,ʻĪao Valley,destination,uncommon,Maui,/assets/cards/destination-iao-valley.webp,24,file_00000000412c822f8169a7dff74ea0d9.png,active
+family-costume-kingdom-crew,Costume Kingdom Crew,family,epic,Throwback,/assets/cards/family-costume-kingdom-crew.webp,25,file_000000004474822fad852184af77e894.png,active
+destination-gecko-night-watch,Gecko Night Watch,destination,rare,Maui,/assets/cards/destination-gecko-night-watch.webp,26,file_00000000462c822f9e9f5ddc286b5aac.png,active
+bennett-front-porch-fresh,Front Porch Fresh Bennett,bennett,common,Throwback,/assets/cards/bennett-front-porch-fresh.webp,27,file_000000004b68822f954af5808dc4c0ed.png,active
+destination-plumeria-bloom,Plumeria Bloom,destination,common,Plants,/assets/cards/destination-plumeria-bloom.webp,28,file_000000004d28822fa06083c49eaf005e.png,active
+destination-beach-burger-basket,Beach Burger Basket,destination,common,Food,/assets/cards/destination-beach-burger-basket.webp,29,file_00000000547481f58b0966e16420c5c4.png,active
+family-cabana-crew,Cabana Crew,family,rare,Throwback,/assets/cards/family-cabana-crew.webp,30,file_0000000054a0822fa14336f0976de146.png,active
+destination-plate-lunch-pit-stop,Plate Lunch Pit Stop,destination,common,Food,/assets/cards/destination-plate-lunch-pit-stop.webp,31,file_000000005604822fa5cdeca0d9aa06be.png,active
+destination-waianapanapa,Waiʻānapanapa,destination,epic,Maui,/assets/cards/destination-waianapanapa.webp,32,file_000000005878822fb9b82a2e33ddf2c5.png,active
+bryson-pizza-king-bryson,Pizza King Bryson,bryson,bronze,Core,/assets/cards/bryson-pizza-king-bryson.webp,33,file_000000005e40822fbfb7d1d17f8fa757.png,active
+bryant-big-back-dad,Big Back Dad,bryant,rare,Core,/assets/cards/bryant-big-back-dad.webp,34,file_000000005e80822fbca328d7e1421092.png,active
+destination-plumeria,Plumeria,destination,common,Maui,/assets/cards/destination-plumeria.webp,35,file_000000005fcc822fa916d99edc4c7fd0.png,active
+finn-finn-the-couch-potato,Finn · The Couch Potato,finn,legendary,Pets,/assets/cards/finn-finn-the-couch-potato.webp,36,file_000000006140822fb1874c0f84310913.png,active
+bryant-kilauea-throwback,Kīlauea Throwback,bryant,rare,Throwback,/assets/cards/bryant-kilauea-throwback.webp,37,file_0000000063dc822f89481bb6a6f73298.png,active
+bennett-goldfish-mode-bennett,Goldfish Mode Bennett,bennett,rare,Core,/assets/cards/bennett-goldfish-mode-bennett.webp,38,file_00000000684c822fbc82d8e0f6c415fd.png,active
+bryson-brass-blast,Bryson Brass Blast,bryson,rare,Core,/assets/cards/bryson-brass-blast.webp,39,file_000000006f24822f9f3f81517496e2b5.png,active
+destination-molokini-morning-drift,Molokini Morning Drift,destination,rare,Maui,/assets/cards/destination-molokini-morning-drift.webp,40,file_000000007860822f958a21c9cc72a243.png,active
+bryant-emo-dad,Emo Dad,bryant,rare,Core,/assets/cards/bryant-emo-dad.webp,41,file_00000000795c822f9d70b65e6ae2170e.png,active
+bryson-phone-addict-bryson,Phone Addict Bryson,bryson,rare,Core,/assets/cards/bryson-phone-addict-bryson.webp,42,file_0000000079f4822fb9a99e4ee94773b2.png,active
+destination-shave-ice-cooldown,Shave Ice Cooldown,destination,common,Food,/assets/cards/destination-shave-ice-cooldown.webp,43,file_000000007ae0822f94a4b47b634ce667.png,active
+bryson-match-day,Match Day Bryson,bryson,rare,Throwback,/assets/cards/bryson-match-day.webp,44,file_000000007b8c822faab1b91c8bf22a3f.png,active
+brooks-haaland-mode,Brooks Haaland Mode,brooks,rare,Core,/assets/cards/brooks-haaland-mode.webp,45,file_000000007ba0822f95b50a59898783e9.png,active
+bryant-pirate-king-dad,Pirate King Dad,bryant,epic,Core,/assets/cards/bryant-pirate-king-dad.webp,46,file_0000000088f8822fbea0844b3d5bc3ae.png,active
+bennett-rizz-king-bennett,Rizz King Bennett,bennett,gold,Core,/assets/cards/bennett-rizz-king-bennett.webp,47,file_00000000893c822fa79ce001597cb431.png,active
+brooks-home-base,Home Base Brooks,brooks,common,Throwback,/assets/cards/brooks-home-base.webp,48,file_000000008a3c822fabbc6f4a6aa5b089.png,active
+family-sunset-brothers,Sunset Brothers,family,bronze,Throwback,/assets/cards/family-sunset-brothers.webp,49,file_0000000097dc822f94ec54e27bc93f9b.png,active
+brooks-game-changer-brooks,Game Changer Brooks,brooks,gold,Core,/assets/cards/brooks-game-changer-brooks.webp,50,file_000000009eec822fafaa8c47ceaf45d9.png,active
+family-loy-boys-boarding-crew,Loy Boys Boarding Crew,family,rare,Family,/assets/cards/family-loy-boys-boarding-crew.webp,51,file_000000009f58822fa451094104d63517.png,active
+destination-sunset-gecko-scout,Sunset Gecko Scout,destination,common,Wildlife,/assets/cards/destination-sunset-gecko-scout.webp,52,file_00000000a1fc822f843403a25fbde564.png,active
+destination-ti-leaf-trail,Ti Leaf Trail,destination,common,Plants,/assets/cards/destination-ti-leaf-trail.webp,53,file_00000000a6f4822fb2e6c94cc9c496fc.png,active
+destination-plumeria-pocket-bloom,Plumeria Pocket Bloom,destination,common,Plants,/assets/cards/destination-plumeria-pocket-bloom.webp,54,file_00000000a7b8822f94278d893a5af7aa.png,active
+destination-crab-cabana-chaos,Crab Cabana Chaos,destination,rare,Maui,/assets/cards/destination-crab-cabana-chaos.webp,55,file_00000000a880822fa473bf0ca409ab45.png,active
+bennett-needoh-collector-bennett,Needoh Collector Bennett,bennett,bronze,Core,/assets/cards/bennett-needoh-collector-bennett.webp,56,file_00000000aa60822f9e2ec6f542fa85dc.png,active
+destination-road-to-hana,Road to Hāna,destination,rare,Maui,/assets/cards/destination-road-to-hana.webp,57,file_00000000ac90822fadabff02c04f7db8.png,active
+destination-maui-rainbow,Maui Rainbow,destination,rare,Maui,/assets/cards/destination-maui-rainbow.webp,58,file_00000000b710822fb83d2a5b0be01d1f.png,active
+destination-bird-of-paradise,Bird of Paradise,destination,common,Plants,/assets/cards/destination-bird-of-paradise.webp,59,file_00000000ba48822f923631be427f04d3.png,active
+brooks-dumpling-dude-brooks,Dumpling Dude Brooks,brooks,bronze,Core,/assets/cards/brooks-dumpling-dude-brooks.webp,60,file_00000000bb88822fbdccd8c067e223a8.png,active
+brooks-galaxy-blade,Galaxy Blade Brooks,brooks,epic,Throwback,/assets/cards/brooks-galaxy-blade.webp,61,file_00000000bea481f5bb72464d7df01a69.png,active
+brooks-costume-spin,Costume Spin Brooks,brooks,common,Throwback,/assets/cards/brooks-costume-spin.webp,62,file_00000000bf9c822fa0cf624ebc2d4608.png,active
+destination-hibiscus-splash,Hibiscus Splash,destination,common,Plants,/assets/cards/destination-hibiscus-splash.webp,63,file_00000000d074822f8ab211555454b38a.png,active
+destination-maui-yellow-tang-troop,Maui Yellow Tang Troop,destination,rare,Maui,/assets/cards/destination-maui-yellow-tang-troop.webp,64,file_00000000d1dc822f87abbf143a78e5ac.png,active
+destination-twin-falls,Twin Falls,destination,bronze,Maui,/assets/cards/destination-twin-falls.webp,65,file_00000000d220822f9d90fa66df6bc844.png,active
+destination-maui-critter-crew,Maui Critter Crew,destination,rare,Maui,/assets/cards/destination-maui-critter-crew.webp,66,file_00000000d258822fbe838d49e7b83434.png,active
+family-tropic-dash-trio,Tropic Dash Trio,family,rare,Throwback,/assets/cards/family-tropic-dash-trio.webp,67,file_00000000d4c4822f97a878b0a1ac3095.png,active
+bryson-xbox-king-bryson,Xbox King Bryson,bryson,epic,Core,/assets/cards/bryson-xbox-king-bryson.webp,68,file_00000000e9a8822fbceef6a9bf9c0e8f.png,active
+bennett-phone-addict-bennett,Phone Addict Bennett,bennett,rare,Core,/assets/cards/bennett-phone-addict-bennett.webp,69,file_00000000ea44822fa9f833d7c64ddcf6.png,active
+destination-banyan-boulevard,Banyan Boulevard,destination,common,Maui,/assets/cards/destination-banyan-boulevard.webp,70,file_00000000edf8822f9ff46682663ccb46.png,active
+bryant-crash-out-dad,Crash Out Dad,bryant,rare,Core,/assets/cards/bryant-crash-out-dad.webp,71,file_00000000f8ec822fa1c620db51dd8bc1.png,active
+family-harbor-hangout,Harbor Hangout,family,bronze,Throwback,/assets/cards/family-harbor-hangout.webp,72,file_00000000fb5c822face24580c362ef15.png,active
+bryson-spelling-bee-champ,Spelling Bee Champ Bryson,bryson,legendary,Throwback,/assets/cards/bryson-spelling-bee-champ.webp,73,file_00000000fb80822fac4b36532e690a84.png,active
+destination-humpback-whale,Humpback Whale,destination,epic,Maui,/assets/cards/destination-humpback-whale.webp,74,file_00000000fd7c822f83156c337d7c6156.png,active
+family-universal-orbit-crew,Universal Orbit Crew,family,epic,Throwback,/assets/cards/family-universal-orbit-crew.webp,75,file_00000000febc822f8b86e218c90593d5.png,active
