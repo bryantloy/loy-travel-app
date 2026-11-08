@@ -1,26 +1,34 @@
-LOY TRAVEL v0.13.1 — CARD CATALOG INTEGRATION
+LOY TRAVEL v0.13 - FINAL ITINERARY + PRIVATE FAMILY PHOTOS
+Base: https://github.com/bryantloy/loy-travel-app
+Base commit: 429c69e0f80b06f026a8bc179eafa40d8d58ddb6
 
-UPLOAD THESE FILES/FOLDERS TO THE ROOT OF THE TEST BRANCH:
-- app.js
-- styles.css
-- card-catalog.json
-- cards.json  (compatibility mirror; safe to replace old file)
-- assets/cards/  (all 74 WEBP card assets)
+REPLACE website files at repository root:
+app.js          Final Nov 19-27 itinerary/statuses; Pride logistics; Photos navigation.
+index.html      Loads memories.js before app.js.
+styles.css      Status badges, mobile forms/gallery, six navigation items.
+sw.js           Network-only responses; private Storage/Auth outside service worker; clears old Loy caches only.
 
-NO SQL REQUIRED.
-NO SUPABASE DATA IS RESET.
+ADD files at repository root:
+memories.js                Photo auth, camera/library uploads, optional metadata, filtered gallery, failed-save cleanup.
+SUPABASE-v013-PHOTOS.sql    Additive private bucket, membership, metadata and RLS/storage policies.
+PHOTO-SETUP.md             Required account/membership setup and live access checks.
 
-WHAT CHANGED
-- App loads /card-catalog.json as the source of truth.
-- All 74 cataloged cards are included.
-- Existing starter-pack IDs remain unchanged.
-- Card filters now use owner + rarity + series metadata.
-- Series filter is data-driven from JSON.
-- Card modal shows rarity, series, and owner.
-- Falls back to /cards.json if card-catalog.json cannot load.
+CHANGED-FILES.txt           This release manifest replaces the old manifest.
 
-ASSET STRUCTURE
-/assets/cards/<stable-card-id>.webp
+DEPLOYMENT ORDER:
+1. Read PHOTO-SETUP.md. Run only v013 SQL once in the existing Supabase project.
+2. Create the four family auth accounts and approved memberships as described.
+3. Deploy app.js, index.html, styles.css, sw.js and memories.js together.
+4. Run the live access checks before uploading real private photos.
 
-FUTURE RULE
-Create new card artwork directly as WEBP, add it to /assets/cards/, then add one metadata record to card-catalog.json.
+PRESERVATION:
+No existing votes, packing, Costco, travelers, cards or planning tables are reset, reseeded or migrated. Card catalogs/assets and existing local-storage keys are unchanged. Photo auth uses a separate storage key; existing anonymous planning access remains unchanged. No private PDF or service-role key is included. Guest/advisor cannot access private photos through the app; photo backend requires approved family membership.
+
+LOCAL VERIFICATION:
+JavaScript syntax checked: app.js, memories.js, sw.js.
+Browser tests with mocked backend passed: nine itinerary dates/statuses; Pride contact/logistics; mobile layout without horizontal overflow; family sign-in; JPEG conversion; account attribution; caption escaping; person/day filters; failed metadata cleanup; guest/advisor gallery hiding; nonmember handling; guest packing unchanged; no browser errors.
+Mobile screenshots visually inspected; desktop render checked.
+git diff --check passed. All packaged files non-zero. ZIP file list, byte equality and CRC validated.
+
+NOT EXECUTED:
+The migration and real Supabase Auth/RLS/storage checks require project administration and approved accounts. Mocked tests do not prove live database policy behavior. No GitHub push or production deployment performed.

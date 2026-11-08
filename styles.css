@@ -207,3 +207,12 @@
 
 /* v0.13.1 card catalog integration */
 .seriesbar{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.seriesbar .filter{white-space:nowrap}.card-meta small{display:block;margin-top:3px;color:var(--muted);font-size:.6rem}.light-meta small{display:block;margin-top:6px;color:#d8e0e3;font-size:.72rem;text-transform:capitalize}
+
+/* Final itinerary and private family photo sharing */
+.trip-status{display:inline-block;padding:4px 9px;border-radius:999px;font-weight:800;letter-spacing:.04em;background:#e6eef5;color:#12364b}
+.trip-status.booked{background:#d9f4e6;color:#125735}.trip-status.planned{background:#dceeff;color:#164a79}.trip-status.tentative{background:#fff0c9;color:#72520b}.trip-status.flex{background:#eee9ff;color:#544080}
+.memories label{display:grid;gap:6px;margin:14px 0;font-weight:600}.memories input,.memories select{box-sizing:border-box;max-width:100%;width:100%;padding:12px;border:1px solid #a7bdcc;border-radius:10px;background:#fff;color:#173a50;font:inherit;min-height:46px}.memories button{min-height:44px;padding:10px 15px;border-radius:10px;margin:5px 4px 5px 0}.memories button:disabled{opacity:.6}.memories form{margin:16px 0;padding:12px;background:#f3f8fb;border-radius:12px}.memory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.memory-grid figure{margin:0;border:1px solid #d6e3eb;border-radius:12px;overflow:hidden;min-width:0}.memory-grid img{display:block;width:100%;aspect-ratio:1;object-fit:cover}.memory-grid figcaption{padding:10px;overflow-wrap:anywhere}.memory-grid p{margin:5px 0}.photo-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:end}.photo-filters label{flex:1;min-width:120px}.nav{grid-template-columns:repeat(6,minmax(0,1fr))}.nav button{min-width:0;font-size:11px}
+@media(min-width:760px){.memory-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:360px){.memory-grid{grid-template-columns:1fr}}
+
+.memories button{background:var(--navy);color:#fff;border:1px solid var(--navy);font-weight:600}.memories input:focus-visible,.memories select:focus-visible,.memories button:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
