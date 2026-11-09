@@ -216,3 +216,5 @@
 @media(max-width:360px){.memory-grid{grid-template-columns:1fr}}
 
 .memories button{background:var(--navy);color:#fff;border:1px solid var(--navy);font-weight:600}.memories input:focus-visible,.memories select:focus-visible,.memories button:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+
+.memories fieldset{border:0;margin:0;padding:0;min-width:0}

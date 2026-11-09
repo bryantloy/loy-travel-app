@@ -1,34 +1,21 @@
-LOY TRAVEL v0.13 - FINAL ITINERARY + PRIVATE FAMILY PHOTOS
-Base: https://github.com/bryantloy/loy-travel-app
-Base commit: 429c69e0f80b06f026a8bc179eafa40d8d58ddb6
+LOY TRAVEL v0.14 - SHARED-LINK PHOTOS
+Follow-up to the deployed v0.13 itinerary/photo update.
 
-REPLACE website files at repository root:
-app.js          Final Nov 19-27 itinerary/statuses; Pride logistics; Photos navigation.
-index.html      Loads memories.js before app.js.
-styles.css      Status badges, mobile forms/gallery, six navigation items.
-sw.js           Network-only responses; private Storage/Auth outside service worker; clears old Loy caches only.
+REPLACE at repository root:
+app.js             Version 0.14 and shared-photo wording; itinerary and planning behavior unchanged.
+memories.js        Removes photo sign-in; uploads use the selected profile; includes Grandpa Rick; Guest gallery is read-only in UI.
+styles.css         Keeps mobile photo styling; styles the upload fieldset.
+PHOTO-SETUP.md     Replaces the account setup guide with one-time permissions update instructions.
+CHANGED-FILES.txt  This manifest.
 
-ADD files at repository root:
-memories.js                Photo auth, camera/library uploads, optional metadata, filtered gallery, failed-save cleanup.
-SUPABASE-v013-PHOTOS.sql    Additive private bucket, membership, metadata and RLS/storage policies.
-PHOTO-SETUP.md             Required account/membership setup and live access checks.
+ADD:
+SUPABASE-v014-LINK-PHOTOS.sql
 
-CHANGED-FILES.txt           This release manifest replaces the old manifest.
+ONE-TIME ACTION FOR BRYANT:
+Run v014 SQL in the existing Supabase project (after v013), then deploy the three website files above together. No account creation or membership changes required. Keep the v013 index.html, which already loads memories.js.
 
-DEPLOYMENT ORDER:
-1. Read PHOTO-SETUP.md. Run only v013 SQL once in the existing Supabase project.
-2. Create the four family auth accounts and approved memberships as described.
-3. Deploy app.js, index.html, styles.css, sw.js and memories.js together.
-4. Run the live access checks before uploading real private photos.
+Existing uploads/metadata are preserved; the migration copies metadata into the link gallery and keeps the original stored objects at their paths. No existing votes, packing, Costco, cards or itinerary data is reset or reseeded. No drops, deletes or destructive SQL. Existing photo-account tables remain intact.
 
-PRESERVATION:
-No existing votes, packing, Costco, travelers, cards or planning tables are reset, reseeded or migrated. Card catalogs/assets and existing local-storage keys are unchanged. Photo auth uses a separate storage key; existing anonymous planning access remains unchanged. No private PDF or service-role key is included. Guest/advisor cannot access private photos through the app; photo backend requires approved family membership.
+Access is intentionally by shared link for this trip, not verified identity. Guest is read-only in UI; anyone who obtains the public app connection details can access the shared photo API. Signed image links expire in five minutes; this does not make anonymously accessible photos private. Listed photos cannot be overwritten/deleted through the new rules. Failed metadata saves clean up unlisted uploads when possible.
 
-LOCAL VERIFICATION:
-JavaScript syntax checked: app.js, memories.js, sw.js.
-Browser tests with mocked backend passed: nine itinerary dates/statuses; Pride contact/logistics; mobile layout without horizontal overflow; family sign-in; JPEG conversion; account attribution; caption escaping; person/day filters; failed metadata cleanup; guest/advisor gallery hiding; nonmember handling; guest packing unchanged; no browser errors.
-Mobile screenshots visually inspected; desktop render checked.
-git diff --check passed. All packaged files non-zero. ZIP file list, byte equality and CRC validated.
-
-NOT EXECUTED:
-The migration and real Supabase Auth/RLS/storage checks require project administration and approved accounts. Mocked tests do not prove live database policy behavior. No GitHub push or production deployment performed.
+Verification: JavaScript syntax checks; mocked browser tests for no-login upload under all five profiles, person/day filtering, existing photo display, caption escaping, failed-save cleanup, Guest read-only UI, mobile layout and unchanged itinerary. ZIP CRC/file list/content/non-zero checks. Live SQL/storage verification is pending application to Supabase. No push or deployment performed.
