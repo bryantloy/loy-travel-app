@@ -1,21 +1,24 @@
-LOY TRAVEL v0.14 - SHARED-LINK PHOTOS
-Follow-up to the deployed v0.13 itinerary/photo update.
+LOY TRAVEL v0.15 - DELETE TRIP PHOTOS
+Follow-up to v014. This ZIP contains only the changed/new files below.
 
-REPLACE at repository root:
-app.js             Version 0.14 and shared-photo wording; itinerary and planning behavior unchanged.
-memories.js        Removes photo sign-in; uploads use the selected profile; includes Grandpa Rick; Guest gallery is read-only in UI.
-styles.css         Keeps mobile photo styling; styles the upload fieldset.
-PHOTO-SETUP.md     Replaces the account setup guide with one-time permissions update instructions.
-CHANGED-FILES.txt  This manifest.
+REPLACE:
+memories.js          Adds Delete photo buttons for all five family profiles, confirmation, storage/metadata deletion, failure/retry messages. Guest gets no delete controls. Existing upload/gallery behavior remains.
+CHANGED-FILES.txt    This release manifest.
 
 ADD:
-SUPABASE-v014-LINK-PHOTOS.sql
+SUPABASE-v015-PHOTO-DELETE.sql
 
-ONE-TIME ACTION FOR BRYANT:
-Run v014 SQL in the existing Supabase project (after v013), then deploy the three website files above together. No account creation or membership changes required. Keep the v013 index.html, which already loads memories.js.
+INSTALL:
+1. In Supabase SQL Editor, run SUPABASE-v015-PHOTO-DELETE.sql once after v014. Success/no rows returned is expected. This adds permissions only and deletes no photos.
+2. Replace memories.js in the repository root and let the site deploy.
+3. Refresh the app. Under the test photo, tap Delete photo and confirm.
 
-Existing uploads/metadata are preserved; the migration copies metadata into the link gallery and keeps the original stored objects at their paths. No existing votes, packing, Costco, cards or itinerary data is reset or reseeded. No drops, deletes or destructive SQL. Existing photo-account tables remain intact.
+The shared copy is removed for everyone; originals on phones are untouched. Family profiles can delete any trip photo. Names remain unverified labels under the previously chosen shared-link model; Guest read-only remains a UI behavior. Backend access uses the same shared-link permissions as uploads.
 
-Access is intentionally by shared link for this trip, not verified identity. Guest is read-only in UI; anyone who obtains the public app connection details can access the shared photo API. Signed image links expire in five minutes; this does not make anonymously accessible photos private. Listed photos cannot be overwritten/deleted through the new rules. Failed metadata saves clean up unlisted uploads when possible.
+Storage is removed first; its successful removal is checked before deleting metadata. If cleanup of a gallery entry fails after storage removal, a retry can finish it. If storage blocks deletion, the gallery entry remains and an error is shown. No planning, voting, packing, card or itinerary data is changed. Migrated v013 photo paths and newer shared paths are supported.
 
-Verification: JavaScript syntax checks; mocked browser tests for no-login upload under all five profiles, person/day filtering, existing photo display, caption escaping, failed-save cleanup, Guest read-only UI, mobile layout and unchanged itinerary. ZIP CRC/file list/content/non-zero checks. Live SQL/storage verification is pending application to Supabase. No push or deployment performed.
+VERIFIED:
+JavaScript syntax and existing upload/gallery regression tests passed with mocked backend. New browser checks passed for canceling deletion, storage policy denial without metadata removal, successful confirmed deletion, and hidden Guest delete controls. Package file list/content/CRC/non-zero checks passed.
+
+NOT RUN:
+Live migration/deployment and actual photo deletion. The current test photo has not been deleted by this package. After applying this update, use its Delete photo button to remove it.

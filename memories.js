@@ -41,7 +41,7 @@ const MauiPhotos = (() => {
     if(!client)return '<section class="card"><h2>Trip photos</h2><p>Waiting for the trip connection. Check your connection and reload the app.</p></section>';
     return `<section class="card memories"><h2>Trip photos</h2><p>Capture the trip, one memory at a time.</p><p role="status" aria-live="polite">${esc(notice)}</p>
     ${canUpload()?`<p>Uploading as <b>${esc(viewer)}</b>. Change your profile at the top to switch names.</p><form id="photo-upload"><fieldset ${busy?'disabled':''}><label>Take a photo<input name="camera" type="file" accept="image/*" capture="environment"></label><label>Or choose a photo<input name="library" type="file" accept="image/*"></label><p class="sub">Choose one photo per upload, up to 40 MB. Shared copies are resized; keep originals on your phone. If HEIC cannot open, choose a JPEG copy.</p><label>Caption (optional)<input name="caption" maxlength="500"></label><label>Trip day (optional)<select name="trip_day"><option value="">No day</option>${days().map(d=>`<option>${d}</option>`).join('')}</select></label><label>Activity (optional)<input name="activity" maxlength="100" placeholder="Beach, surf, Hāna…"></label><button>${busy?'Saving photo…':'Upload photo'}</button></fieldset></form>`:'<p class="guest-readonly">Guest view · browse photos without changing anything.</p>'}</section>
-    <section class="card memories"><h3>Trip gallery</h3><div class="photo-filters"><label>Person<select id="photo-person"><option value="">Everyone</option>${PEOPLE.map(p=>`<option ${person===p?'selected':''}>${p}</option>`).join('')}</select></label><label>Day<select id="photo-day"><option value="">All days</option>${days().map(d=>`<option ${day===d?'selected':''}>${d}</option>`).join('')}</select></label><button id="photo-refresh" ${busy?'disabled':''}>Refresh</button></div><p class="sub">Photo links refresh for five minutes. Tap Refresh if an image expires.</p>${loading?'<p role="status">Loading photos…</p>':''}<div class="memory-grid">${rows.map(r=>`<figure>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(r.url)}" alt="${esc(r.caption||r.activity||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer"></a>`:'<p>Photo unavailable</p>'}<figcaption><b>${esc(r.person)}</b>${r.trip_day?` · ${esc(r.trip_day)}`:''}<p>${esc(r.activity)}</p><p>${esc(r.caption)}</p></figcaption></figure>`).join('')}</div>${!rows.length&&!loading?'<p>No photos to show yet. Upload one or try another filter.</p>':''}${more?'<button id="photo-more">Show more</button>':''}</section>`;
+    <section class="card memories"><h3>Trip gallery</h3><div class="photo-filters"><label>Person<select id="photo-person"><option value="">Everyone</option>${PEOPLE.map(p=>`<option ${person===p?'selected':''}>${p}</option>`).join('')}</select></label><label>Day<select id="photo-day"><option value="">All days</option>${days().map(d=>`<option ${day===d?'selected':''}>${d}</option>`).join('')}</select></label><button id="photo-refresh" ${busy?'disabled':''}>Refresh</button></div><p class="sub">Photo links refresh for five minutes. Tap Refresh if an image expires.</p>${loading?'<p role="status">Loading photos…</p>':''}<div class="memory-grid">${rows.map(r=>`<figure>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(r.url)}" alt="${esc(r.caption||r.activity||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer"></a>`:'<p>Photo unavailable</p>'}<figcaption><b>${esc(r.person)}</b>${r.trip_day?` · ${esc(r.trip_day)}`:''}<p>${esc(r.activity)}</p><p>${esc(r.caption)}</p>${canUpload()?`<button type="button" data-photo-delete="${esc(r.id)}" ${busy?'disabled':''}>Delete photo</button>`:''}</figcaption></figure>`).join('')}</div>${!rows.length&&!loading?'<p>No photos to show yet. Upload one or try another filter.</p>':''}${more?'<button id="photo-more">Show more</button>':''}</section>`;
   }
   async function normalize(file) {
     if(!file||file.size===0||file.size>40*1024*1024)throw Error('Choose a non-empty photo under 40 MB.');
@@ -76,7 +76,29 @@ const MauiPhotos = (() => {
     }catch(e){notice=e.message;}
     finally{busy=false;repaint();}
   }
+  async function removePhoto(id) {
+    if(busy||!canUpload())return;
+    const photo=rows.find(r=>r.id===id);if(!photo)return;
+    if(!confirm(`Delete this photo from ${photo.person}${photo.caption?' (“'+photo.caption+'”)':''}? This removes the shared copy for everyone. Your phone original is unchanged.`))return;
+    busy=true;notice='Deleting photo…';repaint();
+    try {
+      const removed=await client.storage.from(BUCKET).remove([photo.storage_path]);
+      if(removed.error)throw Error('Could not delete the photo. Check your connection and confirm the v015 SQL update has been applied.');
+      if(!removed.data?.some(item=>item.name===photo.storage_path)) {
+        // Storage can report no error when RLS filters out the requested object.
+        const check=await client.storage.from(BUCKET).createSignedUrl(photo.storage_path,60);
+        if(!check.error||!/not found|does not exist/i.test(check.error.message||''))
+          throw Error('The photo was not deleted. Apply the v015 SQL update once, then try again.');
+      }
+      const deleted=await client.from('maui_link_photos').delete().eq('trip_id',tripId).eq('id',photo.id).select('id');
+      if(deleted.error||!deleted.data?.some(item=>item.id===photo.id))
+        throw Error('The image was removed, but its gallery entry could not be cleared. Apply the v015 SQL update and tap Delete photo again to finish.');
+      await load();notice='Photo deleted.';
+    }catch(e){notice=e.message;}
+    finally{busy=false;repaint();}
+  }
   function bind() {
+    document.querySelectorAll("[data-photo-delete]").forEach(button=>button.onclick=()=>void removePhoto(button.dataset.photoDelete));
     const form=document.getElementById('photo-upload');if(form)form.onsubmit=e=>{e.preventDefault();void upload(form);};
     const p=document.getElementById('photo-person');if(p)p.onchange=()=>{person=p.value;limit=60;void load();};
     const d=document.getElementById('photo-day');if(d)d.onchange=()=>{day=d.value;limit=60;void load();};
