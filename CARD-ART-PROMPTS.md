@@ -1,6 +1,6 @@
 # New card art — prompts
 
-26 new cards are in `card-catalog.json` with `"art": "pending"`. Until their image exists, the app shows a designed placeholder face (title, rarity, emoji, stats, quote).
+34 new cards are in `card-catalog.json` with `"art": "pending"`. Until their image exists, the app shows a designed placeholder face (title, rarity, emoji, stats, quote).
 
 To add art for a card:
 
@@ -76,6 +76,19 @@ File: `assets/cards/family-kendra-badger-softball.webp`
 ```
 Kendra Badger Softball (UNCOMMON) — cousin Kendra in a red Wisconsin softball uniform making a big play, stadium action scene. Subtitle: "Cousin Kendra · Wisconsin". Quote: "Cousin power, red and white.". Stats: Bat Speed 93, Glove 90, Team Pride 97. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (uncommon). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-kendra-badger-softball.webp.
 ```
+
+## From Bryant's photos
+
+Full prompts for these are in `CARD-ART-SETS.md` (Sets 2 to 4).
+
+- Optic Blast Dad · bronze · `assets/cards/bryant-optic-blast-dad.webp`
+- Marching Mako · rare · `assets/cards/bryson-marching-mako.webp`
+- Trail Blazer Bryson · uncommon · `assets/cards/bryson-trail-blazer-bryson.webp`
+- Web Warrior Bennett · rare · `assets/cards/bennett-web-warrior-bennett.webp`
+- Shark Run Finisher · uncommon · `assets/cards/bennett-shark-run-finisher.webp`
+- Selfie Squad · rare · `assets/cards/brooks-selfie-squad.webp`
+- Sheriff Brooks · uncommon · `assets/cards/brooks-sheriff-brooks.webp`
+- Captain Number 5 · epic · `assets/cards/brooks-captain-number-5.webp`
 
 ## Maui trip cards
 

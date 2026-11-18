@@ -1,6 +1,6 @@
 {
   "version": "2026-11-18",
-  "card_count": 100,
+  "card_count": 108,
   "cards": [
     {
       "id": "brooks-mr-suave-brooks",
@@ -1595,6 +1595,318 @@
         }
       ],
       "art_prompt": "Surf Crew Loy (RARE) — Bryant and the three boys on soft-top surfboards catching small waves in warm Maui water. Subtitle: \"First waves together\". Quote: \"Pop up, wipe out, paddle back. Repeat.\". Stats: Balance 85, Courage 98, Wipeouts 99. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (rare). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-surf-crew-loy.webp."
+    },
+    {
+      "id": "bryant-optic-blast-dad",
+      "title": "Optic Blast Dad",
+      "owner": "bryant",
+      "rarity": "bronze",
+      "series": "Core",
+      "image": "/assets/cards/bryant-optic-blast-dad.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🦸",
+      "tagline": "Bedtime Enforcer",
+      "flavor": "Screen Time: Terminated.",
+      "stats": [
+        {
+          "label": "Beam Accuracy",
+          "value": 99
+        },
+        {
+          "label": "Bedtime Authority",
+          "value": 100
+        },
+        {
+          "label": "Wi-Fi Control",
+          "value": 95
+        },
+        {
+          "label": "Negotiation Resistance",
+          "value": 92
+        },
+        {
+          "label": "Dad Jokes",
+          "value": 88
+        }
+      ],
+      "ability": "Screen Off Protocol",
+      "ability_text": "Every screen in the house goes dark at bedtime.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "bryson-marching-mako",
+      "title": "Marching Mako",
+      "owner": "bryson",
+      "rarity": "rare",
+      "series": "Core",
+      "image": "/assets/cards/bryson-marching-mako.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🎺",
+      "tagline": "Orange Beach Band",
+      "flavor": "One note. Whole stadium.",
+      "stats": [
+        {
+          "label": "Lung Power",
+          "value": 98
+        },
+        {
+          "label": "Plume Height",
+          "value": 95
+        },
+        {
+          "label": "Rhythm",
+          "value": 94
+        },
+        {
+          "label": "Stadium Volume",
+          "value": 100
+        },
+        {
+          "label": "Formation Focus",
+          "value": 90
+        }
+      ],
+      "ability": "Halftime Takeover",
+      "ability_text": "Hits one note and the stadium lights flicker.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "bryson-trail-blazer-bryson",
+      "title": "Trail Blazer Bryson",
+      "owner": "bryson",
+      "rarity": "uncommon",
+      "series": "Core",
+      "image": "/assets/cards/bryson-trail-blazer-bryson.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🍂",
+      "tagline": "Cross Country · Bib 1453",
+      "flavor": "Leaves behind. Finish line ahead.",
+      "stats": [
+        {
+          "label": "Endurance",
+          "value": 96
+        },
+        {
+          "label": "Trail Speed",
+          "value": 93
+        },
+        {
+          "label": "Hill Grit",
+          "value": 90
+        },
+        {
+          "label": "Pace Control",
+          "value": 95
+        },
+        {
+          "label": "Kick",
+          "value": 92
+        }
+      ],
+      "ability": "Negative Splits",
+      "ability_text": "Every mile faster than the last.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "bennett-web-warrior-bennett",
+      "title": "Web Warrior Bennett",
+      "owner": "bennett",
+      "rarity": "rare",
+      "series": "Core",
+      "image": "/assets/cards/bennett-web-warrior-bennett.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🕸️",
+      "tagline": "Yard Duty Hero",
+      "flavor": "Pine straw never stood a chance.",
+      "stats": [
+        {
+          "label": "Web Speed",
+          "value": 97
+        },
+        {
+          "label": "Yard Coverage",
+          "value": 99
+        },
+        {
+          "label": "Chore Motivation",
+          "value": 85
+        },
+        {
+          "label": "Agility",
+          "value": 94
+        },
+        {
+          "label": "Snack Breaks",
+          "value": 90
+        }
+      ],
+      "ability": "Chore Speedrun",
+      "ability_text": "A whole yard of pine straw, bundled in one web.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "bennett-shark-run-finisher",
+      "title": "Shark Run Finisher",
+      "owner": "bennett",
+      "rarity": "uncommon",
+      "series": "Core",
+      "image": "/assets/cards/bennett-shark-run-finisher.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🦈",
+      "tagline": "5K Complete",
+      "flavor": "Hot, soaked and still smiling.",
+      "stats": [
+        {
+          "label": "Heat Tolerance",
+          "value": 98
+        },
+        {
+          "label": "Finish Kick",
+          "value": 92
+        },
+        {
+          "label": "Grit",
+          "value": 96
+        },
+        {
+          "label": "Smile",
+          "value": 100
+        },
+        {
+          "label": "Hydration",
+          "value": 80
+        }
+      ],
+      "ability": "Heat Don't Matter",
+      "ability_text": "Runs his best when it's hottest.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "brooks-selfie-squad",
+      "title": "Selfie Squad",
+      "owner": "brooks",
+      "rarity": "rare",
+      "series": "Family",
+      "image": "/assets/cards/brooks-selfie-squad.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🤳",
+      "tagline": "Brooks + Aunt Amanda",
+      "flavor": "Cheek to cheek, goofy face on.",
+      "stats": [
+        {
+          "label": "Goofiness",
+          "value": 100
+        },
+        {
+          "label": "Cheek Squish",
+          "value": 95
+        },
+        {
+          "label": "Aunt Love",
+          "value": 100
+        }
+      ],
+      "ability": "Best Aunt Energy",
+      "ability_text": "Every photo instantly 10x more fun.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "brooks-sheriff-brooks",
+      "title": "Sheriff Brooks",
+      "owner": "brooks",
+      "rarity": "uncommon",
+      "series": "Core",
+      "image": "/assets/cards/brooks-sheriff-brooks.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🤠",
+      "tagline": "Beach Patrol",
+      "flavor": "Not on my beach.",
+      "stats": [
+        {
+          "label": "Hat Size",
+          "value": 100
+        },
+        {
+          "label": "Snack Security",
+          "value": 97
+        },
+        {
+          "label": "Deputy Skills",
+          "value": 85
+        },
+        {
+          "label": "Sand Patrol",
+          "value": 90
+        },
+        {
+          "label": "Swagger",
+          "value": 95
+        }
+      ],
+      "ability": "This Town's Too Small for Two Snack Thieves",
+      "ability_text": "No snack goes missing on his watch.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "brooks-captain-number-5",
+      "title": "Captain Number 5",
+      "owner": "brooks",
+      "rarity": "epic",
+      "series": "Core",
+      "image": "/assets/cards/brooks-captain-number-5.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "⚽",
+      "tagline": "Orange Beach Makos #5",
+      "flavor": "Mask on. Ball in the net.",
+      "stats": [
+        {
+          "label": "Bicycle Kick",
+          "value": 99
+        },
+        {
+          "label": "Hero Spirit",
+          "value": 100
+        },
+        {
+          "label": "Speed",
+          "value": 95
+        },
+        {
+          "label": "Goals",
+          "value": 97
+        },
+        {
+          "label": "Mask Craft",
+          "value": 90
+        }
+      ],
+      "ability": "Golden Boot",
+      "ability_text": "Scores when the team needs it most.",
+      "art_prompt": "See CARD-ART-SETS.md"
     }
   ],
   "removed_duplicates": [

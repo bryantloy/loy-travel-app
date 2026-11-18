@@ -260,3 +260,5 @@
 .face-stats div{display:flex;justify-content:space-between;font-size:5cqi;background:#00000026;border-radius:2cqi;padding:1.2cqi 3cqi}
 .face-flavor{margin-top:auto;background:#fbf3df;color:#4a3a1e;border-radius:3cqi;padding:3cqi;font-size:5cqi;font-weight:800;text-align:center;line-height:1.2}
 .face-foot{margin-top:3cqi;text-align:center;font-size:3.8cqi;letter-spacing:.14em;font-weight:900;opacity:.8}
+.face-ability{margin-top:auto;margin-bottom:2cqi;text-align:center;font-size:4.4cqi;text-transform:uppercase;letter-spacing:.04em;color:#ffe9a8}
+.face-ability+.face-flavor{margin-top:0}

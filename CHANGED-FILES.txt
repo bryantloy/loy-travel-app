@@ -1,19 +1,20 @@
 LOY TRAVEL v0.16 - EARNED CARD PACKS
-Adds earned card packs, 26 new cards (100 total) and two Quest wording fixes.
+Adds earned card packs, 34 new cards (108 total) and two Quest wording fixes.
 
 ADD:
 packs.js                        Pack rules, odds, pity/cooldown, Dad awards and storage
 SUPABASE-v016-CARD-PACKS.sql    Additive: earned_packs table + card_collections view
 CARD-PACKS.md                   How packs are earned and the odds (the spec)
-CARD-ART-PROMPTS.md             Art prompts + filenames for the 26 new cards
+CARD-ART-PROMPTS.md             Art prompts + filenames for the 34 new cards
+CARD-ART-SETS.md                First 24 cards to make, as 6 copy-paste prompts of 4
 tools/simulate-packs.js         Simulates a trip of packs per traveler
 
 REPLACE:
 index.html          Loads packs.js
 app.js              Earned packs panel, reveal (reuses the starter reveal), Dad's Pack Desk, "My cards" tab, per-traveler Quest finds, Quest copy fixes, Preview 0.16
 styles.css          Pack panel, badges, placeholder card faces
-card-catalog.json   26 new cards (art pending)
-card-catalog.csv    Same 26 rows
+card-catalog.json   34 new cards (art pending)
+card-catalog.csv    Same 34 rows
 
 INSTALL:
 1. Merge / deploy. Packs work right away, saved on each phone.
