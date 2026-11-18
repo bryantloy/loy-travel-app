@@ -218,3 +218,45 @@
 .memories button{background:var(--navy);color:#fff;border:1px solid var(--navy);font-weight:600}.memories input:focus-visible,.memories select:focus-visible,.memories button:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
 
 .memories fieldset{border:0;margin:0;padding:0;min-width:0}
+
+/* v0.16 earned packs */
+.nav button{position:relative}
+.nav-badge{position:absolute;top:2px;right:calc(50% - 22px);min-width:17px;height:17px;border-radius:999px;background:var(--coral);color:#fff;font-style:normal;font-size:.62rem;font-weight:950;line-height:17px;padding:0 4px}
+.earned-packs{margin:-4px 0 16px}
+.pack-row{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.pack-row b,.pack-row small{display:block}.pack-row small{color:var(--muted);font-size:.74rem;line-height:1.3}
+.pack-row.ready{background:linear-gradient(90deg,#fff7dc,#eefcff);border:1px solid #f0d58a;border-radius:14px;padding:10px;margin:8px 0}
+.pack-ico{font-size:1.45rem;text-align:center}
+.pack-open-btn{border:0;cursor:pointer;padding:9px 16px}
+.pack-ladder{margin-top:8px}.pack-ladder summary{cursor:pointer;font-weight:850;font-size:.85rem;padding:6px 0;color:#25749a}
+.pack-ladder .pack-row{grid-template-columns:34px 1fr;opacity:.85}
+.pack-odds{font-size:.74rem;margin:10px 0 0}
+.pack-error{color:#9b3f37;font-weight:800;font-size:.82rem}
+.pull-tag{display:inline-block;border-radius:999px;padding:4px 8px;font-size:.62rem;font-weight:950;letter-spacing:.06em;vertical-align:middle}
+.pull-tag.new{background:#ffd66b;color:#5a3d00}.pull-tag.dupe{background:#ffffff2e;color:#fff}
+.own-tag{display:inline-block;margin:6px 0 0 5px;font-size:.6rem;font-weight:950;color:#24785c;background:#e4f5eb;border-radius:999px;padding:4px 6px}
+.own-tag.no{color:var(--muted);background:#f1f4f4}
+.collectible.not-owned .card-art{filter:saturate(.35) brightness(.82)}
+.award-desk .toolbar .filter:disabled{opacity:.45}
+.award-note{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px;font:inherit;margin:4px 0 10px}
+.award-desk .buttonlink{border:0;cursor:pointer}
+/* Designed face for new cards until their .webp art is uploaded */
+.art-stack,.reveal-art{position:relative;width:100%;height:100%}
+.art-stack img,.reveal-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:1}
+.reveal-art{aspect-ratio:2/3;height:auto;width:min(100%,calc(68vh*2/3));margin:10px auto;border-radius:20px;overflow:hidden;box-shadow:0 26px 80px #0009}
+.reveal-art.light-art{width:min(92vw,calc(78vh*2/3),520px);margin:0}
+.reveal-art img{margin:0!important;max-height:none!important;box-shadow:none!important;border-radius:0!important}
+.card-face{position:absolute;inset:0;display:flex;flex-direction:column;padding:9%;color:#fff;text-align:left;border:5px solid #9fd7a4;border-radius:inherit;background:radial-gradient(circle at 50% 35%,#2fb3a8,#0b4f5f 70%,#062d4b);container-type:inline-size}
+.card-face.bronze{border-color:#c98b5b;background:radial-gradient(circle at 50% 35%,#d39a6a,#6b3b21 72%,#2d1a10)}
+.card-face.uncommon{border-color:#7fd08a;background:radial-gradient(circle at 50% 35%,#7fd08a,#1f6b4a 70%,#0b3528)}
+.card-face.rare{border-color:#7cb6ff;background:radial-gradient(circle at 50% 35%,#5ea8ff,#1d4f9c 70%,#0b2350)}
+.card-face.gold,.card-face.legendary{border-color:#ffd66b;background:radial-gradient(circle at 50% 35%,#ffcf5a,#a06a0e 68%,#3d2604)}
+.card-face.epic{border-color:#c39bff;background:radial-gradient(circle at 50% 35%,#a97bff,#4b2596 70%,#1e0c45)}
+.face-top b{display:block;font-size:10cqi;line-height:1;font-weight:950;text-shadow:0 2px 0 #0006;text-transform:uppercase}
+.face-top span{display:inline-block;margin-top:2.5cqi;font-size:4.5cqi;font-weight:950;letter-spacing:.1em;text-transform:uppercase;background:#ffffff26;border-radius:999px;padding:1cqi 3cqi}
+.face-emoji{font-size:28cqi;text-align:center;margin:3cqi 0 1cqi;filter:drop-shadow(0 6px 10px #0005)}
+.face-tag{font-size:5.4cqi;font-weight:850;text-align:center;opacity:.92}
+.face-stats{margin:4cqi 0;display:grid;gap:1.5cqi}
+.face-stats div{display:flex;justify-content:space-between;font-size:5cqi;background:#00000026;border-radius:2cqi;padding:1.2cqi 3cqi}
+.face-flavor{margin-top:auto;background:#fbf3df;color:#4a3a1e;border-radius:3cqi;padding:3cqi;font-size:5cqi;font-weight:800;text-align:center;line-height:1.2}
+.face-foot{margin-top:3cqi;text-align:center;font-size:3.8cqi;letter-spacing:.14em;font-weight:900;opacity:.8}
