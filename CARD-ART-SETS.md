@@ -1,8 +1,8 @@
-# Card art sets: 24 cards in 6 sets of 4
+# Card art sets: 28 cards in 7 sets of 4
 
 Each set below is one copy-paste prompt. Attach a few current cards as style references, plus photos of whoever is on the cards in that set. Upload each finished WebP to `assets/cards/` with the exact filename and it replaces the placeholder in the app automatically.
 
-Not in these 24 yet (can be a later set): Kendra Badger Softball, Uncle Brett Beach Day, and the other Maui stop cards (Westin Welcome, Honua Kai Home Base, Hāna Highway Hairpins, Black Rock Reef Patrol, Nēnē Patrol, Rainbow Eucalyptus, Bamboo Forest Tunnel, Waimoku Falls).
+Not in these 28 yet (can be a later set): the other Maui stop cards (Westin Welcome, Honua Kai Home Base, Black Rock Reef Patrol, Nēnē Patrol, Rainbow Eucalyptus, Bamboo Forest Tunnel).
 
 ## Set 1 · The brothers crew
 
@@ -304,4 +304,53 @@ Scene: A fiery Kāʻanapali beach sunset with the island of Lānaʻi silhouetted
 Who: no people.
 Stats: Glow 98, Calm 92, Photo Ops 95
 Quote: "Phones up. Then phones down."
+```
+
+## Set 7 · Cousin, uncle and the Road to Hāna
+
+```
+Make 4 separate images, one per card below, in this order. Use the attached current cards as the style reference and the attached photos for faces and wardrobe (references, not literal recreations).
+Style for every card: premium collectible trading card, vertical 2:3 portrait, vivid cartoon-realistic comic look with recognizable faces, the whole card visible edge to edge. Frame color follows rarity: common teal-and-green tropical, bronze copper, uncommon leafy green, rare bright blue, gold gold, epic glowing purple, legendary gold holographic.
+Three layouts, matching the existing cards:
+- Maui destination card: bold white title with a colored subtitle ribbon, rarity pill top right, painted Maui scene, stat rows with white icons down the left (use the stats given), parchment quote strip near the bottom, hibiscus "ALOHA COLLECTION · MAUI" footer, no card number.
+- Personal stat card: big title + subtitle ribbon, rarity badge top right, hero scene, stat rows with icons down the right side, quote strip, a "SPECIAL ABILITY" line under it, "LOY TRAVEL · Adventures hit different together" footer.
+- Crew comic card: huge gold 3D title across the top, round rarity seal on the right, comic-realism group scene, three illustrated badge panels along the bottom (use the stats as the badges), small tagline under them.
+Spell every word exactly as written. Never include the boys' mom, and no unrelated bystanders or invented props.
+Name each image with the filename given. Final files go in the app as WebP, about 1024x1536, quality 82-88, 100-350 KB.
+
+CARD 1: KENDRA BADGER SOFTBALL
+Filename: family-kendra-badger-softball.webp
+Layout: Crew comic card · Rarity: UNCOMMON (leafy green frame)
+Subtitle: Cousin Kendra · Wisconsin
+Scene: Cousin Kendra alone in a red-and-white Wisconsin-style softball uniform making a big diving play in a stadium action scene. Original uniform, no real team or university logos.
+Who: Kendra (cousin): use the attached reference photo for her face, hair and build.
+Badges: Bat Speed 93, Glove 90, Team Pride 97
+Quote: "Cousin power, red and white."
+
+CARD 2: UNCLE BRETT BEACH DAY
+Filename: family-uncle-brett-beach-day.webp
+Layout: Crew comic card · Rarity: UNCOMMON (leafy green frame)
+Subtitle: West Maui with Brett
+Scene: Bryant, his brother Brett and the three boys on a sunny West Maui beach with snorkel gear and a cooler, everyone laughing at one of Brett's stories.
+Who: Bryant (Dad): lean runner's build, short dark-brown hair, light stubble, blue-gray eyes, angular face, wry half-smile, black sport watch; Brett (Bryant's brother): use the attached reference photo for his face, hair and build; Bryson (14): tall and slim, dark-brown hair a bit longer and wavy on top, narrow face, brown eyes, easy closed-mouth smile; Bennett (13): sturdier build, short light-to-medium brown hair, round face, freckles, big toothy grin; Brooks (7): small, short light-brown hair, brown eyes, gap-tooth grin.
+Badges: Fun Level 97, Sand 90, Stories 95
+Quote: "Best uncle. Best beach."
+
+CARD 3: HĀNA HIGHWAY HAIRPINS
+Filename: destination-hana-highway-hairpins.webp
+Layout: Maui destination card · Rarity: COMMON (teal-and-green tropical frame)
+Subtitle: Hundreds of curves
+Scene: A winding jungle highway with one-lane bridges and waterfalls along the Road to Hāna
+Who: no people.
+Stats: Curves 100, Patience 75, Snack Stops 90
+Quote: "Who called the front seat?"
+
+CARD 4: WAIMOKU FALLS
+Filename: destination-waimoku-falls.webp
+Layout: Maui destination card · Rarity: RARE (bright blue frame)
+Subtitle: The Pīpīwai payoff
+Scene: A huge ribbon waterfall pouring down a sheer lava cliff at the end of the Pīpīwai Trail, bamboo and ferns at the base
+Who: no people.
+Stats: Height 99, Payoff 100, Leg Burn 85
+Quote: "Four miles of mud for a wall of water."
 ```

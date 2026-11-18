@@ -69,5 +69,5 @@ From `node tools/simulate-packs.js 11`, averaged over 20,000 trips:
 
 The catalog is now 108 cards. 34 are new and marked `"art": "pending"`: the 8 from the handoff batch (Bear Nose Bandits is the new legendary), 8 from Bryant's photos (Optic Blast Dad, Marching Mako, Trail Blazer Bryson, Web Warrior Bennett, Shark Run Finisher, Selfie Squad, Sheriff Brooks, Captain Number 5) and 18 Maui trip cards tied to real stops. They lean low: 6 common, 6 bronze, 10 uncommon, 9 rare, 2 epic, 1 legendary. Until art is uploaded they show a designed placeholder face.
 
-- `CARD-ART-SETS.md`: the first 24 to make, in 6 copy-paste prompts of 4 cards each.
+- `CARD-ART-SETS.md`: the first 28 to make, in 7 copy-paste prompts of 4 cards each.
 - `CARD-ART-PROMPTS.md`: a prompt and filename for every pending card.

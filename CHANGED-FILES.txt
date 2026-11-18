@@ -6,7 +6,7 @@ packs.js                        Pack rules, odds, pity/cooldown, Dad awards and 
 SUPABASE-v016-CARD-PACKS.sql    Additive: earned_packs table + card_collections view
 CARD-PACKS.md                   How packs are earned and the odds (the spec)
 CARD-ART-PROMPTS.md             Art prompts + filenames for the 34 new cards
-CARD-ART-SETS.md                First 24 cards to make, as 6 copy-paste prompts of 4
+CARD-ART-SETS.md                First 28 cards to make, as 7 copy-paste prompts of 4
 tools/simulate-packs.js         Simulates a trip of packs per traveler
 
 REPLACE:
