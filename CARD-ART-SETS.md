@@ -323,7 +323,7 @@ Filename: family-kendra-badger-softball.webp
 Layout: Crew comic card · Rarity: UNCOMMON (leafy green frame)
 Subtitle: Cousin Kendra · Wisconsin
 Scene: Cousin Kendra alone in a red-and-white Wisconsin-style softball uniform making a big diving play in a stadium action scene. Original uniform, no real team or university logos.
-Who: Kendra (cousin): use the attached reference photo for her face, hair and build.
+Who: Kendra (cousin): use the attached reference photo for Kendra's face, hair and build.
 Badges: Bat Speed 93, Glove 90, Team Pride 97
 Quote: "Cousin power, red and white."
 
