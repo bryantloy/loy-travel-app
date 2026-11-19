@@ -1,6 +1,6 @@
 {
-  "version": "2026-09-28",
-  "card_count": 74,
+  "version": "2026-11-18",
+  "card_count": 108,
   "cards": [
     {
       "id": "brooks-mr-suave-brooks",
@@ -70,7 +70,7 @@
     },
     {
       "id": "pets-rosie-couch-potato",
-      "title": "Rosie \u00b7 Couch Potato",
+      "title": "Rosie · Couch Potato",
       "owner": "pets",
       "rarity": "rare",
       "series": "Pets",
@@ -114,7 +114,7 @@
     },
     {
       "id": "destination-hana-banana-bread",
-      "title": "H\u0101na Banana Bread",
+      "title": "Hāna Banana Bread",
       "owner": "destination",
       "rarity": "common",
       "series": "Food",
@@ -169,7 +169,7 @@
     },
     {
       "id": "destination-haleakala",
-      "title": "Haleakal\u0101",
+      "title": "Haleakalā",
       "owner": "destination",
       "rarity": "legendary",
       "series": "Maui",
@@ -246,7 +246,7 @@
     },
     {
       "id": "destination-iao-valley",
-      "title": "\u02bb\u012aao Valley",
+      "title": "ʻĪao Valley",
       "owner": "destination",
       "rarity": "uncommon",
       "series": "Maui",
@@ -334,7 +334,7 @@
     },
     {
       "id": "destination-waianapanapa",
-      "title": "Wai\u02bb\u0101napanapa",
+      "title": "Waiʻānapanapa",
       "owner": "destination",
       "rarity": "epic",
       "series": "Maui",
@@ -378,7 +378,7 @@
     },
     {
       "id": "finn-finn-the-couch-potato",
-      "title": "Finn \u00b7 The Couch Potato",
+      "title": "Finn · The Couch Potato",
       "owner": "finn",
       "rarity": "legendary",
       "series": "Pets",
@@ -389,7 +389,7 @@
     },
     {
       "id": "bryant-kilauea-throwback",
-      "title": "K\u012blauea Throwback",
+      "title": "Kīlauea Throwback",
       "owner": "bryant",
       "rarity": "rare",
       "series": "Throwback",
@@ -609,7 +609,7 @@
     },
     {
       "id": "destination-road-to-hana",
-      "title": "Road to H\u0101na",
+      "title": "Road to Hāna",
       "owner": "destination",
       "rarity": "rare",
       "series": "Maui",
@@ -815,6 +815,1098 @@
       "source_position": 75,
       "source_file": "file_00000000febc822f8b86e218c90593d5.png",
       "status": "active"
+    },
+    {
+      "id": "family-bear-nose-bandits",
+      "title": "Bear Nose Bandits",
+      "owner": "family",
+      "rarity": "legendary",
+      "series": "Throwback",
+      "image": "/assets/cards/family-bear-nose-bandits.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🐻",
+      "tagline": "The Bear Point tradition",
+      "flavor": "Every visit. Every time. Every nose.",
+      "stats": [
+        {
+          "label": "Tradition",
+          "value": 100
+        },
+        {
+          "label": "Mischief",
+          "value": 100
+        },
+        {
+          "label": "Reach",
+          "value": 95
+        }
+      ],
+      "art_prompt": "Bear Nose Bandits (LEGENDARY) — Bryson, Bennett and Brooks (recognizable faces from reference photos) all climbed up on the giant familiar Bear Point bear statue together, mischievously picking its nose, the joke obvious at a glance, no signs or hanging objects, no other people. Subtitle: \"The Bear Point tradition\". Quote: \"Every visit. Every time. Every nose.\". Stats: Tradition 100, Mischief 100, Reach 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (legendary). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-bear-nose-bandits.webp."
+    },
+    {
+      "id": "brooks-soccer-dad-and-brooks",
+      "title": "Soccer Dad & Brooks",
+      "owner": "brooks",
+      "rarity": "bronze",
+      "series": "Core",
+      "image": "/assets/cards/brooks-soccer-dad-and-brooks.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "⚽",
+      "tagline": "Orange Beach Makos",
+      "flavor": "Dad on the sideline, Brooks on the ball.",
+      "stats": [
+        {
+          "label": "Footwork",
+          "value": 88
+        },
+        {
+          "label": "Hustle",
+          "value": 95
+        },
+        {
+          "label": "Sideline Hype",
+          "value": 99
+        }
+      ],
+      "art_prompt": "Soccer Dad & Brooks (BRONZE) — Bryant and Brooks in Orange Beach Makos soccer gear, a playful action moment on a sunny soccer field. Subtitle: \"Orange Beach Makos\". Quote: \"Dad on the sideline, Brooks on the ball.\". Stats: Footwork 88, Hustle 95, Sideline Hype 99. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (bronze). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as brooks-soccer-dad-and-brooks.webp."
+    },
+    {
+      "id": "family-family-boat-day",
+      "title": "Family Boat Day",
+      "owner": "family",
+      "rarity": "common",
+      "series": "Core",
+      "image": "/assets/cards/family-family-boat-day.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🚤",
+      "tagline": "Loy crew on the water",
+      "flavor": "Sunscreen on, hats off, full send.",
+      "stats": [
+        {
+          "label": "Wind",
+          "value": 90
+        },
+        {
+          "label": "Splash",
+          "value": 88
+        },
+        {
+          "label": "Crew Vibes",
+          "value": 95
+        }
+      ],
+      "art_prompt": "Family Boat Day (COMMON) — Bryant and all three boys on a small boat out on Gulf Coast water, stylized action-cartoon look, spray and sunshine. Subtitle: \"Loy crew on the water\". Quote: \"Sunscreen on, hats off, full send.\". Stats: Wind 90, Splash 88, Crew Vibes 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (common). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-family-boat-day.webp."
+    },
+    {
+      "id": "family-haunted-hustle-duo",
+      "title": "Haunted Hustle Duo",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Running",
+      "image": "/assets/cards/family-haunted-hustle-duo.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "👻",
+      "tagline": "Bryant + Bryson race day",
+      "flavor": "Spooky fast. Only two of us ran it.",
+      "stats": [
+        {
+          "label": "Pace",
+          "value": 94
+        },
+        {
+          "label": "Spook Factor",
+          "value": 90
+        },
+        {
+          "label": "Kick",
+          "value": 92
+        }
+      ],
+      "art_prompt": "Haunted Hustle Duo (RARE) — only Bryant and Bryson running a race together in matching ghost-pattern running gear, action race scene with a spooky fun finish line. Subtitle: \"Bryant + Bryson race day\". Quote: \"Spooky fast. Only two of us ran it.\". Stats: Pace 94, Spook Factor 90, Kick 92. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (rare). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-haunted-hustle-duo.webp."
+    },
+    {
+      "id": "family-talladega-brothers",
+      "title": "Talladega Brothers",
+      "owner": "family",
+      "rarity": "bronze",
+      "series": "Throwback",
+      "image": "/assets/cards/family-talladega-brothers.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🏁",
+      "tagline": "Bryson + Bennett",
+      "flavor": "Brothers at full throttle.",
+      "stats": [
+        {
+          "label": "Speed",
+          "value": 96
+        },
+        {
+          "label": "Noise",
+          "value": 99
+        },
+        {
+          "label": "Brotherhood",
+          "value": 95
+        }
+      ],
+      "art_prompt": "Talladega Brothers (BRONZE) — Bryson and Bennett at a racetrack with stock cars blurring past, brother-team energy. Subtitle: \"Bryson + Bennett\". Quote: \"Brothers at full throttle.\". Stats: Speed 96, Noise 99, Brotherhood 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (bronze). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-talladega-brothers.webp."
+    },
+    {
+      "id": "family-xc-crew",
+      "title": "XC Crew",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Sports",
+      "image": "/assets/cards/family-xc-crew.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🏃",
+      "tagline": "Bryson, Fuller + Bennett",
+      "flavor": "Three runners, one finish chute.",
+      "stats": [
+        {
+          "label": "Endurance",
+          "value": 95
+        },
+        {
+          "label": "Team Spirit",
+          "value": 97
+        },
+        {
+          "label": "Mud",
+          "value": 85
+        }
+      ],
+      "art_prompt": "XC Crew (UNCOMMON) — Bryson, his friend Fuller in the middle, and Bennett racing a cross-country course together, action race scene. Subtitle: \"Bryson, Fuller + Bennett\". Quote: \"Three runners, one finish chute.\". Stats: Endurance 95, Team Spirit 97, Mud 85. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (uncommon). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-xc-crew.webp."
+    },
+    {
+      "id": "family-krispy-kreme-crew",
+      "title": "Krispy Kreme Crew",
+      "owner": "family",
+      "rarity": "common",
+      "series": "Throwback",
+      "image": "/assets/cards/family-krispy-kreme-crew.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🍩",
+      "tagline": "Hot Now sign is on",
+      "flavor": "One dozen is a serving size, right?",
+      "stats": [
+        {
+          "label": "Glaze",
+          "value": 100
+        },
+        {
+          "label": "Sugar Rush",
+          "value": 95
+        },
+        {
+          "label": "Self Control",
+          "value": 20
+        }
+      ],
+      "art_prompt": "Krispy Kreme Crew (COMMON) — Bryant and the three boys grinning over boxes of glazed doughnuts at a doughnut shop counter. Subtitle: \"Hot Now sign is on\". Quote: \"One dozen is a serving size, right?\". Stats: Glaze 100, Sugar Rush 95, Self Control 20. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (common). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-krispy-kreme-crew.webp."
+    },
+    {
+      "id": "family-kendra-badger-softball",
+      "title": "Kendra Badger Softball",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Sports",
+      "image": "/assets/cards/family-kendra-badger-softball.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🥎",
+      "tagline": "Cousin Kendra · Wisconsin",
+      "flavor": "Cousin power, red and white.",
+      "stats": [
+        {
+          "label": "Bat Speed",
+          "value": 93
+        },
+        {
+          "label": "Glove",
+          "value": 90
+        },
+        {
+          "label": "Team Pride",
+          "value": 97
+        }
+      ],
+      "art_prompt": "Kendra Badger Softball (UNCOMMON) — cousin Kendra in a red Wisconsin softball uniform making a big play, stadium action scene. Subtitle: \"Cousin Kendra · Wisconsin\". Quote: \"Cousin power, red and white.\". Stats: Bat Speed 93, Glove 90, Team Pride 97. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (uncommon). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-kendra-badger-softball.webp."
+    },
+    {
+      "id": "destination-westin-welcome",
+      "title": "Westin Welcome",
+      "owner": "destination",
+      "rarity": "common",
+      "series": "Maui",
+      "image": "/assets/cards/destination-westin-welcome.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🏨",
+      "tagline": "Night one in Kāʻanapali",
+      "flavor": "First lei, first sunset, first big yawn.",
+      "stats": [
+        {
+          "label": "Aloha",
+          "value": 90
+        },
+        {
+          "label": "Pool Pull",
+          "value": 85
+        },
+        {
+          "label": "Jet Lag",
+          "value": 70
+        }
+      ],
+      "art_prompt": "Westin Welcome (COMMON) — an oceanfront resort lobby in Kāʻanapali at golden hour with leis on a counter and palm trees outside. Subtitle: \"Night one in Kāʻanapali\". Quote: \"First lei, first sunset, first big yawn.\". Stats: Aloha 90, Pool Pull 85, Jet Lag 70. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (common). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-westin-welcome.webp."
+    },
+    {
+      "id": "destination-honua-kai-home-base",
+      "title": "Honua Kai Home Base",
+      "owner": "destination",
+      "rarity": "common",
+      "series": "Maui",
+      "image": "/assets/cards/destination-honua-kai-home-base.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🏠",
+      "tagline": "Condo K830 HQ",
+      "flavor": "Snacks stocked. Boogie boards by the door.",
+      "stats": [
+        {
+          "label": "Comfort",
+          "value": 95
+        },
+        {
+          "label": "Snack Supply",
+          "value": 90
+        },
+        {
+          "label": "Ocean View",
+          "value": 85
+        }
+      ],
+      "art_prompt": "Honua Kai Home Base (COMMON) — a breezy oceanfront condo lanai with boogie boards, flip flops and a sunset over the water. Subtitle: \"Condo K830 HQ\". Quote: \"Snacks stocked. Boogie boards by the door.\". Stats: Comfort 95, Snack Supply 90, Ocean View 85. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (common). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-honua-kai-home-base.webp."
+    },
+    {
+      "id": "destination-kaanapali-sunset",
+      "title": "Kāʻanapali Sunset",
+      "owner": "destination",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/destination-kaanapali-sunset.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🌅",
+      "tagline": "Lānaʻi on the horizon",
+      "flavor": "Phones up. Then phones down.",
+      "stats": [
+        {
+          "label": "Glow",
+          "value": 98
+        },
+        {
+          "label": "Calm",
+          "value": 92
+        },
+        {
+          "label": "Photo Ops",
+          "value": 95
+        }
+      ],
+      "art_prompt": "Kāʻanapali Sunset (UNCOMMON) — a fiery Kāʻanapali beach sunset with the island of Lānaʻi silhouetted on the horizon. Subtitle: \"Lānaʻi on the horizon\". Quote: \"Phones up. Then phones down.\". Stats: Glow 98, Calm 92, Photo Ops 95. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (uncommon). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-kaanapali-sunset.webp."
+    },
+    {
+      "id": "destination-black-rock-reef-patrol",
+      "title": "Black Rock Reef Patrol",
+      "owner": "destination",
+      "rarity": "bronze",
+      "series": "Maui",
+      "image": "/assets/cards/destination-black-rock-reef-patrol.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🪨",
+      "tagline": "Puʻu Kekaʻa",
+      "flavor": "Mask on, eyes open, fins slow.",
+      "stats": [
+        {
+          "label": "Fish Spotting",
+          "value": 88
+        },
+        {
+          "label": "Snorkel Skill",
+          "value": 80
+        },
+        {
+          "label": "Reef Respect",
+          "value": 95
+        }
+      ],
+      "art_prompt": "Black Rock Reef Patrol (BRONZE) — snorkelers floating above colorful reef fish beside the dark lava headland of Black Rock in Kāʻanapali. Subtitle: \"Puʻu Kekaʻa\". Quote: \"Mask on, eyes open, fins slow.\". Stats: Fish Spotting 88, Snorkel Skill 80, Reef Respect 95. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (bronze). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-black-rock-reef-patrol.webp."
+    },
+    {
+      "id": "destination-silversword-sentinel",
+      "title": "Silversword Sentinel",
+      "owner": "destination",
+      "rarity": "rare",
+      "series": "Plants",
+      "image": "/assets/cards/destination-silversword-sentinel.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🌿",
+      "tagline": "ʻĀhinahina of Haleakalā",
+      "flavor": "Grows nowhere else on Earth. Look, don't touch.",
+      "stats": [
+        {
+          "label": "Rarity",
+          "value": 97
+        },
+        {
+          "label": "Shine",
+          "value": 94
+        },
+        {
+          "label": "Toughness",
+          "value": 90
+        }
+      ],
+      "art_prompt": "Silversword Sentinel (RARE) — a glowing silver ʻāhinahina silversword plant on red cinder slopes of Haleakalā crater at dawn. Subtitle: \"ʻĀhinahina of Haleakalā\". Quote: \"Grows nowhere else on Earth. Look, don't touch.\". Stats: Rarity 97, Shine 94, Toughness 90. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (rare). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-silversword-sentinel.webp."
+    },
+    {
+      "id": "destination-nene-patrol",
+      "title": "Nēnē Patrol",
+      "owner": "destination",
+      "rarity": "uncommon",
+      "series": "Wildlife",
+      "image": "/assets/cards/destination-nene-patrol.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🪿",
+      "tagline": "Hawaiʻi's state bird",
+      "flavor": "Slow down in the parking lot. Nēnē have the right of way.",
+      "stats": [
+        {
+          "label": "Waddle",
+          "value": 85
+        },
+        {
+          "label": "Island Pride",
+          "value": 99
+        },
+        {
+          "label": "Road Sense",
+          "value": 60
+        }
+      ],
+      "art_prompt": "Nēnē Patrol (UNCOMMON) — a pair of nēnē Hawaiian geese walking across volcanic ground near Haleakalā with clouds below. Subtitle: \"Hawaiʻi's state bird\". Quote: \"Slow down in the parking lot. Nēnē have the right of way.\". Stats: Waddle 85, Island Pride 99, Road Sense 60. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (uncommon). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-nene-patrol.webp."
+    },
+    {
+      "id": "destination-pride-of-maui-cruise",
+      "title": "Pride of Maui Cruise",
+      "owner": "destination",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/destination-pride-of-maui-cruise.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "⛵",
+      "tagline": "Māʻalaea Harbor · 7:30 check-in",
+      "flavor": "Big boat, big breakfast, big blue water.",
+      "stats": [
+        {
+          "label": "Sea Legs",
+          "value": 85
+        },
+        {
+          "label": "Adventure",
+          "value": 95
+        },
+        {
+          "label": "BBQ Lunch",
+          "value": 90
+        }
+      ],
+      "art_prompt": "Pride of Maui Cruise (UNCOMMON) — a big white catamaran leaving Māʻalaea Harbor in the morning with Molokini crater ahead on bright blue water. Subtitle: \"Māʻalaea Harbor · 7:30 check-in\". Quote: \"Big boat, big breakfast, big blue water.\". Stats: Sea Legs 85, Adventure 95, BBQ Lunch 90. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (uncommon). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-pride-of-maui-cruise.webp."
+    },
+    {
+      "id": "destination-turtle-town-traffic",
+      "title": "Turtle Town Traffic",
+      "owner": "destination",
+      "rarity": "rare",
+      "series": "Wildlife",
+      "image": "/assets/cards/destination-turtle-town-traffic.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🐢",
+      "tagline": "Honu rush hour",
+      "flavor": "Give them space. They were here first.",
+      "stats": [
+        {
+          "label": "Chill",
+          "value": 100
+        },
+        {
+          "label": "Swim Speed",
+          "value": 70
+        },
+        {
+          "label": "Wisdom",
+          "value": 96
+        }
+      ],
+      "art_prompt": "Turtle Town Traffic (RARE) — several green sea turtles gliding over a reef in clear turquoise water with sunbeams. Subtitle: \"Honu rush hour\". Quote: \"Give them space. They were here first.\". Stats: Chill 100, Swim Speed 70, Wisdom 96. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (rare). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-turtle-town-traffic.webp."
+    },
+    {
+      "id": "destination-spinner-dolphin-spin",
+      "title": "Spinner Dolphin Spin",
+      "owner": "destination",
+      "rarity": "rare",
+      "series": "Wildlife",
+      "image": "/assets/cards/destination-spinner-dolphin-spin.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🐬",
+      "tagline": "Bonus-level sighting",
+      "flavor": "Watch from a respectful distance. Cheer loudly.",
+      "stats": [
+        {
+          "label": "Spin Count",
+          "value": 99
+        },
+        {
+          "label": "Speed",
+          "value": 96
+        },
+        {
+          "label": "Wow Factor",
+          "value": 98
+        }
+      ],
+      "art_prompt": "Spinner Dolphin Spin (RARE) — spinner dolphins leaping and spinning out of deep blue water off Maui. Subtitle: \"Bonus-level sighting\". Quote: \"Watch from a respectful distance. Cheer loudly.\". Stats: Spin Count 99, Speed 96, Wow Factor 98. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (rare). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-spinner-dolphin-spin.webp."
+    },
+    {
+      "id": "destination-hana-highway-hairpins",
+      "title": "Hāna Highway Hairpins",
+      "owner": "destination",
+      "rarity": "common",
+      "series": "Maui",
+      "image": "/assets/cards/destination-hana-highway-hairpins.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🚙",
+      "tagline": "Hundreds of curves",
+      "flavor": "Who called the front seat?",
+      "stats": [
+        {
+          "label": "Curves",
+          "value": 100
+        },
+        {
+          "label": "Patience",
+          "value": 75
+        },
+        {
+          "label": "Snack Stops",
+          "value": 90
+        }
+      ],
+      "art_prompt": "Hāna Highway Hairpins (COMMON) — a winding jungle highway with one-lane bridges and waterfalls along the Road to Hāna. Subtitle: \"Hundreds of curves\". Quote: \"Who called the front seat?\". Stats: Curves 100, Patience 75, Snack Stops 90. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (common). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-hana-highway-hairpins.webp."
+    },
+    {
+      "id": "destination-rainbow-eucalyptus",
+      "title": "Rainbow Eucalyptus",
+      "owner": "destination",
+      "rarity": "uncommon",
+      "series": "Plants",
+      "image": "/assets/cards/destination-rainbow-eucalyptus.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🌳",
+      "tagline": "Painted by nature",
+      "flavor": "Nobody painted it. Seriously.",
+      "stats": [
+        {
+          "label": "Color",
+          "value": 100
+        },
+        {
+          "label": "Height",
+          "value": 88
+        },
+        {
+          "label": "Photo Ops",
+          "value": 94
+        }
+      ],
+      "art_prompt": "Rainbow Eucalyptus (UNCOMMON) — tall rainbow eucalyptus trunks striped green, orange, purple and blue in a rainforest. Subtitle: \"Painted by nature\". Quote: \"Nobody painted it. Seriously.\". Stats: Color 100, Height 88, Photo Ops 94. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (uncommon). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-rainbow-eucalyptus.webp."
+    },
+    {
+      "id": "destination-bamboo-forest-tunnel",
+      "title": "Bamboo Forest Tunnel",
+      "owner": "destination",
+      "rarity": "bronze",
+      "series": "Plants",
+      "image": "/assets/cards/destination-bamboo-forest-tunnel.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🎋",
+      "tagline": "Pīpīwai Trail",
+      "flavor": "Listen. The bamboo clacks like wind chimes.",
+      "stats": [
+        {
+          "label": "Spook Level",
+          "value": 70
+        },
+        {
+          "label": "Shade",
+          "value": 95
+        },
+        {
+          "label": "Trail Vibes",
+          "value": 96
+        }
+      ],
+      "art_prompt": "Bamboo Forest Tunnel (BRONZE) — a boardwalk trail through a towering dark green bamboo forest with light filtering through. Subtitle: \"Pīpīwai Trail\". Quote: \"Listen. The bamboo clacks like wind chimes.\". Stats: Spook Level 70, Shade 95, Trail Vibes 96. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (bronze). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-bamboo-forest-tunnel.webp."
+    },
+    {
+      "id": "destination-waimoku-falls",
+      "title": "Waimoku Falls",
+      "owner": "destination",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/destination-waimoku-falls.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "💧",
+      "tagline": "The Pīpīwai payoff",
+      "flavor": "Four miles of mud for a wall of water.",
+      "stats": [
+        {
+          "label": "Height",
+          "value": 99
+        },
+        {
+          "label": "Payoff",
+          "value": 100
+        },
+        {
+          "label": "Leg Burn",
+          "value": 85
+        }
+      ],
+      "art_prompt": "Waimoku Falls (RARE) — a huge ribbon waterfall pouring down a sheer lava cliff at the end of the Pīpīwai Trail. Subtitle: \"The Pīpīwai payoff\". Quote: \"Four miles of mud for a wall of water.\". Stats: Height 99, Payoff 100, Leg Burn 85. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (rare). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-waimoku-falls.webp."
+    },
+    {
+      "id": "family-costco-run-champions",
+      "title": "Costco Run Champions",
+      "owner": "family",
+      "rarity": "common",
+      "series": "Maui",
+      "image": "/assets/cards/family-costco-run-champions.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🛒",
+      "tagline": "Day one supply mission",
+      "flavor": "One cart. Four opinions. Zero regrets.",
+      "stats": [
+        {
+          "label": "Cart Skills",
+          "value": 90
+        },
+        {
+          "label": "Snack Votes",
+          "value": 95
+        },
+        {
+          "label": "Budget",
+          "value": 60
+        }
+      ],
+      "art_prompt": "Costco Run Champions (COMMON) — Bryant and the three boys pushing an overflowing warehouse-store cart of snacks and drinks under palm trees. Subtitle: \"Day one supply mission\". Quote: \"One cart. Four opinions. Zero regrets.\". Stats: Cart Skills 90, Snack Votes 95, Budget 60. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (common). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-costco-run-champions.webp."
+    },
+    {
+      "id": "family-jeep-squad",
+      "title": "Jeep Squad",
+      "owner": "family",
+      "rarity": "bronze",
+      "series": "Maui",
+      "image": "/assets/cards/family-jeep-squad.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🚙",
+      "tagline": "Top down, music up",
+      "flavor": "Roll call: who forgot the sunscreen?",
+      "stats": [
+        {
+          "label": "Road Trip",
+          "value": 95
+        },
+        {
+          "label": "Playlist",
+          "value": 90
+        },
+        {
+          "label": "Wind Hair",
+          "value": 99
+        }
+      ],
+      "art_prompt": "Jeep Squad (BRONZE) — Bryant and the three boys in a Jeep with the top down driving a Maui coastal road. Subtitle: \"Top down, music up\". Quote: \"Roll call: who forgot the sunscreen?\". Stats: Road Trip 95, Playlist 90, Wind Hair 99. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (bronze). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-jeep-squad.webp."
+    },
+    {
+      "id": "family-uncle-brett-beach-day",
+      "title": "Uncle Brett Beach Day",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/family-uncle-brett-beach-day.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🏖️",
+      "tagline": "West Maui with Brett",
+      "flavor": "Best uncle. Best beach.",
+      "stats": [
+        {
+          "label": "Fun Level",
+          "value": 97
+        },
+        {
+          "label": "Sand",
+          "value": 90
+        },
+        {
+          "label": "Stories",
+          "value": 95
+        }
+      ],
+      "art_prompt": "Uncle Brett Beach Day (UNCOMMON) — Bryant, his brother Brett and the three boys on a sunny West Maui beach with snorkel gear and a cooler. Subtitle: \"West Maui with Brett\". Quote: \"Best uncle. Best beach.\". Stats: Fun Level 97, Sand 90, Stories 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (uncommon). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-uncle-brett-beach-day.webp."
+    },
+    {
+      "id": "family-summit-sunrise-squad",
+      "title": "Summit Sunrise Squad",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/family-summit-sunrise-squad.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🌄",
+      "tagline": "Haleakalā · above the clouds",
+      "flavor": "Freezing hands. Warm hearts. Worth the alarm.",
+      "stats": [
+        {
+          "label": "Cold Power",
+          "value": 95
+        },
+        {
+          "label": "Early Alarm",
+          "value": 100
+        },
+        {
+          "label": "Views",
+          "value": 100
+        }
+      ],
+      "art_prompt": "Summit Sunrise Squad (EPIC) — Bryant and the three boys bundled in hoodies watching sunrise above a sea of clouds at Haleakalā summit. Subtitle: \"Haleakalā · above the clouds\". Quote: \"Freezing hands. Warm hearts. Worth the alarm.\". Stats: Cold Power 95, Early Alarm 100, Views 100. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (epic). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-summit-sunrise-squad.webp."
+    },
+    {
+      "id": "family-surf-crew-loy",
+      "title": "Surf Crew Loy",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-surf-crew-loy.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🏄",
+      "tagline": "First waves together",
+      "flavor": "Pop up, wipe out, paddle back. Repeat.",
+      "stats": [
+        {
+          "label": "Balance",
+          "value": 85
+        },
+        {
+          "label": "Courage",
+          "value": 98
+        },
+        {
+          "label": "Wipeouts",
+          "value": 99
+        }
+      ],
+      "art_prompt": "Surf Crew Loy (RARE) — Bryant and the three boys on soft-top surfboards catching small waves in warm Maui water. Subtitle: \"First waves together\". Quote: \"Pop up, wipe out, paddle back. Repeat.\". Stats: Balance 85, Courage 98, Wipeouts 99. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (rare). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-surf-crew-loy.webp."
+    },
+    {
+      "id": "bryant-optic-blast-dad",
+      "title": "Optic Blast Dad",
+      "owner": "bryant",
+      "rarity": "bronze",
+      "series": "Core",
+      "image": "/assets/cards/bryant-optic-blast-dad.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🦸",
+      "tagline": "Bedtime Enforcer",
+      "flavor": "Screen Time: Terminated.",
+      "stats": [
+        {
+          "label": "Beam Accuracy",
+          "value": 99
+        },
+        {
+          "label": "Bedtime Authority",
+          "value": 100
+        },
+        {
+          "label": "Wi-Fi Control",
+          "value": 95
+        },
+        {
+          "label": "Negotiation Resistance",
+          "value": 92
+        },
+        {
+          "label": "Dad Jokes",
+          "value": 88
+        }
+      ],
+      "ability": "Screen Off Protocol",
+      "ability_text": "Every screen in the house goes dark at bedtime.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "bryson-marching-mako",
+      "title": "Marching Mako",
+      "owner": "bryson",
+      "rarity": "rare",
+      "series": "Core",
+      "image": "/assets/cards/bryson-marching-mako.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🎺",
+      "tagline": "Orange Beach Band",
+      "flavor": "One note. Whole stadium.",
+      "stats": [
+        {
+          "label": "Lung Power",
+          "value": 98
+        },
+        {
+          "label": "Plume Height",
+          "value": 95
+        },
+        {
+          "label": "Rhythm",
+          "value": 94
+        },
+        {
+          "label": "Stadium Volume",
+          "value": 100
+        },
+        {
+          "label": "Formation Focus",
+          "value": 90
+        }
+      ],
+      "ability": "Halftime Takeover",
+      "ability_text": "Hits one note and the stadium lights flicker.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "bryson-trail-blazer-bryson",
+      "title": "Trail Blazer Bryson",
+      "owner": "bryson",
+      "rarity": "uncommon",
+      "series": "Core",
+      "image": "/assets/cards/bryson-trail-blazer-bryson.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🍂",
+      "tagline": "Cross Country · Bib 1453",
+      "flavor": "Leaves behind. Finish line ahead.",
+      "stats": [
+        {
+          "label": "Endurance",
+          "value": 96
+        },
+        {
+          "label": "Trail Speed",
+          "value": 93
+        },
+        {
+          "label": "Hill Grit",
+          "value": 90
+        },
+        {
+          "label": "Pace Control",
+          "value": 95
+        },
+        {
+          "label": "Kick",
+          "value": 92
+        }
+      ],
+      "ability": "Negative Splits",
+      "ability_text": "Every mile faster than the last.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "bennett-web-warrior-bennett",
+      "title": "Web Warrior Bennett",
+      "owner": "bennett",
+      "rarity": "rare",
+      "series": "Core",
+      "image": "/assets/cards/bennett-web-warrior-bennett.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🕸️",
+      "tagline": "Yard Duty Hero",
+      "flavor": "Pine straw never stood a chance.",
+      "stats": [
+        {
+          "label": "Web Speed",
+          "value": 97
+        },
+        {
+          "label": "Yard Coverage",
+          "value": 99
+        },
+        {
+          "label": "Chore Motivation",
+          "value": 85
+        },
+        {
+          "label": "Agility",
+          "value": 94
+        },
+        {
+          "label": "Snack Breaks",
+          "value": 90
+        }
+      ],
+      "ability": "Chore Speedrun",
+      "ability_text": "A whole yard of pine straw, bundled in one web.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "bennett-shark-run-finisher",
+      "title": "Shark Run Finisher",
+      "owner": "bennett",
+      "rarity": "uncommon",
+      "series": "Core",
+      "image": "/assets/cards/bennett-shark-run-finisher.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🦈",
+      "tagline": "5K Complete",
+      "flavor": "Hot, soaked and still smiling.",
+      "stats": [
+        {
+          "label": "Heat Tolerance",
+          "value": 98
+        },
+        {
+          "label": "Finish Kick",
+          "value": 92
+        },
+        {
+          "label": "Grit",
+          "value": 96
+        },
+        {
+          "label": "Smile",
+          "value": 100
+        },
+        {
+          "label": "Hydration",
+          "value": 80
+        }
+      ],
+      "ability": "Heat Don't Matter",
+      "ability_text": "Runs his best when it's hottest.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "brooks-selfie-squad",
+      "title": "Selfie Squad",
+      "owner": "brooks",
+      "rarity": "rare",
+      "series": "Family",
+      "image": "/assets/cards/brooks-selfie-squad.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🤳",
+      "tagline": "Brooks + Aunt Amanda",
+      "flavor": "Cheek to cheek, goofy face on.",
+      "stats": [
+        {
+          "label": "Goofiness",
+          "value": 100
+        },
+        {
+          "label": "Cheek Squish",
+          "value": 95
+        },
+        {
+          "label": "Aunt Love",
+          "value": 100
+        }
+      ],
+      "ability": "Best Aunt Energy",
+      "ability_text": "Every photo instantly 10x more fun.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "brooks-sheriff-brooks",
+      "title": "Sheriff Brooks",
+      "owner": "brooks",
+      "rarity": "uncommon",
+      "series": "Core",
+      "image": "/assets/cards/brooks-sheriff-brooks.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "🤠",
+      "tagline": "Beach Patrol",
+      "flavor": "Not on my beach.",
+      "stats": [
+        {
+          "label": "Hat Size",
+          "value": 100
+        },
+        {
+          "label": "Snack Security",
+          "value": 97
+        },
+        {
+          "label": "Deputy Skills",
+          "value": 85
+        },
+        {
+          "label": "Sand Patrol",
+          "value": 90
+        },
+        {
+          "label": "Swagger",
+          "value": 95
+        }
+      ],
+      "ability": "This Town's Too Small for Two Snack Thieves",
+      "ability_text": "No snack goes missing on his watch.",
+      "art_prompt": "See CARD-ART-SETS.md"
+    },
+    {
+      "id": "brooks-captain-number-5",
+      "title": "Captain Number 5",
+      "owner": "brooks",
+      "rarity": "epic",
+      "series": "Core",
+      "image": "/assets/cards/brooks-captain-number-5.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "art": "pending",
+      "emoji": "⚽",
+      "tagline": "Orange Beach Makos #5",
+      "flavor": "Mask on. Ball in the net.",
+      "stats": [
+        {
+          "label": "Bicycle Kick",
+          "value": 99
+        },
+        {
+          "label": "Hero Spirit",
+          "value": 100
+        },
+        {
+          "label": "Speed",
+          "value": 95
+        },
+        {
+          "label": "Goals",
+          "value": 97
+        },
+        {
+          "label": "Mask Craft",
+          "value": 90
+        }
+      ],
+      "ability": "Golden Boot",
+      "ability_text": "Scores when the team needs it most.",
+      "art_prompt": "See CARD-ART-SETS.md"
     }
   ],
   "removed_duplicates": [

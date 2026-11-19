@@ -1,24 +1,25 @@
-LOY TRAVEL v0.15 - DELETE TRIP PHOTOS
-Follow-up to v014. This ZIP contains only the changed/new files below.
-
-REPLACE:
-memories.js          Adds Delete photo buttons for all five family profiles, confirmation, storage/metadata deletion, failure/retry messages. Guest gets no delete controls. Existing upload/gallery behavior remains.
-CHANGED-FILES.txt    This release manifest.
+LOY TRAVEL v0.17 - EARNED CARD PACKS + QUEST POINTS
+Adds earned card packs (4 cards each, 1 starter pack per person), Quest points that earn packs, 22 new Quest finds, 34 new cards (108 total) and two Quest wording fixes.
 
 ADD:
-SUPABASE-v015-PHOTO-DELETE.sql
+packs.js                        Pack rules, odds, pity/cooldown, Dad awards and storage
+SUPABASE-v016-CARD-PACKS.sql    Additive: earned_packs table + card_collections view
+CARD-PACKS.md                   How packs are earned and the odds (the spec)
+CARD-ART-PROMPTS.md             Art prompts + filenames for the 34 new cards
+CARD-ART-SETS.md                First 28 cards to make, as 7 copy-paste prompts of 4
+tools/simulate-packs.js         Simulates a trip of packs per traveler
+
+REPLACE:
+index.html          Loads packs.js
+app.js              Earned packs panel, reveal (reuses the starter reveal), Dad's Pack Desk, "My cards" tab, per-traveler Quest finds, Quest copy fixes, 4-card starter packs, 22 new Quest finds with points, Preview 0.17
+styles.css          Pack panel, badges, placeholder card faces, emoji Quest tiles
+card-catalog.json   34 new cards (art pending)
+card-catalog.csv    Same 34 rows
 
 INSTALL:
-1. In Supabase SQL Editor, run SUPABASE-v015-PHOTO-DELETE.sql once after v014. Success/no rows returned is expected. This adds permissions only and deletes no photos.
-2. Replace memories.js in the repository root and let the site deploy.
-3. Refresh the app. Under the test photo, tap Delete photo and confirm.
-
-The shared copy is removed for everyone; originals on phones are untouched. Family profiles can delete any trip photo. Names remain unverified labels under the previously chosen shared-link model; Guest read-only remains a UI behavior. Backend access uses the same shared-link permissions as uploads.
-
-Storage is removed first; its successful removal is checked before deleting metadata. If cleanup of a gallery entry fails after storage removal, a retry can finish it. If storage blocks deletion, the gallery entry remains and an error is shown. No planning, voting, packing, card or itinerary data is changed. Migrated v013 photo paths and newer shared paths are supported.
-
-VERIFIED:
-JavaScript syntax and existing upload/gallery regression tests passed with mocked backend. New browser checks passed for canceling deletion, storage policy denial without metadata removal, successful confirmed deletion, and hidden Guest delete controls. Package file list/content/CRC/non-zero checks passed.
+1. Merge / deploy. Packs work right away, saved on each phone.
+2. When convenient, run SUPABASE-v016-CARD-PACKS.sql once in the Supabase SQL editor (after v015). Packs then sync across phones, and anything opened earlier copies up automatically.
+3. Upload card art to assets/cards/ with the filenames in CARD-ART-PROMPTS.md whenever it's ready.
 
 NOT RUN:
-Live migration/deployment and actual photo deletion. The current test photo has not been deleted by this package. After applying this update, use its Delete photo button to remove it.
+The SQL migration against the live database, and a real phone/browser check. Logic was tested in Node with a simulated app page and an in-memory database stand-in.
