@@ -3,7 +3,7 @@
 // until that runs, packs are kept on this device (localStorage) and copied up once the table exists.
 (function(global){
   const CONFIG={
-    packSize:3,
+    packSize:4,      // 4 cards per pack; still at most 1 rare-or-better
     // Chance for each card slot, using the catalog's 7 rarities (handoff section 18).
     odds:{common:40,bronze:20,uncommon:15,rare:15,gold:4,epic:5,legendary:1},
     order:["common","bronze","uncommon","rare","gold","epic","legendary"],
@@ -24,8 +24,12 @@
     {key:"haleakala",name:"Haleakalā Pack",icon:"🌋",how:"Unlocks on sunrise day, Sat 11/21",date:"2026-11-21"},
     {key:"ocean",name:"Ocean Pack",icon:"🐢",how:"Unlocks on Pride of Maui day, Mon 11/23",date:"2026-11-23"},
     {key:"explorer",name:"Explorer Pack",icon:"🚙",how:"Unlocks on Road to Hāna day, Tue 11/24",date:"2026-11-24"},
-    {key:"quest-5",name:"Quest Pack",icon:"🔎",how:"Find 5 Maui Quest targets",quest:5},
-    {key:"quest-10",name:"Quest Pack II",icon:"🏆",how:"Find 10 Maui Quest targets",quest:10},
+    {key:"quest-5",name:"Quest Pack",icon:"🔎",how:"Find 5 Maui Quest targets (silly ones don't count)",quest:5},
+    {key:"quest-10",name:"Quest Pack II",icon:"🏆",how:"Find 10 Maui Quest targets (silly ones don't count)",quest:10},
+    {key:"points-15",name:"Spotter Pack",icon:"👀",how:"Score 15 Maui Quest points",points:15},
+    {key:"points-35",name:"Sharp Eyes Pack",icon:"🔭",how:"Score 35 Maui Quest points",points:35},
+    {key:"points-60",name:"Island Tracker Pack",icon:"🧭",how:"Score 60 Maui Quest points",points:60},
+    {key:"points-90",name:"Maui Legend Pack",icon:"👑",how:"Score 90 Maui Quest points",points:90},
     {key:"wildlife",name:"Wildlife Pack",icon:"🐠",how:"Find 4 animals or ocean creatures in Maui Quest",wildlife:4},
     {key:"family-memory",name:"Family Memory Pack",icon:"📸",how:"The family uploads 5 trip photos",photos:5},
     {key:"surf",name:"Surf Pack",icon:"🏄",how:"Dad awards it if surf happens",dad:true},
@@ -145,7 +149,7 @@
   const openedPacks=p=>mine(p).filter(x=>x.opened_at&&x.pack_key!=="starter").sort((a,b)=>String(a.opened_at).localeCompare(String(b.opened_at)));
   const hasStarter=p=>mine(p).some(x=>x.pack_key==="starter");
 
-  // progress = {questFound, wildlifeFound}; returns every pack with its state for this traveler.
+  // progress = {questFound, questPoints, wildlifeFound}; returns every pack with its state for this traveler.
   function status(person,progress,now){
     const today=hawaiiDate(now||new Date()),have=mine(person);
     const list=PACKS.map(p=>{
@@ -154,6 +158,7 @@
       if(!row){
         if(p.date)earned=today>=p.date;
         if(p.quest){earned=progress.questFound>=p.quest;detail=`${Math.min(progress.questFound,p.quest)}/${p.quest} found`}
+        if(p.points){const pts=progress.questPoints||0;earned=pts>=p.points;detail=`${Math.min(pts,p.points)}/${p.points} pts`}
         if(p.wildlife){earned=progress.wildlifeFound>=p.wildlife;detail=`${Math.min(progress.wildlifeFound,p.wildlife)}/${p.wildlife} found`}
         if(p.photos){earned=photoCount>=p.photos;detail=`${Math.min(photoCount,p.photos)}/${p.photos} photos`}
       }

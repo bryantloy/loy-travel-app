@@ -10,7 +10,7 @@ for(const who of ["Bryson","Bennett","Brooks","Bryant"]){
       for(const id of ids){const r=byId[id].rarity;tierTot[r]=(tierTot[r]||0)+1;if(owned[id])dupes++;owned[id]=(owned[id]||0)+1;if(P.isHigh(r))hs.add(id);if(r==="legendary")gotLeg=true}}
     uniq+=Object.keys(owned).length;highSeen+=hs.size;if(!hs.size)noHigh++;if(gotLeg)legend++;
     for(const c of highPool){specific[c.id]=(specific[c.id]||0)+(owned[c.id]?1:0)}}
-  const tot=PACKS*3;console.log(`\n${who}: pool ${pool.length} cards (${highPool.length} gold/epic/legendary), ${PACKS} packs = ${tot} cards`);
+  const tot=PACKS*LoyPacks.CONFIG.packSize;console.log(`\n${who}: pool ${pool.length} cards (${highPool.length} gold/epic/legendary), ${PACKS} packs = ${tot} cards`);
   console.log(' per trip by rarity:',Object.entries(tierTot).sort((a,b)=>P.rank(a[0])-P.rank(b[0])).map(([k,v])=>`${k} ${(v/N).toFixed(1)}`).join(', '));
   console.log(` unique ${ (uniq/N).toFixed(1)}, dupes ${(dupes/N).toFixed(1)}, distinct high-tier ${(highSeen/N).toFixed(2)}, zero high-tier ${(100*noHigh/N).toFixed(1)}%, any legendary ${(100*legend/N).toFixed(0)}%, packs with a rare+ ${(100*packsWithHit/N/PACKS).toFixed(0)}%`);
   console.log(' chance to own each high card:',highPool.map(c=>`${c.title} (${c.rarity}) ${(100*specific[c.id]/N).toFixed(0)}%`).join('; '));
