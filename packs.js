@@ -1,4 +1,4 @@
-// Loy Travel v0.16 — earned card packs: milestones, odds, rare caps, pity and collection storage.
+// Loy Travel v0.18 — earned card packs: milestones, odds, rare caps, pity and collection storage.
 // Rules are written up in CARD-PACKS.md. Shared storage comes from SUPABASE-v016-CARD-PACKS.sql;
 // until that runs, packs are kept on this device (localStorage) and copied up once the table exists.
 (function(global){
@@ -15,8 +15,11 @@
     highPityPacks:6,       // 6 packs in a row with no gold+ -> next pack has a gold/epic/legendary
     newCardWeight:2.5,     // inside a rarity, cards you don't own yet are 2.5x as likely (duplicates still happen)
     ownCardWeight:2,       // and a traveler's own personal cards are 2x as likely as shared ones
+    collectFirst:true,     // no repeats until a traveler owns every card in their pool, so the set can be finished on the trip
     collectors:["Bryant","Bryson","Bennett","Brooks"],
-    boys:["bryson","bennett","brooks"]
+    boys:["bryson","bennett","brooks"],
+    ownPerPack:2,          // until a traveler owns all of their own cards, every pack has at least 2 of them
+    boysPullAll:true // each boy's packs can give any card, brothers' included (own cards still more likely)
   };
   // Earned packs. Each one opens once per traveler. Dates are Hawaiʻi dates.
   const PACKS=[
@@ -26,26 +29,29 @@
     {key:"explorer",name:"Explorer Pack",icon:"🚙",how:"Unlocks on Road to Hāna day, Tue 11/24",date:"2026-11-24"},
     {key:"quest-5",name:"Quest Pack",icon:"🔎",how:"Find 5 Maui Quest targets (silly ones don't count)",quest:5},
     {key:"quest-10",name:"Quest Pack II",icon:"🏆",how:"Find 10 Maui Quest targets (silly ones don't count)",quest:10},
-    {key:"points-15",name:"Spotter Pack",icon:"👀",how:"Score 15 Maui Quest points",points:15},
-    {key:"points-35",name:"Sharp Eyes Pack",icon:"🔭",how:"Score 35 Maui Quest points",points:35},
-    {key:"points-60",name:"Island Tracker Pack",icon:"🧭",how:"Score 60 Maui Quest points",points:60},
-    {key:"points-90",name:"Maui Legend Pack",icon:"👑",how:"Score 90 Maui Quest points",points:90},
+    {key:"quest-20",name:"Quest Pack III",icon:"🥇",how:"Find 20 Maui Quest targets over the trip (silly ones don't count)",quest:20},
+    {key:"quest-35",name:"Quest Master Pack",icon:"🗺️",how:"Find 35 Maui Quest targets over the trip (silly ones don't count)",quest:35},
+    {key:"century-100",name:"100 Point Bonus Pack",icon:"💯",how:"Bonus for reaching 100 Maui Quest points",points:100},
     {key:"wildlife",name:"Wildlife Pack",icon:"🐠",how:"Find 4 animals or ocean creatures in Maui Quest",wildlife:4},
+    {key:"wildlife-12",name:"Wildlife Pack II",icon:"🐬",how:"Find 12 animals or ocean creatures over the trip",wildlife:12},
     {key:"family-memory",name:"Family Memory Pack",icon:"📸",how:"The family uploads 5 trip photos",photos:5},
     {key:"surf",name:"Surf Pack",icon:"🏄",how:"Dad awards it if surf happens",dad:true},
     {key:"shave-ice",name:"Shave Ice Judge Pack",icon:"🍧",how:"Dad awards it",dad:true}
   ];
   const BONUS={key:"bonus",name:"Dad Bonus Pack",icon:"🎁",how:"Dad awards it for anything",dad:true};
+  // Points packs repeat: one pack every POINT_STEP Maui Quest points (15, 30, 45, ...), no cap.
+  const POINT_STEP=15;
+  const pointsPack=n=>({key:`points-${n}`,name:`${n} Point Pack`,icon:"⭐",how:`Score ${n} Maui Quest points`,points:n});
   const LOCAL_KEY="loy-packs-v016";
   const rank=r=>{let i=CONFIG.order.indexOf((r||"").toLowerCase());return i<0?0:i};
   const isHit=r=>rank(r)>=rank(CONFIG.hitFrom), isHigh=r=>rank(r)>=rank(CONFIG.highFrom);
-  const packInfo=key=>PACKS.find(p=>p.key===key)||(String(key).startsWith("bonus")?BONUS:key==="starter"?{key:"starter",name:"Starter Pack",icon:"✨"}:{key,name:"Card Pack",icon:"🎁"});
+  const packInfo=key=>PACKS.find(p=>p.key===key)||(/^points-\d+$/.test(String(key))?pointsPack(+String(key).slice(7)):String(key).startsWith("bonus")?BONUS:key==="starter"?{key:"starter",name:"Starter Pack",icon:"✨"}:{key,name:"Card Pack",icon:"🎁"});
 
   // Which cards a traveler can pull: their own, Dad's, Family, Pets/Finn and Maui.
   // Brothers' personal cards stay private, matching the original collection rules.
   function poolFor(person,cards){
     const self=(person||"").toLowerCase();
-    const pool=cards.filter(c=>(c.status||"active")==="active"&&(c.owner===self||!CONFIG.boys.includes(c.owner)));
+    const pool=cards.filter(c=>(c.status||"active")==="active"&&(c.owner===self||(c.also||[]).includes(self)||!CONFIG.boys.includes(c.owner)||(CONFIG.boysPullAll&&CONFIG.boys.includes(self))));
     pool.selfOwner=self;return pool;
   }
 
@@ -57,6 +63,7 @@
   // Pure roll. history = the traveler's earlier opened packs (oldest first), each {card_ids:[...]}.
   function rollPack(pool,history,byId,rng,owned){
     rng=rng||Math.random;owned=owned||{};
+    if(CONFIG.collectFirst){let c=collectRoll(pool,rng,owned);if(c)return c}
     const rar=id=>byId[id]?.rarity;
     const since=test=>{let n=0;for(let i=history.length-1;i>=0;i--){if((history[i].card_ids||[]).some(id=>test(rar(id))))break;n++}return n};
     const sinceHit=since(isHit),sinceHigh=since(isHigh);
@@ -85,11 +92,37 @@
       if(!options.length)continue;
       // Tier first, then the card: unowned cards get extra weight so each good card stays reachable.
       const self=(pool.selfOwner||"");
-      const w=options.map(c=>(owned[c.id]?1:CONFIG.newCardWeight)*(c.owner&&c.owner===self?CONFIG.ownCardWeight:1));
+      const w=options.map(c=>(owned[c.id]?1:CONFIG.newCardWeight)*(c.owner&&(c.owner===self||(c.also||[]).includes(self))?CONFIG.ownCardWeight:1));
       let x=rng()*w.reduce((a,b)=>a+b,0),k=0;while(k<options.length-1&&(x-=w[k])>=0)k++;
       const c=options[k];used.add(c.id);picked.push(c);
     }
     picked.sort((a,b)=>rank(a.rarity)-rank(b.rarity)); // best card is revealed last
+    return picked.map(c=>c.id);
+  }
+
+  // Collection roll: every card comes from the ones this traveler doesn't own yet, so there are no
+  // repeats until the set is done. A rarity is picked by its odds times how many of it are still
+  // missing, so commons come early and the rarest cards tend to show up near the end.
+  // When fewer cards are missing than fit in a pack, the rest of the pack is random repeats.
+  function collectRoll(pool,rng,owned){
+    let missing=pool.filter(c=>!owned[c.id]);
+    if(!missing.length)return null;
+    const self=pool.selfOwner||"",picked=[];
+    // Own cards first: until a traveler has all of their own cards, each pack holds at least CONFIG.ownPerPack of them.
+    const mine=c=>c.owner===self||(c.also||[]).includes(self);
+    let ownMissing=missing.filter(mine);
+    for(let i=0;i<CONFIG.ownPerPack&&ownMissing.length&&picked.length<CONFIG.packSize;i++){
+      const c=ownMissing.splice(Math.floor(rng()*ownMissing.length),1)[0];picked.push(c);missing=missing.filter(m=>m.id!==c.id);
+    }
+    const pick=list=>{const w=list.map(c=>(c.owner&&(c.owner===self||(c.also||[]).includes(self))?CONFIG.ownCardWeight:1));let x=rng()*w.reduce((a,b)=>a+b,0),k=0;while(k<list.length-1&&(x-=w[k])>=0)k++;return list[k]};
+    while(picked.length<CONFIG.packSize&&missing.length){
+      const tiers=CONFIG.order.map(t=>[t,missing.filter(c=>CONFIG.order[rank(c.rarity)]===t)]).filter(x=>x[1].length);
+      const w=tiers.map(([t,l])=>CONFIG.odds[t]*l.length);let x=rng()*w.reduce((a,b)=>a+b,0),k=0;while(k<tiers.length-1&&(x-=w[k])>=0)k++;
+      const c=pick(tiers[k][1]);picked.push(c);missing=missing.filter(m=>m.id!==c.id);
+    }
+    const rest=pool.filter(c=>!picked.includes(c));
+    while(picked.length<CONFIG.packSize&&rest.length){const c=rest.splice(Math.floor(rng()*rest.length),1)[0];picked.push(c)}
+    picked.sort((a,b)=>rank(a.rarity)-rank(b.rarity));
     return picked.map(c=>c.id);
   }
 
@@ -152,7 +185,12 @@
   // progress = {questFound, questPoints, wildlifeFound}; returns every pack with its state for this traveler.
   function status(person,progress,now){
     const today=hawaiiDate(now||new Date()),have=mine(person);
-    const list=PACKS.map(p=>{
+    // Every 15-point pack already reached, the next one to aim for, and any older points pack already saved.
+    const pts=progress.questPoints||0,steps=new Set();
+    for(let n=POINT_STEP;n<=(Math.floor(pts/POINT_STEP)+1)*POINT_STEP;n+=POINT_STEP)steps.add(n);
+    have.forEach(x=>{let m=/^points-(\d+)$/.exec(String(x.pack_key));if(m)steps.add(+m[1])});
+    const all=[...PACKS,...[...steps].sort((a,b)=>a-b).map(pointsPack)];
+    const list=all.map(p=>{
       const row=have.find(x=>x.pack_key===p.key);
       let earned=!!row,detail="";
       if(!row){
@@ -211,7 +249,7 @@
   }
   const canAward=(person,packKey)=>packKey==="bonus"||!mine(person).some(x=>x.pack_key===packKey);
 
-  const api={CONFIG,PACKS,BONUS,packInfo,rank,isHit,isHigh,poolFor,rollPack,hawaiiDate,init,refresh,status,readyPacks,collection,openPack,recordStarter,award,canAward,hasStarter,
+  const api={CONFIG,PACKS,BONUS,POINT_STEP,pointsPack,packInfo,rank,isHit,isHigh,poolFor,rollPack,hawaiiDate,init,refresh,status,readyPacks,collection,openPack,recordStarter,award,canAward,hasStarter,
     get mode(){return mode},get busy(){return busy},get photoCount(){return photoCount}};
   global.LoyPacks=api;
   if(typeof module!=="undefined")module.exports=api;

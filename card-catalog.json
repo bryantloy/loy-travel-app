@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-18",
-  "card_count": 97,
+  "version": "2026-11-19",
+  "card_count": 102,
   "cards": [
     {
       "id": "brooks-mr-suave-brooks",
@@ -1569,6 +1569,154 @@
         {
           "label": "Crew Vibes",
           "value": 98
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "bennett-finish-line-fire",
+      "title": "Finish Line Fire",
+      "owner": "bennett",
+      "rarity": "rare",
+      "series": "Core",
+      "image": "/assets/cards/bennett-finish-line-fire.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🏅",
+      "tagline": "5K medal mission",
+      "flavor": "Sweaty, smiling, and still strong.",
+      "stats": [
+        {
+          "label": "Pace",
+          "value": 95
+        },
+        {
+          "label": "Heart",
+          "value": 97
+        },
+        {
+          "label": "Grit",
+          "value": 92
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "bennett-yard-duty-warrior",
+      "title": "Yard Duty Warrior",
+      "owner": "bennett",
+      "rarity": "common",
+      "series": "Core",
+      "image": "/assets/cards/bennett-yard-duty-warrior.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🧤",
+      "tagline": "Cleanup crew MVP",
+      "flavor": "If it needs doing, I'm on it.",
+      "stats": [
+        {
+          "label": "Grit",
+          "value": 94
+        },
+        {
+          "label": "Helping Hands",
+          "value": 92
+        },
+        {
+          "label": "Hustle",
+          "value": 90
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "bennett-pirate-island-duo",
+      "title": "Pirate Island Duo",
+      "owner": "bennett",
+      "rarity": "rare",
+      "series": "Core",
+      "image": "/assets/cards/bennett-pirate-island-duo.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🏴‍☠️",
+      "tagline": "Mini-golf mutiny",
+      "flavor": "Fore... then arrrr!",
+      "stats": [
+        {
+          "label": "Teamwork",
+          "value": 92
+        },
+        {
+          "label": "Laughs",
+          "value": 98
+        },
+        {
+          "label": "Pirate Energy",
+          "value": 96
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant.",
+      "also": [
+        "brooks"
+      ]
+    },
+    {
+      "id": "brooks-backseat-beach-captain",
+      "title": "Backseat Beach Captain",
+      "owner": "brooks",
+      "rarity": "common",
+      "series": "Core",
+      "image": "/assets/cards/brooks-backseat-beach-captain.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🚗",
+      "tagline": "Cruise mode engaged",
+      "flavor": "Windows down. Adventure up.",
+      "stats": [
+        {
+          "label": "Road Trip",
+          "value": 93
+        },
+        {
+          "label": "Smile",
+          "value": 95
+        },
+        {
+          "label": "Adventure",
+          "value": 91
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "brooks-spider-stroke-hero",
+      "title": "Spider-Stroke Hero",
+      "owner": "brooks",
+      "rarity": "uncommon",
+      "series": "Core",
+      "image": "/assets/cards/brooks-spider-stroke-hero.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🎨",
+      "tagline": "Creative mode activated",
+      "flavor": "Every masterpiece starts with a little red paint.",
+      "stats": [
+        {
+          "label": "Art Skill",
+          "value": 95
+        },
+        {
+          "label": "Focus",
+          "value": 90
+        },
+        {
+          "label": "Hero Vibes",
+          "value": 96
         }
       ],
       "art_prompt": "Custom art supplied by Bryant."

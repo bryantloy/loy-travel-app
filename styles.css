@@ -171,8 +171,8 @@
 .day-booking strong,.day-booking small{display:block}
 .day-booking small{color:var(--muted);text-align:right}
 
-.quest-stats{display:flex;gap:10px;justify-content:center;margin-top:12px}
-.quest-stats>div{background:rgba(255,255,255,.85);padding:9px 16px;border-radius:14px;min-width:92px}
+.quest-stats{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.quest-stats>div{background:rgba(255,255,255,.85);padding:9px 12px;border-radius:14px;min-width:84px}
 .quest-stats b,.quest-stats span{display:block}
 .quest-stats b{font-size:1.25rem}.quest-stats span{font-size:.68rem;color:var(--muted);font-weight:800}
 .quest-filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}

@@ -79,7 +79,47 @@ const QUEST_TARGETS=[
   {"id":  "spam-musubi", "name":  "Spam musubi", "category":  "silly", "difficulty":  "easy", "points":  1, "emoji":  "🍙", "note":  "Spot it, then eat it for no extra points."},
   {"id":  "shaka", "name":  "Someone throwing a shaka", "category":  "silly", "difficulty":  "easy", "points":  1, "emoji":  "🤙", "note":  "Throw one back."},
   {"id":  "brain-freeze", "name":  "Shave ice brain freeze", "category":  "silly", "difficulty":  "easy", "points":  1, "emoji":  "🍧", "note":  "Only counts if you make the face."},
-  {"id":  "dad-photo", "name":  "Dad stopping for one more photo", "category":  "silly", "difficulty":  "easy", "points":  1, "emoji":  "📷", "note":  "Should be easy."}
+  {"id":  "dad-photo", "name":  "Dad stopping for one more photo", "category":  "silly", "difficulty":  "easy", "points":  1, "emoji":  "📷", "note":  "Should be easy."},
+  {"id": "shave-ice", "name": "Shave ice", "category": "food", "difficulty": "easy", "points": 2, "emoji": "🍧", "note": "Rainbow flavors count. Ice cream on the bottom counts double in your heart."},
+  {"id": "chicken-tenders", "name": "Chicken tenders", "category": "food", "difficulty": "easy", "points": 1, "emoji": "🍗", "note": "The official food of the Loy boys."},
+  {"id": "pulled-pork", "name": "Kalua pulled pork", "category": "food", "difficulty": "easy", "points": 2, "emoji": "🐖", "note": "Slow-roasted island style. Plate lunch approved."},
+  {"id": "pizza", "name": "Pizza", "category": "food", "difficulty": "easy", "points": 1, "emoji": "🍕", "note": "Yes, pizza in Hawaiʻi counts."},
+  {"id": "banana-bread", "name": "Banana bread", "category": "food", "difficulty": "easy", "points": 2, "emoji": "🍌", "note": "Road to Hāna fuel. Warm is best."},
+  {"id": "poke", "name": "Poke bowl", "category": "food", "difficulty": "medium", "points": 2, "emoji": "🐟", "note": "Raw fish, rice, sauce. Brave eaters only."},
+  {"id": "malasada", "name": "Malasada", "category": "food", "difficulty": "medium", "points": 3, "emoji": "🍩", "note": "Hawaiian doughnut, sugar everywhere."},
+  {"id": "acai-bowl", "name": "Açaí bowl", "category": "food", "difficulty": "easy", "points": 2, "emoji": "🥣", "note": "Breakfast that looks like dessert."},
+  {"id": "fish-tacos", "name": "Fish tacos", "category": "food", "difficulty": "easy", "points": 2, "emoji": "🌮", "note": "Fresh catch in a tortilla."},
+  {"id": "pineapple", "name": "Fresh pineapple", "category": "food", "difficulty": "easy", "points": 1, "emoji": "🍍", "note": "Eat it, don't just look at it."},
+  {"id": "coconut-drink", "name": "Drink from a coconut", "category": "food", "difficulty": "medium", "points": 2, "emoji": "🥥", "note": "Straw in a real coconut."},
+  {"id": "loco-moco", "name": "Loco moco", "category": "food", "difficulty": "medium", "points": 3, "emoji": "🍳", "note": "Rice, burger, egg, gravy. A Hawaiian legend."},
+  {"id": "huli-chicken", "name": "Huli huli chicken", "category": "food", "difficulty": "medium", "points": 2, "emoji": "🔥", "note": "Smoky roadside chicken. Follow the smoke."},
+  {"id": "plate-lunch", "name": "Plate lunch", "category": "food", "difficulty": "easy", "points": 1, "emoji": "🍱", "note": "Two scoops rice, one scoop mac salad."},
+  {"id": "pineapple-soft-serve", "name": "Pineapple soft serve", "category": "food", "difficulty": "easy", "points": 2, "emoji": "🍦", "note": "The swirl kind. Brain freeze optional."},
+  {"id": "macadamia", "name": "Macadamia nuts", "category": "food", "difficulty": "easy", "points": 1, "emoji": "🌰", "note": "Chocolate covered is allowed."},
+  {"id": "sunset", "name": "A Maui sunset", "category": "weather", "difficulty": "easy", "points": 2, "emoji": "🌅", "note": "Phones up, then phones down."},
+  {"id": "sunrise", "name": "A sunrise", "category": "weather", "difficulty": "medium", "points": 3, "emoji": "🌄", "note": "Worth the early alarm. Haleakalā counts extra in bragging rights."},
+  {"id": "double-rainbow", "name": "Double rainbow", "category": "weather", "difficulty": "hard", "points": 5, "emoji": "🌈", "note": "Two at once. Scream about it."},
+  {"id": "starry-sky", "name": "A sky full of stars", "category": "weather", "difficulty": "medium", "points": 3, "emoji": "✨", "note": "Look up on a clear night away from the lights."},
+  {"id": "any-waterfall", "name": "Any waterfall", "category": "places", "difficulty": "easy", "points": 2, "emoji": "💦", "note": "Big or tiny, if water falls off a rock it counts."},
+  {"id": "tide-pool", "name": "Tide pool", "category": "places", "difficulty": "easy", "points": 2, "emoji": "🪸", "note": "Peek in, don't poke."},
+  {"id": "toes-in-sand", "name": "Toes in the sand", "category": "places", "difficulty": "easy", "points": 1, "emoji": "🏖️", "note": "Kick off the slippers."},
+  {"id": "island-view", "name": "Another island on the horizon", "category": "places", "difficulty": "easy", "points": 2, "emoji": "🏝️", "note": "Lānaʻi, Molokaʻi or Kahoʻolawe across the water."},
+  {"id": "surfer", "name": "A surfer riding a wave", "category": "places", "difficulty": "easy", "points": 1, "emoji": "🏄", "note": "Bonus cheers if it's a Loy."},
+  {"id": "outrigger", "name": "Outrigger canoe", "category": "places", "difficulty": "medium", "points": 2, "emoji": "🛶", "note": "Long boat, lots of paddlers."},
+  {"id": "hula", "name": "Hula dancer", "category": "places", "difficulty": "medium", "points": 3, "emoji": "💃", "note": "Watch the hands. They tell the story."},
+  {"id": "sea-urchin", "name": "Sea urchin", "category": "ocean", "difficulty": "medium", "points": 2, "emoji": "🟣", "note": "Spiky ball on the reef. Look, don't step."},
+  {"id": "moorish-idol", "name": "Moorish idol", "category": "ocean", "difficulty": "medium", "points": 3, "emoji": "🐠", "note": "The black, white and yellow fish with the long fin."},
+  {"id": "eagle-ray", "name": "Spotted eagle ray", "category": "ocean", "difficulty": "hard", "points": 8, "emoji": "🦅", "note": "Flies through the water like a bird."},
+  {"id": "hermit-crab", "name": "Hermit crab", "category": "animals", "difficulty": "easy", "points": 2, "emoji": "🐚", "note": "A crab wearing a borrowed shell."},
+  {"id": "cardinal", "name": "Red-crested cardinal", "category": "animals", "difficulty": "easy", "points": 1, "emoji": "🐦", "note": "Gray bird with a bright red head."},
+  {"id": "cattle-egret", "name": "Cattle egret", "category": "animals", "difficulty": "easy", "points": 1, "emoji": "🤍", "note": "White bird hanging out near cows or lawns."},
+  {"id": "sunburn", "name": "Someone's sunburn", "category": "silly", "difficulty": "easy", "points": 1, "emoji": "🥵", "note": "Reapply, people."},
+  {"id": "dad-joke", "name": "A Dad joke", "category": "silly", "difficulty": "easy", "points": 1, "emoji": "😑", "note": "Groaning is required to claim it."},
+  {"id": "car-nap", "name": "Someone asleep in the car", "category": "silly", "difficulty": "easy", "points": 1, "emoji": "😴", "note": "Take a photo. Quietly."},
+  {"id": "hard-word", "name": "A Hawaiian word you can't pronounce", "category": "silly", "difficulty": "easy", "points": 1, "emoji": "🗣️", "note": "Try it out loud anyway."},
+  {"id": "socks-sandals", "name": "Socks with sandals", "category": "silly", "difficulty": "easy", "points": 1, "emoji": "🧦", "note": "Fashion is a choice."},
+  {"id": "slipper-tan", "name": "Slipper tan lines", "category": "silly", "difficulty": "easy", "points": 1, "emoji": "🦶", "note": "Proof you were here."},
+  {"id": "selfie-stick", "name": "A selfie stick", "category": "silly", "difficulty": "easy", "points": 1, "emoji": "🤳", "note": "Bonus if it's longer than the person."}
 ];
 
 const MAP_POINTS={
@@ -246,16 +286,19 @@ function costcoList(){
 }
 function prep(){return `${head()}<main class="content"><div class="eyebrow">GET READY</div><h2>Prep</h2>${isGuest()?`<div class="guest-readonly">👀 Guest View · packing and shopping are read-only</div>`:""}<div class="tabbar three"><button class="${prepTab==="packing"?"on":""}" data-prep-tab="packing">🧳 Packing</button><button class="${prepTab==="orders"?"on":""}" data-prep-tab="orders">🛍 Order</button><button class="${prepTab==="costco"?"on":""}" data-prep-tab="costco">🛒 Costco</button></div>${prepTab==="packing"?packingList():prepTab==="orders"?orderList():costcoList()}</main>`}
 function results(){let p=[...pool()].sort((a,b)=>familyScore(b.id)-familyScore(a.id));return `<div class="eyebrow">FAMILY RESULTS</div><h2>What the crew wants</h2><section class="card">${p.slice(0,12).map((a,i)=>`<div class="result-row"><div><b>${a.name}</b><div class="sub">${voteIcons(a.id)||"No votes yet"}</div></div><span class="score">${familyScore(a.id)}</span></div>`).join("")}</section>`}
-function spotKey(id){return `loy-spot-${(who||"").toLowerCase()}-${id}`}
-function questProgress(){let found=QUEST_TARGETS.filter(x=>localStorage.getItem(spotKey(x.id))==="1");return{questFound:found.filter(x=>x.category!=="silly").length,questPoints:found.reduce((t,x)=>t+x.points,0),wildlifeFound:found.filter(x=>x.category==="animals"||x.category==="ocean").length}}
+// Finds reset every Hawaiʻi day: each one can be claimed once a day, and points add up over the trip.
+function questDay(){return window.LoyPacks?LoyPacks.hawaiiDate(new Date()):new Date().toISOString().slice(0,10)}
+function spotKey(id,day){return `loy-spot-${(who||"").toLowerCase()}-${day||questDay()}-${id}`}
+function questLog(){let pre=`loy-spot-${(who||"").toLowerCase()}-`,byId=Object.fromEntries(QUEST_TARGETS.map(x=>[x.id,x])),out=[];for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(!k||!k.startsWith(pre)||localStorage.getItem(k)!=="1")continue;let rest=k.slice(pre.length),m=/^(\d{4}-\d{2}-\d{2})-(.+)$/.exec(rest),id=m?m[2]:rest;if(byId[id])out.push(byId[id])}return out}
+function questProgress(){let found=questLog();return{questFound:found.filter(x=>x.category!=="silly").length,questPoints:found.reduce((t,x)=>t+x.points,0),wildlifeFound:found.filter(x=>x.category==="animals"||x.category==="ocean").length}}
 function quest(){
   let found=QUEST_TARGETS.filter(x=>localStorage.getItem(spotKey(x.id))==="1");
-  let points=found.reduce((s,x)=>s+x.points,0), totalPoints=QUEST_TARGETS.reduce((s,x)=>s+x.points,0);
-  let groups=[["all","All"],["plants","🌿 Plants"],["animals","🦎 Animals"],["ocean","🐠 Ocean"],["places","🌋 Places"],["weather","🌈 Weather"],["silly","😂 Silly"]];
+  let points=found.reduce((s,x)=>s+x.points,0), tripPoints=questLog().reduce((s,x)=>s+x.points,0);
+  let groups=[["all","All"],["food","🍽️ Food"],["plants","🌿 Plants"],["animals","🦎 Animals"],["ocean","🐠 Ocean"],["places","🌋 Places"],["weather","🌈 Weather"],["silly","😂 Silly"]];
   let questFilter=localStorage.getItem("loy-quest-filter")||"all";
   let list=QUEST_TARGETS.filter(x=>questFilter==="all"||x.category===questFilter);
   return `${head()}<main class="content">
-  <section class="card quest-card quest-hero"><div class="eyebrow quest-eye">MAUI QUEST</div><div class="quest-big">📸 🐢 🌺 🌋</div><h2>Find the real Maui.</h2><p>Big wildlife is worth big points. Silly finds still count. Tap a find when you spot it.</p><p class="quest-pack-note">🎴 Points earn card packs at ${(window.LoyPacks?LoyPacks.PACKS.filter(p=>p.points).map(p=>p.points):[]).join(", ")} points. Silly finds count for points only.</p><div class="quest-stats"><div><b>${found.length}/${QUEST_TARGETS.length}</b><span>found</span></div><div><b>${points}/${totalPoints}</b><span>points</span></div></div></section>
+  <section class="card quest-card quest-hero"><div class="eyebrow quest-eye">MAUI QUEST</div><div class="quest-big">📸 🐢 🌺 🌋</div><h2>Find the real Maui.</h2><p>Big wildlife is worth big points. Silly finds still count. Tap a find when you spot it. Everything resets each morning, so you can find it again tomorrow.</p><p class="quest-pack-note">🎴 Every 15 points earns a card pack, plus a bonus pack at 100. Silly finds count for points only.</p><div class="quest-stats"><div><b>${found.length}/${QUEST_TARGETS.length}</b><span>found today</span></div><div><b>${points}</b><span>points today</span></div><div><b>${tripPoints}</b><span>trip points</span></div></div></section>
   <div class="toolbar quest-filters">${groups.map(x=>`<button class="filter ${questFilter===x[0]?"on":""}" data-quest-filter="${x[0]}">${x[1]}</button>`).join("")}</div>
   <div class="section-head"><div><div class="eyebrow">PHOTO SCAVENGER HUNT</div><h2>Things to find</h2></div><span class="pill">${list.length} targets</span></div>
   <div class="quest-photo-grid">${list.map(x=>{let on=localStorage.getItem(spotKey(x.id))==="1";return `<article class="quest-find ${on?"seen":""}">
@@ -313,7 +356,7 @@ function cardsView(){
   const owned=myCollection();
   const collector=!guest&&!adminUnlocked&&!!STARTER_PACKS[who];
   let list=cards.filter(c=>{
-    let ownerOK=effectiveOwner==="all" || (effectiveOwner==="self" ? (collector?!!owned[c.id]:c.owner===self) : (effectiveOwner==="pets"&&!adminUnlocked&&!guest?["pets","finn"].includes(c.owner):c.owner===effectiveOwner));
+    let ownerOK=effectiveOwner==="all" || (effectiveOwner==="self" ? (collector?!!owned[c.id]:c.owner===self) : (effectiveOwner==="pets"&&!adminUnlocked&&!guest?["pets","finn"].includes(c.owner):(c.owner===effectiveOwner||(c.also||[]).includes(effectiveOwner))));
     if(!guest&&!adminUnlocked && effectiveOwner==="self"&&!collector) ownerOK=false;
     return ownerOK && (cardRarity==="all"||c.rarity===cardRarity) && (cardSeries==="all"||c.series===cardSeries);
   });
@@ -346,7 +389,7 @@ function earnedPacksPanel(){
   ${packError?`<p class="pack-error">${packError}</p>`:""}
   ${ready.map(p=>`<div class="pack-row ready"><span class="pack-ico">${p.icon}</span><div><b>${p.name}</b><small>${p.note||p.how}</small></div><button class="buttonlink pack-open-btn" data-pack-open="${p.key}" ${LoyPacks.busy?"disabled":""}>Open</button></div>`).join("")}
   ${locked.length?`<details class="pack-ladder" ${ready.length?"":"open"}><summary>How to earn more (${locked.length})</summary>${locked.map(p=>`<div class="pack-row"><span class="pack-ico">🔒</span><div><b>${p.name}</b><small>${p.how}${p.detail?` · ${p.detail}`:""}</small></div></div>`).join("")}</details>`:""}
-  <p class="sub pack-odds">3 cards per pack. Rare or better shows up in about 6 of 10 packs, never more than one per pack. Duplicates count.${LoyPacks.mode==="local"?" Saved on this phone for now.":""}</p></section>`;
+  <p class="sub pack-odds">${LoyPacks.CONFIG.packSize} cards per pack. No repeats until you own every card.${LoyPacks.mode==="local"?" Saved on this phone for now.":""}</p></section>`;
 }
 function awardDesk(){
   if(!window.LoyPacks)return"";
