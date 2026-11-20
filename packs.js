@@ -35,6 +35,7 @@
     {key:"wildlife",name:"Wildlife Pack",icon:"🐠",how:"Find 4 animals or ocean creatures in Maui Quest",wildlife:4},
     {key:"wildlife-12",name:"Wildlife Pack II",icon:"🐬",how:"Find 12 animals or ocean creatures over the trip",wildlife:12},
     {key:"family-memory",name:"Family Memory Pack",icon:"📸",how:"The family uploads 5 trip photos",photos:5},
+    {key:"photo-challenge-8",name:"Trip Photographer Pack",icon:"🤳",how:"Complete 8 Photo challenge finds over the trip",photoTasks:8},
     {key:"surf",name:"Surf Pack",icon:"🏄",how:"Dad awards it if surf happens",dad:true},
     {key:"shave-ice",name:"Shave Ice Judge Pack",icon:"🍧",how:"Dad awards it",dad:true}
   ];
@@ -182,7 +183,7 @@
   const openedPacks=p=>mine(p).filter(x=>x.opened_at&&x.pack_key!=="starter").sort((a,b)=>String(a.opened_at).localeCompare(String(b.opened_at)));
   const hasStarter=p=>mine(p).some(x=>x.pack_key==="starter");
 
-  // progress = {questFound, questPoints, wildlifeFound}; returns every pack with its state for this traveler.
+  // progress = {questFound, questPoints, wildlifeFound, photoTasks}; returns every pack with its state for this traveler.
   function status(person,progress,now){
     const today=hawaiiDate(now||new Date()),have=mine(person);
     // Every 15-point pack already reached, the next one to aim for, and any older points pack already saved.
@@ -198,6 +199,7 @@
         if(p.quest){earned=progress.questFound>=p.quest;detail=`${Math.min(progress.questFound,p.quest)}/${p.quest} found`}
         if(p.points){const pts=progress.questPoints||0;earned=pts>=p.points;detail=`${Math.min(pts,p.points)}/${p.points} pts`}
         if(p.wildlife){earned=progress.wildlifeFound>=p.wildlife;detail=`${Math.min(progress.wildlifeFound,p.wildlife)}/${p.wildlife} found`}
+        if(p.photoTasks){const n=progress.photoTasks||0;earned=n>=p.photoTasks;detail=`${Math.min(n,p.photoTasks)}/${p.photoTasks} photo challenges`}
         if(p.photos){earned=photoCount>=p.photos;detail=`${Math.min(photoCount,p.photos)}/${p.photos} photos`}
       }
       const opened=!!row?.opened_at;
