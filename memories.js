@@ -1,6 +1,6 @@
 /* Shared-link trip photos: names are attribution, not authenticated identities. */
 const MauiPhotos = (() => {
-  const BUCKET = 'maui-family-private', PEOPLE = ['Bryant','Bryson','Bennett','Brooks','Grandpa Rick'];
+  const BUCKET = 'maui-family-private', MAX_BATCH = 20, PEOPLE = ['Bryant','Bryson','Bennett','Brooks','Grandpa Rick'];
   let client, tripId, repaint = () => {}, viewer, rows = [], notice = '', busy = false;
   let person = '', day = '', limit = 60, more = false, epoch = 0, loading = false;
   const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -40,7 +40,7 @@ const MauiPhotos = (() => {
     if(!canRead())return '<section class="card"><h2>Trip photos</h2><p>Pick your name to open the trip gallery.</p></section>';
     if(!client)return '<section class="card"><h2>Trip photos</h2><p>Waiting for the trip connection. Check your connection and reload the app.</p></section>';
     return `<section class="card memories"><h2>Trip photos</h2><p>Capture the trip, one memory at a time.</p><p role="status" aria-live="polite">${esc(notice)}</p>
-    ${canUpload()?`<p>Uploading as <b>${esc(viewer)}</b>. Change your profile at the top to switch names.</p><form id="photo-upload"><fieldset ${busy?'disabled':''}><label>Take a photo<input name="camera" type="file" accept="image/*" capture="environment"></label><label>Or choose a photo<input name="library" type="file" accept="image/*"></label><p class="sub">Choose one photo per upload, up to 40 MB. Shared copies are resized; keep originals on your phone. If HEIC cannot open, choose a JPEG copy.</p><label>Caption (optional)<input name="caption" maxlength="500"></label><label>Trip day (optional)<select name="trip_day"><option value="">No day</option>${days().map(d=>`<option>${d}</option>`).join('')}</select></label><label>Activity (optional)<input name="activity" maxlength="100" placeholder="Beach, surf, Hāna…"></label><button>${busy?'Saving photo…':'Upload photo'}</button></fieldset></form>`:'<p class="guest-readonly">Guest view · browse photos without changing anything.</p>'}</section>
+    ${canUpload()?`<p>Uploading as <b>${esc(viewer)}</b>. Change your profile at the top to switch names.</p><form id="photo-upload"><fieldset ${busy?'disabled':''}><label>Take a photo<input name="camera" type="file" accept="image/*" capture="environment"></label><label>Or choose photos<input name="library" type="file" accept="image/*" multiple></label><p class="sub">Pick up to ${MAX_BATCH} photos at once, each up to 40 MB. The caption, day and activity go on every photo in the batch. Keep the app open until it finishes. Shared copies are resized; keep originals on your phone. If HEIC cannot open, choose a JPEG copy.</p><label>Caption (optional)<input name="caption" maxlength="500"></label><label>Trip day (optional)<select name="trip_day"><option value="">No day</option>${days().map(d=>`<option>${d}</option>`).join('')}</select></label><label>Activity (optional)<input name="activity" maxlength="100" placeholder="Beach, surf, Hāna…"></label><button>${busy?'Uploading…':'Upload photos'}</button></fieldset></form>`:'<p class="guest-readonly">Guest view · browse photos without changing anything.</p>'}</section>
     <section class="card memories"><h3>Trip gallery</h3><div class="photo-filters"><label>Person<select id="photo-person"><option value="">Everyone</option>${PEOPLE.map(p=>`<option ${person===p?'selected':''}>${p}</option>`).join('')}</select></label><label>Day<select id="photo-day"><option value="">All days</option>${days().map(d=>`<option ${day===d?'selected':''}>${d}</option>`).join('')}</select></label><button id="photo-refresh" ${busy?'disabled':''}>Refresh</button></div><p class="sub">Photo links refresh for five minutes. Tap Refresh if an image expires.</p>${loading?'<p role="status">Loading photos…</p>':''}<div class="memory-grid">${rows.map(r=>`<figure>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(r.url)}" alt="${esc(r.caption||r.activity||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer"></a>`:'<p>Photo unavailable</p>'}<figcaption><b>${esc(r.person)}</b>${r.trip_day?` · ${esc(r.trip_day)}`:''}<p>${esc(r.activity)}</p><p>${esc(r.caption)}</p>${canUpload()?`<button type="button" data-photo-delete="${esc(r.id)}" ${busy?'disabled':''}>Delete photo</button>`:''}</figcaption></figure>`).join('')}</div>${!rows.length&&!loading?'<p>No photos to show yet. Upload one or try another filter.</p>':''}${more?'<button id="photo-more">Show more</button>':''}</section>`;
   }
   async function normalize(file) {
@@ -55,26 +55,45 @@ const MauiPhotos = (() => {
       const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
       const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);
       const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',0.88));
+      canvas.width=canvas.height=0;
       if(!blob||blob.size>15*1024*1024)throw Error('Unable to prepare photo. Choose a smaller copy.');return blob;
     }finally{URL.revokeObjectURL(url);}
   }
+  async function saveOne(file,author,details) {
+    const blob=await normalize(file);
+    if(!canUpload()||viewer!==author)throw Error('Your selected name changed. Choose the photos again under your name.');
+    const path=`${tripId}/shared/${crypto.randomUUID()}.jpg`;
+    const saved=await client.storage.from(BUCKET).upload(path,blob,{contentType:'image/jpeg',upsert:false,cacheControl:'60'});
+    if(saved.error)throw Error('Upload failed. Check your connection and try again.');
+    const meta=await client.from('maui_link_photos').insert({trip_id:tripId,person:author,storage_path:path,...details});
+    if(meta.error){const cleanup=await client.storage.from(BUCKET).remove([path]);throw Error(cleanup.error?'Photo details failed to save. Ask Bryant to remove an unlisted upload from storage before retrying.':'Photo details failed to save. The upload was removed; please try again.');}
+  }
   async function upload(form) {
     if(busy||!canUpload())return;
-    const inputs=new FormData(form),camera=inputs.get('camera'),library=inputs.get('library');
-    if(camera?.size&&library?.size){notice='Choose either the camera photo or the library photo, then upload.';repaint();return;}
-    const file=camera?.size?camera:library,author=viewer;
-    busy=true;notice='Preparing photo…';form.querySelector('fieldset').disabled=true;
+    const inputs=new FormData(form),author=viewer;
+    const picked=[...inputs.getAll('camera'),...inputs.getAll('library')].filter(f=>f&&typeof f!=='string'&&f.size>0);
+    if(!picked.length){notice='Take a photo or choose some from your phone first.';repaint();return;}
+    const files=picked.slice(0,MAX_BATCH),skipped=picked.length-files.length;
+    const details={caption:String(inputs.get('caption')||''),trip_day:inputs.get('trip_day')||null,activity:String(inputs.get('activity')||'')};
+    busy=true;form.querySelector('fieldset').disabled=true;
+    let ok=0;const failed=[];
     try {
-      const blob=await normalize(file);
-      if(!canUpload()||viewer!==author)throw Error('Your selected name changed. Choose the photo again under your name.');
-      const path=`${tripId}/shared/${crypto.randomUUID()}.jpg`;
-      const saved=await client.storage.from(BUCKET).upload(path,blob,{contentType:'image/jpeg',upsert:false,cacheControl:'60'});
-      if(saved.error)throw Error('Photo upload failed. Check your connection and try again.');
-      const meta=await client.from('maui_link_photos').insert({trip_id:tripId,person:author,storage_path:path,caption:String(inputs.get('caption')||''),trip_day:inputs.get('trip_day')||null,activity:String(inputs.get('activity')||'')});
-      if(meta.error){const cleanup=await client.storage.from(BUCKET).remove([path]);throw Error(cleanup.error?'Photo details failed to save. Ask Bryant to remove an unlisted upload from storage before retrying.':'Photo details failed to save. The upload was removed; please try again.');}
-      await load();notice='Photo saved to the trip gallery.';
-    }catch(e){notice=e.message;}
-    finally{busy=false;repaint();}
+      for(let i=0;i<files.length;i++){
+        if(!canUpload()||viewer!==author){failed.push(`Your selected name changed, so ${files.length-i} ${files.length-i===1?'photo was':'photos were'} not sent`);break;}
+        notice=files.length>1?`Uploading ${i+1} of ${files.length}…`:'Uploading photo…';repaint();
+        try{await saveOne(files[i],author,details);ok++;}
+        catch(e){failed.push(`${files[i].name||'Photo '+(i+1)}: ${e.message}`);}
+      }
+    }finally{
+      if(ok)await load();
+      const parts=[];
+      if(files.length===1)parts.push(ok?'Photo saved to the trip gallery.':failed[0].replace(/^.*?: /,''));
+      else if(ok===files.length)parts.push(`All ${ok} photos saved to the trip gallery.`);
+      else parts.push(`Saved ${ok} of ${files.length} photos.`);
+      if(failed.length&&files.length>1)parts.push(`Not saved: ${failed.join('; ')}`);
+      if(skipped>0)parts.push(`Only ${MAX_BATCH} go up at a time, so ${skipped} more ${skipped===1?'was':'were'} left out. Choose ${skipped===1?'it':'them'} next.`);
+      notice=parts.join(' ');busy=false;repaint();
+    }
   }
   async function removePhoto(id) {
     if(busy||!canUpload())return;
