@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-19",
-  "card_count": 102,
+  "version": "2026-11-21",
+  "card_count": 112,
   "cards": [
     {
       "id": "brooks-mr-suave-brooks",
@@ -1717,6 +1717,296 @@
         {
           "label": "Hero Vibes",
           "value": 96
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "family-pirate-ship-splash",
+      "title": "Pirate Ship Splash",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-pirate-ship-splash.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🏴‍☠️",
+      "tagline": "Deck launch at the pool",
+      "flavor": "Captain first. Questions later.",
+      "stats": [
+        {
+          "label": "Slide Speed",
+          "value": 97
+        },
+        {
+          "label": "Pirate Mode",
+          "value": 98
+        },
+        {
+          "label": "Splash Skills",
+          "value": 96
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "family-shark-jaw-survivors",
+      "title": "Shark Jaw Survivors",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-shark-jaw-survivors.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🦈",
+      "tagline": "Two brothers, one giant shark",
+      "flavor": "We went in smiling and came out legendary.",
+      "stats": [
+        {
+          "label": "Bravery",
+          "value": 94
+        },
+        {
+          "label": "Photo Ops",
+          "value": 99
+        },
+        {
+          "label": "Chomp Dodge",
+          "value": 100
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "family-waterfall-bros",
+      "title": "Waterfall Bros",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/family-waterfall-bros.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "💦",
+      "tagline": "Pool chaos under the falls",
+      "flavor": "The louder the waterfall, the bigger the memory.",
+      "stats": [
+        {
+          "label": "Splash Power",
+          "value": 98
+        },
+        {
+          "label": "Brother Energy",
+          "value": 100
+        },
+        {
+          "label": "Cool Factor",
+          "value": 96
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "family-island-bros-after-dark",
+      "title": "Island Bros After Dark",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-island-bros-after-dark.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌙",
+      "tagline": "Dad + Uncle Brett, Maui edition",
+      "flavor": "Same family. Different builds. Same vacation energy.",
+      "stats": [
+        {
+          "label": "Brother Bond",
+          "value": 97
+        },
+        {
+          "label": "Night Vibes",
+          "value": 95
+        },
+        {
+          "label": "Aloha Mode",
+          "value": 96
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "family-ohana-night-crew",
+      "title": "Ohana Night Crew",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/family-ohana-night-crew.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌺",
+      "tagline": "One last Maui night together",
+      "flavor": "One trip. One crew. Core memory unlocked.",
+      "stats": [
+        {
+          "label": "Team Spirit",
+          "value": 100
+        },
+        {
+          "label": "Vacation Vibes",
+          "value": 99
+        },
+        {
+          "label": "Memory Level",
+          "value": 100
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "family-shaka-brett",
+      "title": "Shaka Brett",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/family-shaka-brett.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🤙",
+      "tagline": "Maui adventures",
+      "flavor": "One shaka solves a lot.",
+      "stats": [
+        {
+          "label": "Island Vibes",
+          "value": 96
+        },
+        {
+          "label": "Shaka Power",
+          "value": 99
+        },
+        {
+          "label": "Relax Level",
+          "value": 92
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "brooks-blue-wave-buddy",
+      "title": "Blue Wave Buddy",
+      "owner": "brooks",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/brooks-blue-wave-buddy.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌊",
+      "tagline": "Dad (Bryant) & Brooks",
+      "flavor": "Matching blues. Big trip energy.",
+      "stats": [
+        {
+          "label": "Smile Factor",
+          "value": 96
+        },
+        {
+          "label": "Little Buddy Energy",
+          "value": 98
+        },
+        {
+          "label": "Cuteness Bonus",
+          "value": 100
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "family-food-truck-fuel-up",
+      "title": "Food Truck Fuel-Up",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/family-food-truck-fuel-up.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🍍",
+      "tagline": "The brothers",
+      "flavor": "No one talks much when the food hits.",
+      "stats": [
+        {
+          "label": "Appetite",
+          "value": 97
+        },
+        {
+          "label": "Plate Focus",
+          "value": 94
+        },
+        {
+          "label": "Vacation Fuel",
+          "value": 96
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "bryson-reef-raiders",
+      "title": "Reef Raiders",
+      "owner": "bryson",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/bryson-reef-raiders.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🐠",
+      "tagline": "Dad (Bryant) & Bryson",
+      "flavor": "Front row for the deep-sea legends.",
+      "stats": [
+        {
+          "label": "Discovery",
+          "value": 94
+        },
+        {
+          "label": "Team Bond",
+          "value": 97
+        },
+        {
+          "label": "Ocean Curiosity",
+          "value": 95
+        }
+      ],
+      "art_prompt": "Custom art supplied by Bryant."
+    },
+    {
+      "id": "family-octo-encounter",
+      "title": "Octo Encounter",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Wildlife",
+      "image": "/assets/cards/family-octo-encounter.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🐙",
+      "tagline": "Eight arms on the reef",
+      "flavor": "Eight arms. Zero chill.",
+      "stats": [
+        {
+          "label": "Tentacle IQ",
+          "value": 98
+        },
+        {
+          "label": "Camouflage",
+          "value": 95
+        },
+        {
+          "label": "Weirdness",
+          "value": 100
         }
       ],
       "art_prompt": "Custom art supplied by Bryant."
