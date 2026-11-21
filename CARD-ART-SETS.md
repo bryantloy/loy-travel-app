@@ -13,7 +13,7 @@ Three layouts, matching the existing cards:
 - Maui destination card: bold white title with a colored subtitle ribbon, rarity pill top right, painted Maui scene, stat rows with white icons down the left (use the stats given), parchment quote strip near the bottom, hibiscus "ALOHA COLLECTION · MAUI" footer, no card number.
 - Personal stat card: big title + subtitle ribbon, rarity badge top right, hero scene, stat rows with icons down the right side, quote strip, a "SPECIAL ABILITY" line under it, "LOY TRAVEL · Adventures hit different together" footer.
 - Crew comic card: huge gold 3D title across the top, round rarity seal on the right, comic-realism group scene, three illustrated badge panels along the bottom (use the stats as the badges), small tagline under them.
-Spell every word exactly as written. Never include the boys' mom, and no unrelated bystanders or invented props.
+Spell every word exactly as written. No unrelated bystanders or invented props.
 Name each image with the filename given. Final files go in the app as WebP, about 1024x1536, quality 82-88, 100-350 KB.
 
 CARD 1: BEAR NOSE BANDITS
@@ -62,7 +62,7 @@ Three layouts, matching the existing cards:
 - Maui destination card: bold white title with a colored subtitle ribbon, rarity pill top right, painted Maui scene, stat rows with white icons down the left (use the stats given), parchment quote strip near the bottom, hibiscus "ALOHA COLLECTION · MAUI" footer, no card number.
 - Personal stat card: big title + subtitle ribbon, rarity badge top right, hero scene, stat rows with icons down the right side, quote strip, a "SPECIAL ABILITY" line under it, "LOY TRAVEL · Adventures hit different together" footer.
 - Crew comic card: huge gold 3D title across the top, round rarity seal on the right, comic-realism group scene, three illustrated badge panels along the bottom (use the stats as the badges), small tagline under them.
-Spell every word exactly as written. Never include the boys' mom, and no unrelated bystanders or invented props.
+Spell every word exactly as written. No unrelated bystanders or invented props.
 Name each image with the filename given. Final files go in the app as WebP, about 1024x1536, quality 82-88, 100-350 KB.
 
 CARD 1: MARCHING MAKO
@@ -114,7 +114,7 @@ Three layouts, matching the existing cards:
 - Maui destination card: bold white title with a colored subtitle ribbon, rarity pill top right, painted Maui scene, stat rows with white icons down the left (use the stats given), parchment quote strip near the bottom, hibiscus "ALOHA COLLECTION · MAUI" footer, no card number.
 - Personal stat card: big title + subtitle ribbon, rarity badge top right, hero scene, stat rows with icons down the right side, quote strip, a "SPECIAL ABILITY" line under it, "LOY TRAVEL · Adventures hit different together" footer.
 - Crew comic card: huge gold 3D title across the top, round rarity seal on the right, comic-realism group scene, three illustrated badge panels along the bottom (use the stats as the badges), small tagline under them.
-Spell every word exactly as written. Never include the boys' mom, and no unrelated bystanders or invented props.
+Spell every word exactly as written. No unrelated bystanders or invented props.
 Name each image with the filename given. Final files go in the app as WebP, about 1024x1536, quality 82-88, 100-350 KB.
 
 CARD 1: WEB WARRIOR BENNETT
@@ -165,7 +165,7 @@ Three layouts, matching the existing cards:
 - Maui destination card: bold white title with a colored subtitle ribbon, rarity pill top right, painted Maui scene, stat rows with white icons down the left (use the stats given), parchment quote strip near the bottom, hibiscus "ALOHA COLLECTION · MAUI" footer, no card number.
 - Personal stat card: big title + subtitle ribbon, rarity badge top right, hero scene, stat rows with icons down the right side, quote strip, a "SPECIAL ABILITY" line under it, "LOY TRAVEL · Adventures hit different together" footer.
 - Crew comic card: huge gold 3D title across the top, round rarity seal on the right, comic-realism group scene, three illustrated badge panels along the bottom (use the stats as the badges), small tagline under them.
-Spell every word exactly as written. Never include the boys' mom, and no unrelated bystanders or invented props.
+Spell every word exactly as written. No unrelated bystanders or invented props.
 Name each image with the filename given. Final files go in the app as WebP, about 1024x1536, quality 82-88, 100-350 KB.
 
 CARD 1: CAPTAIN NUMBER 5
@@ -217,7 +217,7 @@ Three layouts, matching the existing cards:
 - Maui destination card: bold white title with a colored subtitle ribbon, rarity pill top right, painted Maui scene, stat rows with white icons down the left (use the stats given), parchment quote strip near the bottom, hibiscus "ALOHA COLLECTION · MAUI" footer, no card number.
 - Personal stat card: big title + subtitle ribbon, rarity badge top right, hero scene, stat rows with icons down the right side, quote strip, a "SPECIAL ABILITY" line under it, "LOY TRAVEL · Adventures hit different together" footer.
 - Crew comic card: huge gold 3D title across the top, round rarity seal on the right, comic-realism group scene, three illustrated badge panels along the bottom (use the stats as the badges), small tagline under them.
-Spell every word exactly as written. Never include the boys' mom, and no unrelated bystanders or invented props.
+Spell every word exactly as written. No unrelated bystanders or invented props.
 Name each image with the filename given. Final files go in the app as WebP, about 1024x1536, quality 82-88, 100-350 KB.
 
 CARD 1: SUMMIT SUNRISE SQUAD
@@ -266,7 +266,7 @@ Three layouts, matching the existing cards:
 - Maui destination card: bold white title with a colored subtitle ribbon, rarity pill top right, painted Maui scene, stat rows with white icons down the left (use the stats given), parchment quote strip near the bottom, hibiscus "ALOHA COLLECTION · MAUI" footer, no card number.
 - Personal stat card: big title + subtitle ribbon, rarity badge top right, hero scene, stat rows with icons down the right side, quote strip, a "SPECIAL ABILITY" line under it, "LOY TRAVEL · Adventures hit different together" footer.
 - Crew comic card: huge gold 3D title across the top, round rarity seal on the right, comic-realism group scene, three illustrated badge panels along the bottom (use the stats as the badges), small tagline under them.
-Spell every word exactly as written. Never include the boys' mom, and no unrelated bystanders or invented props.
+Spell every word exactly as written. No unrelated bystanders or invented props.
 Name each image with the filename given. Final files go in the app as WebP, about 1024x1536, quality 82-88, 100-350 KB.
 
 CARD 1: SPINNER DOLPHIN SPIN
@@ -315,7 +315,7 @@ Three layouts, matching the existing cards:
 - Maui destination card: bold white title with a colored subtitle ribbon, rarity pill top right, painted Maui scene, stat rows with white icons down the left (use the stats given), parchment quote strip near the bottom, hibiscus "ALOHA COLLECTION · MAUI" footer, no card number.
 - Personal stat card: big title + subtitle ribbon, rarity badge top right, hero scene, stat rows with icons down the right side, quote strip, a "SPECIAL ABILITY" line under it, "LOY TRAVEL · Adventures hit different together" footer.
 - Crew comic card: huge gold 3D title across the top, round rarity seal on the right, comic-realism group scene, three illustrated badge panels along the bottom (use the stats as the badges), small tagline under them.
-Spell every word exactly as written. Never include the boys' mom, and no unrelated bystanders or invented props.
+Spell every word exactly as written. No unrelated bystanders or invented props.
 Name each image with the filename given. Final files go in the app as WebP, about 1024x1536, quality 82-88, 100-350 KB.
 
 CARD 1: KENDRA BADGER SOFTBALL

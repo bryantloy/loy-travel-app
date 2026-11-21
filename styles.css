@@ -276,3 +276,10 @@
 .guest-day h3{margin:4px 0 6px}
 .guest-day .learn{margin-top:6px}
 .guest-hint{margin-top:14px}
+/* Photo delete requests */
+.delete-requests{border:2px solid #f2c9bb}
+.delete-requests figcaption button{margin:6px 6px 0 0}
+.req-badge{display:inline-block;background:#fff0e8;color:#a94b35;border-radius:999px;padding:3px 8px;font-size:.75rem;font-weight:800;margin:6px 0 0}
+.req-pick{display:flex;align-items:center;gap:6px;font-weight:800;margin-top:6px}
+.req-pick input{width:22px;height:22px}
+.request-bar{align-items:center;position:sticky;top:0;z-index:5;background:#fffdf8;padding:6px 0}

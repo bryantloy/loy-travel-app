@@ -9,7 +9,7 @@ To add art for a card:
 3. Upload it to `assets/cards/` with the exact filename listed. The app picks it up automatically; no code change needed.
 4. Optional cleanup: delete the card's `"art": "pending"` line once the art is in.
 
-Photo references are for identity and wardrobe, not literal recreations. Leave the boys' mom out of new cards and keep out unrelated bystanders.
+Photo references are for identity and wardrobe, not literal recreations. Keep unrelated bystanders out of new cards.
 
 ## From the handoff batch (section 35)
 
@@ -18,7 +18,7 @@ Photo references are for identity and wardrobe, not literal recreations. Leave t
 File: `assets/cards/family-bear-nose-bandits.webp`
 
 ```
-Bear Nose Bandits (LEGENDARY) — Bryson, Bennett and Brooks (recognizable faces from reference photos) all climbed up on the giant familiar Bear Point bear statue together, mischievously picking its nose, the joke obvious at a glance, no signs or hanging objects, no other people. Subtitle: "The Bear Point tradition". Quote: "Every visit. Every time. Every nose.". Stats: Tradition 100, Mischief 100, Reach 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (legendary). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-bear-nose-bandits.webp.
+Bear Nose Bandits (LEGENDARY) — Bryson, Bennett and Brooks (recognizable faces from reference photos) all climbed up on the giant familiar Bear Point bear statue together, mischievously picking its nose, the joke obvious at a glance, no signs or hanging objects, no other people. Subtitle: "The Bear Point tradition". Quote: "Every visit. Every time. Every nose.". Stats: Tradition 100, Mischief 100, Reach 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (legendary). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-bear-nose-bandits.webp.
 ```
 
 ### Soccer Dad & Brooks · bronze · brooks
@@ -26,7 +26,7 @@ Bear Nose Bandits (LEGENDARY) — Bryson, Bennett and Brooks (recognizable faces
 File: `assets/cards/brooks-soccer-dad-and-brooks.webp`
 
 ```
-Soccer Dad & Brooks (BRONZE) — Bryant and Brooks in Orange Beach Makos soccer gear, a playful action moment on a sunny soccer field. Subtitle: "Orange Beach Makos". Quote: "Dad on the sideline, Brooks on the ball.". Stats: Footwork 88, Hustle 95, Sideline Hype 99. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (bronze). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as brooks-soccer-dad-and-brooks.webp.
+Soccer Dad & Brooks (BRONZE) — Bryant and Brooks in Orange Beach Makos soccer gear, a playful action moment on a sunny soccer field. Subtitle: "Orange Beach Makos". Quote: "Dad on the sideline, Brooks on the ball.". Stats: Footwork 88, Hustle 95, Sideline Hype 99. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (bronze). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as brooks-soccer-dad-and-brooks.webp.
 ```
 
 ### Family Boat Day · common · family
@@ -34,7 +34,7 @@ Soccer Dad & Brooks (BRONZE) — Bryant and Brooks in Orange Beach Makos soccer 
 File: `assets/cards/family-family-boat-day.webp`
 
 ```
-Family Boat Day (COMMON) — Bryant and all three boys on a small boat out on Gulf Coast water, stylized action-cartoon look, spray and sunshine. Subtitle: "Loy crew on the water". Quote: "Sunscreen on, hats off, full send.". Stats: Wind 90, Splash 88, Crew Vibes 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (common). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-family-boat-day.webp.
+Family Boat Day (COMMON) — Bryant and all three boys on a small boat out on Gulf Coast water, stylized action-cartoon look, spray and sunshine. Subtitle: "Loy crew on the water". Quote: "Sunscreen on, hats off, full send.". Stats: Wind 90, Splash 88, Crew Vibes 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (common). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-family-boat-day.webp.
 ```
 
 ### Haunted Hustle Duo · rare · family
@@ -42,7 +42,7 @@ Family Boat Day (COMMON) — Bryant and all three boys on a small boat out on Gu
 File: `assets/cards/family-haunted-hustle-duo.webp`
 
 ```
-Haunted Hustle Duo (RARE) — only Bryant and Bryson running a race together in matching ghost-pattern running gear, action race scene with a spooky fun finish line. Subtitle: "Bryant + Bryson race day". Quote: "Spooky fast. Only two of us ran it.". Stats: Pace 94, Spook Factor 90, Kick 92. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (rare). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-haunted-hustle-duo.webp.
+Haunted Hustle Duo (RARE) — only Bryant and Bryson running a race together in matching ghost-pattern running gear, action race scene with a spooky fun finish line. Subtitle: "Bryant + Bryson race day". Quote: "Spooky fast. Only two of us ran it.". Stats: Pace 94, Spook Factor 90, Kick 92. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (rare). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-haunted-hustle-duo.webp.
 ```
 
 ### Talladega Brothers · bronze · family
@@ -50,7 +50,7 @@ Haunted Hustle Duo (RARE) — only Bryant and Bryson running a race together in 
 File: `assets/cards/family-talladega-brothers.webp`
 
 ```
-Talladega Brothers (BRONZE) — Bryson and Bennett at a racetrack with stock cars blurring past, brother-team energy. Subtitle: "Bryson + Bennett". Quote: "Brothers at full throttle.". Stats: Speed 96, Noise 99, Brotherhood 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (bronze). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-talladega-brothers.webp.
+Talladega Brothers (BRONZE) — Bryson and Bennett at a racetrack with stock cars blurring past, brother-team energy. Subtitle: "Bryson + Bennett". Quote: "Brothers at full throttle.". Stats: Speed 96, Noise 99, Brotherhood 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (bronze). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-talladega-brothers.webp.
 ```
 
 ### XC Crew · uncommon · family
@@ -58,7 +58,7 @@ Talladega Brothers (BRONZE) — Bryson and Bennett at a racetrack with stock car
 File: `assets/cards/family-xc-crew.webp`
 
 ```
-XC Crew (UNCOMMON) — Bryson, his friend Fuller in the middle, and Bennett racing a cross-country course together, action race scene. Subtitle: "Bryson, Fuller + Bennett". Quote: "Three runners, one finish chute.". Stats: Endurance 95, Team Spirit 97, Mud 85. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (uncommon). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-xc-crew.webp.
+XC Crew (UNCOMMON) — Bryson, his friend Fuller in the middle, and Bennett racing a cross-country course together, action race scene. Subtitle: "Bryson, Fuller + Bennett". Quote: "Three runners, one finish chute.". Stats: Endurance 95, Team Spirit 97, Mud 85. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (uncommon). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-xc-crew.webp.
 ```
 
 ### Krispy Kreme Crew · common · family
@@ -66,7 +66,7 @@ XC Crew (UNCOMMON) — Bryson, his friend Fuller in the middle, and Bennett raci
 File: `assets/cards/family-krispy-kreme-crew.webp`
 
 ```
-Krispy Kreme Crew (COMMON) — Bryant and the three boys grinning over boxes of glazed doughnuts at a doughnut shop counter. Subtitle: "Hot Now sign is on". Quote: "One dozen is a serving size, right?". Stats: Glaze 100, Sugar Rush 95, Self Control 20. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (common). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-krispy-kreme-crew.webp.
+Krispy Kreme Crew (COMMON) — Bryant and the three boys grinning over boxes of glazed doughnuts at a doughnut shop counter. Subtitle: "Hot Now sign is on". Quote: "One dozen is a serving size, right?". Stats: Glaze 100, Sugar Rush 95, Self Control 20. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (common). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-krispy-kreme-crew.webp.
 ```
 
 ### Kendra Badger Softball · uncommon · family
@@ -74,7 +74,7 @@ Krispy Kreme Crew (COMMON) — Bryant and the three boys grinning over boxes of 
 File: `assets/cards/family-kendra-badger-softball.webp`
 
 ```
-Kendra Badger Softball (UNCOMMON) — cousin Kendra in a red Wisconsin softball uniform making a big play, stadium action scene. Subtitle: "Cousin Kendra · Wisconsin". Quote: "Cousin power, red and white.". Stats: Bat Speed 93, Glove 90, Team Pride 97. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (uncommon). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-kendra-badger-softball.webp.
+Kendra Badger Softball (UNCOMMON) — cousin Kendra in a red Wisconsin softball uniform making a big play, stadium action scene. Subtitle: "Cousin Kendra · Wisconsin". Quote: "Cousin power, red and white.". Stats: Bat Speed 93, Glove 90, Team Pride 97. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (uncommon). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-kendra-badger-softball.webp.
 ```
 
 ## From Bryant's photos
@@ -105,7 +105,7 @@ Westin Welcome (COMMON) — an oceanfront resort lobby in Kāʻanapali at golden
 File: `assets/cards/destination-honua-kai-home-base.webp`
 
 ```
-Honua Kai Home Base (COMMON) — a breezy oceanfront condo lanai with boogie boards, flip flops and a sunset over the water. Subtitle: "Condo K830 HQ". Quote: "Snacks stocked. Boogie boards by the door.". Stats: Comfort 95, Snack Supply 90, Ocean View 85. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (common). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-honua-kai-home-base.webp.
+Honua Kai Home Base (COMMON) — a breezy oceanfront condo lanai with boogie boards, flip flops and a sunset over the water. Subtitle: "Condo HQ". Quote: "Snacks stocked. Boogie boards by the door.". Stats: Comfort 95, Snack Supply 90, Ocean View 85. Match the existing Maui destination cards: vertical 2:3, bold white title with a colored subtitle ribbon across the top, rarity pill in the top-right corner, vivid photo-real painted scene, 5 stat rows with simple white icons down the left, a parchment quote strip near the bottom, and a hibiscus 'ALOHA COLLECTION · MAUI' footer with a card number. Frame color by rarity (common). Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as destination-honua-kai-home-base.webp.
 ```
 
 ### Kāʻanapali Sunset · uncommon · destination
@@ -201,7 +201,7 @@ Waimoku Falls (RARE) — a huge ribbon waterfall pouring down a sheer lava cliff
 File: `assets/cards/family-costco-run-champions.webp`
 
 ```
-Costco Run Champions (COMMON) — Bryant and the three boys pushing an overflowing warehouse-store cart of snacks and drinks under palm trees. Subtitle: "Day one supply mission". Quote: "One cart. Four opinions. Zero regrets.". Stats: Cart Skills 90, Snack Votes 95, Budget 60. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (common). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-costco-run-champions.webp.
+Costco Run Champions (COMMON) — Bryant and the three boys pushing an overflowing warehouse-store cart of snacks and drinks under palm trees. Subtitle: "Day one supply mission". Quote: "One cart. Four opinions. Zero regrets.". Stats: Cart Skills 90, Snack Votes 95, Budget 60. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (common). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-costco-run-champions.webp.
 ```
 
 ### Jeep Squad · bronze · family
@@ -209,7 +209,7 @@ Costco Run Champions (COMMON) — Bryant and the three boys pushing an overflowi
 File: `assets/cards/family-jeep-squad.webp`
 
 ```
-Jeep Squad (BRONZE) — Bryant and the three boys in a Jeep with the top down driving a Maui coastal road. Subtitle: "Top down, music up". Quote: "Roll call: who forgot the sunscreen?". Stats: Road Trip 95, Playlist 90, Wind Hair 99. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (bronze). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-jeep-squad.webp.
+Jeep Squad (BRONZE) — Bryant and the three boys in a Jeep with the top down driving a Maui coastal road. Subtitle: "Top down, music up". Quote: "Roll call: who forgot the sunscreen?". Stats: Road Trip 95, Playlist 90, Wind Hair 99. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (bronze). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-jeep-squad.webp.
 ```
 
 ### Uncle Brett Beach Day · uncommon · family
@@ -217,7 +217,7 @@ Jeep Squad (BRONZE) — Bryant and the three boys in a Jeep with the top down dr
 File: `assets/cards/family-uncle-brett-beach-day.webp`
 
 ```
-Uncle Brett Beach Day (UNCOMMON) — Bryant, his brother Brett and the three boys on a sunny West Maui beach with snorkel gear and a cooler. Subtitle: "West Maui with Brett". Quote: "Best uncle. Best beach.". Stats: Fun Level 97, Sand 90, Stories 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (uncommon). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-uncle-brett-beach-day.webp.
+Uncle Brett Beach Day (UNCOMMON) — Bryant, his brother Brett and the three boys on a sunny West Maui beach with snorkel gear and a cooler. Subtitle: "West Maui with Brett". Quote: "Best uncle. Best beach.". Stats: Fun Level 97, Sand 90, Stories 95. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (uncommon). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-uncle-brett-beach-day.webp.
 ```
 
 ### Summit Sunrise Squad · epic · family
@@ -225,7 +225,7 @@ Uncle Brett Beach Day (UNCOMMON) — Bryant, his brother Brett and the three boy
 File: `assets/cards/family-summit-sunrise-squad.webp`
 
 ```
-Summit Sunrise Squad (EPIC) — Bryant and the three boys bundled in hoodies watching sunrise above a sea of clouds at Haleakalā summit. Subtitle: "Haleakalā · above the clouds". Quote: "Freezing hands. Warm hearts. Worth the alarm.". Stats: Cold Power 95, Early Alarm 100, Views 100. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (epic). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-summit-sunrise-squad.webp.
+Summit Sunrise Squad (EPIC) — Bryant and the three boys bundled in hoodies watching sunrise above a sea of clouds at Haleakalā summit. Subtitle: "Haleakalā · above the clouds". Quote: "Freezing hands. Warm hearts. Worth the alarm.". Stats: Cold Power 95, Early Alarm 100, Views 100. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (epic). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-summit-sunrise-squad.webp.
 ```
 
 ### Surf Crew Loy · rare · family
@@ -233,5 +233,5 @@ Summit Sunrise Squad (EPIC) — Bryant and the three boys bundled in hoodies wat
 File: `assets/cards/family-surf-crew-loy.webp`
 
 ```
-Surf Crew Loy (RARE) — Bryant and the three boys on soft-top surfboards catching small waves in warm Maui water. Subtitle: "First waves together". Quote: "Pop up, wipe out, paddle back. Repeat.". Stats: Balance 85, Courage 98, Wipeouts 99. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (rare). Use photos as identity/wardrobe references, not literal recreations; leave out the boys' mother and unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-surf-crew-loy.webp.
+Surf Crew Loy (RARE) — Bryant and the three boys on soft-top surfboards catching small waves in warm Maui water. Subtitle: "First waves together". Quote: "Pop up, wipe out, paddle back. Repeat.". Stats: Balance 85, Courage 98, Wipeouts 99. Match the existing comic-illustrated family cards (Cabana Crew, Sunset Brothers, Harbor Hangout): vertical 2:3, huge gold 3D title at the top, rarity seal on the right, vivid comic realism with recognizable faces from the reference photos, and three illustrated badge panels along the bottom. Frame color by rarity (rare). Use photos as identity/wardrobe references, not literal recreations; leave out unrelated bystanders. Export as WebP, about 2:3 (e.g. 1024x1536), quality 82-88, 100-350 KB, saved as family-surf-crew-loy.webp.
 ```

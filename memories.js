@@ -8,6 +8,7 @@ const MauiPhotos = (() => {
   const ANDROID = /Android/i.test(globalThis.navigator?.userAgent||'');
   const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const canUpload = () => PEOPLE.includes(viewer);
+  const canDelete = () => viewer === 'Bryant';
   const canRead = () => canUpload() || viewer === 'Guest';
   const days = () => Array.from({length:9},(_,i)=>`2026-11-${19+i}`);
   async function init(config,id,paint) {
@@ -17,7 +18,7 @@ const MauiPhotos = (() => {
   }
   function setViewer(next) {
     if(viewer===next)return;
-    viewer=next;epoch++;rows=[];more=false;notice='';loading=false;ready=null;
+    viewer=next;epoch++;rows=[];more=false;notice='';loading=false;ready=null;selecting=false;picked=new Set();requests=[];reqPhotos=[];
     if(client&&canRead())void load();
   }
   async function load() {
@@ -34,6 +35,7 @@ const MauiPhotos = (() => {
       if(run!==epoch||!canRead())return;
       more=result.data.length>limit;rows=data.map((r,i)=>({...r,url:signed.data[i]?.signedUrl}));
       if(rows.some(r=>!r.url))notice='Some photos could not load. Tap Refresh to try again.';
+      void loadRequests();
     } catch(e) {
       if(run===epoch){rows=[];notice='Photos could not load. Check your connection and try Refresh. If this is the first use after updating, Bryant needs to apply the v014 photo update once.';}
       console.warn('Trip photos:',e.message);
@@ -44,7 +46,7 @@ const MauiPhotos = (() => {
     if(!client)return '<section class="card"><h2>Trip photos</h2><p>Waiting for the trip connection. Check your connection and reload the app.</p></section>';
     return `<section class="card memories"><h2>Trip photos</h2><p>Capture the trip, one memory at a time.</p><p role="status" aria-live="polite">${esc(notice)}</p>
     ${canUpload()?`<p>Uploading as <b>${esc(viewer)}</b>. Change your profile at the top to switch names.</p><form id="photo-upload"><fieldset ${busy?'disabled':''}><label>Take a photo<input name="camera" type="file" accept="image/*" capture="environment"></label><label>Or choose photos<input name="library" type="file" accept="image/*" multiple></label><p class="sub">Pick up to ${MAX_BATCH} photos at once, each up to 40 MB. The caption, day and activity go on every photo in the batch. Keep the app open until it finishes. Shared copies are resized; keep originals on your phone. If HEIC cannot open, choose a JPEG copy.</p><label>Caption (optional)<input name="caption" maxlength="500"></label><label>Trip day (optional)<select name="trip_day"><option value="">No day</option>${days().map(d=>`<option>${d}</option>`).join('')}</select></label><label>Activity (optional)<input name="activity" maxlength="100" placeholder="Beach, surf, Hāna…"></label><button>${busy?'Uploading…':'Upload photos'}</button></fieldset></form>`:'<p class="guest-readonly">Guest view · browse photos without changing anything.</p>'}</section>
-    <section class="card memories"><h3>Trip gallery</h3><div class="photo-filters"><label>Person<select id="photo-person"><option value="">Everyone</option>${PEOPLE.map(p=>`<option ${person===p?'selected':''}>${p}</option>`).join('')}</select></label><label>Day<select id="photo-day"><option value="">All days</option>${days().map(d=>`<option ${day===d?'selected':''}>${d}</option>`).join('')}</select></label><button id="photo-refresh" ${busy?'disabled':''}>Refresh</button>${rows.length?`<button id="photo-save-all" ${busy?'disabled':''}>⬇ Save these photos</button>`:''}</div>${rows.length?`<p class="sub">Save these photos gets every photo that matches the Person and Day picks. On iPhone, pick Save Images for Photos or Drive for Google Drive. On Android, download them to the phone or share them to Drive.</p>`:''}${notice&&!ready?`<p class="photo-note">${esc(notice)}</p>`:''}${readyPanel()}<p class="sub">Photo links refresh for five minutes. Tap Refresh if an image expires.</p>${loading?'<p role="status">Loading photos…</p>':''}<div class="memory-grid">${rows.map(r=>`<figure>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(r.url)}" alt="${esc(r.caption||r.activity||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer"></a>`:'<p>Photo unavailable</p>'}<figcaption><b>${esc(r.person)}</b>${r.trip_day?` · ${esc(r.trip_day)}`:''}<p>${esc(r.activity)}</p><p>${esc(r.caption)}</p>${r.url?`<button type="button" class="photo-save" data-photo-save="${esc(r.id)}" ${busy?'disabled':''}>⬇ Save photo</button>`:''}${canUpload()?`<button type="button" data-photo-delete="${esc(r.id)}" ${busy?'disabled':''}>Delete photo</button>`:''}</figcaption></figure>`).join('')}</div>${!rows.length&&!loading?'<p>No photos to show yet. Upload one or try another filter.</p>':''}${more?'<button id="photo-more">Show more</button>':''}</section>`;
+    ${requestsPanel()}<section class="card memories"><h3>Trip gallery</h3><div class="photo-filters"><label>Person<select id="photo-person"><option value="">Everyone</option>${PEOPLE.map(p=>`<option ${person===p?'selected':''}>${p}</option>`).join('')}</select></label><label>Day<select id="photo-day"><option value="">All days</option>${days().map(d=>`<option ${day===d?'selected':''}>${d}</option>`).join('')}</select></label><button id="photo-refresh" ${busy?'disabled':''}>Refresh</button>${rows.length?`<button id="photo-save-all" ${busy?'disabled':''}>⬇ Save these photos</button>`:''}</div>${rows.length?`<p class="sub">Save these photos gets every photo that matches the Person and Day picks. On iPhone, pick Save Images for Photos or Drive for Google Drive. On Android, download them to the phone or share them to Drive.</p>`:''}${notice&&!ready?`<p class="photo-note">${esc(notice)}</p>`:''}${readyPanel()}${requestBar()}<p class="sub">Photo links refresh for five minutes. Tap Refresh if an image expires.</p>${loading?'<p role="status">Loading photos…</p>':''}<div class="memory-grid">${rows.map(r=>`<figure>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(r.url)}" alt="${esc(r.caption||r.activity||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer"></a>`:'<p>Photo unavailable</p>'}<figcaption><b>${esc(r.person)}</b>${r.trip_day?` · ${esc(r.trip_day)}`:''}<p>${esc(r.activity)}</p><p>${esc(r.caption)}</p>${r.url?`<button type="button" class="photo-save" data-photo-save="${esc(r.id)}" ${busy?'disabled':''}>⬇ Save photo</button>`:''}${photoExtras(r)}${canDelete()&&!selecting?`<button type="button" data-photo-delete="${esc(r.id)}" ${busy?'disabled':''}>Delete photo</button>`:''}</figcaption></figure>`).join('')}</div>${!rows.length&&!loading?'<p>No photos to show yet. Upload one or try another filter.</p>':''}${more?'<button id="photo-more">Show more</button>':''}</section>`;
   }
   async function normalize(file) {
     if(!file||file.size===0||file.size>40*1024*1024)throw Error('Choose a non-empty photo under 40 MB.');
@@ -98,26 +100,124 @@ const MauiPhotos = (() => {
       notice=parts.join(' ');busy=false;repaint();
     }
   }
-  async function removePhoto(id) {
-    if(busy||!canUpload())return;
+  /* Deleting is Dad-only. With the v017 SQL applied the server checks the Dad code; before that, the old direct delete still runs.
+     The boys can ask Dad to delete photos; Dad deletes or keeps them. */
+  const BOYS = ['Bryson','Bennett','Brooks'];
+  const canRequest = () => BOYS.includes(viewer);
+  let requests = [], reqPhotos = [], requestsOn = false, selecting = false, picked = new Set();
+  const dadCode = () => { try { return localStorage.getItem('loy-dad-code')||''; } catch(e) { return ''; } };
+  const fnMissing = e => !!e && (e.code==='PGRST202' || e.code==='42P01' || /could not find the function|schema cache|does not exist/i.test(e.message||''));
+  const wrongCode = e => !!e && /Dad code is not right/i.test(e.message||'');
+  const requested = id => requests.some(q=>q.photo_id===id);
+  async function legacyDelete(photo) {
+    const removed=await client.storage.from(BUCKET).remove([photo.storage_path]);
+    if(removed.error)throw Error('Could not delete the photo. Check your connection and confirm the v015 SQL update has been applied.');
+    if(!removed.data?.some(item=>item.name===photo.storage_path)) {
+      // Storage can report no error when RLS filters out the requested object.
+      const check=await client.storage.from(BUCKET).createSignedUrl(photo.storage_path,60);
+      if(!check.error||!/not found|does not exist/i.test(check.error.message||''))
+        throw Error('The photo was not deleted. Apply the v015 SQL update once, then try again.');
+    }
+    const deleted=await client.from('maui_link_photos').delete().eq('trip_id',tripId).eq('id',photo.id).select('id');
+    if(deleted.error||!deleted.data?.some(item=>item.id===photo.id))
+      throw Error('The image was removed, but its gallery entry could not be cleared. Apply the v015 SQL update and tap Delete photo again to finish.');
+  }
+  async function loadRequests() {
+    if(!client||!(canDelete()||canRequest()))return;
+    const run=epoch;
+    try {
+      const r=await client.from('maui_photo_delete_requests').select('id,photo_id,requested_by,created_at').order('created_at');
+      if(r.error)throw r.error;
+      let photos=[];
+      if(canDelete()&&r.data.length) {
+        const p=await client.from('maui_link_photos').select('id,person,trip_day,activity,caption,storage_path').in('id',r.data.map(q=>q.photo_id));
+        if(p.error)throw p.error;
+        const signed=p.data.length?await client.storage.from(BUCKET).createSignedUrls(p.data.map(x=>x.storage_path),300):{data:[]};
+        photos=p.data.map((x,i)=>({...x,url:signed.data?.[i]?.signedUrl}));
+      }
+      if(run!==epoch)return;
+      requests=r.data;reqPhotos=photos;requestsOn=true;
+    } catch(e) { requests=[];reqPhotos=[];requestsOn=false; }
+    repaint();
+  }
+  // Runs the Dad-code call, asking for the code again once if the saved one is wrong.
+  async function withDadCode(call) {
+    let code=dadCode(),result=await call(code);
+    if(wrongCode(result.error)) {
+      const again=prompt('Dad code');if(again===null)throw Error('Nothing was changed.');
+      code=again.trim();result=await call(code);
+      if(!result.error)try{localStorage.setItem('loy-dad-code',code);}catch(e){}
+    }
+    return result;
+  }
+  async function deletePhotos(ids) {
+    const result=await withDadCode(code=>client.rpc('maui_dad_delete_photos',{p_code:code,p_ids:ids}));
+    if(result.error&&fnMissing(result.error)) {
+      for(const id of ids){const photo=rows.find(r=>r.id===id)||reqPhotos.find(r=>r.id===id);if(photo)await legacyDelete(photo);}
+      return;
+    }
+    if(result.error)throw Error(wrongCode(result.error)?'That Dad code is not right, so nothing was deleted.':'Could not delete. Check your connection and try again.');
+    if(result.data?.length)await client.storage.from(BUCKET).remove(result.data); // gallery entries are gone; file cleanup is best-effort
+  }
+  async function dadAction(label,work) {
+    if(busy||!canDelete())return;
+    busy=true;notice=label;repaint();
+    try{const msg=await work();await load();notice=msg||'';}catch(e){notice=e.message;}
+    finally{busy=false;repaint();}
+  }
+  function removePhoto(id) {
     const photo=rows.find(r=>r.id===id);if(!photo)return;
     if(!confirm(`Delete this photo from ${photo.person}${photo.caption?' (“'+photo.caption+'”)':''}? This removes the shared copy for everyone. Your phone original is unchanged.`))return;
-    busy=true;notice='Deleting photo…';repaint();
+    void dadAction('Deleting photo…',async()=>{await deletePhotos([id]);return 'Photo deleted.';});
+  }
+  function approveRequests(photoIds) {
+    if(!photoIds.length||!confirm(photoIds.length===1?'Delete this photo for everyone?':`Delete these ${photoIds.length} photos for everyone?`))return;
+    void dadAction('Deleting…',async()=>{await deletePhotos(photoIds);return photoIds.length===1?'Photo deleted.':`${photoIds.length} photos deleted.`;});
+  }
+  function keepRequests(reqIds) {
+    if(!reqIds.length)return;
+    void dadAction('Clearing requests…',async()=>{
+      const result=await withDadCode(code=>client.rpc('maui_dad_dismiss_requests',{p_code:code,p_ids:reqIds}));
+      if(result.error)throw Error(wrongCode(result.error)?'That Dad code is not right, so nothing changed.':'Could not clear the requests. Try again.');
+      return reqIds.length===1?'Kept the photo.':'Kept those photos.';
+    });
+  }
+  async function sendRequests() {
+    if(busy||!canRequest()||!picked.size)return;
+    const ids=[...picked];busy=true;notice='Asking Dad…';repaint();
     try {
-      const removed=await client.storage.from(BUCKET).remove([photo.storage_path]);
-      if(removed.error)throw Error('Could not delete the photo. Check your connection and confirm the v015 SQL update has been applied.');
-      if(!removed.data?.some(item=>item.name===photo.storage_path)) {
-        // Storage can report no error when RLS filters out the requested object.
-        const check=await client.storage.from(BUCKET).createSignedUrl(photo.storage_path,60);
-        if(!check.error||!/not found|does not exist/i.test(check.error.message||''))
-          throw Error('The photo was not deleted. Apply the v015 SQL update once, then try again.');
-      }
-      const deleted=await client.from('maui_link_photos').delete().eq('trip_id',tripId).eq('id',photo.id).select('id');
-      if(deleted.error||!deleted.data?.some(item=>item.id===photo.id))
-        throw Error('The image was removed, but its gallery entry could not be cleared. Apply the v015 SQL update and tap Delete photo again to finish.');
-      await load();notice='Photo deleted.';
-    }catch(e){notice=e.message;}
+      const r=await client.from('maui_photo_delete_requests').upsert(ids.map(id=>({photo_id:id,requested_by:viewer})),{onConflict:'photo_id',ignoreDuplicates:true});
+      if(r.error)throw Error(fnMissing(r.error)?'Delete requests are not switched on yet. Ask Dad to run the photo update.':'Could not send the request. Try again.');
+      notice=ids.length===1?'Sent. Dad will decide on that photo.':`Sent. Dad will decide on those ${ids.length} photos.`;
+      selecting=false;picked=new Set();await loadRequests();
+    } catch(e){notice=e.message;}
     finally{busy=false;repaint();}
+  }
+  function requestsPanel() {
+    if(!canDelete()||!requests.length)return '';
+    const items=requests.map(q=>({q,p:reqPhotos.find(x=>x.id===q.photo_id)})).filter(x=>x.p);
+    if(!items.length)return '';
+    return `<section class="card memories delete-requests"><h3>🙈 Delete requests (${items.length})</h3><p class="sub">The boys asked you to remove these. Delete takes them off for everyone; Keep leaves them in the gallery.</p>${items.length>1?`<div class="photo-filters"><button data-req-approve-all ${busy?'disabled':''}>Delete all ${items.length}</button><button data-req-keep-all ${busy?'disabled':''}>Keep all</button></div>`:''}<div class="memory-grid">${items.map(({q,p})=>`<figure>${p.url?`<img src="${esc(p.url)}" alt="${esc(p.caption||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer">`:'<p>Photo unavailable</p>'}<figcaption><b>Asked by ${esc(q.requested_by)}</b><p>${esc(p.person)} photo${p.trip_day?` · ${esc(p.trip_day)}`:''}</p>${p.caption?`<p>${esc(p.caption)}</p>`:''}<button type="button" data-req-approve="${esc(p.id)}" ${busy?'disabled':''}>Delete</button><button type="button" data-req-keep="${esc(q.id)}" ${busy?'disabled':''}>Keep</button></figcaption></figure>`).join('')}</div></section>`;
+  }
+  function requestBar() {
+    if(!canRequest()||!rows.length)return '';
+    if(!selecting)return `<div class="photo-filters"><button id="photo-req-start" ${busy?'disabled':''}>🙈 Ask Dad to delete photos</button></div>`;
+    return `<div class="photo-filters request-bar"><b>${picked.size} picked</b><button id="photo-req-send" ${busy||!picked.size?'disabled':''}>Ask Dad to delete</button><button id="photo-req-cancel">Cancel</button></div><p class="sub">Tap the photos you want gone, then Ask Dad to delete. Dad decides.</p>`;
+  }
+  function photoExtras(r) {
+    if(requested(r.id))return '<p class="req-badge">⏳ Delete requested</p>';
+    if(selecting&&canRequest())return `<label class="req-pick"><input type="checkbox" data-photo-pick="${esc(r.id)}" ${picked.has(r.id)?'checked':''}> Pick</label>`;
+    return '';
+  }
+  function bindRequests() {
+    const start=document.getElementById('photo-req-start');if(start)start.onclick=()=>{selecting=true;picked=new Set();notice='';repaint();};
+    const cancel=document.getElementById('photo-req-cancel');if(cancel)cancel.onclick=()=>{selecting=false;picked=new Set();repaint();};
+    const send=document.getElementById('photo-req-send');if(send)send.onclick=()=>void sendRequests();
+    document.querySelectorAll('[data-photo-pick]').forEach(box=>box.onchange=()=>{box.checked?picked.add(box.dataset.photoPick):picked.delete(box.dataset.photoPick);repaint();});
+    document.querySelectorAll('[data-req-approve]').forEach(b=>b.onclick=()=>approveRequests([b.dataset.reqApprove]));
+    document.querySelectorAll('[data-req-keep]').forEach(b=>b.onclick=()=>keepRequests([b.dataset.reqKeep]));
+    const all=document.querySelector('[data-req-approve-all]');if(all)all.onclick=()=>approveRequests(reqPhotos.filter(p=>requested(p.id)).map(p=>p.id));
+    const keepAll=document.querySelector('[data-req-keep-all]');if(keepAll)keepAll.onclick=()=>keepRequests(requests.filter(q=>reqPhotos.some(p=>p.id===q.photo_id)).map(q=>q.id));
   }
 
   /* Saving photos: read-only. Downloads copies of the shared images; never changes photos, cards, points or packs. */
@@ -268,6 +368,7 @@ const MauiPhotos = (() => {
     const d=document.getElementById('photo-day');if(d)d.onchange=()=>{day=d.value;limit=60;ready=null;void load();};
     const refresh=document.getElementById('photo-refresh');if(refresh)refresh.onclick=()=>void load();
     const next=document.getElementById('photo-more');if(next)next.onclick=()=>{limit+=60;void load();};
+    bindRequests();
   }
   function showDay(next){day=next||'';person='';limit=60;ready=null;if(client&&canRead())void load();}
   return {init,setViewer,view,bind,showDay};
