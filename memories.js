@@ -269,5 +269,6 @@ const MauiPhotos = (() => {
     const refresh=document.getElementById('photo-refresh');if(refresh)refresh.onclick=()=>void load();
     const next=document.getElementById('photo-more');if(next)next.onclick=()=>{limit+=60;void load();};
   }
-  return {init,setViewer,view,bind};
+  function showDay(next){day=next||'';person='';limit=60;ready=null;if(client&&canRead())void load();}
+  return {init,setViewer,view,bind,showDay};
 })();
