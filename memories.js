@@ -4,7 +4,8 @@ const MauiPhotos = (() => {
   let client, tripId, repaint = () => {}, viewer, rows = [], notice = '', busy = false;
   let person = '', day = '', limit = 60, more = false, epoch = 0, loading = false;
   let ready = null; // photos fetched and waiting for a tap on the share sheet: {chunks, next, total}
-  const SHARE_BATCH = 20, MAX_SAVE = 200;
+  const SHARE_IOS = 20, SHARE_ANDROID = 10, SHARE_BYTES = 45*1024*1024, MAX_SAVE = 200; // Chrome on Android shares at most 10 files / 50 MB at once
+  const ANDROID = /Android/i.test(globalThis.navigator?.userAgent||'');
   const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const canUpload = () => PEOPLE.includes(viewer);
   const canRead = () => canUpload() || viewer === 'Guest';
@@ -43,7 +44,7 @@ const MauiPhotos = (() => {
     if(!client)return '<section class="card"><h2>Trip photos</h2><p>Waiting for the trip connection. Check your connection and reload the app.</p></section>';
     return `<section class="card memories"><h2>Trip photos</h2><p>Capture the trip, one memory at a time.</p><p role="status" aria-live="polite">${esc(notice)}</p>
     ${canUpload()?`<p>Uploading as <b>${esc(viewer)}</b>. Change your profile at the top to switch names.</p><form id="photo-upload"><fieldset ${busy?'disabled':''}><label>Take a photo<input name="camera" type="file" accept="image/*" capture="environment"></label><label>Or choose photos<input name="library" type="file" accept="image/*" multiple></label><p class="sub">Pick up to ${MAX_BATCH} photos at once, each up to 40 MB. The caption, day and activity go on every photo in the batch. Keep the app open until it finishes. Shared copies are resized; keep originals on your phone. If HEIC cannot open, choose a JPEG copy.</p><label>Caption (optional)<input name="caption" maxlength="500"></label><label>Trip day (optional)<select name="trip_day"><option value="">No day</option>${days().map(d=>`<option>${d}</option>`).join('')}</select></label><label>Activity (optional)<input name="activity" maxlength="100" placeholder="Beach, surf, Hāna…"></label><button>${busy?'Uploading…':'Upload photos'}</button></fieldset></form>`:'<p class="guest-readonly">Guest view · browse photos without changing anything.</p>'}</section>
-    <section class="card memories"><h3>Trip gallery</h3><div class="photo-filters"><label>Person<select id="photo-person"><option value="">Everyone</option>${PEOPLE.map(p=>`<option ${person===p?'selected':''}>${p}</option>`).join('')}</select></label><label>Day<select id="photo-day"><option value="">All days</option>${days().map(d=>`<option ${day===d?'selected':''}>${d}</option>`).join('')}</select></label><button id="photo-refresh" ${busy?'disabled':''}>Refresh</button>${rows.length?`<button id="photo-save-all" ${busy?'disabled':''}>⬇ Save these photos</button>`:''}</div>${rows.length?`<p class="sub">Save these photos gets every photo that matches the Person and Day picks. On a phone it opens the share sheet: Save Images puts them in Photos, or pick Drive to send them to Google Drive.</p>`:''}${readyPanel()}<p class="sub">Photo links refresh for five minutes. Tap Refresh if an image expires.</p>${loading?'<p role="status">Loading photos…</p>':''}<div class="memory-grid">${rows.map(r=>`<figure>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(r.url)}" alt="${esc(r.caption||r.activity||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer"></a>`:'<p>Photo unavailable</p>'}<figcaption><b>${esc(r.person)}</b>${r.trip_day?` · ${esc(r.trip_day)}`:''}<p>${esc(r.activity)}</p><p>${esc(r.caption)}</p>${r.url?`<button type="button" class="photo-save" data-photo-save="${esc(r.id)}" ${busy?'disabled':''}>⬇ Save photo</button>`:''}${canUpload()?`<button type="button" data-photo-delete="${esc(r.id)}" ${busy?'disabled':''}>Delete photo</button>`:''}</figcaption></figure>`).join('')}</div>${!rows.length&&!loading?'<p>No photos to show yet. Upload one or try another filter.</p>':''}${more?'<button id="photo-more">Show more</button>':''}</section>`;
+    <section class="card memories"><h3>Trip gallery</h3><div class="photo-filters"><label>Person<select id="photo-person"><option value="">Everyone</option>${PEOPLE.map(p=>`<option ${person===p?'selected':''}>${p}</option>`).join('')}</select></label><label>Day<select id="photo-day"><option value="">All days</option>${days().map(d=>`<option ${day===d?'selected':''}>${d}</option>`).join('')}</select></label><button id="photo-refresh" ${busy?'disabled':''}>Refresh</button>${rows.length?`<button id="photo-save-all" ${busy?'disabled':''}>⬇ Save these photos</button>`:''}</div>${rows.length?`<p class="sub">Save these photos gets every photo that matches the Person and Day picks. On iPhone, pick Save Images for Photos or Drive for Google Drive. On Android, download them to the phone or share them to Drive.</p>`:''}${notice&&!ready?`<p class="photo-note">${esc(notice)}</p>`:''}${readyPanel()}<p class="sub">Photo links refresh for five minutes. Tap Refresh if an image expires.</p>${loading?'<p role="status">Loading photos…</p>':''}<div class="memory-grid">${rows.map(r=>`<figure>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(r.url)}" alt="${esc(r.caption||r.activity||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer"></a>`:'<p>Photo unavailable</p>'}<figcaption><b>${esc(r.person)}</b>${r.trip_day?` · ${esc(r.trip_day)}`:''}<p>${esc(r.activity)}</p><p>${esc(r.caption)}</p>${r.url?`<button type="button" class="photo-save" data-photo-save="${esc(r.id)}" ${busy?'disabled':''}>⬇ Save photo</button>`:''}${canUpload()?`<button type="button" data-photo-delete="${esc(r.id)}" ${busy?'disabled':''}>Delete photo</button>`:''}</figcaption></figure>`).join('')}</div>${!rows.length&&!loading?'<p>No photos to show yet. Upload one or try another filter.</p>':''}${more?'<button id="photo-more">Show more</button>':''}</section>`;
   }
   async function normalize(file) {
     if(!file||file.size===0||file.size>40*1024*1024)throw Error('Choose a non-empty photo under 40 MB.');
@@ -122,9 +123,15 @@ const MauiPhotos = (() => {
   /* Saving photos: read-only. Downloads copies of the shared images; never changes photos, cards, points or packs. */
   function readyPanel() {
     if(!ready)return '';
-    const chunk=ready.chunks[ready.next],start=ready.chunks.slice(0,ready.next).reduce((n,c)=>n+c.length,0);
-    const label=ready.total===1?'Save photo':chunk.length===ready.total?`Save ${ready.total} photos`:`Save photos ${start+1}–${start+chunk.length} of ${ready.total}`;
-    return `<div class="photo-ready" role="status"><p><b>${ready.total===1?'Your photo is ready.':`${ready.total} photos are ready.`}</b> Tap below to open the share sheet, then pick Save ${chunk.length===1?'Image':'Images'} or Drive.${ready.chunks.length>1?` They go ${SHARE_BATCH} at a time so the phone doesn't run out of memory.`:''}</p><button type="button" id="photo-share-next">⬇ ${label}</button><button type="button" id="photo-share-cancel" class="photo-quiet">Done</button></div>`;
+    const n=ready.total,one=n===1,chunk=ready.chunks[ready.next]||[],start=ready.chunks.slice(0,ready.next).reduce((t,c)=>t+c.length,0);
+    const range=chunk.length===n?(one?'':` ${n}`):` ${start+1}–${start+chunk.length} of ${n}`;
+    const shareBtn=ready.share&&chunk.length?`<button type="button" id="photo-share-next">${ANDROID?'↗ Share to Drive or an app':'⬇ Save'}${ANDROID?(chunk.length===n?'':` (${start+1}–${start+chunk.length} of ${n})`):` ${one?'photo':'photos'}${range}`}</button>`:'';
+    const dlBtn=`<button type="button" id="photo-download-now" class="${ready.share&&!ANDROID?'photo-quiet':''}">⬇ Download ${one?'photo':`${n} photos`} to this phone</button>`;
+    const help=ANDROID
+      ?`Download puts ${one?'it':'them'} in your phone's Downloads folder, where Gallery and Google Photos can see ${one?'it':'them'}.${one?'':' If Chrome asks to allow several downloads, tap Allow.'}${ready.share?` Share opens the share sheet so you can pick Drive${ready.chunks.length>1?`, ${SHARE_ANDROID} at a time`:''}.`:''}`
+      :ready.share?`Tap Save to open the share sheet, then pick Save ${one?'Image':'Images'} or Drive.${ready.chunks.length>1?` They go ${SHARE_IOS} at a time so the phone doesn't run out of memory.`:''} Download instead puts ${one?'it':'them'} in the Files app.`
+      :`Download puts ${one?'it':'them'} in your phone's downloads.`;
+    return `<div class="photo-ready" role="status"><p><b>${one?'Your photo is ready.':`${n} photos are ready.`}</b> ${help}</p>${ANDROID?dlBtn+shareBtn:shareBtn+dlBtn}<button type="button" id="photo-share-cancel" class="photo-quiet">Done</button></div>`;
   }
   const safeName = value => String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
   function fileName(r,used) {
@@ -138,7 +145,22 @@ const MauiPhotos = (() => {
     if(got.error||!got.data)throw Error('A photo could not download. Check your connection and try again.');
     return new File([got.data],fileName(r,used),{type:'image/jpeg',lastModified:Date.parse(r.created_at)||Date.now()});
   }
-  const phoneShare = files => !!(navigator.share&&navigator.canShare&&window.matchMedia?.('(pointer:coarse)').matches&&navigator.canShare({files}));
+  const onPhone = () => ANDROID||!!window.matchMedia?.('(pointer:coarse)').matches;
+  const canShareFiles = files => {try{return !!(navigator.share&&navigator.canShare&&navigator.canShare({files}));}catch{return false;}};
+  function shareChunks(files) {
+    const max=ANDROID?SHARE_ANDROID:SHARE_IOS,chunks=[];let cur=[],bytes=0;
+    for(const f of files){if(cur.length&&(cur.length>=max||bytes+f.size>SHARE_BYTES)){chunks.push(cur);cur=[];bytes=0;}cur.push(f);bytes+=f.size;}
+    if(cur.length)chunks.push(cur);return chunks;
+  }
+  const pause = ms => new Promise(r=>setTimeout(r,ms));
+  async function downloadMany(files) {
+    // One file at a time from blob links, so phones save real JPEGs (no zip to open).
+    for(let i=0;i<files.length;i++){
+      if(files.length>1){notice=`Downloading ${i+1} of ${files.length}…`;repaint();}
+      downloadBlob(files[i],files[i].name);
+      if(i<files.length-1)await pause(700);
+    }
+  }
   function downloadBlob(blob,name) {
     const url=URL.createObjectURL(blob),a=document.createElement('a');
     a.href=url;a.download=name;a.rel='noopener';a.style.display='none';document.body.appendChild(a);a.click();a.remove();
@@ -164,20 +186,35 @@ const MauiPhotos = (() => {
   }
   function shareReady() {
     // Called straight from a tap so the phone allows the share sheet.
-    if(!ready)return;
-    const chunk=ready.chunks[ready.next];
-    navigator.share({files:chunk}).then(()=>{
-      if(!ready)return;
-      ready.next++;
-      if(ready.next>=ready.chunks.length){notice=ready.total===1?'Done with that photo.':`All ${ready.total} photos sent to the share sheet.`;ready=null;}
-      else notice=`Done with ${ready.chunks.slice(0,ready.next).reduce((n,c)=>n+c.length,0)} of ${ready.total}. Tap the button for the next set.`;
+    if(!ready||!ready.share)return;
+    const current=ready,chunk=current.chunks[current.next];
+    let started;
+    try{started=navigator.share({files:chunk});}catch(e){started=Promise.reject(e);}
+    started.then(()=>{
+      if(ready!==current)return;
+      current.next++;
+      if(current.next>=current.chunks.length){notice=current.total===1?'Done with that photo.':`All ${current.total} photos sent to the share sheet.`;ready=null;}
+      else notice=`Done with ${current.chunks.slice(0,current.next).reduce((n,c)=>n+c.length,0)} of ${current.total}. Tap the button for the next set.`;
       repaint();
-    }).catch(e=>{notice=e?.name==='AbortError'?'Share closed. Tap the button again whenever you are ready.':'The share sheet did not open. Tap the button to try again.';repaint();});
+    }).catch(e=>{
+      if(ready!==current)return;
+      if(e?.name==='AbortError'){notice='Share closed. Tap the button again whenever you are ready.';repaint();return;}
+      current.share=false;notice='The share sheet would not open on this phone, so tap Download instead.';repaint();
+    });
+  }
+  async function downloadReady() {
+    if(!ready||busy)return;
+    const current=ready;busy=true;
+    try{
+      await downloadMany(current.files);
+      notice=current.total===1?'Photo downloaded. Look in your Downloads.':`Downloaded ${current.total} photos. Look in your Downloads.`;
+      if(ready===current)ready=null;
+    }catch{notice='The download did not start. Tap Download to try again.';}
+    finally{busy=false;repaint();}
   }
   async function deliver(files,zipName) {
-    if(phoneShare(files.slice(0,SHARE_BATCH))) {
-      const chunks=[];for(let i=0;i<files.length;i+=SHARE_BATCH)chunks.push(files.slice(i,i+SHARE_BATCH));
-      ready={chunks,next:0,total:files.length};notice='';
+    if(onPhone()) {
+      ready={files,chunks:shareChunks(files),next:0,total:files.length,share:canShareFiles(files.slice(0,1))};notice='';
       return;
     }
     if(files.length===1){downloadBlob(files[0],files[0].name);notice='Photo downloaded.';return;}
@@ -223,6 +260,7 @@ const MauiPhotos = (() => {
     document.querySelectorAll("[data-photo-save]").forEach(button=>button.onclick=()=>void savePhoto(button.dataset.photoSave));
     const all=document.getElementById('photo-save-all');if(all)all.onclick=()=>void saveAll();
     const share=document.getElementById('photo-share-next');if(share)share.onclick=shareReady;
+    const dlNow=document.getElementById('photo-download-now');if(dlNow)dlNow.onclick=()=>void downloadReady();
     const cancel=document.getElementById('photo-share-cancel');if(cancel)cancel.onclick=()=>{ready=null;notice='';repaint();};
     document.querySelectorAll("[data-photo-delete]").forEach(button=>button.onclick=()=>void removePhoto(button.dataset.photoDelete));
     const form=document.getElementById('photo-upload');if(form)form.onsubmit=e=>{e.preventDefault();void upload(form);};

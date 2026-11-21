@@ -268,3 +268,4 @@
 
 /* Photo saving */
 .photo-ready{margin:12px 0;padding:12px;border:1px solid #9fd3cb;background:#eef8f6;border-radius:12px}.photo-ready p{margin:0 0 8px}.memories button.photo-quiet{background:#fff;color:var(--navy)}.memories button.photo-save{background:#eef7fa;color:#0a5c72;border-color:#cfe3ea}
+.photo-note{margin:10px 0;padding:9px 11px;background:#f2f8fb;border:1px solid #cfe0e7;border-radius:12px;font-weight:700}
