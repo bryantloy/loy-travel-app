@@ -134,7 +134,22 @@ const QUEST_TARGETS=[
   {"id": "photo-laughing", "name": "Someone laughing", "category": "photo", "difficulty": "medium", "points": 2, "emoji": "😂", "note": "Catch a real laugh, not a fake smile."},
   {"id": "photo-meal", "name": "Everyone at the table", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🍽️", "note": "A picture of the crew at a meal, before the food disappears."},
   {"id": "photo-big-view", "name": "A person in front of a big view", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🏞️", "note": "Put someone in the shot with the ocean, a waterfall or the crater."},
-  {"id": "photo-silly-face", "name": "Group silly face", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🤪", "note": "Everyone makes their weirdest face at the same time."}
+  {"id": "photo-silly-face", "name": "Group silly face", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🤪", "note": "Everyone makes their weirdest face at the same time."},
+  {"id": "photo-brothers-selfie", "name": "Brothers-only selfie", "category": "photo", "difficulty": "medium", "points": 3, "emoji": "🤳", "note": "Just the three brothers, no grown-ups. One of you holds the phone."},
+  {"id": "photo-brothers-jump", "name": "Brothers jump shot", "category": "photo", "difficulty": "hard", "points": 3, "emoji": "🦘", "note": "All three brothers in the air at the same time. Keep trying!"},
+  {"id": "photo-brothers-lineup", "name": "Brothers lined up by height", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "📏", "note": "Tallest to shortest. Then shortest to tallest if you want a bonus laugh."},
+  {"id": "photo-crew-shaka", "name": "Everyone throwing a shaka", "category": "photo", "difficulty": "medium", "points": 3, "emoji": "🤙", "note": "Every person in the picture flashes a shaka. Hang loose."},
+  {"id": "photo-copy-pose", "name": "Everyone copies the same pose", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🕺", "note": "One person strikes a pose and everyone else copies it."},
+  {"id": "photo-piggyback", "name": "Piggyback ride", "category": "photo", "difficulty": "medium", "points": 3, "emoji": "🐴", "note": "Someone giving someone a piggyback. Dad counts. Uncle Brett counts too."},
+  {"id": "photo-sunset-silhouette", "name": "Sunset silhouette", "category": "photo", "difficulty": "medium", "points": 3, "emoji": "🌅", "note": "Stand in front of the sunset so you show up as a dark shape."},
+  {"id": "photo-splash", "name": "Someone getting splashed", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "💦", "note": "Catch the splash right when it hits."},
+  {"id": "photo-sandy-feet", "name": "Sandy feet", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🦶", "note": "Everyone's sandy feet in one picture."},
+  {"id": "photo-sand-message", "name": "Message in the sand", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "✍️", "note": "Write LOY, MAUI or your name in the sand and snap it before a wave gets it."},
+  {"id": "photo-brain-freeze", "name": "Shave ice brain freeze face", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🍧", "note": "The face someone makes after a big bite of shave ice."},
+  {"id": "photo-jeep-crew", "name": "The crew in the Jeep", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🚙", "note": "Everybody in the Jeep, ready to roll. Take it before you drive."},
+  {"id": "photo-snorkel-face", "name": "Snorkel mask face", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🤿", "note": "Someone in a snorkel mask making a goofy face."},
+  {"id": "photo-shortest-photographer", "name": "Shortest photographer", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "📷", "note": "The shortest person takes a picture of the tallest person."},
+  {"id": "photo-hands-in", "name": "Hands in for Team Loy", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🙌", "note": "Everyone stacks their hands in the middle. Shout LOY on three."}
 ];
 
 const MAP_POINTS={
