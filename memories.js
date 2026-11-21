@@ -1,6 +1,6 @@
 /* Shared-link trip photos: names are attribution, not authenticated identities. */
 const MauiPhotos = (() => {
-  const BUCKET = 'maui-family-private', MAX_BATCH = 20, PEOPLE = ['Bryant','Bryson','Bennett','Brooks','Grandpa Rick'];
+  const BUCKET = 'maui-family-private', MAX_BATCH = 20, PEOPLE = ['Bryant','Bryson','Bennett','Brooks'];
   let client, tripId, repaint = () => {}, viewer, rows = [], notice = '', busy = false;
   let person = '', day = '', limit = 60, more = false, epoch = 0, loading = false;
   let ready = null; // photos fetched and waiting for a tap on the share sheet: {chunks, next, total}

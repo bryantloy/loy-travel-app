@@ -11,15 +11,6 @@
 .pin-submit{width:100%;margin-top:6px}
 .pin-panel .close{position:absolute;right:14px;top:14px}
 
-/* v0.8 advisor mode */
-.advisor-pick{background:linear-gradient(145deg,#fff6db,#fff)}
-.advisor-pick small{display:block;color:#8b6a25;font-size:.68rem;margin-top:4px}
-.rick-badge{display:inline-block;background:#fff0ba;color:#684d07;border:1px solid #ead27a;border-radius:999px;padding:4px 7px;font-size:.67rem;font-weight:900;margin-top:5px}
-.advisor-controls{margin-top:14px;padding:12px;border-radius:16px;background:#fff9e9;border:1px solid #efdfac}
-.advisor-label{font-size:.72rem;font-weight:950;letter-spacing:.08em;color:#725a18;margin-bottom:7px}
-.advisor-votes{margin-bottom:8px}
-.advisor-note{width:100%;min-height:68px;border:1px solid #e3d6ad;border-radius:12px;padding:10px;background:#fff;resize:vertical}
-.advisor-save{margin-top:8px;background:#fff1b8;color:#5a4608}
 
 .profile-tile-img{width:64px;height:64px;object-fit:cover;border-radius:50%;display:block;margin:0 auto 8px;border:3px solid #fff;box-shadow:0 4px 14px #0002}
 
