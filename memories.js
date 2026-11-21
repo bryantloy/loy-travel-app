@@ -3,6 +3,8 @@ const MauiPhotos = (() => {
   const BUCKET = 'maui-family-private', MAX_BATCH = 20, PEOPLE = ['Bryant','Bryson','Bennett','Brooks','Grandpa Rick'];
   let client, tripId, repaint = () => {}, viewer, rows = [], notice = '', busy = false;
   let person = '', day = '', limit = 60, more = false, epoch = 0, loading = false;
+  let ready = null; // photos fetched and waiting for a tap on the share sheet: {chunks, next, total}
+  const SHARE_BATCH = 20, MAX_SAVE = 200;
   const esc = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const canUpload = () => PEOPLE.includes(viewer);
   const canRead = () => canUpload() || viewer === 'Guest';
@@ -14,7 +16,7 @@ const MauiPhotos = (() => {
   }
   function setViewer(next) {
     if(viewer===next)return;
-    viewer=next;epoch++;rows=[];more=false;notice='';loading=false;
+    viewer=next;epoch++;rows=[];more=false;notice='';loading=false;ready=null;
     if(client&&canRead())void load();
   }
   async function load() {
@@ -41,7 +43,7 @@ const MauiPhotos = (() => {
     if(!client)return '<section class="card"><h2>Trip photos</h2><p>Waiting for the trip connection. Check your connection and reload the app.</p></section>';
     return `<section class="card memories"><h2>Trip photos</h2><p>Capture the trip, one memory at a time.</p><p role="status" aria-live="polite">${esc(notice)}</p>
     ${canUpload()?`<p>Uploading as <b>${esc(viewer)}</b>. Change your profile at the top to switch names.</p><form id="photo-upload"><fieldset ${busy?'disabled':''}><label>Take a photo<input name="camera" type="file" accept="image/*" capture="environment"></label><label>Or choose photos<input name="library" type="file" accept="image/*" multiple></label><p class="sub">Pick up to ${MAX_BATCH} photos at once, each up to 40 MB. The caption, day and activity go on every photo in the batch. Keep the app open until it finishes. Shared copies are resized; keep originals on your phone. If HEIC cannot open, choose a JPEG copy.</p><label>Caption (optional)<input name="caption" maxlength="500"></label><label>Trip day (optional)<select name="trip_day"><option value="">No day</option>${days().map(d=>`<option>${d}</option>`).join('')}</select></label><label>Activity (optional)<input name="activity" maxlength="100" placeholder="Beach, surf, Hāna…"></label><button>${busy?'Uploading…':'Upload photos'}</button></fieldset></form>`:'<p class="guest-readonly">Guest view · browse photos without changing anything.</p>'}</section>
-    <section class="card memories"><h3>Trip gallery</h3><div class="photo-filters"><label>Person<select id="photo-person"><option value="">Everyone</option>${PEOPLE.map(p=>`<option ${person===p?'selected':''}>${p}</option>`).join('')}</select></label><label>Day<select id="photo-day"><option value="">All days</option>${days().map(d=>`<option ${day===d?'selected':''}>${d}</option>`).join('')}</select></label><button id="photo-refresh" ${busy?'disabled':''}>Refresh</button></div><p class="sub">Photo links refresh for five minutes. Tap Refresh if an image expires.</p>${loading?'<p role="status">Loading photos…</p>':''}<div class="memory-grid">${rows.map(r=>`<figure>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(r.url)}" alt="${esc(r.caption||r.activity||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer"></a>`:'<p>Photo unavailable</p>'}<figcaption><b>${esc(r.person)}</b>${r.trip_day?` · ${esc(r.trip_day)}`:''}<p>${esc(r.activity)}</p><p>${esc(r.caption)}</p>${canUpload()?`<button type="button" data-photo-delete="${esc(r.id)}" ${busy?'disabled':''}>Delete photo</button>`:''}</figcaption></figure>`).join('')}</div>${!rows.length&&!loading?'<p>No photos to show yet. Upload one or try another filter.</p>':''}${more?'<button id="photo-more">Show more</button>':''}</section>`;
+    <section class="card memories"><h3>Trip gallery</h3><div class="photo-filters"><label>Person<select id="photo-person"><option value="">Everyone</option>${PEOPLE.map(p=>`<option ${person===p?'selected':''}>${p}</option>`).join('')}</select></label><label>Day<select id="photo-day"><option value="">All days</option>${days().map(d=>`<option ${day===d?'selected':''}>${d}</option>`).join('')}</select></label><button id="photo-refresh" ${busy?'disabled':''}>Refresh</button>${rows.length?`<button id="photo-save-all" ${busy?'disabled':''}>⬇ Save these photos</button>`:''}</div>${rows.length?`<p class="sub">Save these photos gets every photo that matches the Person and Day picks. On a phone it opens the share sheet: Save Images puts them in Photos, or pick Drive to send them to Google Drive.</p>`:''}${readyPanel()}<p class="sub">Photo links refresh for five minutes. Tap Refresh if an image expires.</p>${loading?'<p role="status">Loading photos…</p>':''}<div class="memory-grid">${rows.map(r=>`<figure>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(r.url)}" alt="${esc(r.caption||r.activity||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer"></a>`:'<p>Photo unavailable</p>'}<figcaption><b>${esc(r.person)}</b>${r.trip_day?` · ${esc(r.trip_day)}`:''}<p>${esc(r.activity)}</p><p>${esc(r.caption)}</p>${r.url?`<button type="button" class="photo-save" data-photo-save="${esc(r.id)}" ${busy?'disabled':''}>⬇ Save photo</button>`:''}${canUpload()?`<button type="button" data-photo-delete="${esc(r.id)}" ${busy?'disabled':''}>Delete photo</button>`:''}</figcaption></figure>`).join('')}</div>${!rows.length&&!loading?'<p>No photos to show yet. Upload one or try another filter.</p>':''}${more?'<button id="photo-more">Show more</button>':''}</section>`;
   }
   async function normalize(file) {
     if(!file||file.size===0||file.size>40*1024*1024)throw Error('Choose a non-empty photo under 40 MB.');
@@ -116,11 +118,116 @@ const MauiPhotos = (() => {
     }catch(e){notice=e.message;}
     finally{busy=false;repaint();}
   }
+
+  /* Saving photos: read-only. Downloads copies of the shared images; never changes photos, cards, points or packs. */
+  function readyPanel() {
+    if(!ready)return '';
+    const chunk=ready.chunks[ready.next],start=ready.chunks.slice(0,ready.next).reduce((n,c)=>n+c.length,0);
+    const label=ready.total===1?'Save photo':chunk.length===ready.total?`Save ${ready.total} photos`:`Save photos ${start+1}–${start+chunk.length} of ${ready.total}`;
+    return `<div class="photo-ready" role="status"><p><b>${ready.total===1?'Your photo is ready.':`${ready.total} photos are ready.`}</b> Tap below to open the share sheet, then pick Save ${chunk.length===1?'Image':'Images'} or Drive.${ready.chunks.length>1?` They go ${SHARE_BATCH} at a time so the phone doesn't run out of memory.`:''}</p><button type="button" id="photo-share-next">⬇ ${label}</button><button type="button" id="photo-share-cancel" class="photo-quiet">Done</button></div>`;
+  }
+  const safeName = value => String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+  function fileName(r,used) {
+    const date=r.trip_day||String(r.created_at||'').slice(0,10)||'trip';
+    let base=['maui',date,safeName(r.person)||'photo',safeName(r.activity).slice(0,24)].filter(Boolean).join('-'),name=`${base}.jpg`,n=2;
+    while(used.has(name))name=`${base}-${n++}.jpg`;
+    used.add(name);return name;
+  }
+  async function fetchPhoto(r,used) {
+    const got=await client.storage.from(BUCKET).download(r.storage_path);
+    if(got.error||!got.data)throw Error('A photo could not download. Check your connection and try again.');
+    return new File([got.data],fileName(r,used),{type:'image/jpeg',lastModified:Date.parse(r.created_at)||Date.now()});
+  }
+  const phoneShare = files => !!(navigator.share&&navigator.canShare&&window.matchMedia?.('(pointer:coarse)').matches&&navigator.canShare({files}));
+  function downloadBlob(blob,name) {
+    const url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download=name;a.rel='noopener';a.style.display='none';document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),60000);
+  }
+  const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+  function crc32(bytes){let c=0xFFFFFFFF;for(let i=0;i<bytes.length;i++)c=CRC[(c^bytes[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+  async function zip(files) {
+    // Plain "stored" zip (JPEGs are already compressed), built in the browser with no library.
+    const parts=[],central=[],enc=new TextEncoder();let offset=0;
+    const now=new Date(),dosTime=(now.getHours()<<11)|(now.getMinutes()<<5)|(now.getSeconds()>>1),dosDate=((now.getFullYear()-1980)<<9)|((now.getMonth()+1)<<5)|now.getDate();
+    for(const f of files){
+      const data=new Uint8Array(await f.arrayBuffer()),name=enc.encode(f.name),crc=crc32(data);
+      const h=new DataView(new ArrayBuffer(30));
+      h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(8,0,true);h.setUint16(10,dosTime,true);h.setUint16(12,dosDate,true);h.setUint32(14,crc,true);h.setUint32(18,data.length,true);h.setUint32(22,data.length,true);h.setUint16(26,name.length,true);h.setUint16(28,0,true);
+      const c=new DataView(new ArrayBuffer(46));
+      c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(10,0,true);c.setUint16(12,dosTime,true);c.setUint16(14,dosDate,true);c.setUint32(16,crc,true);c.setUint32(20,data.length,true);c.setUint32(24,data.length,true);c.setUint16(28,name.length,true);c.setUint32(42,offset,true);
+      parts.push(h.buffer,name,data);central.push(c.buffer,name);offset+=30+name.length+data.length;
+    }
+    const size=central.reduce((n,b)=>n+b.byteLength,0),e=new DataView(new ArrayBuffer(22));
+    e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,size,true);e.setUint32(16,offset,true);
+    return new Blob([...parts,...central,e.buffer],{type:'application/zip'});
+  }
+  function shareReady() {
+    // Called straight from a tap so the phone allows the share sheet.
+    if(!ready)return;
+    const chunk=ready.chunks[ready.next];
+    navigator.share({files:chunk}).then(()=>{
+      if(!ready)return;
+      ready.next++;
+      if(ready.next>=ready.chunks.length){notice=ready.total===1?'Done with that photo.':`All ${ready.total} photos sent to the share sheet.`;ready=null;}
+      else notice=`Done with ${ready.chunks.slice(0,ready.next).reduce((n,c)=>n+c.length,0)} of ${ready.total}. Tap the button for the next set.`;
+      repaint();
+    }).catch(e=>{notice=e?.name==='AbortError'?'Share closed. Tap the button again whenever you are ready.':'The share sheet did not open. Tap the button to try again.';repaint();});
+  }
+  async function deliver(files,zipName) {
+    if(phoneShare(files.slice(0,SHARE_BATCH))) {
+      const chunks=[];for(let i=0;i<files.length;i+=SHARE_BATCH)chunks.push(files.slice(i,i+SHARE_BATCH));
+      ready={chunks,next:0,total:files.length};notice='';
+      return;
+    }
+    if(files.length===1){downloadBlob(files[0],files[0].name);notice='Photo downloaded.';return;}
+    notice='Packing the photos into one zip file…';repaint();
+    downloadBlob(await zip(files),zipName);notice=`Downloaded ${files.length} photos in one zip file.`;
+  }
+  async function savePhoto(id) {
+    if(busy||!client||!canRead())return;
+    const r=rows.find(x=>x.id===id);if(!r)return;
+    busy=true;ready=null;notice='Getting the photo…';repaint();
+    try{await deliver([await fetchPhoto(r,new Set())],'');}
+    catch(e){notice=e.message;}
+    finally{busy=false;repaint();}
+  }
+  async function saveAll() {
+    if(busy||!client||!canRead())return;
+    busy=true;ready=null;notice='Finding the photos…';repaint();
+    const run=epoch;
+    try {
+      let query=client.from('maui_link_photos').select('id,person,trip_day,activity,storage_path,created_at').eq('trip_id',tripId).order('created_at',{ascending:true}).order('id').limit(MAX_SAVE+1);
+      if(person)query=query.eq('person',person);
+      if(day)query=query.eq('trip_day',day);
+      const result=await query;if(result.error)throw Error('Photos could not load. Check your connection and try again.');
+      const list=result.data.slice(0,MAX_SAVE),files=[],used=new Set(),missed=[];
+      if(!list.length){notice='No photos match these picks yet.';return;}
+      for(let i=0;i<list.length;i++){
+        if(run!==epoch)return;
+        notice=`Getting photo ${i+1} of ${list.length}…`;repaint();
+        try{files.push(await fetchPhoto(list[i],used));}catch{missed.push(i+1);}
+      }
+      if(run!==epoch)return;
+      if(!files.length)throw Error('The photos could not download. Check your connection and try again.');
+      const zipName=`maui-photos-${safeName(person)||'everyone'}-${day||'all-days'}.zip`;
+      await deliver(files,zipName);
+      const extra=[];
+      if(missed.length)extra.push(`${missed.length} ${missed.length===1?'photo':'photos'} could not download; tap Save these photos again to retry.`);
+      if(result.data.length>MAX_SAVE)extra.push(`Only the first ${MAX_SAVE} go at once. Pick a day to get the rest.`);
+      if(extra.length)notice=[notice,...extra].filter(Boolean).join(' ');
+    }catch(e){notice=e.message;}
+    finally{busy=false;repaint();}
+  }
   function bind() {
+    document.querySelectorAll("[data-photo-save]").forEach(button=>button.onclick=()=>void savePhoto(button.dataset.photoSave));
+    const all=document.getElementById('photo-save-all');if(all)all.onclick=()=>void saveAll();
+    const share=document.getElementById('photo-share-next');if(share)share.onclick=shareReady;
+    const cancel=document.getElementById('photo-share-cancel');if(cancel)cancel.onclick=()=>{ready=null;notice='';repaint();};
     document.querySelectorAll("[data-photo-delete]").forEach(button=>button.onclick=()=>void removePhoto(button.dataset.photoDelete));
     const form=document.getElementById('photo-upload');if(form)form.onsubmit=e=>{e.preventDefault();void upload(form);};
-    const p=document.getElementById('photo-person');if(p)p.onchange=()=>{person=p.value;limit=60;void load();};
-    const d=document.getElementById('photo-day');if(d)d.onchange=()=>{day=d.value;limit=60;void load();};
+    const p=document.getElementById('photo-person');if(p)p.onchange=()=>{person=p.value;limit=60;ready=null;void load();};
+    const d=document.getElementById('photo-day');if(d)d.onchange=()=>{day=d.value;limit=60;ready=null;void load();};
     const refresh=document.getElementById('photo-refresh');if(refresh)refresh.onclick=()=>void load();
     const next=document.getElementById('photo-more');if(next)next.onclick=()=>{limit+=60;void load();};
   }

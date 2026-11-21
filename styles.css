@@ -265,3 +265,6 @@
 /* v0.17 emoji quest tiles */
 .quest-photo .quest-emoji{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:64px;background:linear-gradient(135deg,#e6f6f4,#fdf1dc)}
 .quest-pack-note{font-weight:700;margin-top:6px}
+
+/* Photo saving */
+.photo-ready{margin:12px 0;padding:12px;border:1px solid #9fd3cb;background:#eef8f6;border-radius:12px}.photo-ready p{margin:0 0 8px}.memories button.photo-quiet{background:#fff;color:var(--navy)}.memories button.photo-save{background:#eef7fa;color:#0a5c72;border-color:#cfe3ea}
