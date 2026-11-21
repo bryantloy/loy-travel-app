@@ -323,18 +323,23 @@ function quest(){
   let points=found.reduce((s,x)=>s+x.points,0), tripPoints=questLog().reduce((s,x)=>s+x.points,0);
   let groups=[["all","All"],["photo","📸 Photo challenge"],["food","🍽️ Food"],["plants","🌿 Plants"],["animals","🦎 Animals"],["ocean","🐠 Ocean"],["places","🌋 Places"],["weather","🌈 Weather"],["silly","😂 Silly"]];
   let questFilter=localStorage.getItem("loy-quest-filter")||"all";
+  let view=localStorage.getItem("loy-quest-view")==="cards"?"cards":"finds",ready=readyPackCount();
   let list=QUEST_TARGETS.filter(x=>questFilter==="all"||x.category===questFilter);
-  return `${head()}<main class="content">
-  <section class="card quest-card quest-hero"><div class="eyebrow quest-eye">MAUI QUEST</div><div class="quest-big">📸 🐢 🌺 🌋</div><h2>Find the real Maui.</h2><p>Big wildlife is worth big points. Silly finds still count. Tap a find when you spot it. Everything resets each morning, so you can find it again tomorrow.</p><p class="quest-pack-note">🎴 Every 15 points earns a card pack, plus a bonus pack at 100. Silly finds count for points only.</p><p class="quest-pack-note">📸 New: Photo challenge. Get pictures of Dad, Uncle Brett and each other, then add them in Photos.</p><div class="quest-stats"><div><b>${found.length}/${QUEST_TARGETS.length}</b><span>found today</span></div><div><b>${points}</b><span>points today</span></div><div><b>${tripPoints}</b><span>trip points</span></div></div></section>
-  <div class="toolbar quest-filters">${groups.map(x=>`<button class="filter ${questFilter===x[0]?"on":""}" data-quest-filter="${x[0]}">${x[1]}</button>`).join("")}</div>
-  <div class="section-head"><div><div class="eyebrow">PHOTO SCAVENGER HUNT</div><h2>Things to find</h2></div><span class="pill">${list.length} targets</span></div>
-  <div class="quest-photo-grid">${list.map(x=>{let on=localStorage.getItem(spotKey(x.id))==="1";return `<article class="quest-find ${on?"seen":""}">
+  let isFound=x=>localStorage.getItem(spotKey(x.id))==="1",todo=list.filter(x=>!isFound(x)),done=list.filter(isFound);
+  /* Finds and Cards are two views, so the boys reach either one without scrolling past the other. */
+  let finds=`<div class="toolbar quest-filters">${groups.map(x=>`<button class="filter ${questFilter===x[0]?"on":""}" data-quest-filter="${x[0]}">${x[1]}</button>`).join("")}</div>
+  ${[[todo,""],[done,`<div class="section-head quest-done-head"><h3>✓ Found today</h3><span class="pill">${done.length}</span></div>`]].filter(g=>g[0].length).map(([group,title])=>`${title}<div class="quest-photo-grid">${group.map(x=>{let on=localStorage.getItem(spotKey(x.id))==="1";return `<article class="quest-find ${on?"seen":""}">
     <button class="quest-photo" data-spot="${x.id}" ${isGuest()?"disabled":""}>${x.image?`<img src="${x.image}" alt="${x.name}" loading="lazy">`:`<span class="quest-emoji" aria-hidden="true">${x.emoji||"🔎"}</span>`}<span class="quest-check">${on?"✓":"Find it"}</span></button>
     <div class="quest-find-copy"><div class="quest-find-head"><b>${x.name}</b><span class="difficulty ${x.difficulty}">${x.difficulty} · ${x.points} pt${x.points===1?"":"s"}</span></div><p>${x.note}</p>${x.category==="photo"&&!isGuest()?`<button class="learn" data-page="memories">📷 Add to Photos</button>`:""}${x.source?`<a href="${x.source}" target="_blank" rel="noopener">Photo source</a>`:""}</div>
-  </article>`}).join("")}</div>
-  <section class="card"><div class="section-head"><div><div class="eyebrow">FAMILY CHALLENGES</div><h3>Trip achievements</h3></div><span class="pill">Trip mode</span></div><div class="achievement-grid"><div>📸<b>Reef Photographer</b><small>Capture a favorite reef sighting</small></div><div>🍧<b>Shave Ice Judge</b><small>Rate the family favorite</small></div><div>🌅<b>Above the Clouds</b><small>Make the Haleakalā sunrise</small></div><div>🗺️<b>Road Warrior</b><small>Complete the Hāna adventure</small></div><div>🏄<b>Surf Crew</b><small>Catch a wave at a surf lesson (Sunday, or Wednesday backup)</small></div><div>🔎<b>Quest Hunter</b><small>Find 10 Maui Quest targets</small></div></div></section>
-  <section class="card memories-preview"><div class="eyebrow">MEMORIES</div><h3>📸 Family photo albums</h3><p class="sub">Trip photos and day-by-day albums will live here later. Guest View is designed to be able to see these albums too.</p></section>
-  ${cardsView()}</main>`;
+  </article>`}).join("")}</div>`).join("")}
+  <details class="card quest-more"><summary>🏆 Trip achievements</summary><div class="achievement-grid"><div>📸<b>Reef Photographer</b><small>Capture a favorite reef sighting</small></div><div>🍧<b>Shave Ice Judge</b><small>Rate the family favorite</small></div><div>🌅<b>Above the Clouds</b><small>Make the Haleakalā sunrise</small></div><div>🗺️<b>Road Warrior</b><small>Complete the Hāna adventure</small></div><div>🏄<b>Surf Crew</b><small>Catch a wave at a surf lesson</small></div><div>🔎<b>Quest Hunter</b><small>Find 10 Maui Quest targets</small></div></div></details>
+  <button class="buttonlink quest-jump" data-quest-view="cards">🎴 Go to my cards${ready?` · ${ready} ready`:""}</button>
+  ${detailItem?.type==="card"?cardModal():""}${pinOpen?pinModal():""}${starterModal()}`;
+  return `${head()}<main class="content">
+  <section class="card quest-card quest-hero quest-compact"><div class="eyebrow quest-eye">MAUI QUEST</div><h2>Find the real Maui.</h2><div class="quest-stats"><div><b>${found.length}/${QUEST_TARGETS.length}</b><span>found today</span></div><div><b>${points}</b><span>points today</span></div><div><b>${tripPoints}</b><span>trip points</span></div></div>
+  <details class="quest-how"><summary>How it works</summary><p>Big wildlife is worth big points. Silly finds still count. Tap a find when you spot it. Everything resets each morning, so you can find it again tomorrow.</p><p class="quest-pack-note">🎴 Every 15 points earns a card pack, plus a bonus pack at 100. Silly finds count for points only.</p><p class="quest-pack-note">📸 Photo challenge: get pictures of Dad, Uncle Brett and each other, then add them in Photos.</p></details></section>
+  <div class="quest-switch" role="tablist"><button role="tab" class="${view==="finds"?"on":""}" data-quest-view="finds">🔎 Finds <small>${todo.length} left</small></button><button role="tab" class="${view==="cards"?"on":""}" data-quest-view="cards">🎴 Cards${ready?` <span class="quest-ready">${ready} ready</span>`:""}</button></div>
+  ${view==="cards"?cardsView():finds}</main>`;
 }
 
 const ADMIN_PIN_HASH="8f8472a2f6ec348bfc7577a035c7f34a04c62f0c757b54687e1175236dcf393b";
@@ -465,6 +470,7 @@ document.querySelectorAll("[data-award-who]").forEach(b=>b.onclick=()=>{awardWho
 document.querySelectorAll("[data-award-pack]").forEach(b=>b.onclick=()=>{awardPack=b.dataset.awardPack;render()});
 document.querySelectorAll("[data-award-give]").forEach(b=>b.onclick=giveAward);
 document.querySelectorAll("[data-quest-filter]").forEach(b=>b.onclick=()=>{localStorage.setItem("loy-quest-filter",b.dataset.questFilter);render()});
+document.querySelectorAll("[data-quest-view]").forEach(b=>b.onclick=()=>{localStorage.setItem("loy-quest-view",b.dataset.questView);render();window.scrollTo(0,0)});
 document.querySelectorAll("[data-export]").forEach(b=>b.onclick=()=>({votes:exportVotesCsv,food:exportFoodCsv,packing:exportPackingCsv,costco:exportCostcoCsv,orders:exportOrderCsv}[b.dataset.export]?.()));
 if(page==="explore"&&exploreMode==="map")setTimeout(initPlanningMap,0)
 }

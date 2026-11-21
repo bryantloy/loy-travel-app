@@ -283,3 +283,16 @@
 .req-pick{display:flex;align-items:center;gap:6px;font-weight:800;margin-top:6px}
 .req-pick input{width:22px;height:22px}
 .request-bar{align-items:center;position:sticky;top:0;z-index:5;background:#fffdf8;padding:6px 0}
+/* Maui Quest: Finds and Cards views */
+.quest-compact h2{margin:2px 0 8px}
+.quest-how{margin-top:8px;font-size:.85rem}
+.quest-how summary{cursor:pointer;font-weight:700;color:#25749a}
+.quest-switch{display:flex;gap:6px;position:sticky;top:0;z-index:6;background:#fffdf8;padding:8px 0;margin-bottom:6px}
+.quest-switch button{flex:1;border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 8px;font-weight:800;font-size:.95rem;cursor:pointer}
+.quest-switch button.on{background:#25749a;color:#fff;border-color:#25749a}
+.quest-switch small{font-weight:600;opacity:.75}
+.quest-ready{display:inline-block;background:#ffb347;color:#4a2a00;border-radius:999px;padding:1px 7px;font-size:.72rem;margin-left:4px}
+.quest-more summary{cursor:pointer;font-weight:800}
+.quest-more .achievement-grid{margin-top:10px}
+.quest-jump{display:block;width:100%;text-align:center;margin:4px 0 18px}
+.quest-done-head{margin-top:6px}
