@@ -325,10 +325,11 @@ function quest(){
   let questFilter=localStorage.getItem("loy-quest-filter")||"all";
   let view=localStorage.getItem("loy-quest-view")==="cards"?"cards":"finds",ready=readyPackCount();
   let list=QUEST_TARGETS.filter(x=>questFilter==="all"||x.category===questFilter);
-  let isFound=x=>localStorage.getItem(spotKey(x.id))==="1",todo=list.filter(x=>!isFound(x)),done=list.filter(isFound);
+  let isFound=x=>localStorage.getItem(spotKey(x.id))==="1",ever=new Set(questLog().map(x=>x.id)),todo=list.filter(x=>!isFound(x)),fresh=todo.filter(x=>!ever.has(x.id)),again=todo.filter(x=>ever.has(x.id)),done=list.filter(isFound);
+  let groupHead=(t,n)=>`<div class="section-head quest-done-head"><h3>${t}</h3><span class="pill">${n}</span></div>`;
   /* Finds and Cards are two views, so the boys reach either one without scrolling past the other. */
   let finds=`<div class="toolbar quest-filters">${groups.map(x=>`<button class="filter ${questFilter===x[0]?"on":""}" data-quest-filter="${x[0]}">${x[1]}</button>`).join("")}</div>
-  ${[[todo,""],[done,`<div class="section-head quest-done-head"><h3>✓ Found today</h3><span class="pill">${done.length}</span></div>`]].filter(g=>g[0].length).map(([group,title])=>`${title}<div class="quest-photo-grid">${group.map(x=>{let on=localStorage.getItem(spotKey(x.id))==="1";return `<article class="quest-find ${on?"seen":""}">
+  ${[[fresh,again.length||done.length?groupHead("🆕 Not found yet this trip",fresh.length):""],[again,groupHead("🔁 Found before, not today",again.length)],[done,groupHead("✓ Found today",done.length)]].filter(g=>g[0].length).map(([group,title])=>`${title}<div class="quest-photo-grid">${group.map(x=>{let on=localStorage.getItem(spotKey(x.id))==="1";return `<article class="quest-find ${on?"seen":""}">
     <button class="quest-photo" data-spot="${x.id}" ${isGuest()?"disabled":""}>${x.image?`<img src="${x.image}" alt="${x.name}" loading="lazy">`:`<span class="quest-emoji" aria-hidden="true">${x.emoji||"🔎"}</span>`}<span class="quest-check">${on?"✓":"Find it"}</span></button>
     <div class="quest-find-copy"><div class="quest-find-head"><b>${x.name}</b><span class="difficulty ${x.difficulty}">${x.difficulty} · ${x.points} pt${x.points===1?"":"s"}</span></div><p>${x.note}</p>${x.category==="photo"&&!isGuest()?`<button class="learn" data-page="memories">📷 Add to Photos</button>`:""}${x.source?`<a href="${x.source}" target="_blank" rel="noopener">Photo source</a>`:""}</div>
   </article>`}).join("")}</div>`).join("")}
