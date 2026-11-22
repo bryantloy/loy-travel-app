@@ -52,7 +52,7 @@ To make a new card a memory card, add `"memory": true` to its catalog entry.
 Shown in a Bonus points box at the top of Maui Quest > Finds. All of it counts toward points packs (every 15) and the 100 point bonus, and is saved per traveler on the phone, like finds.
 
 - **Daily 3:** a Hawaiʻi day with 3 or more finds (silly ones count) gives +3, then +1 more for each day in a row before it, up to +6.
-- **Brother team-up (boys only):** on a find logged today, tap 🤝 when all three brothers found it. +2 each, up to 5 a day. Honor system: each boy taps it on his own phone.
+- **Brother team-up (boys only):** on a find logged today, tap 🤝 when brothers found it together: 2 brothers +2, all 3 +3, up to 5 team-ups a day. Honor system: each boy taps it on his own phone.
 - **Trip day photo finds:** 5 Pride of Maui finds from Mon 11/23 and 6 Road to Hāna finds from Tue 11/24 (2 to 4 points). They stay open after their day in case plans move, and each counts once over the trip.
 - **Favorite memory vote:** from Wed 11/25 through Fri 11/27, each traveler picks a favorite trip memory card for +5 (once; the vote can be changed).
 

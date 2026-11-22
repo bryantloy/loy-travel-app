@@ -329,7 +329,7 @@ function questDay(){return window.LoyPacks?LoyPacks.hawaiiDate(new Date()):new D
 function spotKey(id,day){return `loy-spot-${(who||"").toLowerCase()}-${day||questDay()}-${id}`}
 function questLog(){let pre=`loy-spot-${(who||"").toLowerCase()}-`,byId=Object.fromEntries(QUEST_TARGETS.filter(Boolean).map(x=>[x.id,x])),out=[];for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(!k||!k.startsWith(pre)||localStorage.getItem(k)!=="1")continue;let rest=k.slice(pre.length),m=/^(\d{4}-\d{2}-\d{2})-(.+)$/.exec(rest),id=m?m[2]:rest;if(byId[id])out.push(byId[id])}return out}
 // Bonus points (v0.19): Daily 3 streak, brother team-ups and the favorite memory vote. All saved per traveler on this phone.
-const TEAM_BONUS=2,TEAM_MAX=5,VOTE_BONUS=5,VOTE_FROM="2026-11-25",VOTE_UNTIL="2026-11-27",BOYS=["Bryson","Bennett","Brooks"];
+const TEAM_BONUS=2,TEAM_ALL_BONUS=3,TEAM_MAX=5,VOTE_BONUS=5,VOTE_FROM="2026-11-25",VOTE_UNTIL="2026-11-27",BOYS=["Bryson","Bennett","Brooks"];
 function questByDay(){let pre=`loy-spot-${(who||"").toLowerCase()}-`,byId=Object.fromEntries(QUEST_TARGETS.filter(Boolean).map(x=>[x.id,x])),days={};for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(!k||!k.startsWith(pre)||localStorage.getItem(k)!=="1")continue;let m=/^(\d{4}-\d{2}-\d{2})-(.+)$/.exec(k.slice(pre.length));if(m&&byId[m[2]])(days[m[1]]=days[m[1]]||[]).push(byId[m[2]])}return days}
 const prevDay=d=>{let t=new Date(d+"T12:00:00Z");t.setUTCDate(t.getUTCDate()-1);return t.toISOString().slice(0,10)};
 function teamKey(id,day){return `loy-team-${(who||"").toLowerCase()}-${day||questDay()}-${id}`}
@@ -337,20 +337,23 @@ function voteKey(){return `loy-memory-vote-${(who||"").toLowerCase()}`}
 function myVote(){let v=localStorage.getItem(voteKey());if(!v)return null;let [id,day]=v.split("|");return{id,day}}
 // Daily 3: +3 for a day with 3+ finds, +1 more for each day in a row before it (up to +6).
 function streakBonus(days,day){if((days[day]||[]).length<3)return 0;let n=1,d=prevDay(day);while((days[d]||[]).length>=3&&n<4){n++;d=prevDay(d)}return 2+n}
-function teamsOn(days,day){let ids=new Set((days[day]||[]).map(x=>x.id));return [...ids].filter(id=>localStorage.getItem(teamKey(id,day))==="1").slice(0,TEAM_MAX)}
+// Team-up value: "2" = two brothers found it together (+2), "3" (or the older "1") = all three (+3).
+function teamVal(id,day){let v=localStorage.getItem(teamKey(id,day));return v==="2"?2:v==="3"||v==="1"?3:0}
+function teamsOn(days,day){let ids=new Set((days[day]||[]).map(x=>x.id));return [...ids].filter(id=>teamVal(id,day)).slice(0,TEAM_MAX)}
+const teamPoints=(days,day)=>teamsOn(days,day).reduce((t,id)=>t+(teamVal(id,day)===3?TEAM_ALL_BONUS:TEAM_BONUS),0);
 function questBonus(){
   let days=questByDay(),today=questDay(),out={trip:0,today:0,streakToday:streakBonus(days,today),teamsToday:teamsOn(days,today).length};
-  Object.keys(days).forEach(d=>{let b=streakBonus(days,d)+(BOYS.includes(who)?teamsOn(days,d).length*TEAM_BONUS:0);out.trip+=b;if(d===today)out.today+=b});
+  Object.keys(days).forEach(d=>{let b=streakBonus(days,d)+(BOYS.includes(who)?teamPoints(days,d):0);out.trip+=b;if(d===today)out.today+=b});
   let v=myVote();if(v){out.trip+=VOTE_BONUS;if(v.day===today)out.today+=VOTE_BONUS}
   return out;
 }
 function questProgress(){let found=questLog(),bonus=questBonus();return{questFound:found.filter(x=>x.category!=="silly").length,questPoints:found.reduce((t,x)=>t+x.points,0)+bonus.trip,wildlifeFound:found.filter(x=>x.category==="animals"||x.category==="ocean").length,photoTasks:found.filter(x=>x.category==="photo").length}}
-function teamButton(x,bonus){let on=localStorage.getItem(teamKey(x.id))==="1",full=!on&&bonus.teamsToday>=TEAM_MAX;return `<button class="team-up ${on?"on":""}" data-team="${x.id}" ${full?"disabled":""}>${on?"🤝 Team-up +2 ✓":full?"🤝 Team-ups maxed today":"🤝 All 3 brothers found it? +2"}</button>`}
+function teamButton(x,bonus){let v=teamVal(x.id),full=!v&&bonus.teamsToday>=TEAM_MAX;if(full)return `<button class="team-up" disabled>🤝 Team-ups maxed today</button>`;return `<div class="team-pair"><button class="team-up ${v===2?"on":""}" data-team="${x.id}" data-team-n="2">🤝 2 brothers +${TEAM_BONUS}${v===2?" ✓":""}</button><button class="team-up ${v===3?"on":""}" data-team="${x.id}" data-team-n="3">🤝 All 3 +${TEAM_ALL_BONUS}${v===3?" ✓":""}</button></div>`}
 function bonusPanel(bonus,open){
   if(isGuest()||!who)return "";
   let today=questDay(),n=open.filter(x=>localStorage.getItem(spotKey(x.id))==="1").length,next=streakBonus({...questByDay(),[today]:[1,2,3]},today);
   let streak=bonus.streakToday?`<div class="bonus-row on">🔥 <b>Daily 3 done: +${bonus.streakToday} today</b><small>Keep it going tomorrow for more.</small></div>`:`<div class="bonus-row">🔥 <b>Daily 3: ${n}/3 finds today</b><small>Log ${3-n} more for +${next}.</small></div>`;
-  let team=BOYS.includes(who)?`<div class="bonus-row ${bonus.teamsToday?"on":""}">🤝 <b>Team-ups today: ${bonus.teamsToday}/${TEAM_MAX}</b><small>When all three brothers found the same thing, tap 🤝 on it for +${TEAM_BONUS}.</small></div>`:"";
+  let team=BOYS.includes(who)?`<div class="bonus-row ${bonus.teamsToday?"on":""}">🤝 <b>Team-ups today: ${bonus.teamsToday}/${TEAM_MAX}</b><small>Found something together with a brother? Tap 🤝 on it: 2 brothers +${TEAM_BONUS}, all 3 +${TEAM_ALL_BONUS}.</small></div>`:"";
   let dayFinds=open.filter(x=>x.from===today).length?`<div class="bonus-row">📅 <b>New trip day photo finds today</b><small>Look for the 📅 finds in Photo challenge. Each counts once.</small></div>`:"";
   return `<section class="card bonus-panel"><div class="eyebrow">BONUS POINTS</div>${streak}${team}${dayFinds}${today>=VOTE_FROM&&today<=VOTE_UNTIL?votePanel():""}</section>`;
 }
@@ -383,7 +386,7 @@ function quest(){
   ${detailItem?.type==="card"?cardModal():""}${pinOpen?pinModal():""}${starterModal()}`;
   return `${head()}<main class="content">
   <section class="card quest-card quest-hero quest-compact"><div class="eyebrow quest-eye">MAUI QUEST</div><h2>Find the real Maui.</h2><div class="quest-stats"><div><b>${found.length}/${open.length}</b><span>found today</span></div><div><b>${points}</b><span>points today</span></div><div><b>${tripPoints}</b><span>trip points</span></div></div>
-  <details class="quest-how"><summary>How it works</summary><p>Big wildlife is worth big points. Silly finds still count. Tap a find when you spot it. Everything resets each morning, so you can find it again tomorrow.</p><p class="quest-pack-note">🎴 Every 15 points earns a card pack, plus a bonus pack at 100. Silly finds count for points only.</p><p class="quest-pack-note">📸 Photo challenge: get pictures of Dad, Uncle Brett and each other, then add them in Photos.</p><p class="quest-pack-note">🔥 Bonus points: log 3 finds a day for +3 and more for each day in a row, tap 🤝 when all three brothers found the same thing (+2, up to 5 a day), and vote for your favorite trip memory card on the last days (+5).</p></details></section>
+  <details class="quest-how"><summary>How it works</summary><p>Big wildlife is worth big points. Silly finds still count. Tap a find when you spot it. Everything resets each morning, so you can find it again tomorrow.</p><p class="quest-pack-note">🎴 Every 15 points earns a card pack, plus a bonus pack at 100. Silly finds count for points only.</p><p class="quest-pack-note">📸 Photo challenge: get pictures of Dad, Uncle Brett and each other, then add them in Photos.</p><p class="quest-pack-note">🔥 Bonus points: log 3 finds a day for +3 and more for each day in a row, tap 🤝 when you found something with a brother (2 brothers +2, all 3 +3, up to 5 a day), and vote for your favorite trip memory card on the last days (+5).</p></details></section>
   <div class="quest-switch" role="tablist"><button role="tab" class="${view==="finds"?"on":""}" data-quest-view="finds">🔎 Finds <small>${todo.length} left</small></button><button role="tab" class="${view==="cards"?"on":""}" data-quest-view="cards">🎴 Cards${ready?` <span class="quest-ready">${ready} ready</span>`:""}</button></div>
   ${view==="cards"?cardsView():finds}</main>`;
 }
@@ -510,7 +513,7 @@ document.querySelectorAll("[data-prep-have]").forEach(b=>b.onclick=()=>{if(isGue
 document.querySelectorAll("[data-costco-buy]").forEach(b=>b.onclick=()=>{if(isGuest())return;let x=costcoItems.find(i=>String(costcoId(i))===String(b.dataset.costcoBuy));if(x)updateCostcoItem(b.dataset.costcoBuy,{purchased:!x.purchased})});
 document.querySelectorAll("[data-costco-actual]").forEach(b=>{if(isGuest()){b.readOnly=true;return}b.onchange=()=>updateCostcoItem(b.dataset.costcoActual,{actual_cost:b.value===""?null:Number(b.value)})});
 document.querySelectorAll("[data-spot]").forEach(b=>b.onclick=()=>{if(isGuest())return;let k=spotKey(b.dataset.spot);localStorage.setItem(k,localStorage.getItem(k)==="1"?"0":"1");render()});
-document.querySelectorAll("[data-team]").forEach(b=>b.onclick=()=>{if(isGuest())return;let k=teamKey(b.dataset.team);localStorage.setItem(k,localStorage.getItem(k)==="1"?"0":"1");render()});
+document.querySelectorAll("[data-team-n]").forEach(b=>b.onclick=()=>{if(isGuest())return;let n=+b.dataset.teamN;localStorage.setItem(teamKey(b.dataset.team),teamVal(b.dataset.team)===n?"0":String(n));render()});
 document.querySelectorAll("[data-memory-vote]").forEach(b=>b.onclick=()=>{if(isGuest())return;let v=myVote();localStorage.setItem(voteKey(),`${b.dataset.memoryVote}|${v?.day||questDay()}`);render()});
 document.querySelectorAll("[data-pack-open]").forEach(b=>b.onclick=()=>{if(!isCollector())return;b.disabled=true;openEarnedPack(b.dataset.packOpen)});
 document.querySelectorAll("[data-reveal-next]").forEach(b=>b.onclick=()=>{if(!packReveal)return;if(packReveal.index<packReveal.cards.length-1)packReveal.index++;else{packReveal=null;cardOwner="self"}render()});

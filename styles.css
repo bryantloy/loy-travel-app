@@ -313,3 +313,5 @@
 .vote-card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
 .vote-card span{display:block;font-size:.6rem;font-weight:800;padding:4px 3px;line-height:1.15}
 .vote-card.on{border-color:#24785c;box-shadow:0 0 0 2px rgba(36,120,92,.2)}
+.team-pair{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:0 0 7px}
+.team-pair .team-up{margin:0;padding:7px 4px}
