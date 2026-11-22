@@ -41,6 +41,12 @@ Maui Quest finds are saved per traveler, per day, on each phone. Every find can 
 
 There are 81 finds. Big wildlife is worth the most: monk seal 12, spinner dolphins 10, humpback whale 10, octopus 8, reef shark 8, eagle ray 8, nēnē 6, honu 5, humuhumu 5, double rainbow 5. New in v0.18 is a 🍽️ Food group (shave ice, chicken tenders, kalua pulled pork, pizza, banana bread, poke, malasada, açaí bowl, fish tacos, pineapple, coconut drink, loco moco, huli huli chicken, plate lunch, pineapple soft serve, macadamia nuts), plus sunset, sunrise, starry sky, any waterfall, tide pool, toes in the sand, another island, surfer, outrigger, hula, sea urchin, Moorish idol, hermit crab, cardinal and cattle egret. Silly finds (now 19, like sunburn, a Dad joke, a car nap and socks with sandals) are 1 point each and count toward points packs only. Unticking a find takes today's points back, but a pack that was already opened stays opened.
 
+## Trip memory cards (v0.19)
+
+Cards made from real trip photos have `"memory": true` in `card-catalog.json` (17 cards as of Nov 22). Until a traveler owns all of them, every pack has at least one (`memoryPerPack` in packs.js), and they are 3x as likely as other cards everywhere else (`memoryWeight`). A full set still takes the same number of packs; the memory cards just come sooner. In simulation a boy gets about 13 memory cards in his first 10 packs (was about 4) and has them all by about pack 14 (was about 28).
+
+To make a new card a memory card, add `"memory": true` to its catalog entry.
+
 ## Pack odds
 
 **Collect first (v0.18):** until a traveler owns every card in their pool, every pack is 4 cards they don't have yet. The rarity is still rolled by the odds below, weighted by how many of that rarity they're missing, so big cards still feel rare early. **Own cards first:** until a traveler has all of their own cards, every pack holds at least 2 of them, so each boy has all 14 of his own within his first 7 packs. Once the set is complete, packs go back to the normal rules below and can give duplicates.

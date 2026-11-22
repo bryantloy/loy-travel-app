@@ -1,4 +1,4 @@
-// Loy Travel v0.18 — earned card packs: milestones, odds, rare caps, pity and collection storage.
+// Loy Travel v0.19 — earned card packs: milestones, odds, rare caps, pity and collection storage.
 // Rules are written up in CARD-PACKS.md. Shared storage comes from SUPABASE-v016-CARD-PACKS.sql;
 // until that runs, packs are kept on this device (localStorage) and copied up once the table exists.
 (function(global){
@@ -19,7 +19,9 @@
     collectors:["Bryant","Bryson","Bennett","Brooks"],
     boys:["bryson","bennett","brooks"],
     ownPerPack:2,          // until a traveler owns all of their own cards, every pack has at least 2 of them
-    boysPullAll:true // each boy's packs can give any card, brothers' included (own cards still more likely)
+    boysPullAll:true, // each boy's packs can give any card, brothers' included (own cards still more likely)
+    memoryWeight:3,  // cards made from real trip photos ("memory": true in the catalog) are 3x as likely to be pulled
+    memoryPerPack:1  // until a traveler owns every trip memory card, every pack has at least 1 of them
   };
   // Earned packs. Each one opens once per traveler. Dates are Hawaiʻi dates.
   const PACKS=[
@@ -46,6 +48,7 @@
   const LOCAL_KEY="loy-packs-v016";
   const rank=r=>{let i=CONFIG.order.indexOf((r||"").toLowerCase());return i<0?0:i};
   const isHit=r=>rank(r)>=rank(CONFIG.hitFrom), isHigh=r=>rank(r)>=rank(CONFIG.highFrom);
+  const memW=c=>c&&c.memory?CONFIG.memoryWeight:1; // trip memory cards come up more often
   const packInfo=key=>PACKS.find(p=>p.key===key)||(/^points-\d+$/.test(String(key))?pointsPack(+String(key).slice(7)):String(key).startsWith("bonus")?BONUS:key==="starter"?{key:"starter",name:"Starter Pack",icon:"✨"}:{key,name:"Card Pack",icon:"🎁"});
 
   // Which cards a traveler can pull: their own, Dad's, Family, Pets/Finn and Maui.
@@ -93,7 +96,7 @@
       if(!options.length)continue;
       // Tier first, then the card: unowned cards get extra weight so each good card stays reachable.
       const self=(pool.selfOwner||"");
-      const w=options.map(c=>(owned[c.id]?1:CONFIG.newCardWeight)*(c.owner&&(c.owner===self||(c.also||[]).includes(self))?CONFIG.ownCardWeight:1));
+      const w=options.map(c=>(owned[c.id]?1:CONFIG.newCardWeight)*(c.owner&&(c.owner===self||(c.also||[]).includes(self))?CONFIG.ownCardWeight:1)*memW(c));
       let x=rng()*w.reduce((a,b)=>a+b,0),k=0;while(k<options.length-1&&(x-=w[k])>=0)k++;
       const c=options[k];used.add(c.id);picked.push(c);
     }
@@ -105,6 +108,7 @@
   // repeats until the set is done. A rarity is picked by its odds times how many of it are still
   // missing, so commons come early and the rarest cards tend to show up near the end.
   // When fewer cards are missing than fit in a pack, the rest of the pack is random repeats.
+  // Trip memory cards (catalog "memory": true) weigh CONFIG.memoryWeight times as much when picking both the rarity and the card.
   function collectRoll(pool,rng,owned){
     let missing=pool.filter(c=>!owned[c.id]);
     if(!missing.length)return null;
@@ -113,12 +117,18 @@
     const mine=c=>c.owner===self||(c.also||[]).includes(self);
     let ownMissing=missing.filter(mine);
     for(let i=0;i<CONFIG.ownPerPack&&ownMissing.length&&picked.length<CONFIG.packSize;i++){
-      const c=ownMissing.splice(Math.floor(rng()*ownMissing.length),1)[0];picked.push(c);missing=missing.filter(m=>m.id!==c.id);
+      const ow=ownMissing.map(memW);let ox=rng()*ow.reduce((a,b)=>a+b,0),oi=0;while(oi<ownMissing.length-1&&(ox-=ow[oi])>=0)oi++;
+      const c=ownMissing.splice(oi,1)[0];picked.push(c);missing=missing.filter(m=>m.id!==c.id);
     }
-    const pick=list=>{const w=list.map(c=>(c.owner&&(c.owner===self||(c.also||[]).includes(self))?CONFIG.ownCardWeight:1));let x=rng()*w.reduce((a,b)=>a+b,0),k=0;while(k<list.length-1&&(x-=w[k])>=0)k++;return list[k]};
+    // Trip memory cards next: until a traveler owns them all, each pack holds at least CONFIG.memoryPerPack of them.
+    let memMissing=missing.filter(c=>c.memory);
+    while(picked.filter(c=>c.memory).length<CONFIG.memoryPerPack&&memMissing.length&&picked.length<CONFIG.packSize){
+      const c=memMissing.splice(Math.floor(rng()*memMissing.length),1)[0];picked.push(c);missing=missing.filter(m=>m.id!==c.id);
+    }
+    const pick=list=>{const w=list.map(c=>(c.owner&&(c.owner===self||(c.also||[]).includes(self))?CONFIG.ownCardWeight:1)*memW(c));let x=rng()*w.reduce((a,b)=>a+b,0),k=0;while(k<list.length-1&&(x-=w[k])>=0)k++;return list[k]};
     while(picked.length<CONFIG.packSize&&missing.length){
       const tiers=CONFIG.order.map(t=>[t,missing.filter(c=>CONFIG.order[rank(c.rarity)]===t)]).filter(x=>x[1].length);
-      const w=tiers.map(([t,l])=>CONFIG.odds[t]*l.length);let x=rng()*w.reduce((a,b)=>a+b,0),k=0;while(k<tiers.length-1&&(x-=w[k])>=0)k++;
+      const w=tiers.map(([t,l])=>CONFIG.odds[t]*l.reduce((n,c)=>n+memW(c),0));let x=rng()*w.reduce((a,b)=>a+b,0),k=0;while(k<tiers.length-1&&(x-=w[k])>=0)k++;
       const c=pick(tiers[k][1]);picked.push(c);missing=missing.filter(m=>m.id!==c.id);
     }
     const rest=pool.filter(c=>!picked.includes(c));

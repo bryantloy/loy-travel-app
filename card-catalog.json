@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-21",
-  "card_count": 112,
+  "version": "2026-11-22",
+  "card_count": 118,
   "cards": [
     {
       "id": "brooks-mr-suave-brooks",
@@ -1308,7 +1308,8 @@
       ],
       "ability": "Wheels Up",
       "ability_text": "The trip starts the second the plane takes off.",
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
     },
     {
       "id": "family-friday-night-makos",
@@ -1748,7 +1749,8 @@
           "value": 96
         }
       ],
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
     },
     {
       "id": "family-shark-jaw-survivors",
@@ -1777,7 +1779,8 @@
           "value": 100
         }
       ],
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
     },
     {
       "id": "family-waterfall-bros",
@@ -1806,7 +1809,8 @@
           "value": 96
         }
       ],
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
     },
     {
       "id": "family-island-bros-after-dark",
@@ -1835,7 +1839,8 @@
           "value": 96
         }
       ],
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
     },
     {
       "id": "family-ohana-night-crew",
@@ -1864,7 +1869,8 @@
           "value": 100
         }
       ],
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
     },
     {
       "id": "family-shaka-brett",
@@ -1893,7 +1899,8 @@
           "value": 92
         }
       ],
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
     },
     {
       "id": "brooks-blue-wave-buddy",
@@ -1922,7 +1929,8 @@
           "value": 100
         }
       ],
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
     },
     {
       "id": "family-food-truck-fuel-up",
@@ -1951,7 +1959,8 @@
           "value": 96
         }
       ],
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
     },
     {
       "id": "bryson-reef-raiders",
@@ -1980,7 +1989,8 @@
           "value": 95
         }
       ],
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
     },
     {
       "id": "family-octo-encounter",
@@ -2009,7 +2019,98 @@
           "value": 100
         }
       ],
-      "art_prompt": "Custom art supplied by Bryant."
+      "art_prompt": "Custom art supplied by Bryant.",
+      "memory": true
+    },
+    {
+      "id": "family-uncle-brett-and-the-boys",
+      "title": "Uncle Brett & The Boys",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/family-uncle-brett-and-the-boys.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🍹",
+      "tagline": "Aloha Table Squad",
+      "flavor": "Sunset table, full glasses, nobody wants to leave.",
+      "memory": true
+    },
+    {
+      "id": "family-shaka-bros",
+      "title": "Shaka Bros",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-shaka-bros.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🤙",
+      "tagline": "Dad + Uncle Brett",
+      "flavor": "Two brothers, two shakas, one island.",
+      "memory": true
+    },
+    {
+      "id": "brooks-banana-bread-brooks",
+      "title": "Banana Bread Brooks",
+      "owner": "brooks",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/brooks-banana-bread-brooks.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🍌",
+      "tagline": "Bakery Bite Scout",
+      "flavor": "First bite decides the rating. Second bite confirms it.",
+      "memory": true
+    },
+    {
+      "id": "family-haleakala-sunrise-crew",
+      "title": "Haleakalā Sunrise Crew",
+      "owner": "family",
+      "rarity": "legendary",
+      "series": "Maui",
+      "image": "/assets/cards/family-haleakala-sunrise-crew.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌅",
+      "tagline": "Above the Clouds",
+      "flavor": "Up before the sun. Higher than the clouds.",
+      "memory": true
+    },
+    {
+      "id": "family-maui-ohana-sunset",
+      "title": "Maui Ohana Sunset",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-maui-ohana-sunset.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌇",
+      "tagline": "Family Adventure Squad",
+      "flavor": "Same crew, golden hour.",
+      "memory": true
+    },
+    {
+      "id": "bryson-chillin-on-the-balcony",
+      "title": "Chillin' on the Balcony",
+      "owner": "bryson",
+      "rarity": "gold",
+      "series": "Maui",
+      "image": "/assets/cards/bryson-chillin-on-the-balcony.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌴",
+      "tagline": "Quiet Vibes · View Master",
+      "flavor": "Best seat in the condo. Do not disturb.",
+      "memory": true
     }
   ],
   "removed_duplicates": [
