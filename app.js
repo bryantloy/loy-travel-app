@@ -150,7 +150,18 @@ const QUEST_TARGETS=[
   {"id": "photo-jeep-crew", "name": "The crew in the Jeep", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🚙", "note": "Everybody in the Jeep, ready to roll. Take it before you drive."},
   {"id": "photo-snorkel-face", "name": "Snorkel mask face", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🤿", "note": "Someone in a snorkel mask making a goofy face."},
   {"id": "photo-shortest-photographer", "name": "Shortest photographer", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "📷", "note": "The shortest person takes a picture of the tallest person."},
-  {"id": "photo-hands-in", "name": "Hands in for Team Loy", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🙌", "note": "Everyone stacks their hands in the middle. Shout LOY on three."}
+  {"id": "photo-hands-in", "name": "Hands in for Team Loy", "category": "photo", "difficulty": "easy", "points": 2, "emoji": "🙌", "note": "Everyone stacks their hands in the middle. Shout LOY on three."},
+  {"id":  "photo-pom-boat-crew", "name":  "Crew on the Pride of Maui", "category":  "photo", "difficulty":  "medium", "points":  3, "emoji":  "🚢", "note":  "Everyone on the boat deck with the ocean behind you.", "from":  "2026-11-23", "once":  true},
+  {"id":  "photo-pom-molokini", "name":  "Molokini behind you", "category":  "photo", "difficulty":  "easy", "points":  3, "emoji":  "🌋", "note":  "Get the half-moon crater in the background of someone's picture.", "from":  "2026-11-23", "once":  true},
+  {"id":  "photo-pom-snorkel-ready", "name":  "Snorkel-ready squad", "category":  "photo", "difficulty":  "easy", "points":  2, "emoji":  "🤿", "note":  "Masks and fins on, right before you jump in.", "from":  "2026-11-23", "once":  true},
+  {"id":  "photo-pom-turtle-town", "name":  "Turtle Town shot", "category":  "photo", "difficulty":  "medium", "points":  3, "emoji":  "🐢", "note":  "A picture at Turtle Town. A real honu in it is a huge brag.", "from":  "2026-11-23", "once":  true},
+  {"id":  "photo-pom-captain", "name":  "Ship captain pose", "category":  "photo", "difficulty":  "easy", "points":  2, "emoji":  "🧭", "note":  "Point at the horizon like you're steering the boat.", "from":  "2026-11-23", "once":  true},
+  {"id":  "photo-hana-waterfall-crew", "name":  "Waterfall crew shot", "category":  "photo", "difficulty":  "medium", "points":  4, "emoji":  "💦", "note":  "The crew in front of a Road to Hāna waterfall.", "from":  "2026-11-24", "once":  true},
+  {"id":  "photo-hana-banana-bread", "name":  "Banana bread stand", "category":  "photo", "difficulty":  "easy", "points":  3, "emoji":  "🍌", "note":  "Everyone holding a slice at a banana bread stand.", "from":  "2026-11-24", "once":  true},
+  {"id":  "photo-hana-black-sand", "name":  "Black sand beach", "category":  "photo", "difficulty":  "easy", "points":  3, "emoji":  "🖤", "note":  "Feet or hands in the black sand at Waiʻānapanapa.", "from":  "2026-11-24", "once":  true},
+  {"id":  "photo-hana-bamboo", "name":  "Bamboo tunnel", "category":  "photo", "difficulty":  "medium", "points":  3, "emoji":  "🎋", "note":  "Someone standing in the bamboo forest. Look up!", "from":  "2026-11-24", "once":  true},
+  {"id":  "photo-hana-jeep-lookout", "name":  "Jeep at a lookout", "category":  "photo", "difficulty":  "easy", "points":  2, "emoji":  "🚙", "note":  "The Jeep parked with the ocean or a valley behind it.", "from":  "2026-11-24", "once":  true},
+  {"id":  "photo-hana-bridge", "name":  "One-lane bridge", "category":  "photo", "difficulty":  "easy", "points":  2, "emoji":  "🌉", "note":  "A picture on or next to one of the tiny one-lane bridges.", "from":  "2026-11-24", "once":  true}
 ];
 
 const MAP_POINTS={
@@ -317,28 +328,62 @@ function results(){let p=[...pool()].sort((a,b)=>familyScore(b.id)-familyScore(a
 function questDay(){return window.LoyPacks?LoyPacks.hawaiiDate(new Date()):new Date().toISOString().slice(0,10)}
 function spotKey(id,day){return `loy-spot-${(who||"").toLowerCase()}-${day||questDay()}-${id}`}
 function questLog(){let pre=`loy-spot-${(who||"").toLowerCase()}-`,byId=Object.fromEntries(QUEST_TARGETS.filter(Boolean).map(x=>[x.id,x])),out=[];for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(!k||!k.startsWith(pre)||localStorage.getItem(k)!=="1")continue;let rest=k.slice(pre.length),m=/^(\d{4}-\d{2}-\d{2})-(.+)$/.exec(rest),id=m?m[2]:rest;if(byId[id])out.push(byId[id])}return out}
-function questProgress(){let found=questLog();return{questFound:found.filter(x=>x.category!=="silly").length,questPoints:found.reduce((t,x)=>t+x.points,0),wildlifeFound:found.filter(x=>x.category==="animals"||x.category==="ocean").length,photoTasks:found.filter(x=>x.category==="photo").length}}
+// Bonus points (v0.19): Daily 3 streak, brother team-ups and the favorite memory vote. All saved per traveler on this phone.
+const TEAM_BONUS=2,TEAM_MAX=5,VOTE_BONUS=5,VOTE_FROM="2026-11-25",VOTE_UNTIL="2026-11-27",BOYS=["Bryson","Bennett","Brooks"];
+function questByDay(){let pre=`loy-spot-${(who||"").toLowerCase()}-`,byId=Object.fromEntries(QUEST_TARGETS.filter(Boolean).map(x=>[x.id,x])),days={};for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(!k||!k.startsWith(pre)||localStorage.getItem(k)!=="1")continue;let m=/^(\d{4}-\d{2}-\d{2})-(.+)$/.exec(k.slice(pre.length));if(m&&byId[m[2]])(days[m[1]]=days[m[1]]||[]).push(byId[m[2]])}return days}
+const prevDay=d=>{let t=new Date(d+"T12:00:00Z");t.setUTCDate(t.getUTCDate()-1);return t.toISOString().slice(0,10)};
+function teamKey(id,day){return `loy-team-${(who||"").toLowerCase()}-${day||questDay()}-${id}`}
+function voteKey(){return `loy-memory-vote-${(who||"").toLowerCase()}`}
+function myVote(){let v=localStorage.getItem(voteKey());if(!v)return null;let [id,day]=v.split("|");return{id,day}}
+// Daily 3: +3 for a day with 3+ finds, +1 more for each day in a row before it (up to +6).
+function streakBonus(days,day){if((days[day]||[]).length<3)return 0;let n=1,d=prevDay(day);while((days[d]||[]).length>=3&&n<4){n++;d=prevDay(d)}return 2+n}
+function teamsOn(days,day){let ids=new Set((days[day]||[]).map(x=>x.id));return [...ids].filter(id=>localStorage.getItem(teamKey(id,day))==="1").slice(0,TEAM_MAX)}
+function questBonus(){
+  let days=questByDay(),today=questDay(),out={trip:0,today:0,streakToday:streakBonus(days,today),teamsToday:teamsOn(days,today).length};
+  Object.keys(days).forEach(d=>{let b=streakBonus(days,d)+(BOYS.includes(who)?teamsOn(days,d).length*TEAM_BONUS:0);out.trip+=b;if(d===today)out.today+=b});
+  let v=myVote();if(v){out.trip+=VOTE_BONUS;if(v.day===today)out.today+=VOTE_BONUS}
+  return out;
+}
+function questProgress(){let found=questLog(),bonus=questBonus();return{questFound:found.filter(x=>x.category!=="silly").length,questPoints:found.reduce((t,x)=>t+x.points,0)+bonus.trip,wildlifeFound:found.filter(x=>x.category==="animals"||x.category==="ocean").length,photoTasks:found.filter(x=>x.category==="photo").length}}
+function teamButton(x,bonus){let on=localStorage.getItem(teamKey(x.id))==="1",full=!on&&bonus.teamsToday>=TEAM_MAX;return `<button class="team-up ${on?"on":""}" data-team="${x.id}" ${full?"disabled":""}>${on?"🤝 Team-up +2 ✓":full?"🤝 Team-ups maxed today":"🤝 All 3 brothers found it? +2"}</button>`}
+function bonusPanel(bonus,open){
+  if(isGuest()||!who)return "";
+  let today=questDay(),n=open.filter(x=>localStorage.getItem(spotKey(x.id))==="1").length,next=streakBonus({...questByDay(),[today]:[1,2,3]},today);
+  let streak=bonus.streakToday?`<div class="bonus-row on">🔥 <b>Daily 3 done: +${bonus.streakToday} today</b><small>Keep it going tomorrow for more.</small></div>`:`<div class="bonus-row">🔥 <b>Daily 3: ${n}/3 finds today</b><small>Log ${3-n} more for +${next}.</small></div>`;
+  let team=BOYS.includes(who)?`<div class="bonus-row ${bonus.teamsToday?"on":""}">🤝 <b>Team-ups today: ${bonus.teamsToday}/${TEAM_MAX}</b><small>When all three brothers found the same thing, tap 🤝 on it for +${TEAM_BONUS}.</small></div>`:"";
+  let dayFinds=open.filter(x=>x.from===today).length?`<div class="bonus-row">📅 <b>New trip day photo finds today</b><small>Look for the 📅 finds in Photo challenge. Each counts once.</small></div>`:"";
+  return `<section class="card bonus-panel"><div class="eyebrow">BONUS POINTS</div>${streak}${team}${dayFinds}${today>=VOTE_FROM&&today<=VOTE_UNTIL?votePanel():""}</section>`;
+}
+function votePanel(){
+  let mem=cards.filter(c=>c.memory&&(c.status||"active")==="active");if(!mem.length)return "";
+  let v=myVote();
+  return `<div class="bonus-row vote-row ${v?"on":""}">🗳️ <b>${v?`Your favorite trip memory: ${cards.find(c=>c.id===v.id)?.title||"picked"} (+${VOTE_BONUS})`:`Vote for your favorite trip memory: +${VOTE_BONUS}`}</b><small>${v?"Tap another card to change your vote.":"Pick the card that was the best moment of the trip."}</small></div>
+  <div class="vote-grid">${mem.map(c=>`<button class="vote-card ${v?.id===c.id?"on":""}" data-memory-vote="${c.id}"><img src="${c.image}" alt="${c.title}" loading="lazy"><span>${c.title}</span></button>`).join("")}</div>`;
+}
 function quest(){
-  let found=QUEST_TARGETS.filter(x=>localStorage.getItem(spotKey(x.id))==="1");
-  let points=found.reduce((s,x)=>s+x.points,0), tripPoints=questLog().reduce((s,x)=>s+x.points,0);
+  let today=questDay(),bonus=questBonus(),foundBefore=new Set(Object.entries(questByDay()).filter(([d])=>d!==today).flatMap(([d,l])=>l.map(x=>x.id)));
+  // Day finds show from their trip day on and count once over the trip, so a plan change never costs them.
+  let open=QUEST_TARGETS.filter(x=>!x.from||(today>=x.from&&!(x.once&&foundBefore.has(x.id))));
+  let found=open.filter(x=>localStorage.getItem(spotKey(x.id))==="1");
+  let points=found.reduce((s,x)=>s+x.points,0)+bonus.today, tripPoints=questLog().reduce((s,x)=>s+x.points,0)+bonus.trip;
   let groups=[["all","All"],["photo","📸 Photo challenge"],["food","🍽️ Food"],["plants","🌿 Plants"],["animals","🦎 Animals"],["ocean","🐠 Ocean"],["places","🌋 Places"],["weather","🌈 Weather"],["silly","😂 Silly"]];
   let questFilter=localStorage.getItem("loy-quest-filter")||"all";
   let view=localStorage.getItem("loy-quest-view")==="cards"?"cards":"finds",ready=readyPackCount();
-  let list=QUEST_TARGETS.filter(x=>questFilter==="all"||x.category===questFilter);
+  let list=open.filter(x=>questFilter==="all"||x.category===questFilter);
   let isFound=x=>localStorage.getItem(spotKey(x.id))==="1",ever=new Set(questLog().map(x=>x.id)),todo=list.filter(x=>!isFound(x)),fresh=todo.filter(x=>!ever.has(x.id)),again=todo.filter(x=>ever.has(x.id)),done=list.filter(isFound);
   let groupHead=(t,n)=>`<div class="section-head quest-done-head"><h3>${t}</h3><span class="pill">${n}</span></div>`;
   /* Finds and Cards are two views, so the boys reach either one without scrolling past the other. */
-  let finds=`<div class="toolbar quest-filters">${groups.map(x=>`<button class="filter ${questFilter===x[0]?"on":""}" data-quest-filter="${x[0]}">${x[1]}</button>`).join("")}</div>
+  let finds=`${bonusPanel(bonus,open)}<div class="toolbar quest-filters">${groups.map(x=>`<button class="filter ${questFilter===x[0]?"on":""}" data-quest-filter="${x[0]}">${x[1]}</button>`).join("")}</div>
   ${[[fresh,again.length||done.length?groupHead("🆕 Not found yet this trip",fresh.length):""],[again,groupHead("🔁 Found before, not today",again.length)],[done,groupHead("✓ Found today",done.length)]].filter(g=>g[0].length).map(([group,title])=>`${title}<div class="quest-photo-grid">${group.map(x=>{let on=localStorage.getItem(spotKey(x.id))==="1";return `<article class="quest-find ${on?"seen":""}">
     <button class="quest-photo" data-spot="${x.id}" ${isGuest()?"disabled":""}>${x.image?`<img src="${x.image}" alt="${x.name}" loading="lazy">`:`<span class="quest-emoji" aria-hidden="true">${x.emoji||"🔎"}</span>`}<span class="quest-check">${on?"✓":"Find it"}</span></button>
-    <div class="quest-find-copy"><div class="quest-find-head"><b>${x.name}</b><span class="difficulty ${x.difficulty}">${x.difficulty} · ${x.points} pt${x.points===1?"":"s"}</span></div><p>${x.note}</p>${x.category==="photo"&&!isGuest()?`<button class="learn" data-page="memories">📷 Add to Photos</button>`:""}${x.source?`<a href="${x.source}" target="_blank" rel="noopener">Photo source</a>`:""}</div>
+    <div class="quest-find-copy"><div class="quest-find-head"><b>${x.name}</b><span class="difficulty ${x.difficulty}">${x.difficulty} · ${x.points} pt${x.points===1?"":"s"}</span></div><p>${x.from?`<span class="day-find">📅 Trip day find · once</span> `:""}${x.note}</p>${on&&BOYS.includes(who)&&x.category!=="silly"?teamButton(x,bonus):""}${x.category==="photo"&&!isGuest()?`<button class="learn" data-page="memories">📷 Add to Photos</button>`:""}${x.source?`<a href="${x.source}" target="_blank" rel="noopener">Photo source</a>`:""}</div>
   </article>`}).join("")}</div>`).join("")}
   <details class="card quest-more"><summary>🏆 Trip achievements</summary><div class="achievement-grid"><div>📸<b>Reef Photographer</b><small>Capture a favorite reef sighting</small></div><div>🍧<b>Shave Ice Judge</b><small>Rate the family favorite</small></div><div>🌅<b>Above the Clouds</b><small>Make the Haleakalā sunrise</small></div><div>🗺️<b>Road Warrior</b><small>Complete the Hāna adventure</small></div><div>🏄<b>Surf Crew</b><small>Catch a wave at a surf lesson</small></div><div>🔎<b>Quest Hunter</b><small>Find 10 Maui Quest targets</small></div></div></details>
   <button class="buttonlink quest-jump" data-quest-view="cards">🎴 Go to my cards${ready?` · ${ready} ready`:""}</button>
   ${detailItem?.type==="card"?cardModal():""}${pinOpen?pinModal():""}${starterModal()}`;
   return `${head()}<main class="content">
-  <section class="card quest-card quest-hero quest-compact"><div class="eyebrow quest-eye">MAUI QUEST</div><h2>Find the real Maui.</h2><div class="quest-stats"><div><b>${found.length}/${QUEST_TARGETS.length}</b><span>found today</span></div><div><b>${points}</b><span>points today</span></div><div><b>${tripPoints}</b><span>trip points</span></div></div>
-  <details class="quest-how"><summary>How it works</summary><p>Big wildlife is worth big points. Silly finds still count. Tap a find when you spot it. Everything resets each morning, so you can find it again tomorrow.</p><p class="quest-pack-note">🎴 Every 15 points earns a card pack, plus a bonus pack at 100. Silly finds count for points only.</p><p class="quest-pack-note">📸 Photo challenge: get pictures of Dad, Uncle Brett and each other, then add them in Photos.</p></details></section>
+  <section class="card quest-card quest-hero quest-compact"><div class="eyebrow quest-eye">MAUI QUEST</div><h2>Find the real Maui.</h2><div class="quest-stats"><div><b>${found.length}/${open.length}</b><span>found today</span></div><div><b>${points}</b><span>points today</span></div><div><b>${tripPoints}</b><span>trip points</span></div></div>
+  <details class="quest-how"><summary>How it works</summary><p>Big wildlife is worth big points. Silly finds still count. Tap a find when you spot it. Everything resets each morning, so you can find it again tomorrow.</p><p class="quest-pack-note">🎴 Every 15 points earns a card pack, plus a bonus pack at 100. Silly finds count for points only.</p><p class="quest-pack-note">📸 Photo challenge: get pictures of Dad, Uncle Brett and each other, then add them in Photos.</p><p class="quest-pack-note">🔥 Bonus points: log 3 finds a day for +3 and more for each day in a row, tap 🤝 when all three brothers found the same thing (+2, up to 5 a day), and vote for your favorite trip memory card on the last days (+5).</p></details></section>
   <div class="quest-switch" role="tablist"><button role="tab" class="${view==="finds"?"on":""}" data-quest-view="finds">🔎 Finds <small>${todo.length} left</small></button><button role="tab" class="${view==="cards"?"on":""}" data-quest-view="cards">🎴 Cards${ready?` <span class="quest-ready">${ready} ready</span>`:""}</button></div>
   ${view==="cards"?cardsView():finds}</main>`;
 }
@@ -465,6 +510,8 @@ document.querySelectorAll("[data-prep-have]").forEach(b=>b.onclick=()=>{if(isGue
 document.querySelectorAll("[data-costco-buy]").forEach(b=>b.onclick=()=>{if(isGuest())return;let x=costcoItems.find(i=>String(costcoId(i))===String(b.dataset.costcoBuy));if(x)updateCostcoItem(b.dataset.costcoBuy,{purchased:!x.purchased})});
 document.querySelectorAll("[data-costco-actual]").forEach(b=>{if(isGuest()){b.readOnly=true;return}b.onchange=()=>updateCostcoItem(b.dataset.costcoActual,{actual_cost:b.value===""?null:Number(b.value)})});
 document.querySelectorAll("[data-spot]").forEach(b=>b.onclick=()=>{if(isGuest())return;let k=spotKey(b.dataset.spot);localStorage.setItem(k,localStorage.getItem(k)==="1"?"0":"1");render()});
+document.querySelectorAll("[data-team]").forEach(b=>b.onclick=()=>{if(isGuest())return;let k=teamKey(b.dataset.team);localStorage.setItem(k,localStorage.getItem(k)==="1"?"0":"1");render()});
+document.querySelectorAll("[data-memory-vote]").forEach(b=>b.onclick=()=>{if(isGuest())return;let v=myVote();localStorage.setItem(voteKey(),`${b.dataset.memoryVote}|${v?.day||questDay()}`);render()});
 document.querySelectorAll("[data-pack-open]").forEach(b=>b.onclick=()=>{if(!isCollector())return;b.disabled=true;openEarnedPack(b.dataset.packOpen)});
 document.querySelectorAll("[data-reveal-next]").forEach(b=>b.onclick=()=>{if(!packReveal)return;if(packReveal.index<packReveal.cards.length-1)packReveal.index++;else{packReveal=null;cardOwner="self"}render()});
 document.querySelectorAll("[data-award-who]").forEach(b=>b.onclick=()=>{awardWho=b.dataset.awardWho;render()});

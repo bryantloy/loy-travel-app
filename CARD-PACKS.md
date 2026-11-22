@@ -47,6 +47,15 @@ Cards made from real trip photos have `"memory": true` in `card-catalog.json` (1
 
 To make a new card a memory card, add `"memory": true` to its catalog entry.
 
+## Bonus points (v0.19)
+
+Shown in a Bonus points box at the top of Maui Quest > Finds. All of it counts toward points packs (every 15) and the 100 point bonus, and is saved per traveler on the phone, like finds.
+
+- **Daily 3:** a Hawaiʻi day with 3 or more finds (silly ones count) gives +3, then +1 more for each day in a row before it, up to +6.
+- **Brother team-up (boys only):** on a find logged today, tap 🤝 when all three brothers found it. +2 each, up to 5 a day. Honor system: each boy taps it on his own phone.
+- **Trip day photo finds:** 5 Pride of Maui finds from Mon 11/23 and 6 Road to Hāna finds from Tue 11/24 (2 to 4 points). They stay open after their day in case plans move, and each counts once over the trip.
+- **Favorite memory vote:** from Wed 11/25 through Fri 11/27, each traveler picks a favorite trip memory card for +5 (once; the vote can be changed).
+
 ## Pack odds
 
 **Collect first (v0.18):** until a traveler owns every card in their pool, every pack is 4 cards they don't have yet. The rarity is still rolled by the odds below, weighted by how many of that rarity they're missing, so big cards still feel rare early. **Own cards first:** until a traveler has all of their own cards, every pack holds at least 2 of them, so each boy has all 14 of his own within his first 7 packs. Once the set is complete, packs go back to the normal rules below and can give duplicates.

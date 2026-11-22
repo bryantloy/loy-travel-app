@@ -296,3 +296,20 @@
 .quest-more .achievement-grid{margin-top:10px}
 .quest-jump{display:block;width:100%;text-align:center;margin:4px 0 18px}
 .quest-done-head{margin-top:6px}
+
+/* v0.19 bonus points */
+.bonus-panel{padding:12px 13px}
+.bonus-row{display:block;padding:8px 0;border-top:1px solid var(--line);font-size:.82rem}
+.bonus-panel .eyebrow+.bonus-row{border-top:0}
+.bonus-row b{font-size:.84rem}
+.bonus-row small{display:block;color:var(--muted);font-size:.7rem;margin:2px 0 0 1.5em}
+.bonus-row.on b{color:#24785c}
+.team-up{display:block;width:100%;margin:0 0 7px;border:1px dashed #9cc9d6;background:#f3fafc;color:#0a5c72;border-radius:10px;padding:7px 8px;font-size:.68rem;font-weight:850}
+.team-up.on{border-style:solid;border-color:#64b698;background:#e4f5eb;color:#24785c}
+.team-up:disabled{opacity:.55}
+.day-find{display:inline-block;background:#fff1cc;color:#89610a;border-radius:999px;padding:2px 6px;font-size:.6rem;font-weight:900;margin-bottom:3px}
+.vote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.vote-card{border:2px solid transparent;background:#fff;border-radius:12px;padding:0;overflow:hidden;text-align:center}
+.vote-card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
+.vote-card span{display:block;font-size:.6rem;font-weight:800;padding:4px 3px;line-height:1.15}
+.vote-card.on{border-color:#24785c;box-shadow:0 0 0 2px rgba(36,120,92,.2)}
