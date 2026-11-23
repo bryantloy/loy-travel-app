@@ -1,6 +1,6 @@
 {
   "version": "2026-11-23",
-  "card_count": 127,
+  "card_count": 135,
   "cards": [
     {
       "id": "brooks-mr-suave-brooks",
@@ -2333,6 +2333,238 @@
       "emoji": "🛋️",
       "tagline": "Recharging between adventures",
       "flavor": "Three brothers, one couch, zero plans to move.",
+      "memory": true
+    },
+    {
+      "id": "family-twin-falls-trek",
+      "title": "Twin Falls Trek",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-twin-falls-trek.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "💦",
+      "tagline": "Lower Pond",
+      "flavor": "Lower pond, big payoff.",
+      "stats": [
+        {
+          "label": "Waterfall Wow",
+          "value": 89
+        },
+        {
+          "label": "Easy Hike",
+          "value": 93
+        },
+        {
+          "label": "Kid Compatibility",
+          "value": 95
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-keanae-crunch",
+      "title": "Keʻanae Crunch",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-keanae-crunch.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🍌",
+      "tagline": "Aunty Sandy's",
+      "flavor": "Warm loaf, wild coastline.",
+      "stats": [
+        {
+          "label": "Banana Bread",
+          "value": 100
+        },
+        {
+          "label": "Lava Coast",
+          "value": 96
+        },
+        {
+          "label": "Snack Reward",
+          "value": 99
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-paia-fuel-up",
+      "title": "Pāʻia Fuel-Up",
+      "owner": "family",
+      "rarity": "common",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-paia-fuel-up.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "☕",
+      "tagline": "Road to Hāna",
+      "flavor": "Fuel up before the curves.",
+      "stats": [
+        {
+          "label": "Coffee Boost",
+          "value": 92
+        },
+        {
+          "label": "Family Morale",
+          "value": 90
+        },
+        {
+          "label": "Restroom Timing",
+          "value": 100
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-honomanu-bay-lookout",
+      "title": "Honomanū Bay Lookout",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-honomanu-bay-lookout.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "📸",
+      "tagline": "Road to Hāna",
+      "flavor": "Big view, tiny detour.",
+      "stats": [
+        {
+          "label": "Cliffside Drama",
+          "value": 94
+        },
+        {
+          "label": "Quick Stop",
+          "value": 98
+        },
+        {
+          "label": "Panorama",
+          "value": 95
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-waikamoi-ridge-trail",
+      "title": "Waikamoi Ridge Nature Trail",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-waikamoi-ridge-trail.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🥾",
+      "tagline": "Nature Trail",
+      "flavor": "Jurassic feels without the mileage.",
+      "stats": [
+        {
+          "label": "Jungle Vibes",
+          "value": 95
+        },
+        {
+          "label": "Shade Level",
+          "value": 92
+        },
+        {
+          "label": "Dino Energy",
+          "value": 97
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-hana-food-truck-lunch",
+      "title": "Hāna Food Truck Pod",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-hana-food-truck-lunch.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌮",
+      "tagline": "Lunch Refuel",
+      "flavor": "Smash burgers, poke, and a reset.",
+      "stats": [
+        {
+          "label": "Refuel",
+          "value": 96
+        },
+        {
+          "label": "Variety",
+          "value": 93
+        },
+        {
+          "label": "Taco Temptation",
+          "value": 91
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-waianapanapa-black-sand-quest",
+      "title": "Waiʻānapanapa",
+      "owner": "family",
+      "rarity": "legendary",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-waianapanapa-black-sand-quest.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🖤",
+      "tagline": "Black Sand Quest",
+      "flavor": "Black sand. Blue water. Legendary stop.",
+      "stats": [
+        {
+          "label": "Black Sand",
+          "value": 100
+        },
+        {
+          "label": "Sea Cave",
+          "value": 97
+        },
+        {
+          "label": "Blowhole Blast",
+          "value": 95
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-rainbow-eucalyptus-grove",
+      "title": "Rainbow Eucalyptus Grove",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-rainbow-eucalyptus-grove.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌈",
+      "tagline": "Road to Hāna",
+      "flavor": "Five-minute rainbow magic.",
+      "stats": [
+        {
+          "label": "Color Burst",
+          "value": 99
+        },
+        {
+          "label": "Photo Value",
+          "value": 90
+        },
+        {
+          "label": "Nature Weirdness",
+          "value": 94
+        }
+      ],
       "memory": true
     }
   ],

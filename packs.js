@@ -23,6 +23,10 @@
     memoryWeight:3,  // cards made from real trip photos ("memory": true in the catalog) are 3x as likely to be pulled
     memoryPerPack:1  // until a traveler owns every trip memory card, every pack has at least 1 of them
   };
+  // Road to Hāna day (Hawaiʻi date). Change to "2026-11-25" to move it to Wednesday: the Road to Hāna Pack, the Explorer Pack,
+  // the itinerary, the Hāna guide and the Hāna finds in app.js all follow this one date.
+  const HANA_DATE="2026-11-24";
+  const dayLabel=iso=>new Date(iso+"T12:00:00Z").toLocaleDateString("en-US",{weekday:"short",month:"numeric",day:"numeric",timeZone:"UTC"}).replace(",","");
   // Earned packs. Each one opens once per traveler. Dates are Hawaiʻi dates.
   const PACKS=[
     {key:"arrival",name:"Aloha Arrival Pack",icon:"🌺",how:"Unlocks on arrival day, Thu 11/19",date:"2026-11-19"},
@@ -30,7 +34,9 @@
     {key:"ocean",name:"Ocean Pack",icon:"🐢",how:"Unlocks on Pride of Maui day, Mon 11/23",date:"2026-11-23"},
     {key:"snorkel",name:"Snorkel Pack",icon:"🤿",how:"Unlocks on Molokini snorkel day, Mon 11/23 · all 5 Snorkel cards",date:"2026-11-23",
       cards:["destination-molokini-reef-rush","destination-honu-guardian","family-pride-of-maui-adventure","destination-spinner-dolphin-flyby","destination-octo-hideaway"]},
-    {key:"explorer",name:"Explorer Pack",icon:"🚙",how:"Unlocks on Road to Hāna day, Tue 11/24",date:"2026-11-24"},
+    {key:"road-to-hana",name:"Road to Hāna Pack",icon:"🌈",how:`Unlocks on Road to Hāna day, ${dayLabel(HANA_DATE)} · all 8 Road to Hāna cards`,date:HANA_DATE,
+      cards:["family-paia-fuel-up","family-twin-falls-trek","family-rainbow-eucalyptus-grove","family-waikamoi-ridge-trail","family-honomanu-bay-lookout","family-keanae-crunch","family-hana-food-truck-lunch","family-waianapanapa-black-sand-quest"]},
+    {key:"explorer",name:"Explorer Pack",icon:"🚙",how:`Unlocks on Road to Hāna day, ${dayLabel(HANA_DATE)}`,date:HANA_DATE},
     {key:"quest-5",name:"Quest Pack",icon:"🔎",how:"Find 5 Maui Quest targets (silly ones don't count)",quest:5},
     {key:"quest-10",name:"Quest Pack II",icon:"🏆",how:"Find 10 Maui Quest targets (silly ones don't count)",quest:10},
     {key:"quest-20",name:"Quest Pack III",icon:"🥇",how:"Find 20 Maui Quest targets over the trip (silly ones don't count)",quest:20},
@@ -264,7 +270,7 @@
   }
   const canAward=(person,packKey)=>packKey==="bonus"||!mine(person).some(x=>x.pack_key===packKey);
 
-  const api={CONFIG,PACKS,BONUS,POINT_STEP,pointsPack,packInfo,rank,isHit,isHigh,poolFor,rollPack,hawaiiDate,init,refresh,status,readyPacks,collection,openPack,recordStarter,award,canAward,hasStarter,
+  const api={HANA_DATE,CONFIG,PACKS,BONUS,POINT_STEP,pointsPack,packInfo,rank,isHit,isHigh,poolFor,rollPack,hawaiiDate,init,refresh,status,readyPacks,collection,openPack,recordStarter,award,canAward,hasStarter,
     get mode(){return mode},get busy(){return busy},get photoCount(){return photoCount}};
   global.LoyPacks=api;
   if(typeof module!=="undefined")module.exports=api;
