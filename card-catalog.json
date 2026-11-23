@@ -1,6 +1,6 @@
 {
   "version": "2026-11-23",
-  "card_count": 135,
+  "card_count": 147,
   "cards": [
     {
       "id": "brooks-mr-suave-brooks",
@@ -2563,6 +2563,360 @@
         {
           "label": "Nature Weirdness",
           "value": 94
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "brooks-ankle-breaker",
+      "title": "Ankle Breaker Brooks",
+      "owner": "brooks",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/brooks-ankle-breaker.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🏈",
+      "tagline": "Maui Vacation Collection",
+      "flavor": "Left Dad in the grass.",
+      "stats": [
+        {
+          "label": "Juke Moves",
+          "value": 98
+        },
+        {
+          "label": "Dad Frustration",
+          "value": 97
+        },
+        {
+          "label": "Escape Artist",
+          "value": 96
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "brooks-superstar",
+      "title": "Superstar Brooks",
+      "owner": "brooks",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/brooks-superstar.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "⭐",
+      "tagline": "Little brother breakaway",
+      "flavor": "Bryson never had the angle.",
+      "stats": [
+        {
+          "label": "Speed Burst",
+          "value": 96
+        },
+        {
+          "label": "Crowd Hype",
+          "value": 95
+        },
+        {
+          "label": "Little Brother Chaos",
+          "value": 92
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bennett-bed-rot",
+      "title": "Bed Rot Bennett",
+      "owner": "bennett",
+      "rarity": "gold",
+      "series": "Maui",
+      "image": "/assets/cards/bennett-bed-rot.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🛏️",
+      "tagline": "Recovery day",
+      "flavor": "When the schedule says adventure, Bennett says recovery day.",
+      "stats": [
+        {
+          "label": "Nap Skills",
+          "value": 98
+        },
+        {
+          "label": "Rest & Recovery",
+          "value": 99
+        },
+        {
+          "label": "Miss-Out Skill",
+          "value": 95
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bryson-maui-sunset-brothers",
+      "title": "Maui Sunset Brothers",
+      "owner": "bryson",
+      "also": [
+        "brooks"
+      ],
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/bryson-maui-sunset-brothers.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌅",
+      "tagline": "Golden hour brothers",
+      "flavor": "Beachside brother mode at golden hour.",
+      "stats": [
+        {
+          "label": "Brother Bond",
+          "value": 96
+        },
+        {
+          "label": "Sunset Glow",
+          "value": 94
+        },
+        {
+          "label": "Vacation Cool",
+          "value": 91
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-honua-kai-home-base",
+      "title": "Honua Kai Home Base",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-honua-kai-home-base.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🏨",
+      "tagline": "Mission control",
+      "flavor": "Mission control for the Maui adventure.",
+      "stats": [
+        {
+          "label": "View Score",
+          "value": 95
+        },
+        {
+          "label": "Home Base Comfort",
+          "value": 96
+        },
+        {
+          "label": "Adventure Launch Point",
+          "value": 93
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-maui-sunset-crew",
+      "title": "Maui Sunset Crew",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/family-maui-sunset-crew.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌅",
+      "tagline": "Dad, Brooks and Bryson",
+      "flavor": "Golden hour hits different in Maui.",
+      "stats": [
+        {
+          "label": "Sunset Vibes",
+          "value": 98
+        },
+        {
+          "label": "Beach Memory Score",
+          "value": 95
+        },
+        {
+          "label": "Family Energy",
+          "value": 93
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bryson-deep-threat",
+      "title": "Deep Threat Bryson",
+      "owner": "bryson",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/bryson-deep-threat.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🏈",
+      "tagline": "Go route",
+      "flavor": "Catching the deep one.",
+      "stats": [
+        {
+          "label": "Hands",
+          "value": 95
+        },
+        {
+          "label": "Vertical",
+          "value": 93
+        },
+        {
+          "label": "Track & Catch",
+          "value": 94
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "brooks-soccer-star",
+      "title": "Soccer Star Brooks",
+      "owner": "brooks",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/brooks-soccer-star.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "⚽",
+      "tagline": "Warm-up session",
+      "flavor": "Warming up in Maui.",
+      "stats": [
+        {
+          "label": "Ball Control",
+          "value": 94
+        },
+        {
+          "label": "Acceleration",
+          "value": 92
+        },
+        {
+          "label": "Stamina",
+          "value": 90
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bryson-island-brothers",
+      "title": "Bryson & Bennett Island Brothers",
+      "owner": "bryson",
+      "also": [
+        "bennett"
+      ],
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/bryson-island-brothers.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🤙",
+      "tagline": "Brother bond",
+      "flavor": "Island Brothers.",
+      "stats": [
+        {
+          "label": "Adventure Sync",
+          "value": 91
+        },
+        {
+          "label": "Brother Bond",
+          "value": 98
+        },
+        {
+          "label": "Maui Mode",
+          "value": 92
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-bro-bro-food-truck-crew",
+      "title": "Bro Bro Food Truck Crew",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/family-bro-bro-food-truck-crew.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🐓",
+      "tagline": "Hawaiian eats",
+      "flavor": "The real locals.",
+      "stats": [
+        {
+          "label": "Food Quality",
+          "value": 95
+        },
+        {
+          "label": "Chicken Encounters",
+          "value": 99
+        },
+        {
+          "label": "Island Vibes",
+          "value": 96
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bryson-dad-maui-overlook",
+      "title": "Dad & Bryson Maui Overlook",
+      "owner": "bryson",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/bryson-dad-maui-overlook.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🏞️",
+      "tagline": "Island Overlook Crew",
+      "flavor": "Island Overlook Crew.",
+      "stats": [
+        {
+          "label": "Photo Ops",
+          "value": 95
+        },
+        {
+          "label": "Dad Influence",
+          "value": 90
+        },
+        {
+          "label": "Island Vibes",
+          "value": 100
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-black-rock-beach",
+      "title": "Black Rock Beach",
+      "owner": "family",
+      "rarity": "bronze",
+      "series": "Maui",
+      "image": "/assets/cards/family-black-rock-beach.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🏝️",
+      "tagline": "Kāʻanapali · Maui",
+      "flavor": "Cliffs, clear water, and perfect Kāʻanapali vibes.",
+      "stats": [
+        {
+          "label": "Snorkeling",
+          "value": 78
+        },
+        {
+          "label": "Cliff Jumps",
+          "value": 92
+        },
+        {
+          "label": "Scenic Views",
+          "value": 95
         }
       ],
       "memory": true
