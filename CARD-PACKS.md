@@ -44,9 +44,11 @@ There are 81 finds. Big wildlife is worth the most: monk seal 12, spinner dolphi
 
 ## Trip memory cards (v0.19)
 
-Cards made from real trip photos have `"memory": true` in `card-catalog.json` (17 cards as of Nov 22). Until a traveler owns all of them, every pack has at least one (`memoryPerPack` in packs.js), and they are 3x as likely as other cards everywhere else (`memoryWeight`). A full set still takes the same number of packs; the memory cards just come sooner. In simulation a boy gets about 13 memory cards in his first 10 packs (was about 4) and has them all by about pack 14 (was about 28).
+Cards made from real trip photos have `"memory": true` in `card-catalog.json` (22 cards as of Nov 23). Until a traveler owns all of them, every pack has at least one (`memoryPerPack` in packs.js), and they are 3x as likely as other cards everywhere else (`memoryWeight`). A full set still takes the same number of packs; the memory cards just come sooner. In simulation a boy gets about 13 memory cards in his first 10 packs (was about 4) and has them all by about pack 14 (was about 28).
 
 To make a new card a memory card, add `"memory": true` to its catalog entry.
+
+New cards added after a boy finishes the set go straight into his next pack: the collection roll only draws cards he is missing, so a boy who owned everything gets the new cards first (all four Nov 23 cards land in one pack).
 
 ## Bonus points (v0.19)
 

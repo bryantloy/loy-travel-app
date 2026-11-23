@@ -1,6 +1,6 @@
 {
   "version": "2026-11-23",
-  "card_count": 123,
+  "card_count": 127,
   "cards": [
     {
       "id": "brooks-mr-suave-brooks",
@@ -2252,6 +2252,88 @@
           "value": 97
         }
       ]
+    },
+    {
+      "id": "bennett-condo-kickaround",
+      "title": "Condo Kickaround Bennett",
+      "owner": "bennett",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/bennett-condo-kickaround.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "⚽",
+      "tagline": "No off-season in Maui.",
+      "flavor": "Bicycle kick in the living room. Dad was not consulted.",
+      "stats": [
+        {
+          "label": "Dad's Frustration",
+          "value": 97
+        },
+        {
+          "label": "Game Planning",
+          "value": 28
+        },
+        {
+          "label": "Situational Awareness",
+          "value": 34
+        },
+        {
+          "label": "Skill",
+          "value": 92
+        },
+        {
+          "label": "Entertainment Value",
+          "value": 100
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "brooks-liverpool-win-celebration",
+      "title": "Brooks' Liverpool Win Celebration",
+      "owner": "brooks",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/brooks-liverpool-win-celebration.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🔴",
+      "tagline": "LIV 3, MU 0",
+      "flavor": "Full-time whistle, full-on dance party.",
+      "memory": true
+    },
+    {
+      "id": "family-banana-bread-pitstop",
+      "title": "Banana Bread Pitstop",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-banana-bread-pitstop.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🍌",
+      "tagline": "Leoda's Kitchen fuel stop",
+      "flavor": "Pie, banana bread and Hawaiian Sun all around.",
+      "memory": true
+    },
+    {
+      "id": "family-condo-couch-rot",
+      "title": "Condo Couch Rot",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/family-condo-couch-rot.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🛋️",
+      "tagline": "Recharging between adventures",
+      "flavor": "Three brothers, one couch, zero plans to move.",
+      "memory": true
     }
   ],
   "removed_duplicates": [
