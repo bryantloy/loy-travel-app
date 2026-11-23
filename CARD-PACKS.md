@@ -17,6 +17,7 @@ Everyone starts with one **Starter Pack** of 4 cards. Then each traveler can ear
 | 🌺 Aloha Arrival | Arrival day, Thu 11/19 |
 | 🌋 Haleakalā | Sunrise day, Sat 11/21 |
 | 🐢 Ocean | Pride of Maui day, Mon 11/23 |
+| 🤿 Snorkel | Molokini snorkel day, Mon 11/23. Gives all 5 Snorkel cards (Molokini Reef Rush, Honu Guardian, Pride of Maui Adventure, Spinner Dolphin Flyby, Octo Hideaway), outside the normal pull rules |
 | 🚙 Explorer | Road to Hāna day, Tue 11/24 |
 | 🔎 Quest | Find 5 Maui Quest targets (silly finds don't count) |
 | 🏆 Quest II | Find 10 Maui Quest targets (silly finds don't count) |

@@ -28,6 +28,8 @@
     {key:"arrival",name:"Aloha Arrival Pack",icon:"🌺",how:"Unlocks on arrival day, Thu 11/19",date:"2026-11-19"},
     {key:"haleakala",name:"Haleakalā Pack",icon:"🌋",how:"Unlocks on sunrise day, Sat 11/21",date:"2026-11-21"},
     {key:"ocean",name:"Ocean Pack",icon:"🐢",how:"Unlocks on Pride of Maui day, Mon 11/23",date:"2026-11-23"},
+    {key:"snorkel",name:"Snorkel Pack",icon:"🤿",how:"Unlocks on Molokini snorkel day, Mon 11/23 · all 5 Snorkel cards",date:"2026-11-23",
+      cards:["destination-molokini-reef-rush","destination-honu-guardian","family-pride-of-maui-adventure","destination-spinner-dolphin-flyby","destination-octo-hideaway"]},
     {key:"explorer",name:"Explorer Pack",icon:"🚙",how:"Unlocks on Road to Hāna day, Tue 11/24",date:"2026-11-24"},
     {key:"quest-5",name:"Quest Pack",icon:"🔎",how:"Find 5 Maui Quest targets (silly ones don't count)",quest:5},
     {key:"quest-10",name:"Quest Pack II",icon:"🏆",how:"Find 10 Maui Quest targets (silly ones don't count)",quest:10},
@@ -236,7 +238,8 @@
       if(!pack)return null;
       const byId=Object.fromEntries(cards.map(c=>[c.id,c]));
       const before=collection(person,extraIds);
-      const ids=rollPack(poolFor(person,cards),openedPacks(person),byId,Math.random,before);
+      // A pack with a fixed card list (Snorkel Pack) gives exactly those cards, outside the normal pull rules.
+      const ids=pack.cards?pack.cards.filter(id=>byId[id]).sort((a,b)=>rank(byId[a].rarity)-rank(byId[b].rarity)):rollPack(poolFor(person,cards),openedPacks(person),byId,Math.random,before);
       if(pack.row)await markOpened(pack.row,ids);
       else await insertRow({traveler_name:person,pack_key:pack.key,pack_name:pack.name,card_ids:ids,earned_at:nowIso(),opened_at:nowIso()});
       const seen={...before};
