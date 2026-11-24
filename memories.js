@@ -3,6 +3,7 @@ const MauiPhotos = (() => {
   const BUCKET = 'maui-family-private', MAX_BATCH = 20, PEOPLE = ['Bryant','Bryson','Bennett','Brooks'];
   let client, tripId, repaint = () => {}, viewer, rows = [], notice = '', busy = false;
   let person = '', day = '', limit = 60, more = false, epoch = 0, loading = false;
+  let mine = [], mineFor = ''; // this person's own uploads (day + time only), for the photo bonus
   let ready = null; // photos fetched and waiting for a tap on the share sheet: {chunks, next, total}
   const SHARE_IOS = 20, SHARE_ANDROID = 10, SHARE_BYTES = 45*1024*1024, MAX_SAVE = 200; // Chrome on Android shares at most 10 files / 50 MB at once
   const ANDROID = /Android/i.test(globalThis.navigator?.userAgent||'');
@@ -11,6 +12,22 @@ const MauiPhotos = (() => {
   const canDelete = () => viewer === 'Bryant';
   const canRead = () => canUpload() || viewer === 'Guest';
   const days = () => Array.from({length:9},(_,i)=>`2026-11-${19+i}`);
+  const hawaiiDay = t => new Date(t-10*3600e3).toISOString().slice(0,10);
+  async function loadMine() {
+    if(!client||!canUpload())return;
+    const me=viewer,run=epoch;
+    try {
+      const r=await client.from('maui_link_photos').select('trip_day,created_at').eq('trip_id',tripId).eq('person',me).limit(1000);
+      if(r.error)throw r.error;
+      if(run!==epoch||viewer!==me)return;
+      mine=r.data||[];mineFor=me;repaint();
+    } catch(e) {console.warn('My photos:',e.message);}
+  }
+  // Photos this person uploaded for a trip day: tagged with that day, or untagged and uploaded that Hawaii day.
+  function dayCount(day) {
+    if(mineFor!==viewer)return 0;
+    return mine.filter(r=>r.trip_day===day||(!r.trip_day&&hawaiiDay(Date.parse(r.created_at))===day)).length;
+  }
   async function init(config,id,paint) {
     tripId=id; repaint=paint;
     client=supabase.createClient(config.url,config.key,{auth:{storageKey:'loy-link-photos',persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
@@ -18,12 +35,13 @@ const MauiPhotos = (() => {
   }
   function setViewer(next) {
     if(viewer===next)return;
-    viewer=next;epoch++;rows=[];more=false;notice='';loading=false;ready=null;selecting=false;picked=new Set();requests=[];reqPhotos=[];
+    viewer=next;epoch++;rows=[];mine=[];mineFor='';more=false;notice='';loading=false;ready=null;selecting=false;picked=new Set();requests=[];reqPhotos=[];
     if(client&&canRead())void load();
   }
   async function load() {
     if(!client||!canRead())return;
     const run=++epoch;loading=true;notice='';repaint();
+    void loadMine();
     try {
       let query=client.from('maui_link_photos').select('id,person,trip_day,activity,caption,storage_path,created_at').eq('trip_id',tripId).order('created_at',{ascending:false}).order('id').limit(limit+1);
       if(person)query=query.eq('person',person);
@@ -45,7 +63,7 @@ const MauiPhotos = (() => {
     if(!canRead())return '<section class="card"><h2>Trip photos</h2><p>Pick your name to open the trip gallery.</p></section>';
     if(!client)return '<section class="card"><h2>Trip photos</h2><p>Waiting for the trip connection. Check your connection and reload the app.</p></section>';
     return `<section class="card memories"><h2>Trip photos</h2><p>Capture the trip, one memory at a time.</p><p role="status" aria-live="polite">${esc(notice)}</p>
-    ${canUpload()?`<p>Uploading as <b>${esc(viewer)}</b>. Change your profile at the top to switch names.</p><form id="photo-upload"><fieldset ${busy?'disabled':''}><label>Take a photo<input name="camera" type="file" accept="image/*" capture="environment"></label><label>Or choose photos<input name="library" type="file" accept="image/*" multiple></label><p class="sub">Pick up to ${MAX_BATCH} photos at once, each up to 40 MB. The caption, day and activity go on every photo in the batch. Keep the app open until it finishes. Shared copies are resized; keep originals on your phone. If HEIC cannot open, choose a JPEG copy.</p><label>Caption (optional)<input name="caption" maxlength="500"></label><label>Trip day (optional)<select name="trip_day"><option value="">No day</option>${days().map(d=>`<option>${d}</option>`).join('')}</select></label><label>Activity (optional)<input name="activity" maxlength="100" placeholder="Beach, surf, Hāna…"></label><button>${busy?'Uploading…':'Upload photos'}</button></fieldset></form>`:'<p class="guest-readonly">Guest view · browse photos without changing anything.</p>'}</section>
+    ${canUpload()?`<p>Uploading as <b>${esc(viewer)}</b>. Change your profile at the top to switch names.</p><form id="photo-upload"><fieldset ${busy?'disabled':''}><label>Take a photo<input name="camera" type="file" accept="image/*" capture="environment"></label><label>Or choose photos<input name="library" type="file" accept="image/*" multiple></label><p class="sub">Pick up to ${MAX_BATCH} photos at once, each up to 40 MB. The caption, day and activity go on every photo in the batch. Keep the app open until it finishes. Shared copies are resized; keep originals on your phone. If HEIC cannot open, choose a JPEG copy.</p><label>Caption (optional)<input name="caption" maxlength="500"></label><label>Trip day (optional)<select name="trip_day"><option value="">No day</option>${days().map(d=>`<option ${d===hawaiiDay(Date.now())?'selected':''}>${d}</option>`).join('')}</select></label><label>Activity (optional)<input name="activity" maxlength="100" placeholder="Beach, surf, Hāna…"></label><button>${busy?'Uploading…':'Upload photos'}</button></fieldset></form>`:'<p class="guest-readonly">Guest view · browse photos without changing anything.</p>'}</section>
     ${requestsPanel()}<section class="card memories"><h3>Trip gallery</h3><div class="photo-filters"><label>Person<select id="photo-person"><option value="">Everyone</option>${PEOPLE.map(p=>`<option ${person===p?'selected':''}>${p}</option>`).join('')}</select></label><label>Day<select id="photo-day"><option value="">All days</option>${days().map(d=>`<option ${day===d?'selected':''}>${d}</option>`).join('')}</select></label><button id="photo-refresh" ${busy?'disabled':''}>Refresh</button>${rows.length?`<button id="photo-save-all" ${busy?'disabled':''}>⬇ Save these photos</button>`:''}</div>${rows.length?`<p class="sub">Save these photos gets every photo that matches the Person and Day picks. On iPhone, pick Save Images for Photos or Drive for Google Drive. On Android, download them to the phone or share them to Drive.</p>`:''}${notice&&!ready?`<p class="photo-note">${esc(notice)}</p>`:''}${readyPanel()}${requestBar()}<p class="sub">Photo links refresh for five minutes. Tap Refresh if an image expires.</p>${loading?'<p role="status">Loading photos…</p>':''}<div class="memory-grid">${rows.map(r=>`<figure>${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(r.url)}" alt="${esc(r.caption||r.activity||'Trip photo')}" loading="lazy" referrerpolicy="no-referrer"></a>`:'<p>Photo unavailable</p>'}<figcaption><b>${esc(r.person)}</b>${r.trip_day?` · ${esc(r.trip_day)}`:''}<p>${esc(r.activity)}</p><p>${esc(r.caption)}</p>${r.url?`<button type="button" class="photo-save" data-photo-save="${esc(r.id)}" ${busy?'disabled':''}>⬇ Save photo</button>`:''}${photoExtras(r)}${canDelete()&&!selecting?`<button type="button" data-photo-delete="${esc(r.id)}" ${busy?'disabled':''}>Delete photo</button>`:''}</figcaption></figure>`).join('')}</div>${!rows.length&&!loading?'<p>No photos to show yet. Upload one or try another filter.</p>':''}${more?'<button id="photo-more">Show more</button>':''}</section>`;
   }
   async function normalize(file) {
@@ -371,5 +389,5 @@ const MauiPhotos = (() => {
     bindRequests();
   }
   function showDay(next){day=next||'';person='';limit=60;ready=null;if(client&&canRead())void load();}
-  return {init,setViewer,view,bind,showDay};
+  return {init,setViewer,view,bind,showDay,dayCount};
 })();
