@@ -1,6 +1,6 @@
 {
   "version": "2026-11-23",
-  "card_count": 147,
+  "card_count": 153,
   "cards": [
     {
       "id": "brooks-mr-suave-brooks",
@@ -2917,6 +2917,180 @@
         {
           "label": "Scenic Views",
           "value": 95
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-reef-ready-duo",
+      "title": "Reef Ready Duo",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/family-reef-ready-duo.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🤿",
+      "tagline": "Pride of Maui",
+      "flavor": "Locked in and ready for Molokini.",
+      "stats": [
+        {
+          "label": "Suit Up",
+          "value": 94
+        },
+        {
+          "label": "Reef Focus",
+          "value": 91
+        },
+        {
+          "label": "Dive Readiness",
+          "value": 96
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-whale-watch-wonder",
+      "title": "Whale Watch Wonder",
+      "owner": "family",
+      "rarity": "legendary",
+      "series": "Maui",
+      "image": "/assets/cards/family-whale-watch-wonder.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🐋",
+      "tagline": "Pride of Maui",
+      "flavor": "The dream sighting off Maui.",
+      "stats": [
+        {
+          "label": "Breach Power",
+          "value": 99
+        },
+        {
+          "label": "Splash Radius",
+          "value": 98
+        },
+        {
+          "label": "Sighting Luck",
+          "value": 97
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-three-bros-at-sea",
+      "title": "Three Bros at Sea",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/family-three-bros-at-sea.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌊",
+      "tagline": "Pride of Maui",
+      "flavor": "Brothers lined up for the next big splash.",
+      "stats": [
+        {
+          "label": "Sibling Chemistry",
+          "value": 93
+        },
+        {
+          "label": "Snorkel Hype",
+          "value": 90
+        },
+        {
+          "label": "Deck Energy",
+          "value": 87
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-shave-ice-squad",
+      "title": "Shave Ice Squad",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/family-shave-ice-squad.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🍧",
+      "tagline": "Shave ice run",
+      "flavor": "Cooling down after a big Maui day.",
+      "stats": [
+        {
+          "label": "Flavor Power",
+          "value": 90
+        },
+        {
+          "label": "Brain Freeze Resistance",
+          "value": 67
+        },
+        {
+          "label": "Treat Drafting",
+          "value": 88
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-pride-of-maui-ohana",
+      "title": "Pride of Maui Ohana",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-pride-of-maui-ohana.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🚢",
+      "tagline": "Pride of Maui",
+      "flavor": "Deck-side smiles before the snorkel splash.",
+      "stats": [
+        {
+          "label": "Ocean Vibes",
+          "value": 95
+        },
+        {
+          "label": "Family Sync",
+          "value": 91
+        },
+        {
+          "label": "Adventure Meter",
+          "value": 94
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-captains-rail-crew",
+      "title": "Captain's Rail Crew",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-captains-rail-crew.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "⚓",
+      "tagline": "Pride of Maui",
+      "flavor": "Sun, salt, and a perfect Maui backdrop.",
+      "stats": [
+        {
+          "label": "Deck Balance",
+          "value": 86
+        },
+        {
+          "label": "Photo Op",
+          "value": 92
+        },
+        {
+          "label": "Wave Readiness",
+          "value": 89
         }
       ],
       "memory": true
