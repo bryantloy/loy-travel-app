@@ -345,3 +345,35 @@
 .hana-check{text-align:left;border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 10px;font-weight:700;color:var(--ink)}
 .hana-check.on{background:#e9f7ef;border-color:#24785c}
 .hana-pack .eyebrow{margin-top:10px}
+.quest-switch.three button{padding:10px 4px;font-size:.84rem}
+.wd-hero h3{margin:2px 0 4px}
+.wd-stats{display:flex;gap:14px;margin-top:8px}
+.wd-stats div{display:flex;flex-direction:column}
+.wd-stats b{font-size:1.2rem;color:#25749a}
+.wd-stats span{font-size:.7rem;color:var(--muted)}
+.wd-note{background:#fff6e0;border-radius:10px;padding:8px 10px;font-size:.78rem;margin:8px 0 0}
+.wd-q.done{opacity:.92}
+.wd-head{display:flex;gap:10px;align-items:flex-start}
+.wd-head>div{flex:1;min-width:0}
+.wd-head small{display:block;color:var(--muted);font-size:.76rem;margin-top:2px}
+.wd-ico{font-size:1.4rem;line-height:1}
+.wd-pill{flex:none;font-size:.7rem;font-weight:800;border-radius:999px;padding:3px 8px;background:#eef6fa;color:#25749a;white-space:nowrap}
+.wd-pill.ok{background:#e4f5ec;color:#24785c}
+.wd-pill.wait{background:#fff3d6;color:#8a5a00}
+.wd-pill.no{background:#fde8e6;color:#a23b2c}
+.wd-field{display:block;margin:10px 0 0}
+.wd-field>span{display:block;font-size:.76rem;font-weight:700;margin-bottom:4px}
+.wd-field input,.wd-field textarea{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:16px;background:#fff}
+.wd-chips{display:flex;flex-wrap:wrap;gap:6px}
+.wd-chips .filter{margin:0}
+.wd-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.wd-actions .buttonlink{margin:0}
+.wd-a{margin:8px 0 0;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.wd-a small{display:block;color:var(--muted);font-size:.7rem}
+.wd-row{border-top:1px solid var(--line);padding:10px 0}
+.wd-queue .eyebrow+.wd-row{border-top:0}
+.wd-boy summary{cursor:pointer;font-size:.92rem}
+.wd-shout{border-top:1px solid var(--line);padding:8px 0}
+.wd-forme .eyebrow+.wd-shout{border-top:0}
+.wd-shout p{margin:4px 0 0;font-size:.88rem}
+.wd-shout small{display:block;color:var(--muted);font-size:.7rem}
