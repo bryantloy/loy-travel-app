@@ -1,6 +1,6 @@
 {
-  "version": "2026-11-23",
-  "card_count": 153,
+  "version": "2026-11-25",
+  "card_count": 175,
   "cards": [
     {
       "id": "brooks-mr-suave-brooks",
@@ -3091,6 +3091,644 @@
         {
           "label": "Wave Readiness",
           "value": 89
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-coastal-coconut-crew",
+      "title": "Coastal Coconut Crew",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/family-coastal-coconut-crew.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🥥",
+      "tagline": "Red Rock Beach Snack Break",
+      "flavor": "Nothing says island day like beach views and coconut in hand.",
+      "stats": [
+        {
+          "label": "Beach Day",
+          "value": 95
+        },
+        {
+          "label": "Snack Hunt",
+          "value": 90
+        },
+        {
+          "label": "Brother Bond",
+          "value": 97
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-banyan-base-bros",
+      "title": "Banyan Base Bros",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/family-banyan-base-bros.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌳",
+      "tagline": "Rooted in Adventure",
+      "flavor": "When the forest gives you a legendary backdrop, you take the picture.",
+      "stats": [
+        {
+          "label": "Explorer Spirit",
+          "value": 91
+        },
+        {
+          "label": "Crew Chemistry",
+          "value": 94
+        },
+        {
+          "label": "Nature Quest",
+          "value": 90
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-jungle-falls-brothers",
+      "title": "Jungle Falls Brothers",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-jungle-falls-brothers.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌿",
+      "tagline": "Jungle falls stop",
+      "flavor": "Deep shade, cool water, and brother energy.",
+      "stats": [
+        {
+          "label": "Explorer Mode",
+          "value": 92
+        },
+        {
+          "label": "Jungle Balance",
+          "value": 89
+        },
+        {
+          "label": "Brotherhood",
+          "value": 96
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bennett-coastal-view-duo",
+      "title": "Coastal View Duo",
+      "owner": "bennett",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/bennett-coastal-view-duo.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🏞️",
+      "tagline": "Dad + Bennett Overlook",
+      "flavor": "Best views are even better shared.",
+      "stats": [
+        {
+          "label": "Dad Bond",
+          "value": 95
+        },
+        {
+          "label": "Scenic Score",
+          "value": 97
+        },
+        {
+          "label": "Trail Grit",
+          "value": 86
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-twin-falls-trio",
+      "title": "Twin Falls Trio",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-twin-falls-trio.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "💦",
+      "tagline": "Twin Falls",
+      "flavor": "Three brothers, one unforgettable waterfall stop.",
+      "stats": [
+        {
+          "label": "Brotherhood",
+          "value": 96
+        },
+        {
+          "label": "Swim Energy",
+          "value": 88
+        },
+        {
+          "label": "Jungle Vibes",
+          "value": 93
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bennett-haaland-mode-bennett",
+      "title": "Haaland Mode Bennett",
+      "owner": "bennett",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/bennett-haaland-mode-bennett.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "⚽",
+      "tagline": "Goal celebration",
+      "flavor": "When Bennett hits Haaland Mode, everybody hears it.",
+      "stats": [
+        {
+          "label": "Goal Hunger",
+          "value": 99
+        },
+        {
+          "label": "Volume",
+          "value": 98
+        },
+        {
+          "label": "Finishing",
+          "value": 95
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "brooks-fallside-brooks",
+      "title": "Fallside Brooks",
+      "owner": "brooks",
+      "rarity": "uncommon",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/brooks-fallside-brooks.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "💧",
+      "tagline": "Twin Falls",
+      "flavor": "Small explorer, big waterfall energy.",
+      "stats": [
+        {
+          "label": "Splash Courage",
+          "value": 86
+        },
+        {
+          "label": "Adventure Meter",
+          "value": 90
+        },
+        {
+          "label": "Photo Ready",
+          "value": 94
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-maui-brothers",
+      "title": "Maui Brothers",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/family-maui-brothers.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌋",
+      "tagline": "Lava Rock Explorers",
+      "flavor": "Brothers, lava rocks, and Maui adventure.",
+      "stats": [
+        {
+          "label": "Exploration",
+          "value": 96
+        },
+        {
+          "label": "Brotherhood",
+          "value": 99
+        },
+        {
+          "label": "Island Vibes",
+          "value": 95
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "brooks-acai-power-brooks",
+      "title": "Açaí Power Brooks",
+      "owner": "brooks",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/brooks-acai-power-brooks.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🍓",
+      "tagline": "Maui Fruit Stop",
+      "flavor": "Fueling up before the next adventure.",
+      "stats": [
+        {
+          "label": "Snack Power",
+          "value": 92
+        },
+        {
+          "label": "Energy Boost",
+          "value": 88
+        },
+        {
+          "label": "Island Vibes",
+          "value": 95
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "brooks-rope-rider-dad",
+      "title": "Rope Rider Dad",
+      "owner": "brooks",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/brooks-rope-rider-dad.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🪢",
+      "tagline": "Brooks Approved",
+      "flavor": "A beach challenge is never complete without a witness.",
+      "stats": [
+        {
+          "label": "Dad Daring",
+          "value": 95
+        },
+        {
+          "label": "Balance Control",
+          "value": 92
+        },
+        {
+          "label": "Brooks Approval",
+          "value": 96
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bryson-dad-falls-duo",
+      "title": "Bryson & Dad Falls Duo",
+      "owner": "bryson",
+      "rarity": "rare",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/bryson-dad-falls-duo.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🏞️",
+      "tagline": "Waterfall plunge",
+      "flavor": "A father-son moment after the waterfall plunge.",
+      "stats": [
+        {
+          "label": "Trail Bond",
+          "value": 95
+        },
+        {
+          "label": "Adventure Heart",
+          "value": 90
+        },
+        {
+          "label": "Cool Factor",
+          "value": 91
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-maui-snorkel-adventure",
+      "title": "Maui Snorkel Adventure",
+      "owner": "family",
+      "rarity": "legendary",
+      "series": "Maui",
+      "image": "/assets/cards/family-maui-snorkel-adventure.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🐢",
+      "tagline": "Sea Turtles at Sail Maui",
+      "flavor": "Honu in the Wild!",
+      "stats": [
+        {
+          "label": "Turtle Sightings",
+          "value": 2
+        },
+        {
+          "label": "Snorkel Crew",
+          "value": 4
+        },
+        {
+          "label": "Ocean Vibes",
+          "value": 100
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bennett-swing-king-bennett",
+      "title": "Swing King Bennett",
+      "owner": "bennett",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/bennett-swing-king-bennett.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🪢",
+      "tagline": "Rocky Shore Rope Ride",
+      "flavor": "Some rides need tickets. This one just needs courage.",
+      "stats": [
+        {
+          "label": "Fearless Fun",
+          "value": 93
+        },
+        {
+          "label": "Balance",
+          "value": 91
+        },
+        {
+          "label": "Island Swing",
+          "value": 96
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-maui-beach-boys",
+      "title": "Maui Beach Boys",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Maui",
+      "image": "/assets/cards/family-maui-beach-boys.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌊",
+      "tagline": "Lava Rocks & Ocean Views",
+      "flavor": "Rugged coastlines, crashing waves, and the best crew in Maui.",
+      "stats": [
+        {
+          "label": "Exploration",
+          "value": 96
+        },
+        {
+          "label": "Family Bond",
+          "value": 98
+        },
+        {
+          "label": "Maui Vibes",
+          "value": 95
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-maui-whale-watch",
+      "title": "Maui Whale Watch",
+      "owner": "family",
+      "rarity": "legendary",
+      "series": "Maui",
+      "image": "/assets/cards/family-maui-whale-watch.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🐋",
+      "tagline": "Humpback Encounter",
+      "flavor": "Humpbacks in Maui, a once-in-a-lifetime show!",
+      "stats": [
+        {
+          "label": "Whale Sighting",
+          "value": 100
+        },
+        {
+          "label": "Island Crew",
+          "value": 98
+        },
+        {
+          "label": "Ocean Vibes",
+          "value": 97
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bryson-coastline-explorer",
+      "title": "Coastline Explorer",
+      "owner": "bryson",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/bryson-coastline-explorer.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌋",
+      "tagline": "Maui's Rugged Beauty",
+      "flavor": "Lava rocks, ocean breezes, and unforgettable Maui views.",
+      "stats": [
+        {
+          "label": "Exploration",
+          "value": 93
+        },
+        {
+          "label": "Island Views",
+          "value": 96
+        },
+        {
+          "label": "Nature Love",
+          "value": 94
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bennett-twin-falls-bennett",
+      "title": "Twin Falls Bennett",
+      "owner": "bennett",
+      "rarity": "uncommon",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/bennett-twin-falls-bennett.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "💦",
+      "tagline": "Twin Falls",
+      "flavor": "Ready for the next jump, splash, or photo stop.",
+      "stats": [
+        {
+          "label": "Smile Power",
+          "value": 93
+        },
+        {
+          "label": "Trail Energy",
+          "value": 87
+        },
+        {
+          "label": "Waterfall Wonder",
+          "value": 91
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-rock-hop-brothers",
+      "title": "Rock Hop Brothers",
+      "owner": "family",
+      "rarity": "rare",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-rock-hop-brothers.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🪨",
+      "tagline": "Road to Hāna stop",
+      "flavor": "Three brothers, one wild stop on the Road to Hāna.",
+      "stats": [
+        {
+          "label": "Rock Balance",
+          "value": 89
+        },
+        {
+          "label": "Explorer Energy",
+          "value": 91
+        },
+        {
+          "label": "Team Spirit",
+          "value": 95
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-island-outlook-crew",
+      "title": "Island Outlook Crew",
+      "owner": "family",
+      "rarity": "uncommon",
+      "series": "Maui",
+      "image": "/assets/cards/family-island-outlook-crew.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌄",
+      "tagline": "Brothers on the Horizon Trail",
+      "flavor": "Three brothers, one lookout, and a full island ahead.",
+      "stats": [
+        {
+          "label": "Brother Bond",
+          "value": 96
+        },
+        {
+          "label": "View Score",
+          "value": 95
+        },
+        {
+          "label": "Trail Energy",
+          "value": 88
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "family-shaka-splash-crew",
+      "title": "Shaka Splash Crew",
+      "owner": "family",
+      "rarity": "epic",
+      "series": "Road to Hāna",
+      "image": "/assets/cards/family-shaka-splash-crew.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🤙",
+      "tagline": "Waterfall shakas",
+      "flavor": "Cold water, good laughs, legendary Maui memories.",
+      "stats": [
+        {
+          "label": "Shaka Style",
+          "value": 97
+        },
+        {
+          "label": "Splash Factor",
+          "value": 92
+        },
+        {
+          "label": "Family Fun",
+          "value": 99
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bennett-coconut-cache-bennett",
+      "title": "Coconut Cache Bennett",
+      "owner": "bennett",
+      "rarity": "legendary",
+      "series": "Maui",
+      "image": "/assets/cards/bennett-coconut-cache-bennett.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🥥",
+      "tagline": "Fresh Crack Find",
+      "flavor": "Freshly cracked and instantly legendary.",
+      "stats": [
+        {
+          "label": "Snack Score",
+          "value": 98
+        },
+        {
+          "label": "Coconut Power",
+          "value": 97
+        },
+        {
+          "label": "Island Happiness",
+          "value": 96
+        }
+      ],
+      "memory": true
+    },
+    {
+      "id": "bennett-tree-throne-bennett",
+      "title": "Tree Throne Bennett",
+      "owner": "bennett",
+      "rarity": "rare",
+      "series": "Maui",
+      "image": "/assets/cards/bennett-tree-throne-bennett.webp",
+      "source_position": null,
+      "source_file": null,
+      "status": "active",
+      "emoji": "🌳",
+      "tagline": "Giant Tree Perch",
+      "flavor": "Every adventure is better from the best seat in the forest.",
+      "stats": [
+        {
+          "label": "Climb Skill",
+          "value": 90
+        },
+        {
+          "label": "Balance",
+          "value": 88
+        },
+        {
+          "label": "Jungle Vibes",
+          "value": 94
         }
       ],
       "memory": true
