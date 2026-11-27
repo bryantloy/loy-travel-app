@@ -555,7 +555,7 @@ function packRevealModal(){
   const r=packReveal,x=r.cards[r.index],c=x&&cards.find(k=>k.id===x.id);
   if(!c){packReveal=null;return""}
   const last=r.index>=r.cards.length-1;
-  return `<div class="starter-backdrop"><div class="starter-reveal"><div class="starter-burst">${r.icon} ${r.name.toUpperCase()} · CARD ${r.index+1} OF ${r.cards.length} ${r.icon}</div>${revealArt(c)}<div class="starter-card-meta"><h2>${c.title}</h2><span class="rarity ${c.rarity}">${c.rarity}</span> <span class="pull-tag ${x.isNew?"new":"dupe"}">${x.isNew?"NEW!":`Duplicate · ×${x.count}`}</span></div><button class="buttonlink starter-next" data-reveal-next>${last?"Add to Collection":"Reveal Next Card"}</button></div></div>`;
+  return `<div class="starter-backdrop"><div class="starter-reveal"><div class="starter-burst">${r.icon} ${r.name.toUpperCase()} · CARD ${r.index+1} OF ${r.cards.length} ${r.icon}</div>${revealArt(c)}<div class="starter-card-meta"><h2>${c.title}</h2><span class="rarity ${c.rarity}">${c.rarity}</span> <span class="pull-tag ${x.isNew?"new":"dupe"}">${x.isNew?"NEW!":`Duplicate · ×${x.count}`}</span></div><button class="buttonlink starter-next" data-reveal-next>${last?"Add to Collection":"Reveal Next Card"}</button>${!last&&r.cards.length>8?`<button class="buttonlink secondary starter-next" data-reveal-skip>Skip to the last card</button>`:""}</div></div>`;
 }
 function starterModal(){
   if(packReveal)return packRevealModal();
@@ -660,6 +660,7 @@ document.querySelectorAll("[data-team-n]").forEach(b=>b.onclick=()=>{if(isGuest(
 document.querySelectorAll("[data-memory-vote]").forEach(b=>b.onclick=()=>{if(isGuest())return;let v=myVote();localStorage.setItem(voteKey(),`${b.dataset.memoryVote}|${v?.day||questDay()}`);render()});
 document.querySelectorAll("[data-pack-open]").forEach(b=>b.onclick=()=>{if(!isCollector())return;b.disabled=true;openEarnedPack(b.dataset.packOpen)});
 document.querySelectorAll("[data-reveal-next]").forEach(b=>b.onclick=()=>{if(!packReveal)return;if(packReveal.index<packReveal.cards.length-1)packReveal.index++;else{packReveal=null;cardOwner="self"}render()});
+document.querySelectorAll("[data-reveal-skip]").forEach(b=>b.onclick=()=>{if(!packReveal)return;packReveal.index=packReveal.cards.length-1;render()});
 document.querySelectorAll("[data-award-who]").forEach(b=>b.onclick=()=>{awardWho=b.dataset.awardWho;render()});
 document.querySelectorAll("[data-award-pack]").forEach(b=>b.onclick=()=>{awardPack=b.dataset.awardPack;render()});
 document.querySelectorAll("[data-award-give]").forEach(b=>b.onclick=giveAward);

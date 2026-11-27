@@ -18,6 +18,7 @@ Everyone starts with one **Starter Pack** of 4 cards. Then each traveler can ear
 | 🌋 Haleakalā | Sunrise day, Sat 11/21 |
 | 🐢 Ocean | Pride of Maui day, Mon 11/23 |
 | 🤿 Snorkel | Molokini snorkel day, Mon 11/23. Gives all 5 Snorkel cards (Molokini Reef Rush, Honu Guardian, Pride of Maui Adventure, Spinner Dolphin Flyby, Octo Hideaway), outside the normal pull rules |
+| 🏁 Complete the Set | Last night in Maui, Thu 11/26. Gives every card in the traveler's pool that they don't own yet (boys: all 175; Dad: everything but the boys' cards), best card last. The reveal has a Skip to the last card button for big packs |
 | 🌈 Road to Hāna | Road to Hāna day, Tue 11/24 (HANA_DATE in packs.js; set "2026-11-25" for Wednesday). Gives all 8 Road to Hāna cards (Pāʻia Fuel-Up, Twin Falls Trek, Rainbow Eucalyptus Grove, Waikamoi Ridge Nature Trail, Honomanū Bay Lookout, Keʻanae Crunch, Hāna Food Truck Pod, Waiʻānapanapa), outside the normal pull rules |
 | 🚙 Explorer | Road to Hāna day, Tue 11/24 |
 | 🔎 Quest | Find 5 Maui Quest targets (silly finds don't count) |

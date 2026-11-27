@@ -1,4 +1,4 @@
-// Loy Travel v0.19 — earned card packs: milestones, odds, rare caps, pity and collection storage.
+// Loy Travel v0.20 — earned card packs: milestones, odds, rare caps, pity and collection storage.
 // Rules are written up in CARD-PACKS.md. Shared storage comes from SUPABASE-v016-CARD-PACKS.sql;
 // until that runs, packs are kept on this device (localStorage) and copied up once the table exists.
 (function(global){
@@ -36,6 +36,7 @@
       cards:["destination-molokini-reef-rush","destination-honu-guardian","family-pride-of-maui-adventure","destination-spinner-dolphin-flyby","destination-octo-hideaway"]},
     {key:"road-to-hana",name:"Road to Hāna Pack",icon:"🌈",how:`Unlocks on Road to Hāna day, ${dayLabel(HANA_DATE)} · all 8 Road to Hāna cards`,date:HANA_DATE,
       cards:["family-paia-fuel-up","family-twin-falls-trek","family-rainbow-eucalyptus-grove","family-waikamoi-ridge-trail","family-honomanu-bay-lookout","family-keanae-crunch","family-hana-food-truck-lunch","family-waianapanapa-black-sand-quest"]},
+    {key:"complete-set",name:"Complete the Set Pack",icon:"🏁",how:"Last night in Maui, Thu 11/26 · every card you're still missing",date:"2026-11-26",completeSet:true},
     {key:"explorer",name:"Explorer Pack",icon:"🚙",how:`Unlocks on Road to Hāna day, ${dayLabel(HANA_DATE)}`,date:HANA_DATE},
     {key:"quest-5",name:"Quest Pack",icon:"🔎",how:"Find 5 Maui Quest targets (silly ones don't count)",quest:5},
     {key:"quest-10",name:"Quest Pack II",icon:"🏆",how:"Find 10 Maui Quest targets (silly ones don't count)",quest:10},
@@ -245,7 +246,9 @@
       const byId=Object.fromEntries(cards.map(c=>[c.id,c]));
       const before=collection(person,extraIds);
       // A pack with a fixed card list (Snorkel Pack) gives exactly those cards, outside the normal pull rules.
-      const ids=pack.cards?pack.cards.filter(id=>byId[id]).sort((a,b)=>rank(byId[a].rarity)-rank(byId[b].rarity)):rollPack(poolFor(person,cards),openedPacks(person),byId,Math.random,before);
+      // The Complete the Set Pack gives every card in this traveler's pool that they don't own yet (best last).
+      const missingIds=pack.completeSet?poolFor(person,cards).filter(c=>!before[c.id]).sort((a,b)=>rank(a.rarity)-rank(b.rarity)).map(c=>c.id):null;
+      const ids=pack.cards?pack.cards.filter(id=>byId[id]).sort((a,b)=>rank(byId[a].rarity)-rank(byId[b].rarity)):missingIds&&missingIds.length?missingIds:rollPack(poolFor(person,cards),openedPacks(person),byId,Math.random,before);
       if(pack.row)await markOpened(pack.row,ids);
       else await insertRow({traveler_name:person,pack_key:pack.key,pack_name:pack.name,card_ids:ids,earned_at:nowIso(),opened_at:nowIso()});
       const seen={...before};
